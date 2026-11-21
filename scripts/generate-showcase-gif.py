@@ -5,13 +5,14 @@ Programmatically generates the animated VS Code / Positron IDE showcase GIF
 theme JSON files (`themes/*.json`), source palettes (`palettes/*.js`), and
 metadata (`theme-metadata.json`).
 
-Showcases 12 themes (6 iconic Light <-> Dark pairs across all 6 hardware eras):
-  1. SNES (Dark -> Light)                [1990 · 16-bit]
-  2. PlayStation (Light -> Dark)         [1994 · 32-bit]
-  3. Game Boy (Dark -> Light)            [1989 · 8-bit DMG-01 LCD]
-  4. Sega Dreamcast (Light -> Dark)      [1998 · 128-bit]
-  5. Xbox (Dark -> Light)       [2001 · 128-bit]
-  6. Nintendo Switch (Light -> Dark)     [2017 · Modern Hybrid]
+Showcases 14 themes (7 iconic Light <-> Dark pairs spanning 1977–2025):
+  1. Atari 2600 (Dark -> Light)          [1977 · 8-bit Pioneers]
+  2. Game Boy (Dark -> Light)            [1989 · 8-bit DMG-01 LCD]
+  3. SNES (Dark -> Light)                [1990 · 16-bit Golden Age]
+  4. PlayStation (Light -> Dark)         [1994 · 32/64-bit Polygon Era]
+  5. Sega Dreamcast (Light -> Dark)      [1998 · 128-bit & Millennial]
+  6. Xbox (Dark -> Light)                [2001 · 128-bit & Millennial]
+  7. Nintendo Switch 2 (Dark -> Light)   [2025 · Next-Gen & Spatial]
 
 Run with: python3 scripts/generate-showcase-gif.py
 """
@@ -36,27 +37,30 @@ FONT_MONO = "'DejaVu Sans Mono', 'Liberation Mono', monospace"
 W, H = 960, 588
 
 SHOWCASE = [
-    ("snes-dark",       0, True),
-    ("snes-light",      0, False),
-    ("ps1-light",       1, True),
-    ("ps1-dark",        1, False),
-    ("gameboy-dark",    2, True),
-    ("gameboy-light",   2, False),
-    ("dreamcast-light", 3, True),
-    ("dreamcast-dark",  3, False),
-    ("xbox-dark",       4, True),
-    ("xbox-light",      4, False),
-    ("switch-light",    5, True),
-    ("switch-dark",     5, False),
+    ("atari2600-dark",  0, True),
+    ("atari2600-light", 0, False),
+    ("gameboy-dark",    1, True),
+    ("gameboy-light",   1, False),
+    ("snes-dark",       2, True),
+    ("snes-light",      2, False),
+    ("ps1-light",       3, True),
+    ("ps1-dark",        3, False),
+    ("dreamcast-light", 4, True),
+    ("dreamcast-dark",  4, False),
+    ("xbox-dark",       5, True),
+    ("xbox-light",      5, False),
+    ("switch2-dark",    6, True),
+    ("switch2-light",   6, False),
 ]
 
 TITLE_WIDTHS = {
+    "Atari 2600": 84.0,
+    "Game Boy": 84.0,
     "SNES": 48.0,
     "PlayStation": 92.0,
-    "Game Boy": 84.0,
     "Sega Dreamcast": 128.0,
     "Xbox": 46.0,
-    "Nintendo Switch": 130.0,
+    "Nintendo Switch 2": 146.0,
 }
 
 
@@ -208,10 +212,10 @@ def build_frame_svg(bundle: dict, idx: int, total: int, toggle_target: str = "")
     pill_x = 18.0 + title_w + 12.0
 
     dots = []
-    dx = 758.0
+    dx = 720.0
     for i in range(total):
         if i > 0 and i % 2 == 0:
-            dx += 7.0
+            dx += 6.0
         active = (i == idx)
         r = 4.2 if active else 2.8
         fill = cursor_c if active else blend_hex(title_fg, title_bg, 0.30)
@@ -312,8 +316,8 @@ def build_frame_svg(bundle: dict, idx: int, total: int, toggle_target: str = "")
             )
 
     vars_rows = [
-        ("themes",    "int[60]",       num),
-        ("wcag_aa",   "1200 / 1200",   a_green),
+        ("themes",    "int[78]",       num),
+        ("wcag_aa",   "1560 / 1560",   a_green),
         ("editor_cr", f"{r_fg:.2f}:1", a_cyan),
         ("cvd_hits",  "0",             a_green),
         ("cursor",    cursor_c,        cursor_c),
@@ -329,10 +333,10 @@ def build_frame_svg(bundle: dict, idx: int, total: int, toggle_target: str = "")
     console_lines = [
         [("$ ", a_cyan, "bold"), ("node scripts/validate.js", ed_fg, "")],
         [],
-        [("✓ ", a_green, "bold"), ("60 themes ", ed_fg, "bold"), ("(30 consoles)", sec, "")],
-        [("✓ ", a_green, "bold"), ("WCAG AA   ", a_cyan, "bold"), ("1,200 / 1,200", ed_fg, "")],
-        [("✓ ", a_green, "bold"), ("ANSI      ", a_blue, "bold"), ("960 / 960 pass", ed_fg, "")],
-        [("✓ ", a_green, "bold"), ("Positron  ", a_magenta, "bold"), ("9,120 keys OK", ed_fg, "")],
+        [("✓ ", a_green, "bold"), ("78 themes ", ed_fg, "bold"), ("(39 consoles)", sec, "")],
+        [("✓ ", a_green, "bold"), ("WCAG AA   ", a_cyan, "bold"), ("1,560 / 1,560", ed_fg, "")],
+        [("✓ ", a_green, "bold"), ("ANSI      ", a_blue, "bold"), ("1,248 / 1,248", ed_fg, "")],
+        [("✓ ", a_green, "bold"), ("Positron  ", a_magenta, "bold"), ("11,856 keys OK", ed_fg, "")],
         [("✓ ", a_green, "bold"), ("CVD safe  ", a_yellow, "bold"), ("0 collisions", ed_fg, "")],
         [],
         [("● ", cursor_c, "bold"), ("Identity: ", sec, ""), (cursor_c, cursor_c, "bold")],
@@ -387,7 +391,7 @@ def build_frame_svg(bundle: dict, idx: int, total: int, toggle_target: str = "")
   <circle cx="38" cy="19" r="5.5" fill="#FFBD2E"/>
   <circle cx="56" cy="19" r="5.5" fill="#27C93F"/>
   <text x="82" y="23" font-family="{FONT_SANS}" font-size="12.5" font-weight="700" fill="{title_fg}">Console Palette</text>
-  <text x="184" y="23" font-family="{FONT_MONO}" font-size="11" fill="{sec}">—  VS Code / Positron  ·  60 OKLCH Themes</text>
+  <text x="184" y="23" font-family="{FONT_MONO}" font-size="11" fill="{sec}">—  VS Code / Positron  ·  78 OKLCH Themes</text>
 {chr(10).join(dots)}
 
   <rect x="0" y="38" width="{W}" height="48" fill="{sb_bg}"/>

@@ -1,0 +1,79 @@
+theme_slug,console,maker,era,mode,mds1,mds2,nearest_slug,nearest_de00,farthest_poly_slug,farthest_poly_de00,is_outlier
+atari2600-light,Atari 2600,Atari,8-bit Pioneers,light,-1.6132,2.3247,dreamcast-light,4.682,psvita-light,19.923,false
+nes-light,NES,Nintendo,8-bit Pioneers,light,-3.0032,11.5467,gameboy-light,7.483,psvita-light,24.920,false
+mastersystem-light,Sega Master System,Sega,8-bit Pioneers,light,-5.5961,-6.8914,genesis-light,0.968,xbox360-light,24.401,false
+turbografx16-light,TurboGrafx-16,NEC / Hudson,16-bit Golden Age,light,-2.4198,6.0541,neogeo-light,10.455,steamframe-light,22.842,false
+genesis-light,Sega Genesis,Sega,16-bit Golden Age,light,-5.8067,-6.8840,mastersystem-light,0.968,xbox360-light,24.647,false
+gameboy-light,Game Boy,Nintendo,8-bit Pioneers,light,-4.9346,10.7819,nes-light,7.483,psvita-light,25.313,false
+atarilynx-light,Atari Lynx,Atari,8-bit Pioneers,light,-1.7174,0.9620,steammachine-light,4.609,ps1-light,21.498,false
+snes-light,SNES,Nintendo,16-bit Golden Age,light,-5.5384,0.1527,ps2-light,5.312,psvita-light,22.210,false
+neogeo-light,Neo Geo AES,SNK,16-bit Golden Age,light,1.1206,7.2766,turbografx16-light,10.455,psvita-light,21.924,false
+atarijaguar-light,Atari Jaguar,Atari,32/64-bit Polygon Era,light,-6.8539,-3.1142,psportal-light,4.407,ps1-light,23.738,false
+saturn-light,Sega Saturn,Sega,32/64-bit Polygon Era,light,-2.7214,0.6853,steammachine-light,5.763,psvita-light,22.016,false
+ps1-light,PlayStation,Sony,32/64-bit Polygon Era,light,13.8120,4.0820,n64-light,5.033,atarijaguar-light,23.738,false
+virtualboy-light,Virtual Boy,Nintendo,32/64-bit Polygon Era,light,-2.9221,5.4623,playdate-light,6.640,ps1-light,23.696,false
+n64-light,Nintendo 64,Nintendo,32/64-bit Polygon Era,light,12.9051,4.1702,ps1-light,5.033,genesis-light,22.975,false
+gbc-light,Game Boy Color,Nintendo,32/64-bit Polygon Era,light,-1.9391,5.4166,gamecube-light,12.853,n3ds-light,23.168,false
+dreamcast-light,Sega Dreamcast,Sega,128-bit & Millennial Classics,light,-1.5727,3.5354,atari2600-light,4.682,ps1-light,19.741,false
+ps2-light,PlayStation 2,Sony,128-bit & Millennial Classics,light,-5.2031,-2.7961,psportal-light,2.178,xbox360-light,21.797,false
+gba-light,Game Boy Advance,Nintendo,128-bit & Millennial Classics,light,-5.4770,-3.7737,ps4-light,2.923,xbox360-light,22.359,false
+gamecube-light,Nintendo GameCube,Nintendo,128-bit & Millennial Classics,light,-4.2721,2.6982,snes-light,6.473,xbox360-light,21.441,false
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,light,5.5055,0.7484,xboxseries-light,9.863,steamframe-light,19.477,false
+ds-light,Nintendo DS,Nintendo,"HD, Motion & Portable Era",light,-4.8578,-4.3000,psportal-light,3.857,xbox360-light,21.727,false
+psp-light,PlayStation Portable,Sony,"HD, Motion & Portable Era",light,-5.7445,-1.7585,psportal-light,8.521,ps1-light,23.231,false
+xbox360-light,Xbox 360,Microsoft,"HD, Motion & Portable Era",light,15.2062,1.6041,n3ds-light,7.083,genesis-light,24.647,false
+wii-light,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",light,-1.9648,-0.0442,steammachine-light,4.463,xbox360-light,18.596,false
+ps3-light,PlayStation 3,Sony,"HD, Motion & Portable Era",light,-3.9146,-2.0091,ps5-light,1.597,xbox360-light,20.423,false
+n3ds-light,Nintendo 3DS,Nintendo,"HD, Motion & Portable Era",light,11.5708,-3.7250,xbox360-light,7.083,nes-light,23.751,false
+psvita-light,PlayStation Vita,Sony,"HD, Motion & Portable Era",light,7.3862,-10.3470,xboxone-light,10.182,gameboy-light,25.313,false
+ps4-light,PlayStation 4,Sony,"Modern, Hybrid & Portable PC",light,-4.9708,-5.0971,gba-light,2.923,ps1-light,22.300,false
+xboxone-light,Xbox One,Microsoft,"Modern, Hybrid & Portable PC",light,12.1300,-3.3819,rogxboxally-light,4.572,gameboy-light,24.482,false
+switch-light,Nintendo Switch,Nintendo,"Modern, Hybrid & Portable PC",light,-2.9476,-1.2046,switch2-light,1.917,ps1-light,19.635,false
+ps5-light,PlayStation 5,Sony,"Modern, Hybrid & Portable PC",light,-4.2656,-2.2129,ps3-light,1.597,xbox360-light,20.774,false
+xboxseries-light,Xbox Series X|S,Microsoft,"Modern, Hybrid & Portable PC",light,9.9382,-5.2407,rogxboxally-light,5.078,gameboy-light,23.656,false
+steamdeck-light,Steam Deck,Valve,"Modern, Hybrid & Portable PC",light,-2.9927,-2.8173,ps4-light,6.640,ps1-light,23.726,false
+playdate-light,Playdate,Panic,"Modern, Hybrid & Portable PC",light,-2.8106,3.2463,dreamcast-light,5.962,psvita-light,23.019,false
+psportal-light,PlayStation Portal,Sony,Next-Gen & Spatial Era,light,-5.2679,-3.8799,ps2-light,2.178,ps1-light,21.935,false
+switch2-light,Nintendo Switch 2,Nintendo,Next-Gen & Spatial Era,light,-3.0288,-0.7359,switch-light,1.917,psvita-light,20.488,false
+rogxboxally-light,ROG Xbox Ally,Microsoft / ASUS,Next-Gen & Spatial Era,light,10.6041,-4.2321,xboxone-light,4.572,gameboy-light,24.241,false
+steammachine-light,Steam Machine,Valve,Next-Gen & Spatial Era,light,-2.3537,-0.7141,switch2-light,3.167,ps1-light,19.440,false
+steamframe-light,Steam Frame,Valve,Next-Gen & Spatial Era,light,6.5312,4.4120,atarilynx-light,11.492,turbografx16-light,22.842,false
+atari2600-dark,Atari 2600,Atari,8-bit Pioneers,dark,-1.1950,6.8273,dreamcast-dark,3.945,psvita-dark,23.568,false
+nes-dark,NES,Nintendo,8-bit Pioneers,dark,-3.9206,13.0835,dreamcast-dark,11.340,psvita-dark,30.077,false
+mastersystem-dark,Sega Master System,Sega,8-bit Pioneers,dark,-5.8873,-7.0323,genesis-dark,1.765,xbox360-dark,25.723,false
+turbografx16-dark,TurboGrafx-16,NEC / Hudson,16-bit Golden Age,dark,-2.0519,7.2545,dreamcast-dark,7.209,psvita-dark,24.421,false
+genesis-dark,Sega Genesis,Sega,16-bit Golden Age,dark,-6.5712,-6.6709,mastersystem-dark,1.765,xbox360-dark,26.108,false
+gameboy-dark,Game Boy,Nintendo,8-bit Pioneers,dark,,,xbox-dark,36.754,snes-dark,45.526,true
+atarilynx-dark,Atari Lynx,Atari,8-bit Pioneers,dark,-2.2944,0.1086,saturn-dark,5.627,psvita-dark,22.849,false
+snes-dark,SNES,Nintendo,16-bit Golden Age,dark,-6.0513,1.1254,atarijaguar-dark,6.131,ps1-dark,23.782,false
+neogeo-dark,Neo Geo AES,SNK,16-bit Golden Age,dark,0.9417,9.2395,atari2600-dark,8.189,psvita-dark,26.507,false
+atarijaguar-dark,Atari Jaguar,Atari,32/64-bit Polygon Era,dark,-6.9774,-1.1647,ps2-dark,4.942,xbox360-dark,24.336,false
+saturn-dark,Sega Saturn,Sega,32/64-bit Polygon Era,dark,-2.7224,0.5767,atarilynx-dark,5.627,psvita-dark,23.815,false
+ps1-dark,PlayStation,Sony,32/64-bit Polygon Era,dark,15.7231,3.6305,n64-dark,4.951,genesis-dark,25.827,false
+virtualboy-dark,Virtual Boy,Nintendo,32/64-bit Polygon Era,dark,-3.8390,6.7960,atarilynx-dark,11.681,psvita-dark,26.092,false
+n64-dark,Nintendo 64,Nintendo,32/64-bit Polygon Era,dark,13.8184,4.0598,ps1-dark,4.951,genesis-dark,24.396,false
+gbc-dark,Game Boy Color,Nintendo,32/64-bit Polygon Era,dark,-2.5049,7.1582,gamecube-dark,9.967,psvita-dark,25.032,false
+dreamcast-dark,Sega Dreamcast,Sega,128-bit & Millennial Classics,dark,-0.2228,7.8345,atari2600-dark,3.945,psvita-dark,23.035,false
+ps2-dark,PlayStation 2,Sony,128-bit & Millennial Classics,dark,-5.8713,-3.5173,psportal-dark,1.640,ps1-dark,23.833,false
+gba-dark,Game Boy Advance,Nintendo,128-bit & Millennial Classics,dark,-6.1318,-2.6875,atarijaguar-dark,6.025,ps1-dark,24.739,false
+gamecube-dark,Nintendo GameCube,Nintendo,128-bit & Millennial Classics,dark,-4.6314,4.4034,snes-dark,6.406,psvita-dark,23.262,false
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,dark,6.2469,2.5799,xboxseries-dark,10.461,psvita-dark,22.932,false
+ds-dark,Nintendo DS,Nintendo,"HD, Motion & Portable Era",dark,-5.4764,-4.7592,psportal-dark,3.583,ps1-dark,24.608,false
+psp-dark,PlayStation Portable,Sony,"HD, Motion & Portable Era",dark,-5.2637,-1.3047,gba-dark,9.936,ps1-dark,24.756,false
+xbox360-dark,Xbox 360,Microsoft,"HD, Motion & Portable Era",dark,16.1729,1.5696,n64-dark,7.610,genesis-dark,26.108,false
+wii-dark,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",dark,-2.1678,-1.3772,switch2-dark,3.895,ps1-dark,20.642,false
+ps3-dark,PlayStation 3,Sony,"HD, Motion & Portable Era",dark,-4.2238,-1.6307,ps5-dark,2.629,xbox360-dark,21.869,false
+n3ds-dark,Nintendo 3DS,Nintendo,"HD, Motion & Portable Era",dark,10.9609,-3.6565,xboxseries-dark,7.434,nes-dark,25.013,false
+psvita-dark,PlayStation Vita,Sony,"HD, Motion & Portable Era",dark,7.6754,-13.7178,xboxone-dark,12.174,nes-dark,30.077,false
+ps4-dark,PlayStation 4,Sony,"Modern, Hybrid & Portable PC",dark,-4.7721,-5.3168,psportal-dark,5.032,ps1-dark,25.269,false
+xboxone-dark,Xbox One,Microsoft,"Modern, Hybrid & Portable PC",dark,12.5210,-4.0760,xboxseries-dark,5.982,nes-dark,25.644,false
+switch-dark,Nintendo Switch,Nintendo,"Modern, Hybrid & Portable PC",dark,-4.1894,-2.0880,steammachine-dark,1.821,ps1-dark,22.156,false
+ps5-dark,PlayStation 5,Sony,"Modern, Hybrid & Portable PC",dark,-4.9317,-1.9883,ps3-dark,2.629,xbox360-dark,22.180,false
+xboxseries-dark,Xbox Series X|S,Microsoft,"Modern, Hybrid & Portable PC",dark,10.8254,-3.7043,rogxboxally-dark,5.591,nes-dark,25.315,false
+steamdeck-dark,Steam Deck,Valve,"Modern, Hybrid & Portable PC",dark,-3.4027,-3.5216,ps4-dark,7.019,ps1-dark,24.770,false
+playdate-dark,Playdate,Panic,"Modern, Hybrid & Portable PC",dark,-1.9913,2.5889,steammachine-dark,10.220,psvita-dark,23.841,false
+psportal-dark,PlayStation Portal,Sony,Next-Gen & Spatial Era,dark,-5.9581,-4.0363,ps2-dark,1.640,ps1-dark,24.423,false
+switch2-dark,Nintendo Switch 2,Nintendo,Next-Gen & Spatial Era,dark,-3.6787,-1.2725,switch-dark,2.587,ps1-dark,20.929,false
+rogxboxally-dark,ROG Xbox Ally,Microsoft / ASUS,Next-Gen & Spatial Era,dark,9.8081,-4.2343,xboxseries-dark,5.591,nes-dark,24.401,false
+steammachine-dark,Steam Machine,Valve,Next-Gen & Spatial Era,dark,-4.0352,-1.7238,switch-dark,1.821,ps1-dark,21.910,false
+steamframe-dark,Steam Frame,Valve,Next-Gen & Spatial Era,dark,6.2699,0.6444,atarilynx-dark,11.894,nes-dark,23.622,false

@@ -12,6 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { hexToLab, ciede2000 } = require('./color-science');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const PALETTES_DIR = path.join(ROOT_DIR, 'palettes');
@@ -183,7 +184,184 @@ function loadThemeDataset() {
   });
 }
 
-function buildHtml({ dataset, target }) {
+const SIMILARITY_KEYS = ['kw', 'stor', 'str', 'rx', 'fn', 'fnDim', 'type', 'iface', 'num', 'dec', 'ns', 'err', 'warn'];
+
+function jacobiEigenSymmetric(A) {
+  const n = A.length;
+  const M = A.map((row) => row.slice());
+  const V = Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? 1 : 0)));
+  const maxIter = Math.max(80, n * n * 6);
+  for (let iter = 0; iter < maxIter; iter++) {
+    let p = 0;
+    let q = 1;
+    let maxVal = 0;
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        const av = Math.abs(M[i][j]);
+        if (av > maxVal) {
+          maxVal = av;
+          p = i;
+          q = j;
+        }
+      }
+    }
+    if (maxVal < 1e-10) break;
+    const diff = M[q][q] - M[p][p];
+    const t = Math.abs(M[p][q]) < 1e-18 * Math.abs(diff)
+      ? M[p][q] / diff
+      : (() => {
+          const phi = diff / (2 * M[p][q]);
+          return (phi >= 0 ? 1 : -1) / (Math.abs(phi) + Math.sqrt(phi * phi + 1));
+        })();
+    const c = 1 / Math.sqrt(1 + t * t);
+    const s = t * c;
+    const tau = s / (1 + c);
+    const h = t * M[p][q];
+    M[p][p] -= h;
+    M[q][q] += h;
+    M[p][q] = 0;
+    M[q][p] = 0;
+    for (let k = 0; k < n; k++) {
+      if (k !== p && k !== q) {
+        const mkp = M[k][p];
+        const mkq = M[k][q];
+        M[k][p] = M[p][k] = mkp - s * (mkq + tau * mkp);
+        M[k][q] = M[q][k] = mkq + s * (mkp - tau * mkq);
+      }
+      const vkp = V[k][p];
+      const vkq = V[k][q];
+      V[k][p] = vkp - s * (vkq + tau * vkp);
+      V[k][q] = vkq + s * (vkp - tau * vkq);
+    }
+  }
+  const pairs = Array.from({ length: n }, (_, i) => ({
+    val: M[i][i],
+    vec: V.map((row) => row[i]),
+  }));
+  pairs.sort((a, b) => b.val - a.val);
+  return pairs;
+}
+
+function computeClassicalMds2d(D) {
+  const n = D.length;
+  const D2 = D.map((row) => row.map((v) => v * v));
+  const rowMean = D2.map((row) => row.reduce((a, b) => a + b, 0) / n);
+  const grandMean = rowMean.reduce((a, b) => a + b, 0) / n;
+  const B = Array.from({ length: n }, (_, i) =>
+    Array.from({ length: n }, (_, j) => -0.5 * (D2[i][j] - rowMean[i] - rowMean[j] + grandMean))
+  );
+  const eigs = jacobiEigenSymmetric(B);
+  const posSum = eigs.reduce((acc, e) => acc + Math.max(0, e.val), 0) || 1;
+  const l0 = Math.max(0, eigs[0].val);
+  const l1 = Math.max(0, eigs[1].val);
+  const s0 = Math.sqrt(l0);
+  const s1 = Math.sqrt(l1);
+  const coords = Array.from({ length: n }, (_, i) => [eigs[0].vec[i] * s0, eigs[1].vec[i] * s1]);
+  return {
+    coords,
+    v1: Math.round((l0 / posSum) * 1000) / 10,
+    v2: Math.round((l1 / posSum) * 1000) / 10,
+  };
+}
+
+function enrichDatasetWithSimilarity(dataset) {
+  const labBySlug = new Map();
+  for (const th of dataset) {
+    labBySlug.set(
+      th.slug,
+      SIMILARITY_KEYS.map((k) => hexToLab(th.t[k]))
+    );
+  }
+  const pairDe = (slugA, slugB) => {
+    const la = labBySlug.get(slugA);
+    const lb = labBySlug.get(slugB);
+    let sum = 0;
+    for (let i = 0; i < la.length; i++) sum += ciede2000(la[i], lb[i]);
+    return sum / la.length;
+  };
+
+  const mdsMeta = {};
+  for (const mode of ['light', 'dark']) {
+    const allMode = dataset.filter((th) => th.mode === mode);
+    const polyMode = allMode.filter((th) => th.slug !== 'gameboy-dark');
+    const nAll = allMode.length;
+    const DAll = Array.from({ length: nAll }, () => Array(nAll).fill(0));
+    for (let i = 0; i < nAll; i++) {
+      for (let j = i + 1; j < nAll; j++) {
+        const d = pairDe(allMode[i].slug, allMode[j].slug);
+        DAll[i][j] = DAll[j][i] = d;
+      }
+    }
+
+    const nPoly = polyMode.length;
+    const DPoly = Array.from({ length: nPoly }, () => Array(nPoly).fill(0));
+    for (let i = 0; i < nPoly; i++) {
+      for (let j = i + 1; j < nPoly; j++) {
+        const d = pairDe(polyMode[i].slug, polyMode[j].slug);
+        DPoly[i][j] = DPoly[j][i] = d;
+      }
+    }
+
+    const { coords, v1, v2 } = computeClassicalMds2d(DPoly);
+    // Consistent orientation across Light and Dark: Xbox on +x, NES on +y
+    const xboxIdx = polyMode.findIndex((th) => th.slug === `xbox-${mode}`);
+    const nesIdx = polyMode.findIndex((th) => th.slug === `nes-${mode}`);
+    if (xboxIdx >= 0 && coords[xboxIdx][0] < 0) coords.forEach((p) => { p[0] = -p[0]; });
+    if (nesIdx >= 0 && coords[nesIdx][1] < 0) coords.forEach((p) => { p[1] = -p[1]; });
+
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (const [x, y] of coords) {
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+    }
+    const spanX = maxX - minX || 1;
+    const spanY = maxY - minY || 1;
+
+    polyMode.forEach((th, idx) => {
+      const [x, y] = coords[idx];
+      th.mds = {
+        x: Math.round(x * 100) / 100,
+        y: Math.round(y * 100) / 100,
+        nx: Math.round(((x - minX) / spanX) * 10000) / 10000,
+        ny: Math.round(((y - minY) / spanY) * 10000) / 10000,
+      };
+    });
+
+    const modeMeta = { v1, v2, minX: Math.round(minX * 10) / 10, maxX: Math.round(maxX * 10) / 10, minY: Math.round(minY * 10) / 10, maxY: Math.round(maxY * 10) / 10 };
+
+    allMode.forEach((th, i) => {
+      const dists = [];
+      for (let j = 0; j < nAll; j++) {
+        if (i === j) continue;
+        dists.push({ slug: allMode[j].slug, de: Math.round(DAll[i][j] * 10) / 10 });
+      }
+      dists.sort((a, b) => a.de - b.de);
+      th.neighbors = dists.slice(0, 4);
+      const farPool = dists.filter((d) => d.slug !== 'gameboy-dark');
+      th.farthest = farPool[farPool.length - 1] || dists[dists.length - 1];
+      if (th.slug === 'gameboy-dark') {
+        const meanDe = dists.reduce((s, d) => s + d.de, 0) / dists.length;
+        th.mds = {
+          outlier: true,
+          meanDe: Math.round(meanDe * 10) / 10,
+          minDe: dists[0].de,
+          maxDe: dists[dists.length - 1].de,
+        };
+        modeMeta.gbMeanDe = th.mds.meanDe;
+        modeMeta.gbMinDe = th.mds.minDe;
+        modeMeta.gbMaxDe = th.mds.maxDe;
+      }
+    });
+
+    mdsMeta[mode] = modeMeta;
+  }
+
+  return mdsMeta;
+}
+
+function buildHtml({ dataset, mdsMeta, target }) {
   const isWeb = target === 'web';
   const totalConsoles = ERA_GROUPS.reduce((acc, g) => acc + g.consoles.length, 0);
   const cspTag = isWeb
@@ -194,7 +372,7 @@ function buildHtml({ dataset, target }) {
     ? `
   <meta name="description" content="Interactive workbench preview and perceptual colorimetry explorer for Console Palette — featuring 78 scientifically tuned Light and Dark VS Code & Positron themes across 39 iconic gaming consoles (1977–2026)." />
   <meta property="og:title" content="Console Palette — Interactive Workbench & Colorimetry Explorer" />
-  <meta property="og:description" content="Explore all 78 OKLCH-calibrated Light and Dark themes for VS Code & Positron across 39 iconic consoles with live R/Python/TypeScript syntax previews, WCAG 2.1 + APCA contrast readouts, and real-time dichromacy simulation." />
+  <meta property="og:description" content="Explore all 78 OKLCH-calibrated Light and Dark themes for VS Code & Positron across 39 iconic consoles with live R/Python/TypeScript syntax previews, interactive CIEDE2000 similarity map, WCAG 2.1 + APCA contrast readouts, and real-time dichromacy simulation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://idesofmerge.github.io/console-palette/" />
   <meta property="og:image" content="https://idesofmerge.github.io/console-palette/og-preview.png" />
@@ -206,6 +384,7 @@ function buildHtml({ dataset, target }) {
 
   const serializedData = JSON.stringify(dataset);
   const serializedEras = JSON.stringify(ERA_GROUPS);
+  const serializedMdsMeta = JSON.stringify(mdsMeta);
 
   return `<!DOCTYPE html>
 <html lang="en" data-shell-mode="dark">
@@ -535,7 +714,8 @@ function buildHtml({ dataset, target }) {
       color: var(--shell-text);
     }
 
-    .seg-btn[aria-selected="true"] {
+    .seg-btn[aria-selected="true"],
+    .seg-btn[aria-pressed="true"] {
       background: var(--shell-surface);
       color: var(--shell-text);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
@@ -916,7 +1096,8 @@ function buildHtml({ dataset, target }) {
       max-width: 100%;
     }
 
-    #btn-compare-toggle[aria-pressed="true"] {
+    #btn-compare-toggle[aria-pressed="true"],
+    #btn-map-toggle[aria-pressed="true"] {
       background: var(--shell-accent);
       color: var(--shell-accent-fg);
       border-color: var(--shell-accent);
@@ -1005,8 +1186,253 @@ function buildHtml({ dataset, target }) {
 
     .era-empty[hidden],
     .era-groups[hidden],
-    .compare-strip[hidden] {
+    .compare-strip[hidden],
+    .map-strip[hidden] {
       display: none;
+    }
+
+    /* Nearest Chromatic Neighbors Strip inside Story Bar */
+    .neighbor-bar {
+      margin-top: 9px;
+      padding-top: 9px;
+      border-top: 1px dashed var(--shell-border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+    }
+
+    .neighbor-lbl {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--shell-muted);
+      margin-right: 2px;
+    }
+
+    .neighbor-chip-wrap {
+      display: inline-flex;
+      align-items: stretch;
+      border-radius: 6px;
+      border: 1px solid var(--shell-border);
+      background: var(--shell-bg);
+      overflow: hidden;
+      transition: border-color 120ms ease;
+    }
+
+    .neighbor-chip-wrap:hover {
+      border-color: var(--shell-border-strong);
+    }
+
+    .neighbor-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3.5px 8px;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: var(--shell-text);
+      font-size: 11.5px;
+      font-weight: 550;
+      cursor: pointer;
+    }
+
+    .neighbor-chip:hover {
+      background: var(--shell-elevated);
+    }
+
+    .neighbor-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2.5px solid currentColor;
+      box-sizing: border-box;
+    }
+
+    .neighbor-de {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--shell-muted);
+    }
+
+    .neighbor-cmp-btn {
+      padding: 3px 6px;
+      border: none;
+      border-left: 1px solid var(--shell-border);
+      border-radius: 0;
+      background: transparent;
+      color: var(--shell-muted);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .neighbor-cmp-btn:hover {
+      background: var(--shell-elevated);
+      color: var(--shell-text);
+    }
+
+    .neighbor-sep {
+      color: var(--shell-border-strong);
+      margin: 0 2px;
+      user-select: none;
+    }
+
+    /* Interactive Perceptual Similarity Map Strip */
+    .map-strip {
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      border-radius: var(--shell-radius);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .map-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 268px;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .mds-svg-wrap {
+      background: var(--shell-bg);
+      border: 1px solid var(--shell-border);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      min-width: 0;
+    }
+
+    #mds-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+    }
+
+    .mds-node {
+      cursor: pointer;
+      transition: opacity 140ms ease;
+    }
+
+    .mds-node:hover .mds-label-bg,
+    .mds-node.is-active .mds-label-bg {
+      stroke-width: 1.5;
+    }
+
+    .mds-node.is-dimmed {
+      opacity: 0.24;
+    }
+
+    .mds-inspector {
+      background: var(--shell-bg);
+      border: 1px solid var(--shell-border);
+      border-radius: 8px;
+      padding: 12px 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .mds-insp-head {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .mds-insp-kicker {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--shell-muted);
+    }
+
+    .mds-insp-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--shell-text);
+    }
+
+    .mds-insp-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--shell-muted);
+    }
+
+    .mds-insp-sub {
+      font-size: 11.5px;
+      color: var(--shell-muted);
+      line-height: 1.4;
+      margin: 2px 0 0;
+    }
+
+    .mds-insp-swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .mds-insp-sw {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--shell-muted);
+    }
+
+    .mds-insp-sw span {
+      width: 100%;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--shell-border-strong);
+    }
+
+    .mds-insp-dist {
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .mds-insp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mds-insp-actions button {
+      flex: 1 1 auto;
+      justify-content: center;
+      font-size: 11.5px;
+      padding: 6px 10px;
+    }
+
+    .mds-legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px 12px;
+      font-size: 11px;
+      color: var(--shell-muted);
     }
 
     .era-reset-btn {
@@ -1259,8 +1685,13 @@ function buildHtml({ dataset, target }) {
         margin-left: 0;
       }
 
-      .compare-strip {
+      .compare-strip,
+      .map-strip {
         padding: 12px;
+      }
+
+      .map-layout {
+        grid-template-columns: 1fr;
       }
 
       .compare-controls {
@@ -1366,6 +1797,9 @@ function buildHtml({ dataset, target }) {
         <button type="button" id="btn-compare-toggle" aria-pressed="false" title="Toggle side-by-side comparison mode (C)">
           Compare <span class="kbd-hint">C</span>
         </button>
+        <button type="button" id="btn-map-toggle" aria-pressed="false" title="Toggle interactive perceptual similarity map (M)">
+          Map <span class="kbd-hint">M</span>
+        </button>
         <span class="export-group">
           <select id="export-format" aria-label="Export palette format" title="Choose palette export format">
             <option value="vscode">VS Code settings.json</option>
@@ -1406,6 +1840,7 @@ function buildHtml({ dataset, target }) {
           <span class="story-sub" id="active-theme-subtitle"></span>
         </div>
         <p class="story-text" id="active-theme-story"></p>
+        <div class="neighbor-bar" id="neighbor-bar" aria-label="Nearest chromatic neighbors by CIEDE2000"></div>
       </div>
 
       <div class="control-clusters">
@@ -1415,6 +1850,37 @@ function buildHtml({ dataset, target }) {
           <button type="button" class="seg-btn cvd-btn" data-cvd="deutan" role="tab" aria-selected="false">Deuteranopia <span class="kbd-hint">3</span></button>
           <button type="button" class="seg-btn cvd-btn" data-cvd="tritan" role="tab" aria-selected="false">Tritanopia <span class="kbd-hint">4</span></button>
         </div>
+      </div>
+    </section>
+
+    <section class="map-strip" id="map-strip" aria-label="Interactive Perceptual Similarity Map" hidden>
+      <div class="compare-head">
+        <div class="compare-title-wrap">
+          <h2>Perceptual Similarity Map (CIEDE2000 MDS)</h2>
+          <span class="panel-meta" id="map-variance-note"></span>
+        </div>
+        <div class="compare-controls">
+          <div class="seg-group" role="group" aria-label="Map polarity">
+            <button type="button" class="seg-btn map-mode-btn" data-map-mode="light" aria-pressed="false">Light (39)</button>
+            <button type="button" class="seg-btn map-mode-btn" data-map-mode="dark" aria-pressed="true">Dark (39)</button>
+          </div>
+          <label class="compare-label" for="map-color-by">Color:</label>
+          <select id="map-color-by" aria-label="Color map nodes by">
+            <option value="swatch">Theme Swatch</option>
+            <option value="era">Hardware Era</option>
+            <option value="maker">Manufacturer</option>
+          </select>
+        </div>
+      </div>
+      <div class="map-layout">
+        <div class="mds-svg-wrap">
+          <svg id="mds-svg" viewBox="0 0 920 470" role="img" aria-label="2D Classical MDS scatter plot of Console Palette themes in CIEDE2000 color space"></svg>
+        </div>
+        <aside class="mds-inspector" id="mds-inspector" aria-live="polite"></aside>
+      </div>
+      <div class="mds-legend-row">
+        <span>Inner dot = editor bg · outer ring = signature keyword accent · dotted links = top-3 nearest siblings to active theme</span>
+        <span>Click node to activate · Shift+Click to compare</span>
       </div>
     </section>
 
@@ -1561,6 +2027,7 @@ function buildHtml({ dataset, target }) {
 
       const THEMES = ${serializedData};
       const ERAS = ${serializedEras};
+      const MDS_META = ${serializedMdsMeta};
       const IS_WEB = document.body.dataset.target === 'web';
       const vscodeApi = (!IS_WEB && typeof acquireVsCodeApi === 'function') ? acquireVsCodeApi() : null;
 
@@ -1654,16 +2121,92 @@ function buildHtml({ dataset, target }) {
       let compareEnabled = false;
       let compareSlug = null;
       let compareUserPinned = false;
+      let mapEnabled = false;
+      let mapMode = 'dark';
+      let mapModePinned = false;
+      let mapColorBy = 'swatch';
+      let mapHoverSlug = null;
 
       const TOTAL_CONSOLES = ERAS.reduce((acc, g) => acc + g.consoles.length, 0);
 
-      // Initialize starting theme from VS Code active theme or URL hash
+      function parseUrlHash(rawHash) {
+        const cleaned = String(rawHash || '').replace(/^#/, '').trim();
+        if (!cleaned) return {};
+        const parts = cleaned.split('&');
+        const out = {};
+        if (parts[0] && !parts[0].includes('=')) out.slug = decodeURIComponent(parts[0]);
+        for (const p of parts) {
+          const eq = p.indexOf('=');
+          if (eq <= 0) continue;
+          const k = decodeURIComponent(p.slice(0, eq));
+          const v = decodeURIComponent(p.slice(eq + 1));
+          out[k] = v;
+        }
+        return out;
+      }
+
+      function applyHashState(rawHash) {
+        const parsed = parseUrlHash(rawHash);
+        let changed = false;
+        compareEnabled = false;
+        compareSlug = null;
+        compareUserPinned = false;
+        activeCvd = 'normal';
+        mapEnabled = false;
+        mapModePinned = false;
+        if (parsed.slug && THEMES.some((t) => t.slug === parsed.slug)) {
+          activeSlug = parsed.slug;
+          changed = true;
+        }
+        if (parsed.compare && THEMES.some((t) => t.slug === parsed.compare)) {
+          compareEnabled = true;
+          compareSlug = parsed.compare;
+          compareUserPinned = true;
+          changed = true;
+        } else if (parsed.compare === '1') {
+          compareEnabled = true;
+          changed = true;
+        }
+        if (parsed.cvd && ['normal', 'protan', 'deutan', 'tritan'].includes(parsed.cvd)) {
+          activeCvd = parsed.cvd;
+          changed = true;
+        }
+        if (parsed.map === '1' || parsed.map === 'light' || parsed.map === 'dark') {
+          mapEnabled = true;
+          if (parsed.map === 'light' || parsed.map === 'dark') {
+            mapMode = parsed.map;
+            mapModePinned = true;
+          }
+          changed = true;
+        }
+        return changed;
+      }
+
+      function buildShareHash() {
+        const parts = [activeSlug];
+        if (compareEnabled) {
+          const cmp = compareSlug || (findSibling(getActiveTheme()) || {}).slug;
+          if (cmp) parts.push('compare=' + encodeURIComponent(cmp));
+        }
+        if (activeCvd !== 'normal') parts.push('cvd=' + encodeURIComponent(activeCvd));
+        if (mapEnabled) parts.push('map=' + (mapModePinned ? mapMode : '1'));
+        return '#' + parts.join('&');
+      }
+
+      function syncUrlHash() {
+        if (!IS_WEB || !window.history || !window.history.replaceState) return;
+        const nextHash = buildShareHash();
+        if (window.location.hash !== nextHash) {
+          window.history.replaceState(null, '', nextHash);
+        }
+      }
+
+      // Initialize starting theme & view state from VS Code active theme or URL hash
       if (workbenchActiveLabel) {
         const match = THEMES.find((t) => t.label === workbenchActiveLabel);
         if (match) activeSlug = match.slug;
       } else if (IS_WEB && window.location.hash) {
-        const slugHash = window.location.hash.slice(1).trim();
-        if (THEMES.some((t) => t.slug === slugHash)) activeSlug = slugHash;
+        applyHashState(window.location.hash);
       }
 
       function escHtml(str) {
@@ -1961,21 +2504,29 @@ function buildHtml({ dataset, target }) {
           '<a href="https://github.com/idesofmerge/console-palette" target="_blank" rel="noopener">MIT License</a>';
 
         document.getElementById('btn-share-url').addEventListener('click', () => {
-          const url = window.location.origin + window.location.pathname + '#' + activeSlug;
-          copyText(url, 'Copied direct link to ' + activeSlug);
+          const url = window.location.origin + window.location.pathname + buildShareHash();
+          copyText(url, 'Copied direct link (' + buildShareHash() + ')');
         });
       }
 
       function selectSlug(slug, fromUserAction) {
         activeSlug = slug;
         const cur = getActiveTheme();
-        if (IS_WEB && window.history && window.history.replaceState) {
-          window.history.replaceState(null, '', '#' + cur.slug);
-        }
+        if (!mapModePinned) mapMode = cur.mode;
+        syncUrlHash();
         if (fromUserAction && vscodeApi && liveSyncWorkbench) {
           workbenchActiveLabel = cur.label;
           vscodeApi.postMessage({ type: 'applyTheme', label: cur.label });
         }
+        render();
+      }
+
+      function openCompareWith(slug) {
+        if (!THEMES.some((t) => t.slug === slug)) return;
+        compareEnabled = true;
+        compareSlug = slug;
+        compareUserPinned = true;
+        syncUrlHash();
         render();
       }
 
@@ -2439,6 +2990,528 @@ function buildHtml({ dataset, target }) {
         });
       }
 
+      const ERA_COLORS_MAP = {
+        '8-bit Pioneers': '#C47B14',
+        '16-bit Golden Age': '#D43044',
+        '32/64-bit Polygon Era': '#8648DB',
+        '128-bit & Millennial Classics': '#246CE0',
+        'HD, Motion & Portable Era': '#0EA0A6',
+        'Modern, Hybrid & Portable PC': '#1FA458',
+        'Next-Gen & Spatial Era': '#D43E88',
+      };
+      const MAKER_COLORS_MAP = {
+        Atari: '#E04D12',
+        Nintendo: '#E02434',
+        Sony: '#2266EE',
+        Sega: '#1688CC',
+        Microsoft: '#18A034',
+        Valve: '#00A8C6',
+        'Arcade & Indie': '#D49A10',
+      };
+      const SIM_KEYS_CLIENT = ['kw', 'stor', 'str', 'rx', 'fn', 'fnDim', 'type', 'iface', 'num', 'dec', 'ns', 'err', 'warn'];
+
+      function makerBucketOf(maker) {
+        const m = String(maker || '').toLowerCase();
+        if (m.includes('atari')) return 'Atari';
+        if (m.includes('nintendo')) return 'Nintendo';
+        if (m.includes('sony')) return 'Sony';
+        if (m.includes('sega')) return 'Sega';
+        if (m.includes('microsoft') || m.includes('asus')) return 'Microsoft';
+        if (m.includes('valve')) return 'Valve';
+        return 'Arcade & Indie';
+      }
+
+      function ciede2000Client(lab1, lab2) {
+        const [L1, a1, b1] = lab1, [L2, a2, b2] = lab2;
+        const C1 = Math.hypot(a1, b1), C2 = Math.hypot(a2, b2);
+        const Cbar = 0.5 * (C1 + C2);
+        const Cbar7 = Math.pow(Cbar, 7);
+        const G = 0.5 * (1 - Math.sqrt(Cbar7 / (Cbar7 + 6103515625)));
+        const a1p = (1 + G) * a1, a2p = (1 + G) * a2;
+        const C1p = Math.hypot(a1p, b1), C2p = Math.hypot(a2p, b2);
+        const h1p = (a1p || b1) ? ((Math.atan2(b1, a1p) * 180 / Math.PI) + 360) % 360 : 0;
+        const h2p = (a2p || b2) ? ((Math.atan2(b2, a2p) * 180 / Math.PI) + 360) % 360 : 0;
+        const dLp = L2 - L1, dCp = C2p - C1p;
+        let dhp = 0;
+        if (C1p * C2p !== 0) {
+          if (Math.abs(h2p - h1p) <= 180) dhp = h2p - h1p;
+          else dhp = (h2p - h1p > 180) ? (h2p - h1p - 360) : (h2p - h1p + 360);
+        }
+        const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin((dhp / 2) * Math.PI / 180);
+        const Lbp = 0.5 * (L1 + L2), Cbp = 0.5 * (C1p + C2p);
+        let Hbp = h1p + h2p;
+        if (C1p * C2p !== 0) {
+          if (Math.abs(h1p - h2p) <= 180) Hbp = 0.5 * (h1p + h2p);
+          else Hbp = (h1p + h2p < 360) ? 0.5 * (h1p + h2p + 360) : 0.5 * (h1p + h2p - 360);
+        }
+        const rad = Math.PI / 180;
+        const T = 1 - 0.17 * Math.cos((Hbp - 30) * rad) + 0.24 * Math.cos(2 * Hbp * rad) + 0.32 * Math.cos((3 * Hbp + 6) * rad) - 0.20 * Math.cos((4 * Hbp - 63) * rad);
+        const dTheta = 30 * Math.exp(-Math.pow((Hbp - 275) / 25, 2));
+        const Cbp7 = Math.pow(Cbp, 7);
+        const RC = 2 * Math.sqrt(Cbp7 / (Cbp7 + 6103515625));
+        const SL = 1 + (0.015 * Math.pow(Lbp - 50, 2)) / Math.sqrt(20 + Math.pow(Lbp - 50, 2));
+        const SC = 1 + 0.045 * Cbp;
+        const SH = 1 + 0.015 * Cbp * T;
+        const RT = -Math.sin(2 * dTheta * rad) * RC;
+        return Math.sqrt(Math.pow(dLp / SL, 2) + Math.pow(dCp / SC, 2) + Math.pow(dHp / SH, 2) + RT * (dCp / SC) * (dHp / SH));
+      }
+
+      function meanSyntaxDe00(thA, thB) {
+        if (!thA || !thB || thA.slug === thB.slug) return 0;
+        let sum = 0;
+        for (let i = 0; i < SIM_KEYS_CLIENT.length; i++) {
+          const k = SIM_KEYS_CLIENT[i];
+          sum += ciede2000Client(hexToLab(thA.t[k]), hexToLab(thB.t[k]));
+        }
+        return sum / SIM_KEYS_CLIENT.length;
+      }
+
+      function renderNeighborBar(th) {
+        const bar = document.getElementById('neighbor-bar');
+        if (!bar || !th.neighbors) return;
+        bar.innerHTML = '';
+
+        const lbl = document.createElement('span');
+        lbl.className = 'neighbor-lbl';
+        lbl.textContent = 'Nearest (ΔE₀₀):';
+        bar.appendChild(lbl);
+
+        const makeChip = (slug, de, isFar) => {
+          const target = THEMES.find((x) => x.slug === slug);
+          if (!target) return null;
+          const wrap = document.createElement('span');
+          wrap.className = 'neighbor-chip-wrap';
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'neighbor-chip';
+          btn.title = (isFar ? 'Most perceptually distinct ' : 'Chromatic neighbor ') + target.label + ' (mean ΔE₀₀ ' + de.toFixed(1) + ') — click to activate, Shift+Click to compare';
+          const dot = document.createElement('span');
+          dot.className = 'neighbor-dot';
+          dot.style.backgroundColor = simHex(target.t.bg, activeCvd);
+          dot.style.borderColor = simHex(target.t.kw, activeCvd);
+          btn.appendChild(dot);
+          btn.appendChild(document.createTextNode(target.shortConsole + ' '));
+          const deSpan = document.createElement('span');
+          deSpan.className = 'neighbor-de';
+          deSpan.textContent = de.toFixed(1);
+          btn.appendChild(deSpan);
+          btn.addEventListener('click', (e) => {
+            if (e.shiftKey) openCompareWith(target.slug);
+            else selectSlug(target.slug, true);
+          });
+
+          const cmpBtn = document.createElement('button');
+          cmpBtn.type = 'button';
+          cmpBtn.className = 'neighbor-cmp-btn';
+          cmpBtn.textContent = '⇄';
+          cmpBtn.title = 'Compare ' + th.label + ' vs ' + target.label;
+          cmpBtn.setAttribute('aria-label', 'Compare with ' + target.label);
+          cmpBtn.addEventListener('click', () => openCompareWith(target.slug));
+
+          wrap.appendChild(btn);
+          wrap.appendChild(cmpBtn);
+          return wrap;
+        };
+
+        th.neighbors.forEach((n) => {
+          const el = makeChip(n.slug, n.de, false);
+          if (el) bar.appendChild(el);
+        });
+
+        if (th.farthest) {
+          const sep = document.createElement('span');
+          sep.className = 'neighbor-sep';
+          sep.textContent = '·';
+          bar.appendChild(sep);
+
+          const flbl = document.createElement('span');
+          flbl.className = 'neighbor-lbl';
+          flbl.textContent = 'Farthest:';
+          bar.appendChild(flbl);
+
+          const fel = makeChip(th.farthest.slug, th.farthest.de, true);
+          if (fel) bar.appendChild(fel);
+        }
+      }
+
+      function renderMapInspector(inspTheme, activeTheme) {
+        const panel = document.getElementById('mds-inspector');
+        if (!panel || !inspTheme) return;
+        const isSelf = inspTheme.slug === activeTheme.slug;
+        const sw = [
+          ['BG', simHex(inspTheme.t.bg, activeCvd)],
+          ['KW', simHex(inspTheme.t.kw, activeCvd)],
+          ['STR', simHex(inspTheme.t.str, activeCvd)],
+          ['FN', simHex(inspTheme.t.fn, activeCvd)],
+          ['TYPE', simHex(inspTheme.t.type, activeCvd)],
+        ];
+
+        let distHtml = '';
+        if (isSelf) {
+          const n0 = inspTheme.neighbors && inspTheme.neighbors[0];
+          const n0t = n0 ? THEMES.find((x) => x.slug === n0.slug) : null;
+          const ft = inspTheme.farthest ? THEMES.find((x) => x.slug === inspTheme.farthest.slug) : null;
+          distHtml =
+            '<div><strong>Nearest:</strong> ' + escHtml(n0t ? n0t.shortConsole : '—') + (n0 ? ' (' + n0.de.toFixed(1) + ' ΔE₀₀)' : '') + '</div>' +
+            '<div><strong>Farthest:</strong> ' + escHtml(ft ? ft.shortConsole : '—') + (inspTheme.farthest ? ' (' + inspTheme.farthest.de.toFixed(1) + ' ΔE₀₀)' : '') + '</div>';
+          if (inspTheme.mds && inspTheme.mds.outlier) {
+            distHtml += '<div><strong>Outlier:</strong> mean ' + inspTheme.mds.meanDe.toFixed(1) + ' ΔE₀₀ vs 38</div>';
+          }
+        } else {
+          const de = meanSyntaxDe00(activeTheme, inspTheme);
+          distHtml =
+            '<div><strong>vs ' + escHtml(activeTheme.shortConsole) + ':</strong> ' + de.toFixed(1) + ' mean ΔE₀₀</div>' +
+            '<div style="color:var(--shell-muted)">' + (inspTheme.mode === activeTheme.mode ? 'Same polarity (13 syntax roles)' : 'Cross-polarity distance') + '</div>';
+        }
+
+        panel.innerHTML =
+          '<div class="mds-insp-head">' +
+            '<span class="mds-insp-kicker">' + (isSelf ? 'Active Theme' : 'Inspected Console') + '</span>' +
+            '<div class="mds-insp-title">' + escHtml(inspTheme.label) + '</div>' +
+            '<div class="mds-insp-meta">' + inspTheme.year + ' · ' + escHtml(inspTheme.maker) + ' · ' + escHtml(inspTheme.era) + '</div>' +
+            '<p class="mds-insp-sub">' + escHtml(inspTheme.subtitle) + '</p>' +
+          '</div>' +
+          '<div class="mds-insp-swatches">' +
+            sw.map(([lbl, hx]) => '<div class="mds-insp-sw"><span style="background:' + hx + '"></span>' + lbl + '</div>').join('') +
+          '</div>' +
+          '<div class="mds-insp-dist">' + distHtml + '</div>' +
+          '<div class="mds-insp-actions">' +
+            '<button type="button" id="mds-btn-activate" class="btn-primary"' + (isSelf ? ' disabled' : '') + '>' + (isSelf ? '✓ Active' : 'Activate') + '</button>' +
+            '<button type="button" id="mds-btn-compare"' + (isSelf ? ' disabled' : '') + '>Compare vs Active</button>' +
+          '</div>';
+
+        const actBtn = document.getElementById('mds-btn-activate');
+        const cmpBtn = document.getElementById('mds-btn-compare');
+        if (actBtn && !isSelf) actBtn.addEventListener('click', () => selectSlug(inspTheme.slug, true));
+        if (cmpBtn && !isSelf) cmpBtn.addEventListener('click', () => openCompareWith(inspTheme.slug));
+      }
+
+      function renderSimilarityMap(activeTheme, isLightShell) {
+        const strip = document.getElementById('map-strip');
+        const toggleBtn = document.getElementById('btn-map-toggle');
+        toggleBtn.setAttribute('aria-pressed', String(mapEnabled));
+        strip.hidden = !mapEnabled;
+        if (!mapEnabled) return;
+
+        document.querySelectorAll('.map-mode-btn').forEach((b) => {
+          b.setAttribute('aria-pressed', String(b.dataset.mapMode === mapMode));
+        });
+        document.getElementById('map-color-by').value = mapColorBy;
+
+        const metaMode = MDS_META[mapMode];
+        const sumVar = (metaMode.v1 + metaMode.v2).toFixed(1);
+        document.getElementById('map-variance-note').textContent =
+          (mapMode === 'light' ? '39 Light themes' : '38 Polychromatic Dark + 1 DMG-01 outlier') +
+          ' · Dim 1 (' + metaMode.v1.toFixed(1) + '%) + Dim 2 (' + metaMode.v2.toFixed(1) + '%) = ' + sumVar + '% variance';
+
+        const svg = document.getElementById('mds-svg');
+        const NS = 'http://www.w3.org/2000/svg';
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+        const el = (tag, attrs, text) => {
+          const node = document.createElementNS(NS, tag);
+          for (const [k, v] of Object.entries(attrs || {})) node.setAttribute(k, String(v));
+          if (text !== undefined) node.textContent = text;
+          return node;
+        };
+
+        const W = 920, H = 470;
+        const padL = 54, padR = 48, padT = 36, padB = 34;
+        const pw = W - padL - padR, ph = H - padT - padB;
+        const gridStroke = isLightShell ? '#E6E3DA' : '#262B36';
+        const zeroStroke = isLightShell ? '#C8C4B8' : '#3A4254';
+        const poleFill = isLightShell ? '#7A8190' : '#6B7487';
+        const lblBgFill = isLightShell ? 'rgba(255,255,255,0.9)' : 'rgba(18,21,28,0.88)';
+        const lblTextFill = isLightShell ? '#1A1E26' : '#E8ECF4';
+
+        // Zero axes
+        const zx = padL + ((0 - metaMode.minX) / ((metaMode.maxX - metaMode.minX) || 1)) * pw;
+        const zy = padT + ph - ((0 - metaMode.minY) / ((metaMode.maxY - metaMode.minY) || 1)) * ph;
+
+        for (let f = 0.2; f <= 0.81; f += 0.2) {
+          svg.appendChild(el('line', { x1: (padL + f * pw).toFixed(1), y1: padT, x2: (padL + f * pw).toFixed(1), y2: padT + ph, stroke: gridStroke, 'stroke-width': 1 }));
+          svg.appendChild(el('line', { x1: padL, y1: (padT + f * ph).toFixed(1), x2: padL + pw, y2: (padT + f * ph).toFixed(1), stroke: gridStroke, 'stroke-width': 1 }));
+        }
+        if (zx > padL && zx < padL + pw) {
+          svg.appendChild(el('line', { x1: zx.toFixed(1), y1: padT, x2: zx.toFixed(1), y2: padT + ph, stroke: zeroStroke, 'stroke-width': 1.2, 'stroke-dasharray': '4,4' }));
+        }
+        if (zy > padT && zy < padT + ph) {
+          svg.appendChild(el('line', { x1: padL, y1: zy.toFixed(1), x2: padL + pw, y2: zy.toFixed(1), stroke: zeroStroke, 'stroke-width': 1.2, 'stroke-dasharray': '4,4' }));
+        }
+
+        // Compass pole labels
+        const poleAttrs = { fill: poleFill, 'font-family': 'var(--font-mono)', 'font-size': 9.5, 'font-weight': 700, 'letter-spacing': '0.06em' };
+        svg.appendChild(el('text', { ...poleAttrs, x: padL + pw / 2, y: 20, 'text-anchor': 'middle' }, '↑ WARM RED / AMBER'));
+        svg.appendChild(el('text', { ...poleAttrs, x: padL + pw / 2, y: H - 11, 'text-anchor': 'middle' }, '↓ DEEP COBALT / CYAN'));
+        svg.appendChild(el('text', { ...poleAttrs, x: 14, y: padT + ph / 2, 'text-anchor': 'start' }, '← INDIGO / VIOLET'));
+        svg.appendChild(el('text', { ...poleAttrs, x: W - 14, y: padT + ph / 2, 'text-anchor': 'end' }, 'EMERALD / PRIMARY →'));
+
+        const modeThemes = THEMES.filter((t) => t.mode === mapMode);
+        const polyThemes = modeThemes.filter((t) => t.mds && !t.mds.outlier);
+        const posBySlug = new Map();
+        polyThemes.forEach((t) => {
+          const px = padL + 16 + t.mds.nx * (pw - 32);
+          const py = padT + ph - 16 - t.mds.ny * (ph - 32);
+          posBySlug.set(t.slug, [px, py]);
+        });
+
+        // Dotted proximity tethers from active theme to top-3 nearest neighbors (if active is in this map mode)
+        const actPos = posBySlug.get(activeTheme.slug);
+        if (actPos && activeTheme.neighbors) {
+          activeTheme.neighbors.slice(0, 3).forEach((nb, ni) => {
+            const np = posBySlug.get(nb.slug);
+            if (!np) return;
+            svg.appendChild(el('line', {
+              x1: actPos[0].toFixed(1),
+              y1: actPos[1].toFixed(1),
+              x2: np[0].toFixed(1),
+              y2: np[1].toFixed(1),
+              stroke: simHex(activeTheme.t.cur, activeCvd),
+              'stroke-width': ni === 0 ? 1.8 : 1.2,
+              'stroke-opacity': ni === 0 ? 0.85 : 0.45,
+              'stroke-dasharray': '3,3',
+            }));
+          });
+        }
+
+        // Compute collision-free label positions for the interactive SVG
+        const hasOutlierCard = Boolean(modeThemes.find((t) => t.mds && t.mds.outlier));
+        const oxCard = W - 278, oyCard = H - 72, owCard = 264, ohCard = 48;
+        const lblNodes = polyThemes.map((t) => {
+          const [px, py] = posBySlug.get(t.slug);
+          const lblText = t.shortConsole;
+          const approxW = lblText.length * 5.7 + 10;
+          const approxH = 13.5;
+          return {
+            slug: t.slug,
+            ax: px,
+            ay: py,
+            x: px,
+            y: py < padT + 30 ? py + 17 : py - 14,
+            w: approxW,
+            h: approxH,
+          };
+        });
+        for (let iter = 0; iter < 180; iter++) {
+          for (let i = 0; i < lblNodes.length; i++) {
+            const li = lblNodes[i];
+            let fx = 0, fy = 0;
+            const dxA = li.x - li.ax, dyA = li.y - li.ay;
+            const dA = Math.hypot(dxA, dyA) + 1e-4;
+            if (dA > 78) { fx -= (dxA / dA) * (dA - 78) * 0.08; fy -= (dyA / dA) * (dA - 78) * 0.08; }
+            else if (dA < 17) { fx += (dxA / dA) * (17 - dA) * 0.40; fy += (dyA / dA) * (17 - dA) * 0.40; }
+            for (let m = 0; m < lblNodes.length; m++) {
+              const mx = lblNodes[m].ax, my = lblNodes[m].ay;
+              const ox = Math.abs(li.x - mx) - (li.w / 2 + 13);
+              const oy = Math.abs(li.y - my) - (li.h / 2 + 13);
+              if (ox < 0 && oy < 0) {
+                if (Math.abs(ox) < Math.abs(oy)) fx += (li.x >= mx ? 1 : -1) * (-ox) * 0.52;
+                else fy += (li.y >= my ? 1 : -1) * (-oy) * 0.55;
+              }
+            }
+            for (let j = 0; j < lblNodes.length; j++) {
+              if (i === j) continue;
+              const lj = lblNodes[j];
+              const ox = Math.abs(li.x - lj.x) - (li.w + lj.w) / 2 - 4;
+              const oy = Math.abs(li.y - lj.y) - (li.h + lj.h) / 2 - 3;
+              if (ox < 0 && oy < 0) {
+                const sx = (li.x > lj.x || (li.x === lj.x && i > j)) ? 1 : -1;
+                const sy = (li.y > lj.y || (li.y === lj.y && i > j)) ? 1 : -1;
+                if (Math.abs(ox) < Math.abs(oy)) fx += sx * (-ox) * 0.52;
+                else fy += sy * (-oy) * 0.52;
+              }
+            }
+            if (hasOutlierCard) {
+              const ocx = oxCard + owCard / 2, ocy = oyCard + ohCard / 2;
+              const ox = Math.abs(li.x - ocx) - (li.w / 2 + owCard / 2 + 8);
+              const oy = Math.abs(li.y - ocy) - (li.h / 2 + ohCard / 2 + 8);
+              if (ox < 0 && oy < 0) fy -= (-oy) * 0.65;
+            }
+            li.x = Math.min(W - padR - li.w / 2 + 26, Math.max(padL + li.w / 2 - 26, li.x + fx));
+            li.y = Math.min(H - padB - li.h / 2 + 4, Math.max(padT + li.h / 2 - 4, li.y + fy));
+          }
+        }
+        // Final strict AABB pass
+        for (let pass = 0; pass < 40; pass++) {
+          let moved = false;
+          for (let i = 0; i < lblNodes.length; i++) {
+            for (let j = i + 1; j < lblNodes.length; j++) {
+              const li = lblNodes[i], lj = lblNodes[j];
+              const ox = (li.w + lj.w) / 2 + 3 - Math.abs(li.x - lj.x);
+              const oy = (li.h + lj.h) / 2 + 2 - Math.abs(li.y - lj.y);
+              if (ox > 0 && oy > 0) {
+                moved = true;
+                if (ox < oy) {
+                  const s = (ox / 2 + 0.5) * (li.x >= lj.x ? 1 : -1);
+                  li.x += s; lj.x -= s;
+                } else {
+                  const s = (oy / 2 + 0.5) * (li.y >= lj.y ? 1 : -1);
+                  li.y += s; lj.y -= s;
+                }
+              }
+            }
+          }
+          if (!moved) break;
+        }
+        const lblBySlug = new Map(lblNodes.map((ln) => [ln.slug, ln]));
+
+        // Render clickable console nodes (active node last so it always floats on top)
+        const filterActive = Boolean(searchQuery.trim() || activeMaker !== 'All');
+        const orderedPoly = polyThemes.slice().sort((a, b) => (a.slug === activeTheme.slug ? 1 : b.slug === activeTheme.slug ? -1 : 0));
+        orderedPoly.forEach((t) => {
+          const [px, py] = posBySlug.get(t.slug);
+          const ln = lblBySlug.get(t.slug);
+          const isAct = t.slug === activeTheme.slug;
+          const isCmp = compareEnabled && t.slug === compareSlug;
+          const matched = !filterActive || matchesConsoleFilter(t);
+
+          const g = el('g', {
+            class: 'mds-node' + (isAct ? ' is-active' : '') + (!matched ? ' is-dimmed' : ''),
+            tabindex: 0,
+            role: 'button',
+            'aria-label': t.label + ' (' + t.year + ' ' + t.maker + ')',
+          });
+
+          let ringCol = simHex(t.t.kw, activeCvd);
+          let fillCol = simHex(t.t.bg, activeCvd);
+          if (mapColorBy === 'era') {
+            ringCol = ERA_COLORS_MAP[t.era] || ringCol;
+            fillCol = isLightShell ? '#FFFFFF' : '#151820';
+          } else if (mapColorBy === 'maker') {
+            ringCol = MAKER_COLORS_MAP[makerBucketOf(t.maker)] || ringCol;
+            fillCol = isLightShell ? '#FFFFFF' : '#151820';
+          }
+
+          if (Math.hypot(ln.x - px, ln.y - py) > 16) {
+            g.appendChild(el('line', {
+              x1: px.toFixed(1),
+              y1: py.toFixed(1),
+              x2: ln.x.toFixed(1),
+              y2: ln.y.toFixed(1),
+              stroke: zeroStroke,
+              'stroke-width': 0.9,
+            }));
+          }
+
+          if (isAct || isCmp) {
+            g.appendChild(el('circle', {
+              cx: px.toFixed(1),
+              cy: py.toFixed(1),
+              r: isAct ? 14 : 12.5,
+              fill: 'none',
+              stroke: isAct ? simHex(t.t.cur, activeCvd) : 'var(--shell-accent)',
+              'stroke-width': isAct ? 2.2 : 1.6,
+              'stroke-dasharray': isCmp && !isAct ? '3,2' : '',
+            }));
+          }
+
+          g.appendChild(el('circle', {
+            cx: px.toFixed(1),
+            cy: py.toFixed(1),
+            r: isAct ? 8.5 : 7,
+            fill: ringCol,
+            stroke: isLightShell ? '#1E222B' : '#F2F5FA',
+            'stroke-width': isAct ? 1.5 : 0.9,
+          }));
+          g.appendChild(el('circle', {
+            cx: px.toFixed(1),
+            cy: py.toFixed(1),
+            r: isAct ? 4.2 : 3.4,
+            fill: fillCol,
+          }));
+
+          const lblText = t.shortConsole;
+          g.appendChild(el('rect', {
+            class: 'mds-label-bg',
+            x: (ln.x - ln.w / 2).toFixed(1),
+            y: (ln.y - ln.h / 2).toFixed(1),
+            width: ln.w.toFixed(1),
+            height: ln.h.toFixed(1),
+            rx: 3,
+            fill: lblBgFill,
+            stroke: isAct ? ringCol : 'transparent',
+            'stroke-width': isAct ? 1.2 : 0,
+          }));
+          g.appendChild(el('text', {
+            x: ln.x.toFixed(1),
+            y: (ln.y + 3.2).toFixed(1),
+            'text-anchor': 'middle',
+            fill: lblTextFill,
+            'font-family': 'var(--font-sans)',
+            'font-size': isAct ? 9.8 : 9,
+            'font-weight': isAct ? 700 : 550,
+          }, lblText));
+
+          g.addEventListener('mouseenter', () => {
+            mapHoverSlug = t.slug;
+            renderMapInspector(t, activeTheme);
+          });
+          g.addEventListener('focus', () => {
+            mapHoverSlug = t.slug;
+            renderMapInspector(t, activeTheme);
+          });
+          g.addEventListener('click', (e) => {
+            if (e.shiftKey) openCompareWith(t.slug);
+            else selectSlug(t.slug, true);
+          });
+          g.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              if (e.shiftKey) openCompareWith(t.slug);
+              else selectSlug(t.slug, true);
+            }
+          });
+          svg.appendChild(g);
+        });
+
+        // Game Boy Dark interactive outlier callout card on Dark map
+        const gbDark = modeThemes.find((t) => t.mds && t.mds.outlier);
+        if (gbDark) {
+          const isAct = gbDark.slug === activeTheme.slug;
+          const ox = W - 278, oy = H - 72, ow = 264, oh = 48;
+          const gg = el('g', {
+            class: 'mds-node' + (isAct ? ' is-active' : ''),
+            tabindex: 0,
+            role: 'button',
+            'aria-label': 'Game Boy Dark — Off-Chart 1989 DMG-01 LCD outlier',
+          });
+          gg.appendChild(el('rect', {
+            x: ox, y: oy, width: ow, height: oh, rx: 8,
+            fill: isLightShell ? '#F4F6EA' : '#182410',
+            stroke: isAct ? '#C6E830' : '#7E9B24',
+            'stroke-width': isAct ? 2.2 : 1.3,
+          }));
+          gg.appendChild(el('circle', { cx: ox + 22, cy: oy + oh / 2, r: 9.5, fill: simHex(gbDark.t.kw, activeCvd), stroke: '#283A0B', 'stroke-width': 1.2 }));
+          gg.appendChild(el('circle', { cx: ox + 22, cy: oy + oh / 2, r: 4.5, fill: simHex(gbDark.t.bg, activeCvd) }));
+          gg.appendChild(el('text', {
+            x: ox + 40, y: oy + 19,
+            fill: isLightShell ? '#1F3008' : '#D2EA72',
+            'font-family': 'var(--font-sans)', 'font-size': 10.5, 'font-weight': 700,
+          }, 'Game Boy Dark · Off-Chart Outlier'));
+          gg.appendChild(el('text', {
+            x: ox + 40, y: oy + 34,
+            fill: isLightShell ? '#495B24' : '#96B252',
+            'font-family': 'var(--font-mono)', 'font-size': 9.2,
+          }, '1989 DMG-01 LCD · mean ' + gbDark.mds.meanDe.toFixed(1) + ' ΔE₀₀'));
+          gg.addEventListener('mouseenter', () => { mapHoverSlug = gbDark.slug; renderMapInspector(gbDark, activeTheme); });
+          gg.addEventListener('focus', () => { mapHoverSlug = gbDark.slug; renderMapInspector(gbDark, activeTheme); });
+          gg.addEventListener('click', (e) => { if (e.shiftKey) openCompareWith(gbDark.slug); else selectSlug(gbDark.slug, true); });
+          gg.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              if (e.shiftKey) openCompareWith(gbDark.slug);
+              else selectSlug(gbDark.slug, true);
+            }
+          });
+          svg.appendChild(gg);
+        }
+
+        const initialInsp = (mapHoverSlug && modeThemes.find((t) => t.slug === mapHoverSlug)) ||
+          (activeTheme.mode === mapMode ? activeTheme : modeThemes[0]);
+        renderMapInspector(initialInsp, activeTheme);
+      }
+
       function render() {
         const th = getActiveTheme();
         const sib = findSibling(th);
@@ -2471,6 +3544,7 @@ function buildHtml({ dataset, target }) {
         document.getElementById('active-theme-heading').textContent = th.label + ' (' + th.year + ' · ' + th.maker + ')';
         document.getElementById('active-theme-subtitle').textContent = th.subtitle;
         document.getElementById('active-theme-story').textContent = th.story;
+        renderNeighborBar(th);
 
         document.querySelectorAll('.cvd-btn').forEach((btn) => {
           btn.setAttribute('aria-selected', String(btn.dataset.cvd === activeCvd));
@@ -2482,6 +3556,7 @@ function buildHtml({ dataset, target }) {
         const simCmp = cmpTheme ? Object.fromEntries(Object.entries(cmpTheme.t).map(([k, v]) => [k, simHex(v, activeCvd)])) : null;
         const cvdTitle = { normal: 'Normal Trichromacy', protan: 'Simulated Protanopia', deutan: 'Simulated Deuteranopia', tritan: 'Simulated Tritanopia' }[activeCvd];
 
+        renderSimilarityMap(th, isLightShell);
         renderCompareStrip(th, c, cmpTheme, simCmp, cvdTitle);
 
         // Workbench styling
@@ -2658,7 +3733,9 @@ function buildHtml({ dataset, target }) {
       const searchInput = document.getElementById('console-search');
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
-        renderEraRail(getActiveTheme());
+        const cur = getActiveTheme();
+        renderEraRail(cur);
+        if (mapEnabled) renderSimilarityMap(cur, cur.mode === 'light');
       });
       searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -2666,14 +3743,18 @@ function buildHtml({ dataset, target }) {
           searchQuery = '';
           searchInput.value = '';
           searchInput.blur();
-          renderEraRail(getActiveTheme());
+          const cur = getActiveTheme();
+          renderEraRail(cur);
+          if (mapEnabled) renderSimilarityMap(cur, cur.mode === 'light');
         }
       });
 
       document.querySelectorAll('.maker-chip').forEach((chip) => {
         chip.addEventListener('click', () => {
           activeMaker = chip.dataset.maker || 'All';
-          renderEraRail(getActiveTheme());
+          const cur = getActiveTheme();
+          renderEraRail(cur);
+          if (mapEnabled) renderSimilarityMap(cur, cur.mode === 'light');
         });
       });
 
@@ -2681,7 +3762,9 @@ function buildHtml({ dataset, target }) {
         searchQuery = '';
         searchInput.value = '';
         activeMaker = 'All';
-        renderEraRail(getActiveTheme());
+        const cur = getActiveTheme();
+        renderEraRail(cur);
+        if (mapEnabled) renderSimilarityMap(cur, cur.mode === 'light');
       });
 
       document.getElementById('btn-copy-export').addEventListener('click', () => {
@@ -2693,12 +3776,39 @@ function buildHtml({ dataset, target }) {
 
       document.getElementById('btn-compare-toggle').addEventListener('click', () => {
         compareEnabled = !compareEnabled;
+        syncUrlHash();
+        render();
+      });
+
+      document.getElementById('btn-map-toggle').addEventListener('click', () => {
+        mapEnabled = !mapEnabled;
+        if (mapEnabled && !mapModePinned) {
+          mapMode = getActiveTheme().mode;
+        }
+        mapHoverSlug = null;
+        syncUrlHash();
+        render();
+      });
+
+      document.querySelectorAll('.map-mode-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          mapMode = btn.dataset.mapMode || 'dark';
+          mapModePinned = true;
+          mapHoverSlug = null;
+          syncUrlHash();
+          render();
+        });
+      });
+
+      document.getElementById('map-color-by').addEventListener('change', (e) => {
+        mapColorBy = e.target.value || 'swatch';
         render();
       });
 
       compareSelect.addEventListener('change', (e) => {
         compareSlug = e.target.value;
         compareUserPinned = true;
+        syncUrlHash();
         render();
       });
 
@@ -2743,7 +3853,11 @@ function buildHtml({ dataset, target }) {
       });
 
       document.querySelectorAll('.cvd-btn').forEach((btn) => {
-        btn.addEventListener('click', () => { activeCvd = btn.dataset.cvd; render(); });
+        btn.addEventListener('click', () => {
+          activeCvd = btn.dataset.cvd;
+          syncUrlHash();
+          render();
+        });
       });
 
       window.addEventListener('keydown', (e) => {
@@ -2756,6 +3870,8 @@ function buildHtml({ dataset, target }) {
           searchInput.select();
         } else if (k === 'c') {
           document.getElementById('btn-compare-toggle').click();
+        } else if (k === 'm') {
+          document.getElementById('btn-map-toggle').click();
         } else if (k === 't') {
           document.getElementById('btn-toggle-mode').click();
         } else if (k === 'r') {
@@ -2764,22 +3880,22 @@ function buildHtml({ dataset, target }) {
           document.getElementById('btn-prev-theme').click();
         } else if (e.key === 'ArrowRight') {
           document.getElementById('btn-next-theme').click();
-        } else if (k === '1') { activeCvd = 'normal'; render(); }
-        else if (k === '2') { activeCvd = 'protan'; render(); }
-        else if (k === '3') { activeCvd = 'deutan'; render(); }
-        else if (k === '4') { activeCvd = 'tritan'; render(); }
+        } else if (k === '1') { activeCvd = 'normal'; syncUrlHash(); render(); }
+        else if (k === '2') { activeCvd = 'protan'; syncUrlHash(); render(); }
+        else if (k === '3') { activeCvd = 'deutan'; syncUrlHash(); render(); }
+        else if (k === '4') { activeCvd = 'tritan'; syncUrlHash(); render(); }
       });
 
       window.addEventListener('hashchange', () => {
         if (!IS_WEB) return;
-        const slugHash = window.location.hash.slice(1).trim();
-        if (THEMES.some((t) => t.slug === slugHash) && slugHash !== activeSlug) {
-          activeSlug = slugHash;
+        if (applyHashState(window.location.hash)) {
+          if (!mapModePinned) mapMode = getActiveTheme().mode;
           render();
         }
       });
 
       window.addEventListener('resize', () => render());
+      if (!mapModePinned) mapMode = getActiveTheme().mode;
       render();
     })();
   </script>
@@ -2790,11 +3906,12 @@ function buildHtml({ dataset, target }) {
 
 function main() {
   const dataset = loadThemeDataset();
+  const mdsMeta = enrichDatasetWithSimilarity(dataset);
   fs.mkdirSync(SITE_DIR, { recursive: true });
   fs.mkdirSync(WEBVIEW_DIR, { recursive: true });
 
-  const webHtml = buildHtml({ dataset, target: 'web' });
-  const webviewHtml = buildHtml({ dataset, target: 'webview' });
+  const webHtml = buildHtml({ dataset, mdsMeta, target: 'web' });
+  const webviewHtml = buildHtml({ dataset, mdsMeta, target: 'webview' });
 
   fs.writeFileSync(path.join(SITE_DIR, 'index.html'), webHtml);
   fs.writeFileSync(path.join(SITE_DIR, '.nojekyll'), '');
