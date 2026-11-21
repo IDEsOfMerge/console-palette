@@ -67,49 +67,49 @@ python3 scripts/generate-color-science-assets.py  # or: Rscript --vanilla analys
 
 Four examples of how a Light/Dark pair is built — anchored to each console's real plastic finish, controller buttons, and display lighting while maintaining strict perceptual contrast and OKLCH lightness separation:
 
-### SNES (1990) — warm grey-lavender shell & Super Famicom 4-color ABXY
+### SNES (1990) — neutral-cool grey shell & Super Famicom 4-color ABXY
 
 | Role | Light | Dark |
 |---|---|---|
-| Background | ![](assets/swatches/E9E9F2.png) `#E9E9F2` classic warm grey-lavender shell | ![](assets/swatches/0E0E19.png) `#0E0E19` Mode-7 midnight indigo-slate |
-| Keywords | ![](assets/swatches/4D35A9.png) `#4D35A9` North American concave violet | ![](assets/swatches/BAB3FF.png) `#BAB3FF` luminous SNES lavender |
-| Strings | ![](assets/swatches/AC0D27.png) `#AC0D27` Super Famicom Red A button | ![](assets/swatches/FF7059.png) `#FF7059` CRT coral-ruby A button |
-| Functions | ![](assets/swatches/004783.png) `#004783` Super Famicom Blue X button | ![](assets/swatches/008FE4.png) `#008FE4` luminous Super Famicom azure |
-| Types | ![](assets/swatches/006F30.png) `#006F30` Super Famicom Green Y button | ![](assets/swatches/50CA73.png) `#50CA73` crisp Mode-7 emerald Y button |
-| **Identity accent** | ![](assets/swatches/6247B8.png) `#6247B8` **SNES switch violet** | ![](assets/swatches/A288FF.png) `#A288FF` glowing violet focus |
+| Background | ![](assets/swatches/E2E3E8.png) `#E2E3E8` classic SNES neutral-cool shell | ![](assets/swatches/0F0F1A.png) `#0F0F1A` Mode-7 midnight indigo-slate |
+| Keywords | ![](assets/swatches/5442BA.png) `#5442BA` North American concave violet | ![](assets/swatches/816DE2.png) `#816DE2` luminous SNES lavender |
+| Strings | ![](assets/swatches/A1001F.png) `#A1001F` Super Famicom Red A button | ![](assets/swatches/F35051.png) `#F35051` CRT crimson-coral A button |
+| Functions | ![](assets/swatches/005092.png) `#005092` Super Famicom Blue X button | ![](assets/swatches/31A8FF.png) `#31A8FF` luminous Super Famicom azure |
+| Types | ![](assets/swatches/005F22.png) `#005F22` Super Famicom Green Y button | ![](assets/swatches/35B35E.png) `#35B35E` crisp Mode-7 emerald Y button |
+| **Identity accent** | ![](assets/swatches/5E44B8.png) `#5E44B8` **SNES switch violet** | ![](assets/swatches/A288FF.png) `#A288FF` glowing violet focus |
 
-### PlayStation (1994) — iconic PS1 grey, amber boot diamond & △ ○ × □ quartet
+### PlayStation (1994) — iconic PS1 cement grey, amber boot diamond & △ ○ × □ quartet
 
 | Role | Light | Dark |
 |---|---|---|
-| Background | ![](assets/swatches/E5E7EA.png) `#E5E7EA` unmistakable 1994 PlayStation grey | ![](assets/swatches/0B0E16.png) `#0B0E16` black-bottomed CD & BIOS void |
-| Keywords | ![](assets/swatches/00603A.png) `#00603A` **△ Triangle** emerald green | ![](assets/swatches/36D38B.png) `#36D38B` luminous Triangle emerald |
-| Strings | ![](assets/swatches/AF1B3E.png) `#AF1B3E` **○ Circle** coral crimson | ![](assets/swatches/FF836E.png) `#FF836E` glowing Circle coral |
-| Functions | ![](assets/swatches/003471.png) `#003471` **× Cross** cobalt blue | ![](assets/swatches/188AF1.png) `#188AF1` electric Cross sapphire |
-| Types | ![](assets/swatches/8C256A.png) `#8C256A` **□ Square** rose-magenta | ![](assets/swatches/F67DC8.png) `#F67DC8` neon Square rose pink |
+| Background | ![](assets/swatches/DDDFE2.png) `#DDDFE2` unmistakable 1994 PlayStation grey | ![](assets/swatches/111215.png) `#111215` black-bottomed CD & BIOS void |
+| Keywords | ![](assets/swatches/006D42.png) `#006D42` **△ Triangle** emerald green | ![](assets/swatches/1DCD83.png) `#1DCD83` luminous Triangle emerald |
+| Strings | ![](assets/swatches/9A001F.png) `#9A001F` **○ Circle** coral crimson | ![](assets/swatches/FF706D.png) `#FF706D` glowing Circle coral |
+| Functions | ![](assets/swatches/003775.png) `#003775` **× Cross** cobalt blue | ![](assets/swatches/2291F8.png) `#2291F8` electric Cross sapphire |
+| Types | ![](assets/swatches/6A004D.png) `#6A004D` **□ Square** rose-magenta | ![](assets/swatches/F87CC9.png) `#F87CC9` neon Square rose pink |
 | **Identity accent** | ![](assets/swatches/DE6A16.png) `#DE6A16` **Sony boot diamond orange** | ![](assets/swatches/F58426.png) `#F58426` glowing BIOS startup amber |
 
-### Sega Dreamcast (1998) — frost-white shell, orange spiral swirl & VMU teal
+### Sega Dreamcast (1998) — frost-white shell, fiery orange swirl & VMU teal
 
 | Role | Light | Dark |
 |---|---|---|
-| Background | ![](assets/swatches/EEF2F7.png) `#EEF2F7` 9/9/99 frost-white casing | ![](assets/swatches/0B1013.png) `#0B1013` Sega Sports Black edition |
-| Keywords | ![](assets/swatches/6F2A00.png) `#6F2A00` burnt Dreamcast swirl orange | ![](assets/swatches/FF9464.png) `#FF9464` glowing spiral swirl tangerine |
-| Strings | ![](assets/swatches/A81939.png) `#A81939` controller crimson B accent | ![](assets/swatches/FF767F.png) `#FF767F` arcade coral-crimson |
-| Functions | ![](assets/swatches/002853.png) `#002853` Sega / PAL swirl cobalt blue | ![](assets/swatches/35A8FF.png) `#35A8FF` luminous GD-ROM sky blue |
-| Types | ![](assets/swatches/006657.png) `#006657` VMU screen deep seafoam-teal | ![](assets/swatches/02E7C3.png) `#02E7C3` backlit VMU seafoam-cyan |
-| **Identity accent** | ![](assets/swatches/E05212.png) `#E05212` **Dreamcast swirl orange** | ![](assets/swatches/FF6B1E.png) `#FF6B1E` radiant swirl beacon |
+| Background | ![](assets/swatches/F2F5F8.png) `#F2F5F8` 9/9/99 frost-white casing | ![](assets/swatches/0E1214.png) `#0E1214` Sega Sports Black edition |
+| Keywords | ![](assets/swatches/B14500.png) `#B14500` fiery Dreamcast swirl orange | ![](assets/swatches/FF8F62.png) `#FF8F62` glowing spiral swirl tangerine |
+| Strings | ![](assets/swatches/AC0D37.png) `#AC0D37` controller crimson B accent | ![](assets/swatches/FF6B77.png) `#FF6B77` arcade coral-crimson |
+| Functions | ![](assets/swatches/004E97.png) `#004E97` Sega / PAL swirl cobalt blue | ![](assets/swatches/0087D8.png) `#0087D8` luminous GD-ROM sky blue |
+| Types | ![](assets/swatches/006959.png) `#006959` VMU screen deep seafoam-teal | ![](assets/swatches/00BA9D.png) `#00BA9D` backlit VMU seafoam-cyan |
+| **Identity accent** | ![](assets/swatches/E04F0E.png) `#E04F0E` **Dreamcast swirl orange** | ![](assets/swatches/FF6B1A.png) `#FF6B1A` radiant swirl beacon |
 
 ### Nintendo Switch (2017) — OLED White / Basic Black UI & Neon Joy-Con duotone
 
 | Role | Light | Dark |
 |---|---|---|
-| Background | ![](assets/swatches/F0F3F6.png) `#F0F3F6` Switch OLED White / Basic White UI | ![](assets/swatches/0F1216.png) `#0F1216` Switch Basic Black Home UI |
-| Keywords | ![](assets/swatches/00713C.png) `#00713C` Splatoon / eShop emerald | ![](assets/swatches/64EE93.png) `#64EE93` luminous Joy-Con lime-emerald |
-| Strings | ![](assets/swatches/C92035.png) `#C92035` **Neon Red Joy-Con** crimson | ![](assets/swatches/FF7F89.png) `#FF7F89` glowing Neon Coral-Red Joy-Con |
-| Functions | ![](assets/swatches/003C4D.png) `#003C4D` **Neon Blue Joy-Con** deep cyan | ![](assets/swatches/0099B6.png) `#0099B6` luminous Neon Cyan-Blue Joy-Con |
-| Types | ![](assets/swatches/1D44A3.png) `#1D44A3` docked cobalt-indigo | ![](assets/swatches/8BAAFF.png) `#8BAAFF` crisp Home-grid periwinkle |
-| **Identity accent** | ![](assets/swatches/E60012.png) `#E60012` **Nintendo Switch Red** | ![](assets/swatches/FF4554.png) `#FF4554` radiant Neon Red cursor |
+| Background | ![](assets/swatches/F3F5F6.png) `#F3F5F6` Switch OLED White / Basic White UI | ![](assets/swatches/17191C.png) `#17191C` Switch Basic Black matte charcoal |
+| Keywords | ![](assets/swatches/007095.png) `#007095` **Neon Blue Joy-Con** cyan-azure | ![](assets/swatches/00A9CD.png) `#00A9CD` glowing **Neon Blue Joy-Con** |
+| Strings | ![](assets/swatches/BE0030.png) `#BE0030` **Neon Red Joy-Con** crimson | ![](assets/swatches/FD3E4E.png) `#FD3E4E` blazing **Neon Red Joy-Con** |
+| Functions | ![](assets/swatches/2748AC.png) `#2748AC` docked cobalt-indigo | ![](assets/swatches/86ADFF.png) `#86ADFF` crisp Home-grid periwinkle |
+| Types | ![](assets/swatches/006531.png) `#006531` Splatoon / eShop emerald | ![](assets/swatches/30C46C.png) `#30C46C` luminous Splatoon lime-emerald |
+| **Identity accent** | ![](assets/swatches/E60012.png) `#E60012` **Nintendo Switch Red** | ![](assets/swatches/FF3E4D.png) `#FF3E4D` radiant Neon Red cursor |
 
 ## The full catalog
 
@@ -123,61 +123,61 @@ Each swatch strip reads left to right: **background · keywords · strings · fu
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **Atari 2600** (1977 · Atari) | ![](assets/swatches/F3EBDC.png) ![](assets/swatches/720023.png) ![](assets/swatches/A92743.png) ![](assets/swatches/003760.png) ![](assets/swatches/006966.png) | ![](assets/swatches/150E0A.png) ![](assets/swatches/FF9C6C.png) ![](assets/swatches/FF817C.png) ![](assets/swatches/0091DB.png) ![](assets/swatches/00C7C3.png) |
-| **NES** (1985 · Nintendo) | ![](assets/swatches/ECEAE5.png) ![](assets/swatches/730015.png) ![](assets/swatches/005032.png) ![](assets/swatches/00336D.png) ![](assets/swatches/006B6E.png) | ![](assets/swatches/0E1115.png) ![](assets/swatches/FF8F90.png) ![](assets/swatches/4BBE64.png) ![](assets/swatches/008EE9.png) ![](assets/swatches/00D1D6.png) |
-| **Sega Master System** (1985 · Sega) | ![](assets/swatches/EBF1F6.png) ![](assets/swatches/004AA5.png) ![](assets/swatches/900001.png) ![](assets/swatches/004123.png) ![](assets/swatches/006169.png) | ![](assets/swatches/0A0F15.png) ![](assets/swatches/7BBFFF.png) ![](assets/swatches/FF7777.png) ![](assets/swatches/009255.png) ![](assets/swatches/00DCE9.png) |
-| **Game Boy** (1989 · Nintendo) | ![](assets/swatches/E8E6DA.png) ![](assets/swatches/8A155F.png) ![](assets/swatches/3B6F30.png) ![](assets/swatches/011873.png) ![](assets/swatches/003E28.png) | ![](assets/swatches/0F380F.png) ![](assets/swatches/9BBC0F.png) ![](assets/swatches/B6D63C.png) ![](assets/swatches/8CC42B.png) ![](assets/swatches/A6CF52.png) |
+| **Atari 2600** (1977 · Atari) | ![](assets/swatches/F7EFE1.png) ![](assets/swatches/BD4000.png) ![](assets/swatches/A80227.png) ![](assets/swatches/005995.png) ![](assets/swatches/004A48.png) | ![](assets/swatches/18110D.png) ![](assets/swatches/FF885B.png) ![](assets/swatches/FF646D.png) ![](assets/swatches/0089CF.png) ![](assets/swatches/00AFA8.png) |
+| **NES** (1985 · Nintendo) | ![](assets/swatches/E8E7E6.png) ![](assets/swatches/A00021.png) ![](assets/swatches/005A20.png) ![](assets/swatches/00326B.png) ![](assets/swatches/006E71.png) | ![](assets/swatches/161718.png) ![](assets/swatches/F24971.png) ![](assets/swatches/41BB5E.png) ![](assets/swatches/0094F3.png) ![](assets/swatches/00CFD1.png) |
+| **Sega Master System** (1985 · Sega) | ![](assets/swatches/F0F3F5.png) ![](assets/swatches/0058B2.png) ![](assets/swatches/B50528.png) ![](assets/swatches/005C24.png) ![](assets/swatches/00727A.png) | ![](assets/swatches/111315.png) ![](assets/swatches/82C2FF.png) ![](assets/swatches/FF6D6F.png) ![](assets/swatches/009B55.png) ![](assets/swatches/00ADB7.png) |
+| **Game Boy** (1989 · Nintendo) | ![](assets/swatches/E8E6DA.png) ![](assets/swatches/98256B.png) ![](assets/swatches/425100.png) ![](assets/swatches/0A2B85.png) ![](assets/swatches/005C3D.png) | ![](assets/swatches/0F380F.png) ![](assets/swatches/9BBC0F.png) ![](assets/swatches/B6D63C.png) ![](assets/swatches/8CC42B.png) ![](assets/swatches/A6CF52.png) |
 
 **16-bit Golden Age (1987–1990)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **TurboGrafx-16** (1987 · NEC / Hudson) | ![](assets/swatches/F5F1E8.png) ![](assets/swatches/8B000F.png) ![](assets/swatches/4A002E.png) ![](assets/swatches/00304C.png) ![](assets/swatches/004C36.png) | ![](assets/swatches/140D0B.png) ![](assets/swatches/FF9460.png) ![](assets/swatches/D55CA9.png) ![](assets/swatches/00A0D0.png) ![](assets/swatches/05CC97.png) |
-| **Sega Genesis** (1988 · Sega) | ![](assets/swatches/E8EEF4.png) ![](assets/swatches/004D9E.png) ![](assets/swatches/B52337.png) ![](assets/swatches/003315.png) ![](assets/swatches/004950.png) | ![](assets/swatches/090D14.png) ![](assets/swatches/79B9FF.png) ![](assets/swatches/FF958F.png) ![](assets/swatches/3CA059.png) ![](assets/swatches/00D7E3.png) |
-| **SNES** (1990 · Nintendo) | ![](assets/swatches/E9E9F2.png) ![](assets/swatches/4D35A9.png) ![](assets/swatches/AC0D27.png) ![](assets/swatches/004783.png) ![](assets/swatches/006F30.png) | ![](assets/swatches/0E0E19.png) ![](assets/swatches/BAB3FF.png) ![](assets/swatches/FF7059.png) ![](assets/swatches/008FE4.png) ![](assets/swatches/50CA73.png) |
-| **Neo Geo AES** (1990 · SNK) | ![](assets/swatches/F2EEE1.png) ![](assets/swatches/6D4700.png) ![](assets/swatches/B82131.png) ![](assets/swatches/003666.png) ![](assets/swatches/005454.png) | ![](assets/swatches/0F0C07.png) ![](assets/swatches/DEAD00.png) ![](assets/swatches/FF847D.png) ![](assets/swatches/008EED.png) ![](assets/swatches/00C7C6.png) |
+| **TurboGrafx-16** (1987 · NEC / Hudson) | ![](assets/swatches/F6F3EC.png) ![](assets/swatches/A00013.png) ![](assets/swatches/851363.png) ![](assets/swatches/0068A2.png) ![](assets/swatches/00513F.png) | ![](assets/swatches/13100F.png) ![](assets/swatches/F36800.png) ![](assets/swatches/CC50A0.png) ![](assets/swatches/009EC9.png) ![](assets/swatches/05CC97.png) |
+| **Sega Genesis** (1988 · Sega) | ![](assets/swatches/EAEDF1.png) ![](assets/swatches/0057B6.png) ![](assets/swatches/B3102A.png) ![](assets/swatches/005A14.png) ![](assets/swatches/007580.png) | ![](assets/swatches/0E1115.png) ![](assets/swatches/78BBFF.png) ![](assets/swatches/FF6F6F.png) ![](assets/swatches/079C48.png) ![](assets/swatches/00D5E1.png) |
+| **SNES** (1990 · Nintendo) | ![](assets/swatches/E2E3E8.png) ![](assets/swatches/5442BA.png) ![](assets/swatches/A1001F.png) ![](assets/swatches/005092.png) ![](assets/swatches/005F22.png) | ![](assets/swatches/0F0F1A.png) ![](assets/swatches/816DE2.png) ![](assets/swatches/F35051.png) ![](assets/swatches/31A8FF.png) ![](assets/swatches/35B35E.png) |
+| **Neo Geo AES** (1990 · SNK) | ![](assets/swatches/F3EFE3.png) ![](assets/swatches/593A00.png) ![](assets/swatches/AB0024.png) ![](assets/swatches/00315F.png) ![](assets/swatches/004F4F.png) | ![](assets/swatches/110E0A.png) ![](assets/swatches/E9B600.png) ![](assets/swatches/FF6D70.png) ![](assets/swatches/0F94F5.png) ![](assets/swatches/00C7C6.png) |
 
 **32/64-bit Polygon Era (1994–1998)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **Sega Saturn** (1994 · Sega) | ![](assets/swatches/E7F1F5.png) ![](assets/swatches/004444.png) ![](assets/swatches/89004D.png) ![](assets/swatches/00508D.png) ![](assets/swatches/256B35.png) | ![](assets/swatches/071016.png) ![](assets/swatches/00CECD.png) ![](assets/swatches/D74A8A.png) ![](assets/swatches/3FA7FF.png) ![](assets/swatches/86F298.png) |
-| **PlayStation** (1994 · Sony) | ![](assets/swatches/E5E7EA.png) ![](assets/swatches/00603A.png) ![](assets/swatches/AF1B3E.png) ![](assets/swatches/003471.png) ![](assets/swatches/8C256A.png) | ![](assets/swatches/0B0E16.png) ![](assets/swatches/36D38B.png) ![](assets/swatches/FF836E.png) ![](assets/swatches/188AF1.png) ![](assets/swatches/F67DC8.png) |
-| **Nintendo 64** (1996 · Nintendo) | ![](assets/swatches/EBECE4.png) ![](assets/swatches/136524.png) ![](assets/swatches/B71F30.png) ![](assets/swatches/002450.png) ![](assets/swatches/2B0062.png) | ![](assets/swatches/0F0F17.png) ![](assets/swatches/76EC8C.png) ![](assets/swatches/FFA59F.png) ![](assets/swatches/008CEF.png) ![](assets/swatches/B09CFF.png) |
-| **Game Boy Color** (1998 · Nintendo) | ![](assets/swatches/F2F0E2.png) ![](assets/swatches/8C0667.png) ![](assets/swatches/A72123.png) ![](assets/swatches/2A1C86.png) ![](assets/swatches/006F61.png) | ![](assets/swatches/110B1A.png) ![](assets/swatches/E663BC.png) ![](assets/swatches/FC694F.png) ![](assets/swatches/0C8CED.png) ![](assets/swatches/00D9D7.png) |
+| **Sega Saturn** (1994 · Sega) | ![](assets/swatches/E9F1F3.png) ![](assets/swatches/005352.png) ![](assets/swatches/A00C60.png) ![](assets/swatches/00569E.png) ![](assets/swatches/167C34.png) | ![](assets/swatches/0E1216.png) ![](assets/swatches/00C8C8.png) ![](assets/swatches/E04E9A.png) ![](assets/swatches/2EA2FF.png) ![](assets/swatches/7BE88F.png) |
+| **PlayStation** (1994 · Sony) | ![](assets/swatches/DDDFE2.png) ![](assets/swatches/006D42.png) ![](assets/swatches/9A001F.png) ![](assets/swatches/003775.png) ![](assets/swatches/6A004D.png) | ![](assets/swatches/111215.png) ![](assets/swatches/1DCD83.png) ![](assets/swatches/FF706D.png) ![](assets/swatches/2291F8.png) ![](assets/swatches/F87CC9.png) |
+| **Nintendo 64** (1996 · Nintendo) | ![](assets/swatches/E0E1E3.png) ![](assets/swatches/005B29.png) ![](assets/swatches/A60026.png) ![](assets/swatches/00326E.png) ![](assets/swatches/36187C.png) | ![](assets/swatches/18191C.png) ![](assets/swatches/4FCB6A.png) ![](assets/swatches/FF2E30.png) ![](assets/swatches/0092F9.png) ![](assets/swatches/AD9EFF.png) |
+| **Game Boy Color** (1998 · Nintendo) | ![](assets/swatches/F2F0E2.png) ![](assets/swatches/80005E.png) ![](assets/swatches/A3061D.png) ![](assets/swatches/291A85.png) ![](assets/swatches/007776.png) | ![](assets/swatches/120B1C.png) ![](assets/swatches/FD74D0.png) ![](assets/swatches/FF6658.png) ![](assets/swatches/1B92F4.png) ![](assets/swatches/00F0EF.png) |
 
 **128-bit & Millennial Classics (1998–2001)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **Sega Dreamcast** (1998 · Sega) | ![](assets/swatches/EEF2F7.png) ![](assets/swatches/6F2A00.png) ![](assets/swatches/A81939.png) ![](assets/swatches/002853.png) ![](assets/swatches/006657.png) | ![](assets/swatches/0B1013.png) ![](assets/swatches/FF9464.png) ![](assets/swatches/FF767F.png) ![](assets/swatches/35A8FF.png) ![](assets/swatches/02E7C3.png) |
-| **PlayStation 2** (2000 · Sony) | ![](assets/swatches/EAF0F9.png) ![](assets/swatches/004EAC.png) ![](assets/swatches/AF1C33.png) ![](assets/swatches/003D48.png) ![](assets/swatches/006641.png) | ![](assets/swatches/050A19.png) ![](assets/swatches/90CBFF.png) ![](assets/swatches/FF817D.png) ![](assets/swatches/009BAB.png) ![](assets/swatches/43D58F.png) |
-| **Game Boy Advance** (2001 · Nintendo) | ![](assets/swatches/DFEEF9.png) ![](assets/swatches/373DAD.png) ![](assets/swatches/B01C2E.png) ![](assets/swatches/00464D.png) ![](assets/swatches/006C34.png) | ![](assets/swatches/090C1D.png) ![](assets/swatches/A8B2FF.png) ![](assets/swatches/FE6749.png) ![](assets/swatches/00A6B2.png) ![](assets/swatches/48CB78.png) |
-| **Nintendo GameCube** (2001 · Nintendo) | ![](assets/swatches/EAEBF5.png) ![](assets/swatches/4735B0.png) ![](assets/swatches/B11631.png) ![](assets/swatches/003763.png) ![](assets/swatches/006539.png) | ![](assets/swatches/0D0B1D.png) ![](assets/swatches/B5B5FF.png) ![](assets/swatches/FF8B7B.png) ![](assets/swatches/0090DF.png) ![](assets/swatches/5EEB9E.png) |
-| **Xbox** (2001 · Microsoft) | ![](assets/swatches/E8F0E8.png) ![](assets/swatches/2F4700.png) ![](assets/swatches/A00021.png) ![](assets/swatches/003C77.png) ![](assets/swatches/00595A.png) | ![](assets/swatches/081008.png) ![](assets/swatches/6DD043.png) ![](assets/swatches/FF856F.png) ![](assets/swatches/008EE7.png) ![](assets/swatches/00D8DA.png) |
+| **Sega Dreamcast** (1998 · Sega) | ![](assets/swatches/F2F5F8.png) ![](assets/swatches/B14500.png) ![](assets/swatches/AC0D37.png) ![](assets/swatches/004E97.png) ![](assets/swatches/006959.png) | ![](assets/swatches/0E1214.png) ![](assets/swatches/FF8F62.png) ![](assets/swatches/FF6B77.png) ![](assets/swatches/0087D8.png) ![](assets/swatches/00BA9D.png) |
+| **PlayStation 2** (2000 · Sony) | ![](assets/swatches/EBF1F9.png) ![](assets/swatches/0055BA.png) ![](assets/swatches/9F0026.png) ![](assets/swatches/004551.png) ![](assets/swatches/006F44.png) | ![](assets/swatches/040A1D.png) ![](assets/swatches/66B9FF.png) ![](assets/swatches/FF6D72.png) ![](assets/swatches/0093A0.png) ![](assets/swatches/27C37E.png) |
+| **Game Boy Advance** (2001 · Nintendo) | ![](assets/swatches/DFEEF9.png) ![](assets/swatches/4049BD.png) ![](assets/swatches/A00023.png) ![](assets/swatches/00565F.png) ![](assets/swatches/00783B.png) | ![](assets/swatches/0A0D1F.png) ![](assets/swatches/8289FF.png) ![](assets/swatches/FF6E6A.png) ![](assets/swatches/00B2BF.png) ![](assets/swatches/59DA86.png) |
+| **Nintendo GameCube** (2001 · Nintendo) | ![](assets/swatches/E7E7EC.png) ![](assets/swatches/5140C0.png) ![](assets/swatches/BC1E31.png) ![](assets/swatches/003561.png) ![](assets/swatches/006D3E.png) | ![](assets/swatches/0F0B26.png) ![](assets/swatches/8E85FF.png) ![](assets/swatches/FF706C.png) ![](assets/swatches/44B1FF.png) ![](assets/swatches/42D488.png) |
+| **Xbox** (2001 · Microsoft) | ![](assets/swatches/EBF2EB.png) ![](assets/swatches/005E1A.png) ![](assets/swatches/AF0526.png) ![](assets/swatches/003C76.png) ![](assets/swatches/00767B.png) | ![](assets/swatches/091309.png) ![](assets/swatches/64CA36.png) ![](assets/swatches/F73D4C.png) ![](assets/swatches/0086DD.png) ![](assets/swatches/00CBCD.png) |
 
 **HD, Motion & Portable Era (2004–2011)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **Nintendo DS** (2004 · Nintendo) | ![](assets/swatches/ECF4F9.png) ![](assets/swatches/003F5E.png) ![](assets/swatches/B50033.png) ![](assets/swatches/005B5A.png) ![](assets/swatches/007B4E.png) | ![](assets/swatches/081016.png) ![](assets/swatches/4FCDFF.png) ![](assets/swatches/FF7D93.png) ![](assets/swatches/009CA4.png) ![](assets/swatches/70EA97.png) |
-| **PlayStation Portable** (2004 · Sony) | ![](assets/swatches/EEF0F7.png) ![](assets/swatches/0061A2.png) ![](assets/swatches/7B0045.png) ![](assets/swatches/003E43.png) ![](assets/swatches/006644.png) | ![](assets/swatches/060D17.png) ![](assets/swatches/99D6FF.png) ![](assets/swatches/E15493.png) ![](assets/swatches/009CA5.png) ![](assets/swatches/2ACC8A.png) |
-| **Xbox 360** (2005 · Microsoft) | ![](assets/swatches/EEF1EA.png) ![](assets/swatches/33782D.png) ![](assets/swatches/3D1200.png) ![](assets/swatches/003669.png) ![](assets/swatches/2F005D.png) | ![](assets/swatches/0C110D.png) ![](assets/swatches/6DD056.png) ![](assets/swatches/FF7E2D.png) ![](assets/swatches/3DA9FF.png) ![](assets/swatches/CFBAFF.png) |
-| **Nintendo Wii** (2006 · Nintendo) | ![](assets/swatches/F0F6F9.png) ![](assets/swatches/00575B.png) ![](assets/swatches/AE2134.png) ![](assets/swatches/0C3092.png) ![](assets/swatches/007B50.png) | ![](assets/swatches/050F14.png) ![](assets/swatches/00CAE3.png) ![](assets/swatches/FF847B.png) ![](assets/swatches/6BA7FF.png) ![](assets/swatches/63F0A8.png) |
-| **PlayStation 3** (2006 · Sony) | ![](assets/swatches/ECEDF3.png) ![](assets/swatches/122B8E.png) ![](assets/swatches/AD203D.png) ![](assets/swatches/003B4F.png) ![](assets/swatches/006B59.png) | ![](assets/swatches/0B0D14.png) ![](assets/swatches/8EB3FF.png) ![](assets/swatches/FF8083.png) ![](assets/swatches/0099B8.png) ![](assets/swatches/00CBA7.png) |
-| **Nintendo 3DS** (2011 · Nintendo) | ![](assets/swatches/E6F4F4.png) ![](assets/swatches/187332.png) ![](assets/swatches/7A2600.png) ![](assets/swatches/004B57.png) ![](assets/swatches/0D1372.png) | ![](assets/swatches/061013.png) ![](assets/swatches/51D26E.png) ![](assets/swatches/E46118.png) ![](assets/swatches/00ABC3.png) ![](assets/swatches/92A8FF.png) |
-| **PlayStation Vita** (2011 · Sony) | ![](assets/swatches/E8F1F9.png) ![](assets/swatches/004885.png) ![](assets/swatches/AB0B37.png) ![](assets/swatches/006338.png) ![](assets/swatches/894CAB.png) | ![](assets/swatches/020A19.png) ![](assets/swatches/00A4F7.png) ![](assets/swatches/FFA4A7.png) ![](assets/swatches/00B56B.png) ![](assets/swatches/E2A8FF.png) |
+| **Nintendo DS** (2004 · Nintendo) | ![](assets/swatches/EEF2F5.png) ![](assets/swatches/006093.png) ![](assets/swatches/BC1E36.png) ![](assets/swatches/004A4B.png) ![](assets/swatches/0F692B.png) | ![](assets/swatches/0D1216.png) ![](assets/swatches/31C6FF.png) ![](assets/swatches/FC2E54.png) ![](assets/swatches/009594.png) ![](assets/swatches/53C66B.png) |
+| **PlayStation Portable** (2004 · Sony) | ![](assets/swatches/F2F0F6.png) ![](assets/swatches/713DAC.png) ![](assets/swatches/8D0050.png) ![](assets/swatches/004950.png) ![](assets/swatches/007750.png) | ![](assets/swatches/100B1A.png) ![](assets/swatches/CBA8FF.png) ![](assets/swatches/E34D91.png) ![](assets/swatches/00A2AE.png) ![](assets/swatches/2ACC8A.png) |
+| **Xbox 360** (2005 · Microsoft) | ![](assets/swatches/F2F4EF.png) ![](assets/swatches/007715.png) ![](assets/swatches/B03E00.png) ![](assets/swatches/004675.png) ![](assets/swatches/481880.png) | ![](assets/swatches/111412.png) ![](assets/swatches/68CE50.png) ![](assets/swatches/FB6E23.png) ![](assets/swatches/0095EE.png) ![](assets/swatches/C0A3FF.png) |
+| **Nintendo Wii** (2006 · Nintendo) | ![](assets/swatches/F4F8F9.png) ![](assets/swatches/005D77.png) ![](assets/swatches/A10025.png) ![](assets/swatches/2343AB.png) ![](assets/swatches/007B50.png) | ![](assets/swatches/0D1113.png) ![](assets/swatches/00C3DB.png) ![](assets/swatches/FF6C73.png) ![](assets/swatches/85B3FF.png) ![](assets/swatches/58E79F.png) |
+| **PlayStation 3** (2006 · Sony) | ![](assets/swatches/EBECEF.png) ![](assets/swatches/1A57AD.png) ![](assets/swatches/B30F2F.png) ![](assets/swatches/004857.png) ![](assets/swatches/006350.png) | ![](assets/swatches/121315.png) ![](assets/swatches/8FBFFF.png) ![](assets/swatches/FF6C6E.png) ![](assets/swatches/0091A8.png) ![](assets/swatches/00B292.png) |
+| **Nintendo 3DS** (2011 · Nintendo) | ![](assets/swatches/E9F6F6.png) ![](assets/swatches/007B2E.png) ![](assets/swatches/BF3700.png) ![](assets/swatches/004E5B.png) ![](assets/swatches/1E2A8C.png) | ![](assets/swatches/081214.png) ![](assets/swatches/45CC66.png) ![](assets/swatches/FC6D2C.png) ![](assets/swatches/00D4DE.png) ![](assets/swatches/92A8FF.png) |
+| **PlayStation Vita** (2011 · Sony) | ![](assets/swatches/E9F3F9.png) ![](assets/swatches/006DA9.png) ![](assets/swatches/B71638.png) ![](assets/swatches/006C37.png) ![](assets/swatches/771C80.png) | ![](assets/swatches/030814.png) ![](assets/swatches/00BFF6.png) ![](assets/swatches/FF6B7E.png) ![](assets/swatches/18B04A.png) ![](assets/swatches/BA51BF.png) |
 
 **Modern, Hybrid & Portable PC (2013–2022)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
-| **PlayStation 4** (2013 · Sony) | ![](assets/swatches/EAF0F7.png) ![](assets/swatches/0047AE.png) ![](assets/swatches/C13140.png) ![](assets/swatches/004748.png) ![](assets/swatches/006E35.png) | ![](assets/swatches/040D1E.png) ![](assets/swatches/67BCFF.png) ![](assets/swatches/FF7E8C.png) ![](assets/swatches/00AEB0.png) ![](assets/swatches/6CEA95.png) |
-| **Xbox One** (2013 · Microsoft) | ![](assets/swatches/EDF2ED.png) ![](assets/swatches/006537.png) ![](assets/swatches/AD2039.png) ![](assets/swatches/004B74.png) ![](assets/swatches/7E3D9B.png) | ![](assets/swatches/0B100D.png) ![](assets/swatches/4BC867.png) ![](assets/swatches/FF9D9A.png) ![](assets/swatches/0094E9.png) ![](assets/swatches/E0A0FF.png) |
-| **Nintendo Switch** (2017 · Nintendo) | ![](assets/swatches/F0F3F6.png) ![](assets/swatches/00713C.png) ![](assets/swatches/C92035.png) ![](assets/swatches/003C4D.png) ![](assets/swatches/1D44A3.png) | ![](assets/swatches/0F1216.png) ![](assets/swatches/64EE93.png) ![](assets/swatches/FF7F89.png) ![](assets/swatches/0099B6.png) ![](assets/swatches/8BAAFF.png) |
-| **PlayStation 5** (2020 · Sony) | ![](assets/swatches/EEF2F9.png) ![](assets/swatches/0643B5.png) ![](assets/swatches/AF223D.png) ![](assets/swatches/003C4A.png) ![](assets/swatches/006B55.png) | ![](assets/swatches/090C16.png) ![](assets/swatches/8CC2FF.png) ![](assets/swatches/FF7F87.png) ![](assets/swatches/009AB2.png) ![](assets/swatches/00CC9B.png) |
-| **Xbox Series X\|S** (2020 · Microsoft) | ![](assets/swatches/EDF3EE.png) ![](assets/swatches/277934.png) ![](assets/swatches/880015.png) ![](assets/swatches/004868.png) ![](assets/swatches/4753B2.png) | ![](assets/swatches/080E09.png) ![](assets/swatches/64E474.png) ![](assets/swatches/FF968C.png) ![](assets/swatches/00A6DF.png) ![](assets/swatches/B4BDFF.png) |
-| **Steam Deck** (2022 · Valve) | ![](assets/swatches/EAF0F5.png) ![](assets/swatches/005388.png) ![](assets/swatches/8F2400.png) ![](assets/swatches/004744.png) ![](assets/swatches/006732.png) | ![](assets/swatches/080F15.png) ![](assets/swatches/85CDFF.png) ![](assets/swatches/FE692E.png) ![](assets/swatches/00B3B5.png) ![](assets/swatches/5BDB87.png) |
+| **PlayStation 4** (2013 · Sony) | ![](assets/swatches/E9F0F9.png) ![](assets/swatches/0051C4.png) ![](assets/swatches/B4112E.png) ![](assets/swatches/005758.png) ![](assets/swatches/00793E.png) | ![](assets/swatches/03132F.png) ![](assets/swatches/00A5F8.png) ![](assets/swatches/F83F4B.png) ![](assets/swatches/009190.png) ![](assets/swatches/30B866.png) |
+| **Xbox One** (2013 · Microsoft) | ![](assets/swatches/EFF2EF.png) ![](assets/swatches/006936.png) ![](assets/swatches/A3002D.png) ![](assets/swatches/00669D.png) ![](assets/swatches/58066C.png) | ![](assets/swatches/131614.png) ![](assets/swatches/53D46F.png) ![](assets/swatches/F63C52.png) ![](assets/swatches/008BB3.png) ![](assets/swatches/C776DF.png) |
+| **Nintendo Switch** (2017 · Nintendo) | ![](assets/swatches/F3F5F6.png) ![](assets/swatches/007095.png) ![](assets/swatches/BE0030.png) ![](assets/swatches/2748AC.png) ![](assets/swatches/006531.png) | ![](assets/swatches/17191C.png) ![](assets/swatches/00A9CD.png) ![](assets/swatches/FD3E4E.png) ![](assets/swatches/86ADFF.png) ![](assets/swatches/30C46C.png) |
+| **PlayStation 5** (2020 · Sony) | ![](assets/swatches/F4F6F9.png) ![](assets/swatches/124FC6.png) ![](assets/swatches/B11536.png) ![](assets/swatches/004858.png) ![](assets/swatches/006954.png) | ![](assets/swatches/0E1013.png) ![](assets/swatches/74B6FF.png) ![](assets/swatches/FF6271.png) ![](assets/swatches/00A0B9.png) ![](assets/swatches/00CC9B.png) |
+| **Xbox Series X\|S** (2020 · Microsoft) | ![](assets/swatches/F3F5F3.png) ![](assets/swatches/006A31.png) ![](assets/swatches/A1001D.png) ![](assets/swatches/006E9C.png) ![](assets/swatches/373F9F.png) | ![](assets/swatches/09100B.png) ![](assets/swatches/56DC69.png) ![](assets/swatches/F73D4E.png) ![](assets/swatches/008DBE.png) ![](assets/swatches/828AFC.png) |
+| **Steam Deck** (2022 · Valve) | ![](assets/swatches/EFF3F6.png) ![](assets/swatches/005E9D.png) ![](assets/swatches/B73E00.png) ![](assets/swatches/00524B.png) ![](assets/swatches/007037.png) | ![](assets/swatches/101315.png) ![](assets/swatches/4EB7FF.png) ![](assets/swatches/FF794F.png) ![](assets/swatches/00A49F.png) ![](assets/swatches/3AC570.png) |
 <!-- CATALOG:END -->
 
 *(Swatch PNGs are generated locally by `scripts/generate-swatches.js` — no third-party badge service, no network dependency for viewers, nothing to go stale.)*
@@ -237,7 +237,7 @@ Hand-authoring ~350 workbench, TextMate, semantic-token, and Positron IDE keys a
 ```sh
 node scripts/generate-themes.js          # regenerate themes/*.json + package.json + theme-metadata.json
 node scripts/generate-explorer.js        # regenerate site/index.html + assets/explorer/explorer.html
-node scripts/generate-swatches.js        # regenerate 538 local swatch PNGs in assets/swatches/
+node scripts/generate-swatches.js        # regenerate 536 local swatch PNGs in assets/swatches/
 python3 scripts/generate-icon.py         # regenerate 4x supersampled 3D-beveled Light/Dark gamepad icon
 python3 scripts/generate-banner.py       # regenerate Dark/Light 2x Retina README banners
 python3 scripts/generate-diagrams.py     # regenerate Dark/Light 2x Retina timeline & pipeline diagrams
@@ -249,19 +249,20 @@ node scripts/validate.js                 # audit all 60 themes, Explorer CSP & P
 
 Every single theme must clear strict automated perceptual gates before `generate-themes.js` or `validate.js` will succeed:
 
-- **100% WCAG 2.1 AA compliance (`1,200 / 1,200` foreground & syntax tokens)**: all 20 foreground/syntax tokens in all 60 themes clear **≥ 4.5:1** on `editor.background` (actual range across the family: **`4.61:1` to `15.84:1`**) and **≥ 3.8:1** on `editor.lineHighlightBackground`.
-- **APCA-W3 spatial contrast**: primary body text (`fg` on `bg`) achieves **`|Lc| = 82.8` to `98.2`** (`13.27:1`–`15.84:1` WCAG) across all 59 polychromatic themes, tuned to avoid OLED halation in Dark mode while keeping Light plastic-shell surfaces glare-free and crisp.
-- **Figure–ground hierarchy**: comments (`fgComment`) clear AA comfortably (`4.77:1`–`6.52:1`) while remaining perceptually subordinate to active code tokens so documentation never competes with control flow.
+- **100% WCAG 2.1 AA compliance (`1,200 / 1,200` foreground & syntax tokens)**: all 20 foreground/syntax tokens in all 60 themes clear **≥ 4.5:1** on `editor.background` (actual range across the family: **`4.61:1` to `16.53:1`**) and **≥ 3.8:1** on `editor.lineHighlightBackground`.
+- **APCA-W3 spatial contrast**: primary body text (`fg` on `bg`) achieves **`|Lc| = 83.2` to `99.8`** (`12.65:1`–`16.53:1` WCAG) across all 59 polychromatic themes, tuned to avoid OLED halation in Dark mode while keeping Light plastic-shell surfaces glare-free and crisp.
+- **Figure–ground hierarchy**: comments (`fgComment`) clear AA comfortably (`4.77:1`–`6.96:1`) while remaining perceptually subordinate to active code tokens so documentation never competes with control flow.
 - **960 / 960 ANSI terminal tokens verified**: all 16 ANSI colors in every integrated terminal / Positron console clear contrast gates while preserving canonical terminal hue bands (so red errors stay red and green diffs stay green regardless of a console's keyword accent).
 
 | Representative Theme | Editor `fg` / `bg` (WCAG) | Editor `fg` / `bg` (`|Lc|` APCA) | Comment / `bg` | Tightest foreground/syntax role / `bg` |
 |---|---|---|---|---|
-| **Nintendo Switch Light** | `15.55:1` | `96.8` | `6.38:1` | `5.04:1` |
-| **Sega Dreamcast Light** | `15.40:1` | `96.2` | `6.34:1` | `5.76:1` |
-| **SNES Light** | `14.34:1` | `91.6` | `5.91:1` | `5.25:1` |
-| **Xbox Dark** | `13.68:1` | `83.2` | `6.11:1` | `4.87:1` |
-| **PlayStation Dark** | `13.66:1` | `83.2` | `6.06:1` | `4.86:1` |
-| **Steam Deck Dark** | `13.66:1` | `83.2` | `6.10:1` | `4.86:1` |
+| **Nintendo Switch Light** | `16.23:1` | `98.4` | `6.77:1` | `5.12:1` |
+| **Sega Dreamcast Light** | `16.11:1` | `98.2` | `6.76:1` | `5.16:1` |
+| **SNES Light** | `13.82:1` | `88.1` | `5.84:1` | `4.75:1` |
+| **Nintendo 64 Light** | `13.57:1` | `86.9` | `5.66:1` | `4.72:1` |
+| **Xbox Dark** | `13.72:1` | `84.5` | `6.33:1` | `4.78:1` |
+| **PlayStation Dark** | `13.51:1` | `84.1` | `6.24:1` | `4.98:1` |
+| **Steam Deck Dark** | `13.39:1` | `83.8` | `6.23:1` | `4.63:1` |
 | **Game Boy Dark** *(1989 DMG-01 LCD ramp)* | `8.83:1` | `74.8` | `4.77:1` | `4.61:1` |
 
 ## Color science
@@ -276,11 +277,11 @@ Plotting each theme's 10 core syntax roles in the CIE `a*`–`b*` chromaticity p
 
 <img src="assets/color-science/pca-global.png" alt="Global PCA of all 780 syntax tokens across 60 themes in CIE Lab space, colored by semantic role" width="750">
 
-An unscaled global PCA across all **780 syntax tokens** (`PC1 = 50.7%`, `PC2 = 36.4%`, explaining **87.1%** of total perceptual variance in 2D) shows how semantic roles occupy structured, well-separated regions while giving consoles expressive cross-hue freedom where hardware identity calls for violet keywords (SNES/GameCube), orange keywords (Dreamcast/Atari), emerald keywords (Xbox/PS1/Switch), or sapphire keywords (PS2/PS4/PS5/Genesis).
+An unscaled global PCA across all **780 syntax tokens** (`PC1 = 51.2%`, `PC2 = 39.2%`, explaining **90.4%** of total perceptual variance in 2D) shows how semantic roles occupy structured, well-separated regions while giving consoles expressive cross-hue freedom where hardware identity calls for violet keywords (SNES/GameCube/PSP), orange keywords (Dreamcast/Atari), emerald keywords (Xbox/PS1/N64), or sapphire/cyan keywords (PS2/PS4/PS5/Genesis/Switch).
 
 ### Which console themes look like each other
 
-Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` feature vector** (`analysis/theme_similarity.R`) lets us compare entire themes side-by-side via standardized PCA (`PC1 = 44.9%`, `PC2 = 14.1%`) and **Ward's minimum-variance hierarchical clustering**:
+Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` feature vector** (`analysis/theme_similarity.R`) lets us compare entire themes side-by-side via standardized PCA (`PC1 = 40.3%`, `PC2 = 14.9%`) and **Ward's minimum-variance hierarchical clustering**:
 
 <img src="assets/color-science/theme-pca.png" alt="Per-theme 39-D standardized CIE Lab PCA across all 60 themes, colored by hardware era and shaped by Light/Dark mode" width="900">
 
@@ -288,9 +289,9 @@ Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` fea
 
 Three empirical patterns emerge directly from the geometry without any manual grouping:
 
-1. **Clean polarity separation + 1989 DMG-01 hardware isolation**: All 30 Light themes and 30 Dark themes split cleanly along `PC1`, while **Game Boy Dark** branches off completely alone at the top of the Dark supercluster (and sits isolated in the upper-right of `PC1`–`PC2`), quantitatively confirming its unique 1989 DMG-01 olive LCD ramp.
-2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, 3, 4, and 5** form a consecutive four-generation PlayStation block in *both* Light and Dark modes; **Xbox, Xbox One, and Xbox Series X\|S** cluster directly together in Dark mode; and **Sega Master System + Sega Genesis** pair up cleanly in both modes from their shared Sega cobalt-and-crimson DNA.
-3. **Cross-generation industrial kin pair as nearest neighbors**: **SNES** and **Nintendo GameCube** pair directly together in *both* Light and Dark modes (Nintendo's signature lavender-indigo heritage), while warm amber/tangerine hardware icons (**Atari 2600**, **TurboGrafx-16**, and **Sega Dreamcast**) group naturally from color coordinates alone.
+1. **Clean polarity separation + 1989 DMG-01 hardware isolation**: All 30 Light themes and 30 Dark themes split cleanly along `PC1`, while **Game Boy Dark** branches off completely alone at the boundary of the Dark supercluster, quantitatively confirming its unique 1989 DMG-01 olive LCD ramp.
+2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, 3, and 5** form a consecutive PlayStation home-console block in *both* Light and Dark modes (while **PSP**'s amethyst XMB and **PS Vita**'s OLED LiveArea cyan/magenta split onto distinct branches); **Xbox, Xbox One, and Xbox Series X\|S** cluster directly together in Dark mode; and **Sega Master System + Sega Genesis** pair up directly in *both* modes from their shared Sega cobalt-and-crimson DNA.
+3. **Cross-generation industrial kin pair as nearest neighbors**: **SNES** and **Nintendo GameCube** pair directly in *both* Light and Dark modes (Nintendo's lavender-indigo heritage), **PlayStation (PS1)** and **Nintendo 64** pair in *both* modes (1994–1996 neutral-grey/charcoal shells with primary button quartets), **Nintendo Wii** and **Nintendo Switch** pair in *both* modes, and fiery orange hardware icons (**Atari 2600** and **Sega Dreamcast**) pair directly from color coordinates alone.
 
 ### Color-vision-deficiency (CVD) resilience via OKLCH lightness staggering
 
@@ -300,7 +301,7 @@ Categorical syntax palettes that rely purely on hue (such as an isoluminant red 
 
 Across all **4,680 role-pairs** (`60 themes × 78 pairs`) and **1,260 critical adjacent syntax pairs** (`keyword`, `storage`, `string`, `function`, `type`, `number`, `error`):
 
-- **59 polychromatic themes (`1,239` critical pairs)**: **0 severe collisions** (`< 5 ΔE*ab`) and **0 moderate collisions** (`< 10 ΔE*ab`) under simulated protanopia, deuteranopia, or tritanopia. Every critical syntax pair stays `≥ 10.40 ΔE*ab` apart across all three CVD simulations.
+- **59 polychromatic themes (`1,239` critical pairs)**: **0 severe collisions** (`< 5 ΔE*ab`) and **0 moderate collisions** (`< 10 ΔE*ab`) under simulated protanopia, deuteranopia, or tritanopia. Every critical syntax pair stays `≥ 10.37 ΔE*ab` apart across all three CVD simulations.
 - **Game Boy Dark (monochrome hardware tribute)**: accounts for the only **3** critical pairs below `10 ΔE*ab` in the entire 60-theme family (`accentStorage`/`colorError` at `2.46`, `accentKeyword`/`accentType` at `7.63`, and `accentKeyword`/`accentStorage` at `9.67`), preserved intentionally as a documented, faithful tribute to the 1989 Game Boy's single-hue olive LCD ramp while still clearing WCAG AA (`4.61:1`–`8.83:1`) on every token.
 
 ```sh
@@ -317,7 +318,7 @@ Rscript --vanilla analysis/timeline_metro.R
 - An independent, unofficial tribute to gaming hardware industrial design — not affiliated with or endorsed by Atari, Nintendo, Sega, NEC, SNK, Sony, Microsoft, or Valve.
 - Zero runtime `npm` dependencies — `extension.js` uses only the built-in `vscode` API and static `theme-metadata.json`.
 - Positron-specific workbench tokens (`positronConsole.*`, `positronVariables.*`, `positronPlots.*`, `positronDataExplorer.*`, etc.) are strictly validated against Positron's upstream color registry (`9,120` verified usages across 60 themes).
-- No console logos, trademarks, sprites, or copyrighted assets appear anywhere in this repository — every visual (extension icon, README banners, animated IDE showcase GIF, 538 swatch PNGs, timeline & architecture diagrams, Hardware Lineage Metro Map, and color-science plots) is generated algorithmically from hex coordinates and geometric primitives.
+- No console logos, trademarks, sprites, or copyrighted assets appear anywhere in this repository — every visual (extension icon, README banners, animated IDE showcase GIF, 536 swatch PNGs, timeline & architecture diagrams, Hardware Lineage Metro Map, and color-science plots) is generated algorithmically from hex coordinates and geometric primitives.
 
 ## License
 

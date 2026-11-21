@@ -10,12 +10,12 @@ dir.create("assets/timeline", showWarnings = FALSE, recursive = TRUE)
 
 nodes <- tribble(
   ~name, ~x, ~y, ~line, ~color, ~label_dy,
-  "Atari 2600", 2.6, 2.25, "Pioneers", "#C84B14", 0.30,
-  "TurboGrafx-16", 7.2, 2.25, "Pioneers", "#E03C1F", 0.30,
-  "Neo Geo AES", 9.6, 2.25, "Pioneers", "#B8860B", 0.30,
+  "Atari 2600", 2.6, 2.25, "Pioneers", "#CC480C", 0.30,
+  "TurboGrafx-16", 7.2, 2.25, "Pioneers", "#DE3518", 0.30,
+  "Neo Geo AES", 9.6, 2.25, "Pioneers", "#BD8908", 0.30,
 
-  "NES", 5.0, 1.30, "Nintendo Home", "#D92027", 0.30,
-  "SNES", 9.6, 1.30, "Nintendo Home", "#6247B8", 0.30,
+  "NES", 5.0, 1.30, "Nintendo Home", "#D91E28", 0.30,
+  "SNES", 9.6, 1.30, "Nintendo Home", "#5E44B8", 0.30,
   "Nintendo 64", 12.2, 1.30, "Nintendo Home", "#C99600", 0.30,
   "GameCube", 14.8, 1.30, "Nintendo Home", "#5942B2", 0.30,
   "Nintendo Wii", 17.8, 1.30, "Nintendo Home", "#009AC7", 0.30,
@@ -23,29 +23,29 @@ nodes <- tribble(
   "Game Boy", 8.0, 0.32, "Nintendo Handheld", "#5C8514", 0.30,
   "Game Boy Color", 12.8, 0.32, "Nintendo Handheld", "#008A96", -0.32,
   "Game Boy Advance", 14.8, 0.32, "Nintendo Handheld", "#4F3EC4", 0.30,
-  "Nintendo DS", 16.9, 0.32, "Nintendo Handheld", "#0082C8", 0.30,
+  "Nintendo DS", 16.9, 0.32, "Nintendo Handheld", "#0D78C8", 0.30,
   "Nintendo 3DS", 19.6, 0.32, "Nintendo Handheld", "#009E56", 0.30,
   "Nintendo Switch", 22.0, 0.82, "Hybrid", "#E60012", 0.32,
 
-  "Master System", 5.0, -0.58, "Sega", "#D91E2A", -0.32,
+  "Master System", 5.0, -0.58, "Sega", "#D91A28", -0.32,
   "Sega Genesis", 8.0, -0.58, "Sega", "#1752BD", -0.32,
   "Sega Saturn", 11.0, -0.58, "Sega", "#008A9E", -0.32,
-  "Sega Dreamcast", 13.4, -0.58, "Sega", "#E05212", -0.32,
+  "Sega Dreamcast", 13.4, -0.58, "Sega", "#E04F0E", -0.32,
 
   "PlayStation", 11.0, -1.42, "PlayStation", "#DE6A16", -0.32,
-  "PlayStation 2", 14.0, -1.42, "PlayStation", "#1B5CE6", -0.32,
-  "PlayStation 3", 17.8, -1.42, "PlayStation", "#3E52B8", -0.32,
+  "PlayStation 2", 14.0, -1.42, "PlayStation", "#1660EE", -0.32,
+  "PlayStation 3", 17.8, -1.42, "PlayStation", "#C82230", -0.32,
   "PlayStation 4", 20.6, -1.42, "PlayStation", "#006CE6", -0.32,
   "PlayStation 5", 23.4, -1.42, "PlayStation", "#1B62F2", -0.32,
-  "PSP", 16.9, -0.58, "PlayStation Portable", "#D47B0A", -0.32,
-  "PS Vita", 19.6, -0.58, "PlayStation Portable", "#0D78E6", -0.32,
+  "PSP", 16.9, -0.58, "PlayStation Portable", "#DE7F08", -0.32,
+  "PS Vita", 19.6, -0.58, "PlayStation Portable", "#0090E6", -0.32,
 
   "Xbox", 14.8, -2.24, "Xbox", "#108910", -0.32,
-  "Xbox 360", 17.3, -2.24, "Xbox", "#DE6214", -0.32,
+  "Xbox 360", 17.3, -2.24, "Xbox", "#DF5D0E", -0.32,
   "Xbox One", 20.6, -2.24, "Xbox", "#107C10", -0.32,
-  "Xbox Series X|S", 23.4, -2.24, "Xbox", "#189E32", -0.32,
+  "Xbox Series X|S", 23.4, -2.24, "Xbox", "#107C10", -0.32,
 
-  "Steam Deck", 24.2, 2.05, "Portable PC", "#D9531E", 0.32
+  "Steam Deck", 24.2, 2.05, "Portable PC", "#DF5012", 0.32
 )
 
 edges <- tribble(
