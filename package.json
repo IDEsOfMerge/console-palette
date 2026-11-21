@@ -57,6 +57,15 @@
     "positron"
   ],
   "main": "./extension.js",
+  "scripts": {
+    "build": "node scripts/generate-themes.js && node scripts/generate-explorer.js",
+    "themes": "node scripts/generate-themes.js",
+    "explorer": "node scripts/generate-explorer.js",
+    "swatches": "node scripts/generate-swatches.js",
+    "validate": "node scripts/validate.js",
+    "test": "node --test test/*.test.js",
+    "package": "npx --yes @vscode/vsce package"
+  },
   "contributes": {
     "themes": [
       {
@@ -374,10 +383,38 @@
         "title": "Console Palette: Random Theme"
       },
       {
+        "command": "consolePalette.randomThemeSameMode",
+        "title": "Console Palette: Random Theme (Same Mode)"
+      },
+      {
+        "command": "consolePalette.syncOsThemePair",
+        "title": "Console Palette: Sync Current Console with OS Light/Dark"
+      },
+      {
         "command": "consolePalette.openExplorer",
         "title": "Console Palette: Open Palette & Colorimetry Explorer"
       }
     ],
+    "configuration": {
+      "title": "Console Palette",
+      "properties": {
+        "consolePalette.showStatusBarItem": {
+          "type": "string",
+          "enum": [
+            "always",
+            "whenActive",
+            "never"
+          ],
+          "enumDescriptions": [
+            "Always display the Console Palette quick-picker item in the status bar.",
+            "Only display the status bar item while a Console Palette theme is active.",
+            "Hide the Console Palette status bar item completely."
+          ],
+          "default": "always",
+          "markdownDescription": "Controls when the **Console Palette** theme picker item is visible in the status bar (`always`, `whenActive`, or `never`)."
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "consolePalette.toggleTheme",

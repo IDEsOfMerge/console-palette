@@ -210,6 +210,16 @@ function buildColors(p) {
     'titleBar.inactiveForeground': t.fgSecondary,
     'titleBar.border': t.borderSubtle,
 
+    // Command Center
+    'commandCenter.foreground': t.fg,
+    'commandCenter.activeForeground': t.fg,
+    'commandCenter.background': t.bgInput,
+    'commandCenter.activeBackground': t.tintHover,
+    'commandCenter.border': t.borderSubtle,
+    'commandCenter.inactiveForeground': t.fgSecondary,
+    'commandCenter.inactiveBorder': alpha(t.borderSubtle, '99'),
+    'commandCenter.activeBorder': t.accentFocus,
+
     // Panels & integrated terminal
     'panel.background': t.bgPanel,
     'panel.border': t.borderSubtle,
@@ -237,6 +247,12 @@ function buildColors(p) {
     'terminal.ansiBrightMagenta': ansi.brightMagenta,
     'terminal.ansiBrightCyan': ansi.brightCyan,
     'terminal.ansiBrightWhite': ansi.brightWhite,
+    'terminalStickyScroll.background': t.bg,
+    'terminalStickyScrollHover.background': t.bgLine,
+    'terminalStickyScroll.border': t.borderSubtle,
+    'terminalCommandDecoration.defaultBackground': t.fgMuted,
+    'terminalCommandDecoration.successBackground': t.gitAdd,
+    'terminalCommandDecoration.errorBackground': t.colorError,
 
     // Lists & trees
     'list.activeSelectionBackground': t.tintSelect,
@@ -354,6 +370,38 @@ function buildColors(p) {
     'textPreformat.foreground': t.accentType,
     'textBlockQuote.background': t.bgSidebar,
     'textBlockQuote.border': t.accentFocus,
+
+    // AI Chat & Inline Chat
+    'chat.requestBorder': t.borderSubtle,
+    'chat.requestBackground': cs.oklchMix(t.bg, t.bgSidebar, 0.55),
+    'chat.slashCommandBackground': alpha(t.accentFunction, '24'),
+    'chat.slashCommandForeground': t.accentFunction,
+    'chat.avatarBackground': t.accentButton,
+    'chat.avatarForeground': cs.readableTextOn(t.accentButton),
+    'chat.editedFileForeground': t.colorWarning,
+    'inlineChat.background': t.bgWidget,
+    'inlineChat.foreground': t.fg,
+    'inlineChat.border': t.borderStrong,
+    'inlineChat.shadow': isLight ? '#0000001F' : '#00000055',
+    'inlineChatInput.border': t.borderSubtle,
+    'inlineChatInput.focusBorder': t.accentFocus,
+    'inlineChatInput.placeholderForeground': t.fgMuted,
+    'inlineChatInput.background': t.bgInput,
+    'inlineChatDiff.inserted': alpha(t.gitAdd, '26'),
+    'inlineChatDiff.removed': alpha(t.gitDelete, '26'),
+
+    // Test Explorer
+    'testing.iconFailed': t.colorError,
+    'testing.iconErrored': t.colorError,
+    'testing.iconPassed': t.gitAdd,
+    'testing.runAction': t.gitAdd,
+    'testing.iconQueued': t.colorWarning,
+    'testing.iconUnset': t.fgMuted,
+    'testing.iconSkipped': t.fgMuted,
+    'testing.peekBorder': t.colorError,
+    'testing.peekHeaderBackground': alpha(t.colorError, '1A'),
+    'testing.message.error.lineBackground': alpha(t.colorError, '1F'),
+    'testing.message.info.decorationForeground': t.colorInfo,
 
     // Confirmed Positron IDE workbench tokens (validated against posit-dev/positron)
     'positronError.foreground': t.colorError,

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-shell-mode="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
+      color-scheme: dark;
       --shell-bg: #111317;
       --shell-surface: #181b21;
       --shell-elevated: #1f232b;
@@ -25,6 +26,7 @@
 
     html[data-shell-mode="light"],
     body[data-shell-mode="light"] {
+      color-scheme: light;
       --shell-bg: #f4f2ec;
       --shell-surface: #ffffff;
       --shell-elevated: #ece9e0;
@@ -399,7 +401,11 @@
 
     @media (max-width: 960px) {
       .wb-body { grid-template-columns: 1fr; }
-      .wb-activity, .wb-sidebar { display: none; }
+      .wb-activity { display: none; }
+      .wb-sidebar {
+        border-right: none;
+        border-bottom: 1px solid transparent;
+      }
     }
 
     .wb-activity {
@@ -545,7 +551,7 @@
     /* Science Studio Grid */
     .studio-grid {
       display: grid;
-      grid-template-columns: 7fr 5fr;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
       gap: 16px;
       align-items: start;
     }
@@ -562,6 +568,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      min-width: 0;
     }
 
     .panel-head {
@@ -586,6 +593,7 @@
 
     .table-scroll {
       overflow-x: auto;
+      max-width: 100%;
     }
 
     table.audit-table {
@@ -645,6 +653,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      min-width: 0;
     }
 
     .canvas-wrap {
@@ -656,6 +665,14 @@
       border-radius: 8px;
       background: var(--shell-bg);
       border: 1px solid var(--shell-border);
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .canvas-wrap canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
 
     .pair-compare {
@@ -668,6 +685,278 @@
       font-size: 12px;
       color: var(--shell-muted);
       flex-wrap: wrap;
+    }
+
+    /* Env actions, Compare Toggle & Multi-Format Export */
+    #env-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .export-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      max-width: 100%;
+    }
+
+    #export-format {
+      padding: 7px 10px;
+      max-width: 100%;
+    }
+
+    #btn-compare-toggle[aria-pressed="true"] {
+      background: var(--shell-accent);
+      color: var(--shell-accent-fg);
+      border-color: var(--shell-accent);
+      font-weight: 600;
+    }
+
+    /* Search & Manufacturer Filter Bar */
+    .era-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--shell-border);
+    }
+
+    .console-search {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      padding: 6.5px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--shell-border);
+      background: var(--shell-bg);
+      color: var(--shell-text);
+      flex: 1 1 230px;
+      min-width: 180px;
+      max-width: 360px;
+      outline: none;
+      transition: border-color 120ms ease;
+    }
+
+    .console-search::placeholder {
+      color: var(--shell-muted);
+    }
+
+    .console-search:focus {
+      border-color: var(--shell-accent);
+    }
+
+    .maker-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .maker-chip {
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 550;
+      background: var(--shell-bg);
+      border: 1px solid var(--shell-border);
+      color: var(--shell-muted);
+    }
+
+    .maker-chip:hover {
+      color: var(--shell-text);
+      border-color: var(--shell-border-strong);
+    }
+
+    .maker-chip[aria-pressed="true"] {
+      background: var(--shell-text);
+      color: var(--shell-bg);
+      border-color: var(--shell-text);
+      font-weight: 600;
+    }
+
+    .filter-count {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--shell-muted);
+      white-space: nowrap;
+    }
+
+    .era-empty {
+      padding: 12px 4px 4px;
+      font-size: 12.5px;
+      color: var(--shell-muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .era-empty[hidden],
+    .era-groups[hidden],
+    .compare-strip[hidden] {
+      display: none;
+    }
+
+    .era-reset-btn {
+      padding: 4px 9px;
+      font-size: 11px;
+    }
+
+    /* Side-by-Side Compare Strip */
+    .compare-strip {
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      border-radius: var(--shell-radius);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compare-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 14px;
+    }
+
+    .compare-title-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 12px;
+    }
+
+    .compare-title-wrap h2 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .compare-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+    }
+
+    .compare-label {
+      font-size: 12px;
+      font-weight: 550;
+      color: var(--shell-muted);
+    }
+
+    #compare-select {
+      padding: 7px 10px;
+      max-width: 100%;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .compare-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--shell-border-strong);
+      border-top-width: 3px;
+      font-family: var(--font-mono);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .compare-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px 10px;
+      padding: 8px 12px;
+      border-bottom: 1px solid transparent;
+      font-family: var(--font-sans);
+      font-size: 12px;
+    }
+
+    .compare-card-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .compare-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 650;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .compare-meta-sub {
+      font-size: 11px;
+    }
+
+    .compare-code {
+      margin: 0;
+      padding: 10px 0;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      flex: 1;
+    }
+
+    .compare-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px 12px;
+      padding: 7px 12px;
+      border-top: 1px solid transparent;
+      font-size: 11px;
+    }
+
+    .compare-swatches {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 5px;
+      padding: 7px 10px 8px;
+      border-top: 1px solid transparent;
+    }
+
+    .compare-swatch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 4px 5px;
+      border-radius: 5px;
+      border: 1px solid rgba(128, 128, 128, 0.28);
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 550;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .compare-swatch-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      border: 1px solid rgba(128, 128, 128, 0.4);
+      flex-shrink: 0;
     }
 
     .toast {
@@ -707,6 +996,132 @@
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+
+    /* Mobile & Narrow-Viewport Responsive Polish */
+    @media (max-width: 780px) {
+      .page-wrap {
+        padding: 12px 12px 32px;
+        gap: 12px;
+      }
+
+      .topbar {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .top-actions {
+        width: 100%;
+        gap: 6px;
+      }
+
+      .export-group {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      #export-format {
+        flex: 1 1 160px;
+        min-width: 0;
+      }
+
+      #env-actions {
+        width: 100%;
+        gap: 6px;
+      }
+
+      .era-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .console-search {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .filter-count {
+        margin-left: 0;
+      }
+
+      .compare-strip {
+        padding: 12px;
+      }
+
+      .compare-controls {
+        width: 100%;
+      }
+
+      #compare-select {
+        flex: 1 1 180px;
+        min-width: 0;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-swatches {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .wb-titlebar {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 6px 10px;
+      }
+
+      .wb-tabs {
+        width: 100%;
+        height: auto;
+      }
+
+      .wb-tab {
+        padding: 6px 10px;
+      }
+
+      .wb-body {
+        grid-template-columns: 1fr;
+      }
+
+      .wb-activity {
+        display: none;
+      }
+
+      .wb-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-right: none;
+        border-bottom: 1px solid transparent;
+        padding: 10px 12px;
+      }
+
+      .ansi-strip {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+      }
+
+      .wb-statusbar > div {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+
+      .panel-card {
+        padding: 12px 14px;
+      }
+
+      .canvas-wrap canvas {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body data-shell-mode="dark" data-target="webview" data-initial-theme="">
@@ -739,12 +1154,39 @@
         <button type="button" id="btn-random-theme" title="Jump to a random theme (R)">
           Random <span class="kbd-hint">R</span>
         </button>
+        <button type="button" id="btn-compare-toggle" aria-pressed="false" title="Toggle side-by-side comparison mode (C)">
+          Compare <span class="kbd-hint">C</span>
+        </button>
+        <span class="export-group">
+          <select id="export-format" aria-label="Export palette format" title="Choose palette export format">
+            <option value="vscode">VS Code settings.json</option>
+            <option value="ghostty">Ghostty</option>
+            <option value="wezterm">WezTerm (TOML)</option>
+            <option value="alacritty">Alacritty (TOML)</option>
+            <option value="css">CSS Variables</option>
+          </select>
+          <button type="button" id="btn-copy-export" title="Copy active theme in selected format">Copy Export</button>
+        </span>
         <span id="env-actions"></span>
       </div>
     </header>
 
-    <nav class="era-panel" aria-label="Gaming consoles by hardware era">
+    <nav class="era-panel era-rail" aria-label="Gaming consoles by hardware era">
+      <div class="era-filter-bar">
+        <input type="search" id="console-search" class="console-search" placeholder="Filter consoles by name, maker, year, or era… (/)" aria-label="Filter consoles by name, maker, year, or era" autocomplete="off" spellcheck="false" />
+        <div class="maker-chips" id="maker-chips" role="group" aria-label="Filter by manufacturer">
+          <button type="button" class="maker-chip" data-maker="All" aria-pressed="true">All</button>
+          <button type="button" class="maker-chip" data-maker="Nintendo" aria-pressed="false">Nintendo</button>
+          <button type="button" class="maker-chip" data-maker="Sony" aria-pressed="false">Sony</button>
+          <button type="button" class="maker-chip" data-maker="Sega" aria-pressed="false">Sega</button>
+          <button type="button" class="maker-chip" data-maker="Microsoft" aria-pressed="false">Microsoft</button>
+          <button type="button" class="maker-chip" data-maker="Pioneers" aria-pressed="false">Pioneers</button>
+          <button type="button" class="maker-chip" data-maker="Valve" aria-pressed="false">Valve</button>
+        </div>
+        <span class="filter-count" id="filter-count" aria-live="polite">Showing 30 / 30 consoles</span>
+      </div>
       <div class="era-groups" id="era-groups"></div>
+      <div class="era-empty" id="era-empty" hidden>No matching consoles. <button type="button" id="btn-reset-filters" class="era-reset-btn">Reset filters</button></div>
     </nav>
 
     <section class="story-bar" aria-labelledby="active-theme-heading">
@@ -764,6 +1206,21 @@
           <button type="button" class="seg-btn cvd-btn" data-cvd="tritan" role="tab" aria-selected="false">Tritanopia <span class="kbd-hint">4</span></button>
         </div>
       </div>
+    </section>
+
+    <section class="compare-strip" id="compare-strip" aria-label="Side-by-side theme comparison" hidden>
+      <div class="compare-head">
+        <div class="compare-title-wrap">
+          <h2>Side-by-Side Compare</h2>
+          <span class="panel-meta" id="compare-vision-note"></span>
+        </div>
+        <div class="compare-controls">
+          <label class="compare-label" for="compare-select">Theme B:</label>
+          <select id="compare-select" aria-label="Select comparison theme"></select>
+          <button type="button" id="btn-compare-swap" title="Swap Theme A (active) and Theme B (compare target)">Swap A ↔ B</button>
+        </div>
+      </div>
+      <div class="compare-grid" id="compare-grid"></div>
     </section>
 
     <main class="workbench" id="workbench" aria-label="Simulated Positron and VS Code Workbench">
@@ -982,6 +1439,13 @@
       let activeLang = 'r';
       let activeCvd = 'normal';
       let liveSyncWorkbench = false;
+      let searchQuery = '';
+      let activeMaker = 'All';
+      let compareEnabled = false;
+      let compareSlug = null;
+      let compareUserPinned = false;
+
+      const TOTAL_CONSOLES = ERAS.reduce((acc, g) => acc + g.consoles.length, 0);
 
       // Initialize starting theme from VS Code active theme or URL hash
       if (workbenchActiveLabel) {
@@ -990,6 +1454,47 @@
       } else if (IS_WEB && window.location.hash) {
         const slugHash = window.location.hash.slice(1).trim();
         if (THEMES.some((t) => t.slug === slugHash)) activeSlug = slugHash;
+      }
+
+      function escHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function getActiveTheme() {
+        return THEMES.find((x) => x.slug === activeSlug) || THEMES[0];
+      }
+
+      function matchesMaker(th, maker) {
+        if (!maker || maker === 'All') return true;
+        if (maker === 'Pioneers') return /atari|nec|hudson|snk/i.test(th.maker);
+        return th.maker === maker;
+      }
+
+      function matchesConsoleFilter(th) {
+        if (!matchesMaker(th, activeMaker)) return false;
+        const q = searchQuery.trim().toLowerCase();
+        if (!q) return true;
+        const hay = [
+          th.console,
+          th.shortConsole,
+          th.label,
+          th.maker,
+          String(th.year),
+          th.era,
+          th.subtitle,
+          th.slug,
+        ].join(' ').toLowerCase();
+        return q.split(/\s+/).every((part) => hay.includes(part));
+      }
+
+      function getNavigableThemes() {
+        const filtered = THEMES.filter((t) => matchesConsoleFilter(t));
+        return filtered.length > 0 ? filtered : THEMES;
       }
 
       let toastTimer = null;
@@ -1008,8 +1513,24 @@
           showToast(toastMsg);
           return;
         }
+        const fallbackCopy = () => {
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = txt;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          } catch (_) {}
+          showToast(toastMsg);
+        };
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(txt).then(() => showToast(toastMsg)).catch(() => {});
+          navigator.clipboard.writeText(txt).then(() => showToast(toastMsg)).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
         }
       }
 
@@ -1018,18 +1539,178 @@
         return THEMES.find((x) => x.console === th.console && x.mode === other);
       }
 
+      function getCompareTheme(cur) {
+        if (compareUserPinned && compareSlug) {
+          const pinned = THEMES.find((x) => x.slug === compareSlug);
+          if (pinned) return pinned;
+        }
+        const sib = findSibling(cur) || THEMES.find((x) => x.slug !== cur.slug) || cur;
+        compareSlug = sib.slug;
+        return sib;
+      }
+
+      function formatPaletteExport(th, fmt) {
+        const t = th.t;
+        const a = th.ansi;
+        const ansiOrder = [
+          'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white',
+          'brightBlack', 'brightRed', 'brightGreen', 'brightYellow', 'brightBlue', 'brightMagenta', 'brightCyan', 'brightWhite',
+        ];
+        if (fmt === 'vscode') {
+          return {
+            text: '"workbench.colorTheme": "' + th.label + '"',
+            label: 'Copied VS Code settings.json for ' + th.label,
+          };
+        }
+        if (fmt === 'ghostty') {
+          const lines = [
+            '# Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ')',
+            'background = ' + t.bg,
+            'foreground = ' + t.fg,
+            'cursor-color = ' + t.cur,
+            'cursor-text = ' + t.bg,
+            'selection-background = ' + t.tintSelect,
+            'selection-foreground = ' + t.fg,
+          ];
+          ansiOrder.forEach((slot, idx) => {
+            lines.push('palette = ' + idx + '=' + a[slot]);
+          });
+          return {
+            text: lines.join('\n'),
+            label: 'Copied Ghostty theme for ' + th.label,
+          };
+        }
+        if (fmt === 'wezterm') {
+          const lines = [
+            '# Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ')',
+            '[metadata]',
+            'name = "' + th.label + '"',
+            'author = "Console Palette"',
+            '',
+            '[colors]',
+            'foreground = "' + t.fg + '"',
+            'background = "' + t.bg + '"',
+            'cursor_bg = "' + t.cur + '"',
+            'cursor_fg = "' + t.bg + '"',
+            'cursor_border = "' + t.cur + '"',
+            'selection_bg = "' + t.tintSelect + '"',
+            'selection_fg = "' + t.fg + '"',
+            'ansi = [',
+          ];
+          ansiOrder.slice(0, 8).forEach((slot) => {
+            lines.push('  "' + a[slot] + '",');
+          });
+          lines.push(']');
+          lines.push('brights = [');
+          ansiOrder.slice(8).forEach((slot) => {
+            lines.push('  "' + a[slot] + '",');
+          });
+          lines.push(']');
+          return {
+            text: lines.join('\n'),
+            label: 'Copied WezTerm TOML for ' + th.label,
+          };
+        }
+        if (fmt === 'alacritty') {
+          const lines = [
+            '# Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ')',
+            '[colors.primary]',
+            'background = "' + t.bg + '"',
+            'foreground = "' + t.fg + '"',
+            '',
+            '[colors.cursor]',
+            'text = "' + t.bg + '"',
+            'cursor = "' + t.cur + '"',
+            '',
+            '[colors.selection]',
+            'text = "' + t.fg + '"',
+            'background = "' + t.tintSelect + '"',
+            '',
+            '[colors.normal]',
+            'black = "' + a.black + '"',
+            'red = "' + a.red + '"',
+            'green = "' + a.green + '"',
+            'yellow = "' + a.yellow + '"',
+            'blue = "' + a.blue + '"',
+            'magenta = "' + a.magenta + '"',
+            'cyan = "' + a.cyan + '"',
+            'white = "' + a.white + '"',
+            '',
+            '[colors.bright]',
+            'black = "' + a.brightBlack + '"',
+            'red = "' + a.brightRed + '"',
+            'green = "' + a.brightGreen + '"',
+            'yellow = "' + a.brightYellow + '"',
+            'blue = "' + a.brightBlue + '"',
+            'magenta = "' + a.brightMagenta + '"',
+            'cyan = "' + a.brightCyan + '"',
+            'white = "' + a.brightWhite + '"',
+          ];
+          return {
+            text: lines.join('\n'),
+            label: 'Copied Alacritty TOML for ' + th.label,
+          };
+        }
+        const cssLines = [
+          '/* Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ') */',
+          ':root {',
+          '  --cp-bg: ' + t.bg + ';',
+          '  --cp-bg-line: ' + t.bgLine + ';',
+          '  --cp-bg-sidebar: ' + t.bgSidebar + ';',
+          '  --cp-bg-panel: ' + t.bgPanel + ';',
+          '  --cp-fg: ' + t.fg + ';',
+          '  --cp-fg-secondary: ' + t.fgSecondary + ';',
+          '  --cp-fg-muted: ' + t.fgMuted + ';',
+          '  --cp-fg-comment: ' + t.fgComment + ';',
+          '  --cp-border: ' + t.borderSubtle + ';',
+          '  --cp-selection: ' + t.tintSelect + ';',
+          '  --cp-cursor: ' + t.cur + ';',
+          '  --cp-focus: ' + t.foc + ';',
+          '  --cp-keyword: ' + t.kw + ';',
+          '  --cp-storage: ' + t.stor + ';',
+          '  --cp-string: ' + t.str + ';',
+          '  --cp-regex: ' + t.rx + ';',
+          '  --cp-function: ' + t.fn + ';',
+          '  --cp-type: ' + t.type + ';',
+          '  --cp-interface: ' + t.iface + ';',
+          '  --cp-number: ' + t.num + ';',
+          '  --cp-decorator: ' + t.dec + ';',
+          '  --cp-namespace: ' + t.ns + ';',
+          '  --cp-error: ' + t.err + ';',
+          '  --cp-warning: ' + t.warn + ';',
+          '  --cp-info: ' + t.info + ';',
+        ];
+        ansiOrder.forEach((slot, idx) => {
+          cssLines.push('  --cp-ansi-' + idx + ': ' + a[slot] + ';');
+        });
+        cssLines.push('}');
+        return {
+          text: cssLines.join('\n'),
+          label: 'Copied CSS Variables for ' + th.label,
+        };
+      }
+
+      // Populate Compare target dropdown with all 60 themes
+      const compareSelect = document.getElementById('compare-select');
+      THEMES.forEach((t) => {
+        const opt = document.createElement('option');
+        opt.value = t.slug;
+        opt.textContent = t.label + ' (' + t.year + ' · ' + t.maker + ')';
+        compareSelect.appendChild(opt);
+      });
+
       // Environment-specific action buttons
       const envWrap = document.getElementById('env-actions');
       const footLinks = document.getElementById('footer-links');
       if (vscodeApi) {
         envWrap.innerHTML =
-          '<button type="button" id="btn-apply-vscode">Apply to Workbench</button> ' +
+          '<button type="button" id="btn-apply-vscode">Apply to Workbench</button>' +
           '<label class="sync-toggle" title="Automatically apply every clicked theme to your Positron / VS Code window">' +
           '<input type="checkbox" id="chk-live-sync" /> Live-sync IDE</label>';
         footLinks.textContent = 'Running inside VS Code / Positron Webview · Strict offline CSP';
 
         document.getElementById('btn-apply-vscode').addEventListener('click', () => {
-          const cur = THEMES.find((x) => x.slug === activeSlug);
+          const cur = getActiveTheme();
           if (cur) {
             workbenchActiveLabel = cur.label;
             vscodeApi.postMessage({ type: 'applyTheme', label: cur.label });
@@ -1040,7 +1721,7 @@
         document.getElementById('chk-live-sync').addEventListener('change', (e) => {
           liveSyncWorkbench = !!e.target.checked;
           if (liveSyncWorkbench) {
-            const cur = THEMES.find((x) => x.slug === activeSlug);
+            const cur = getActiveTheme();
             if (cur) {
               workbenchActiveLabel = cur.label;
               vscodeApi.postMessage({ type: 'applyTheme', label: cur.label });
@@ -1061,18 +1742,13 @@
         });
       } else {
         envWrap.innerHTML =
-          '<button type="button" id="btn-copy-setting" title="Copy workbench.colorTheme JSON setting">Copy settings.json</button> ' +
-          '<button type="button" id="btn-share-url" title="Copy direct link to this theme">Share Link</button> ' +
-          '<a class="btn-link" href="vscode:extension/idesofmerge.console-palette" title="Open extension in VS Code">Install in VS Code</a> ' +
+          '<button type="button" id="btn-share-url" title="Copy direct link to this theme">Share Link</button>' +
+          '<a class="btn-link" href="vscode:extension/idesofmerge.console-palette" title="Open extension in VS Code">Install in VS Code</a>' +
           '<a class="btn-link" href="https://github.com/idesofmerge/console-palette" target="_blank" rel="noopener">GitHub ↗</a>';
         footLinks.innerHTML =
           '<a href="https://github.com/idesofmerge/console-palette#color-science" target="_blank" rel="noopener">Color-Science Write-Up</a> · ' +
           '<a href="https://github.com/idesofmerge/console-palette" target="_blank" rel="noopener">MIT License</a>';
 
-        document.getElementById('btn-copy-setting').addEventListener('click', () => {
-          const cur = THEMES.find((x) => x.slug === activeSlug);
-          if (cur) copyText('"workbench.colorTheme": "' + cur.label + '"', 'Copied settings.json line for ' + cur.label);
-        });
         document.getElementById('btn-share-url').addEventListener('click', () => {
           const url = window.location.origin + window.location.pathname + '#' + activeSlug;
           copyText(url, 'Copied direct link to ' + activeSlug);
@@ -1081,7 +1757,7 @@
 
       function selectSlug(slug, fromUserAction) {
         activeSlug = slug;
-        const cur = THEMES.find((x) => x.slug === activeSlug) || THEMES[0];
+        const cur = getActiveTheme();
         if (IS_WEB && window.history && window.history.replaceState) {
           window.history.replaceState(null, '', '#' + cur.slug);
         }
@@ -1092,11 +1768,26 @@
         render();
       }
 
-      // Render 6-era chronological console selector strip
+      // Render 6-era chronological console selector strip with search & maker filtering
       function renderEraRail(cur) {
+        document.querySelectorAll('.maker-chip').forEach((chip) => {
+          chip.setAttribute('aria-pressed', String(chip.dataset.maker === activeMaker));
+        });
+
         const container = document.getElementById('era-groups');
+        const emptyHint = document.getElementById('era-empty');
+        const countEl = document.getElementById('filter-count');
         container.innerHTML = '';
+
+        let visibleCount = 0;
         ERAS.forEach((group) => {
+          const matching = [];
+          group.consoles.forEach((consoleName) => {
+            const target = THEMES.find((t) => t.console === consoleName && t.mode === cur.mode) || THEMES.find((t) => t.console === consoleName);
+            if (target && matchesConsoleFilter(target)) matching.push(target);
+          });
+          if (matching.length === 0) return;
+
           const block = document.createElement('div');
           block.className = 'era-block';
           const lbl = document.createElement('div');
@@ -1106,9 +1797,8 @@
 
           const pills = document.createElement('div');
           pills.className = 'era-pills';
-          group.consoles.forEach((consoleName) => {
-            const target = THEMES.find((t) => t.console === consoleName && t.mode === cur.mode) || THEMES.find((t) => t.console === consoleName);
-            if (!target) return;
+          matching.forEach((target) => {
+            visibleCount++;
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'game-pill';
@@ -1130,6 +1820,10 @@
           block.appendChild(pills);
           container.appendChild(block);
         });
+
+        countEl.textContent = 'Showing ' + visibleCount + ' / ' + TOTAL_CONSOLES + ' consoles';
+        container.hidden = visibleCount === 0;
+        emptyHint.hidden = visibleCount > 0;
       }
 
       function sp(color, text, extra) {
@@ -1143,33 +1837,33 @@
             sp(c.fgComment, '# Console Palette · Perceptual OKLCH & CIEDE2000 audit in Positron', 'font-style:italic'),
             sp(c.fn, 'library') + sp(c.fgPunct, '(') + sp(c.ns, 'tidyverse') + sp(c.fgPunct, ')'),
             '',
-            sp(c.dec, '#| label: verify-' + th.slug, 'font-style:italic'),
-            sp(c.fn, 'audit_theme') + ' ' + sp(c.kw, '<-', 'font-weight:700') + ' ' + sp(c.kw, 'function', 'font-weight:700') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'palette_df', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgParameter, 'min_aa', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, '4.5') + sp(c.fgPunct, ') {'),
-            '  ' + sp(c.fgVariable, 'verified') + ' ' + sp(c.kw, '<-', 'font-weight:700') + ' ' + sp(c.fgParameter, 'palette_df', 'font-style:italic') + ' ' + sp(c.kw, '|>', 'font-weight:700'),
-            '    ' + sp(c.ns, 'dplyr') + sp(c.fgPunct, '::') + sp(c.fn, 'filter') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'console') + ' ' + sp(c.fgPunct, '==') + ' ' + sp(c.str, '"' + th.console + '"') + sp(c.fgPunct, ')') + ' ' + sp(c.kw, '|>', 'font-weight:700'),
-            '    ' + sp(c.fn, 'mutate') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'aa_ok') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.fgVariable, 'wcag_ratio') + ' ' + sp(c.fgPunct, '>=') + ' ' + sp(c.fgParameter, 'min_aa', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgProperty, 'year') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year) + 'L') + sp(c.fgPunct, ')'),
+            sp(c.dec, '#| label: verify-' + escHtml(th.slug), 'font-style:italic'),
+            sp(c.fn, 'audit_theme') + ' ' + sp(c.kw, '&lt;-', 'font-weight:700') + ' ' + sp(c.kw, 'function', 'font-weight:700') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'palette_df', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgParameter, 'min_aa', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, '4.5') + sp(c.fgPunct, ') {'),
+            '  ' + sp(c.fgVariable, 'verified') + ' ' + sp(c.kw, '&lt;-', 'font-weight:700') + ' ' + sp(c.fgParameter, 'palette_df', 'font-style:italic') + ' ' + sp(c.kw, '|&gt;', 'font-weight:700'),
+            '    ' + sp(c.ns, 'dplyr') + sp(c.fgPunct, '::') + sp(c.fn, 'filter') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'console') + ' ' + sp(c.fgPunct, '==') + ' ' + sp(c.str, '"' + escHtml(th.console) + '"') + sp(c.fgPunct, ')') + ' ' + sp(c.kw, '|&gt;', 'font-weight:700'),
+            '    ' + sp(c.fn, 'mutate') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'aa_ok') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.fgVariable, 'wcag_ratio') + ' ' + sp(c.fgPunct, '&gt;=') + ' ' + sp(c.fgParameter, 'min_aa', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgProperty, 'year') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year) + 'L') + sp(c.fgPunct, ')'),
             '  ' + sp(c.kw, 'return', 'font-weight:700') + sp(c.fgPunct, '(') + sp(c.fgVariable, 'verified') + sp(c.fgPunct, ')') + cur,
             sp(c.fgPunct, '}'),
           ];
         }
         if (lang === 'py') {
           return [
-            sp(c.fgComment, '# Binary-search OKLCH gamut mapper & Machado (2009) cone transform', 'font-style:italic'),
+            sp(c.fgComment, '# Binary-search OKLCH gamut mapper &amp; Machado (2009) cone transform', 'font-style:italic'),
             sp(c.kw, 'from', 'font-weight:700') + ' ' + sp(c.ns, 'dataclasses') + ' ' + sp(c.kw, 'import', 'font-weight:700') + ' ' + sp(c.fn, 'dataclass'),
             sp(c.kw, 'import', 'font-weight:700') + ' ' + sp(c.ns, 're'),
             '',
             sp(c.dec, '@dataclass(frozen=True)', 'font-style:italic'),
             sp(c.stor, 'class', 'font-style:italic') + ' ' + sp(c.type, 'ConsoleSpec', 'font-weight:700') + sp(c.fgPunct, ':'),
-            '    ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'str', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.str, '"' + th.slug + '"'),
+            '    ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'str', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.str, '"' + escHtml(th.slug) + '"'),
             '    ' + sp(c.fgProperty, 'release_year') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'int', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year)),
             '',
-            sp(c.stor, 'def', 'font-style:italic') + ' ' + sp(c.fn, 'is_valid_hex') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'token', 'font-style:italic') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'str', 'font-style:italic') + sp(c.fgPunct, ') ->') + ' ' + sp(c.iface, 'bool', 'font-style:italic') + sp(c.fgPunct, ':'),
+            sp(c.stor, 'def', 'font-style:italic') + ' ' + sp(c.fn, 'is_valid_hex') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'token', 'font-style:italic') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'str', 'font-style:italic') + sp(c.fgPunct, ') -&gt;') + ' ' + sp(c.iface, 'bool', 'font-style:italic') + sp(c.fgPunct, ':'),
             '    ' + sp(c.kw, 'return', 'font-weight:700') + ' ' + sp(c.ns, 're') + sp(c.fgPunct, '.') + sp(c.fn, 'match') + sp(c.fgPunct, '(') + sp(c.rx, 'r"^#[0-9A-F]{6}$"') + sp(c.fgPunct, ', ') + sp(c.fgParameter, 'token', 'font-style:italic') + sp(c.fgPunct, ')') + ' ' + sp(c.kw, 'is not', 'font-weight:700') + ' ' + sp(c.num, 'None') + cur,
           ];
         }
         if (lang === 'ts') {
           return [
-            sp(c.fgComment, '// Live-preview QuickPick & smart per-console Light/Dark toggle', 'font-style:italic'),
+            sp(c.fgComment, '// Live-preview QuickPick &amp; smart per-console Light/Dark toggle', 'font-style:italic'),
             sp(c.kw, 'export', 'font-weight:700') + ' ' + sp(c.stor, 'interface', 'font-style:italic') + ' ' + sp(c.iface, 'ConsoleThemeEntry', 'font-style:italic') + ' ' + sp(c.fgPunct, '{'),
             '  ' + sp(c.stor, 'readonly', 'font-style:italic') + ' ' + sp(c.fgProperty, 'label') + sp(c.fgPunct, ':') + ' ' + sp(c.type, 'string', 'font-weight:700') + sp(c.fgPunct, ';'),
             '  ' + sp(c.fgProperty, 'mode') + sp(c.fgPunct, ':') + ' ' + sp(c.str, '"light"') + ' ' + sp(c.kw, '|', 'font-weight:700') + ' ' + sp(c.str, '"dark"') + sp(c.fgPunct, ';'),
@@ -1178,23 +1872,65 @@
             sp(c.dec, '@command', 'font-style:italic') + sp(c.fgPunct, '(') + sp(c.str, '"consolePalette.toggleTheme"') + sp(c.fgPunct, ')'),
             sp(c.kw, 'export async', 'font-weight:700') + ' ' + sp(c.stor, 'function', 'font-style:italic') + ' ' + sp(c.fn, 'activatePair') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'entry', 'font-style:italic') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'ConsoleThemeEntry', 'font-style:italic') + sp(c.fgPunct, ') {'),
             '  ' + sp(c.stor, 'const', 'font-style:italic') + ' ' + sp(c.fgVariable, 'themesTotal') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, '60') + sp(c.fgPunct, ';'),
-            '  ' + sp(c.kw, 'await', 'font-weight:700') + ' ' + sp(c.ns, 'workbench') + sp(c.fgPunct, '.') + sp(c.fn, 'setColorTheme') + sp(c.fgPunct, '(') + sp(c.str, '"' + th.label + '"') + sp(c.fgPunct, ')') + cur,
+            '  ' + sp(c.kw, 'await', 'font-weight:700') + ' ' + sp(c.ns, 'workbench') + sp(c.fgPunct, '.') + sp(c.fn, 'setColorTheme') + sp(c.fgPunct, '(') + sp(c.str, '"' + escHtml(th.label) + '"') + sp(c.fgPunct, ')') + cur,
             sp(c.fgPunct, '}'),
           ];
         }
         return [
           sp(c.fgPunct, '---'),
-          sp(c.fgProperty, 'title') + sp(c.fgPunct, ': ') + sp(c.str, '"' + th.label + ' — Colorimetry Report"'),
+          sp(c.fgProperty, 'title') + sp(c.fgPunct, ': ') + sp(c.str, '"' + escHtml(th.label) + ' — Colorimetry Report"'),
           sp(c.fgProperty, 'format') + sp(c.fgPunct, ': ') + sp(c.type, 'html', 'font-weight:700'),
           sp(c.fgPunct, '---'),
           '',
-          sp(c.kw, '## ' + th.console + ' (' + th.year + ' · ' + th.maker + ')', 'font-weight:700'),
+          sp(c.kw, '## ' + escHtml(th.console) + ' (' + th.year + ' · ' + escHtml(th.maker) + ')', 'font-weight:700'),
           '',
-          sp(c.fg, 'Every foreground & syntax token clears ') + sp(c.fg, '**WCAG 2.1 AA (4.5:1)**', 'font-weight:700') + sp(c.fg, ' on ') + sp(c.type, '\x60editor.background\x60') + sp(c.fg, '.'),
+          sp(c.fg, 'Every foreground &amp; syntax token clears ') + sp(c.fg, '**WCAG 2.1 AA (4.5:1)**', 'font-weight:700') + sp(c.fg, ' on ') + sp(c.type, '\x60editor.background\x60') + sp(c.fg, '.'),
           '',
           sp(c.dec, '\x60\x60\x60{sql}', 'font-style:italic'),
           sp(c.kw, 'SELECT', 'font-weight:700') + ' ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ', ') + sp(c.fn, 'MIN') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'wcag_ratio') + sp(c.fgPunct, ') ') + sp(c.kw, 'AS', 'font-weight:700') + ' ' + sp(c.fgVariable, 'tightest_role') + ' ' + sp(c.kw, 'FROM', 'font-weight:700') + ' ' + sp(c.type, 'palettes', 'font-weight:700') + ' ' + sp(c.kw, 'WHERE', 'font-weight:700') + ' ' + sp(c.fgProperty, 'year') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year)) + sp(c.fgPunct, ';') + cur,
           sp(c.dec, '\x60\x60\x60', 'font-style:italic'),
+        ];
+      }
+
+      function buildMiniCodeSample(c, lang, th) {
+        const cur = '<span class="sim-cursor" style="background:' + c.cur + '"></span>';
+        if (lang === 'r') {
+          return [
+            sp(c.fgComment, '# ' + escHtml(th.label) + ' · OKLCH contrast check', 'font-style:italic'),
+            sp(c.fn, 'verify') + ' ' + sp(c.kw, '&lt;-', 'font-weight:700') + ' ' + sp(c.kw, 'function', 'font-weight:700') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'df', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgParameter, 'floor', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, '4.5') + sp(c.fgPunct, ') {'),
+            '  ' + sp(c.fgParameter, 'df', 'font-style:italic') + ' ' + sp(c.kw, '|&gt;', 'font-weight:700') + ' ' + sp(c.ns, 'dplyr') + sp(c.fgPunct, '::') + sp(c.fn, 'filter') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'console') + ' ' + sp(c.fgPunct, '==') + ' ' + sp(c.str, '"' + escHtml(th.console) + '"') + sp(c.fgPunct, ')') + ' ' + sp(c.kw, '|&gt;', 'font-weight:700'),
+            '    ' + sp(c.fn, 'mutate') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'ok') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.fgVariable, 'ratio') + ' ' + sp(c.fgPunct, '&gt;=') + ' ' + sp(c.fgParameter, 'floor', 'font-style:italic') + sp(c.fgPunct, ', ') + sp(c.fgProperty, 'yr') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year) + 'L') + sp(c.fgPunct, ')'),
+            '  ' + sp(c.kw, 'return', 'font-weight:700') + sp(c.fgPunct, '(') + sp(c.fgVariable, 'ok') + sp(c.fgPunct, ')') + cur,
+            sp(c.fgPunct, '}'),
+          ];
+        }
+        if (lang === 'py') {
+          return [
+            sp(c.fgComment, '# ' + escHtml(th.label) + ' · OKLCH gamut &amp; CVD check', 'font-style:italic'),
+            sp(c.dec, '@dataclass(frozen=True)', 'font-style:italic'),
+            sp(c.stor, 'class', 'font-style:italic') + ' ' + sp(c.type, 'PaletteSpec', 'font-weight:700') + sp(c.fgPunct, ':'),
+            '    ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'str', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.str, '"' + escHtml(th.slug) + '"'),
+            '    ' + sp(c.fgProperty, 'year') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'int', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year)) + '  ' + sp(c.fgComment, '# ' + escHtml(th.maker), 'font-style:italic') + cur,
+            '    ' + sp(c.fgProperty, 'wcag_aa') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'bool', 'font-style:italic') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, 'True'),
+          ];
+        }
+        if (lang === 'ts') {
+          return [
+            sp(c.fgComment, '// ' + escHtml(th.label) + ' · Workbench Theme Spec', 'font-style:italic'),
+            sp(c.kw, 'export', 'font-weight:700') + ' ' + sp(c.stor, 'interface', 'font-style:italic') + ' ' + sp(c.iface, 'ThemePair', 'font-style:italic') + ' ' + sp(c.fgPunct, '{'),
+            '  ' + sp(c.stor, 'readonly', 'font-style:italic') + ' ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ':') + ' ' + sp(c.type, 'string', 'font-weight:700') + sp(c.fgPunct, ';') + ' ' + sp(c.fgComment, '// ' + escHtml(th.slug), 'font-style:italic'),
+            '  ' + sp(c.fgProperty, 'mode') + sp(c.fgPunct, ':') + ' ' + sp(c.str, '"' + escHtml(th.mode) + '"') + sp(c.fgPunct, '; ') + sp(c.fgProperty, 'year') + sp(c.fgPunct, ':') + ' ' + sp(c.num, String(th.year)) + sp(c.fgPunct, ';'),
+            '  ' + sp(c.fgProperty, 'apply') + sp(c.fgPunct, ': () =&gt;') + ' ' + sp(c.fn, 'setTheme') + sp(c.fgPunct, '(') + sp(c.str, '"' + escHtml(th.label) + '"') + sp(c.fgPunct, ');') + cur,
+            sp(c.fgPunct, '}'),
+          ];
+        }
+        return [
+          sp(c.fgPunct, '---'),
+          sp(c.fgProperty, 'title') + sp(c.fgPunct, ': ') + sp(c.str, '"' + escHtml(th.label) + '"'),
+          sp(c.fgPunct, '---'),
+          sp(c.kw, '## ' + escHtml(th.console) + ' (' + th.year + ' · ' + escHtml(th.maker) + ')', 'font-weight:700'),
+          sp(c.kw, 'SELECT', 'font-weight:700') + ' ' + sp(c.fgProperty, 'slug') + sp(c.fgPunct, ', ') + sp(c.fn, 'MIN') + sp(c.fgPunct, '(') + sp(c.fgProperty, 'wcag') + sp(c.fgPunct, ') ') + sp(c.kw, 'FROM', 'font-weight:700') + ' ' + sp(c.type, 'palettes', 'font-weight:700') + ' ' + sp(c.kw, 'WHERE', 'font-weight:700') + ' ' + sp(c.fgProperty, 'year') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(th.year)) + sp(c.fgPunct, ';') + cur,
+          sp(c.fg, 'All 18 semantic roles clear ') + sp(c.fg, '**WCAG 2.1 AA (4.5:1)**', 'font-weight:700') + sp(c.fg, '.'),
         ];
       }
 
@@ -1222,8 +1958,113 @@
       const POLY_KEYS = ['kw', 'stor', 'str', 'rx', 'fn', 'type', 'iface', 'num', 'dec', 'ns'];
       const POLY_NAMES = ['kw', 'sto', 'str', 'rgx', 'fn', 'typ', 'ifc', 'num', 'dec', 'ns'];
       const CRITICAL_KEYS = ['kw', 'stor', 'str', 'fn', 'type', 'num', 'err'];
+      const COMPARE_SWATCH_ROLES = ['bg', 'kw', 'str', 'fn', 'type', 'cur'];
 
-      function drawChromaCanvas(simCur, simSib, isLightShell) {
+      function computeMinCritDe(simTokens) {
+        let minCritDe = Infinity;
+        let minPairNames = '';
+        for (let i = 0; i < CRITICAL_KEYS.length; i++) {
+          for (let j = i + 1; j < CRITICAL_KEYS.length; j++) {
+            const k1 = CRITICAL_KEYS[i], k2 = CRITICAL_KEYS[j];
+            const d = deltaE76(simTokens[k1], simTokens[k2]);
+            if (d < minCritDe) {
+              minCritDe = d;
+              minPairNames = k1 + '/' + k2;
+            }
+          }
+        }
+        return { minCritDe, minPairNames };
+      }
+
+      function buildCompareCard(roleTag, th, sim) {
+        const card = document.createElement('div');
+        card.className = 'compare-card';
+        card.style.backgroundColor = sim.bg;
+        card.style.color = sim.fg;
+        card.style.borderColor = sim.borderStrong;
+        card.style.borderTopColor = sim.foc;
+
+        const head = document.createElement('div');
+        head.className = 'compare-card-head';
+        head.style.backgroundColor = sim.bgActivity;
+        head.style.borderBottomColor = sim.borderSubtle;
+        head.innerHTML =
+          '<span class="compare-card-title">' +
+            '<span class="compare-badge" style="background:' + sim.bgLine + ';color:' + sim.fgSecondary + '">' + escHtml(roleTag) + '</span>' +
+            '<strong style="color:' + sim.fg + '">' + escHtml(th.label) + '</strong>' +
+          '</span>' +
+          '<span class="compare-meta-sub" style="color:' + sim.fgSecondary + '">' + th.year + ' · ' + escHtml(th.maker) + '</span>';
+        card.appendChild(head);
+
+        const pre = document.createElement('pre');
+        pre.className = 'compare-code';
+        pre.style.backgroundColor = sim.bg;
+        const lines = buildMiniCodeSample(sim, activeLang, th);
+        pre.innerHTML = lines.map((ln, idx) => {
+          const hi = idx === 3;
+          return '<div class="code-line" style="background:' + (hi ? sim.bgLine : 'transparent') + '">' +
+            '<span class="line-num" style="color:' + (hi ? sim.fgSecondary : sim.fgMuted) + '">' + (idx + 1) + '</span>' +
+            '<span>' + (ln || ' ') + '</span></div>';
+        }).join('');
+        card.appendChild(pre);
+
+        const fgW = wcag(sim.fg, sim.bg).toFixed(2);
+        const fgLc = Math.abs(apcaLc(sim.fg, sim.bg)).toFixed(1);
+        const crit = computeMinCritDe(sim);
+        const cvdText = th.slug === 'gameboy-dark'
+          ? 'DMG-01 Mono (' + crit.minCritDe.toFixed(1) + ')'
+          : 'Min ΔE*ab ' + crit.minCritDe.toFixed(1) + ' (' + crit.minPairNames + ')';
+
+        const metrics = document.createElement('div');
+        metrics.className = 'compare-metrics';
+        metrics.style.backgroundColor = sim.bgPanel;
+        metrics.style.borderTopColor = sim.borderSubtle;
+        metrics.style.color = sim.fgSecondary;
+        metrics.innerHTML =
+          '<span>WCAG fg/bg <strong style="color:' + sim.fg + '">' + fgW + ':1</strong></span>' +
+          '<span>APCA |Lc| <strong style="color:' + sim.fg + '">' + fgLc + '</strong></span>' +
+          '<span style="color:' + sim.type + '">' + escHtml(cvdText) + '</span>';
+        card.appendChild(metrics);
+
+        const swatches = document.createElement('div');
+        swatches.className = 'compare-swatches';
+        swatches.style.backgroundColor = sim.bgSidebar;
+        swatches.style.borderTopColor = sim.borderSubtle;
+        COMPARE_SWATCH_ROLES.forEach((role) => {
+          const hex = sim[role];
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'compare-swatch';
+          btn.style.color = sim.fgSecondary;
+          btn.style.borderColor = sim.borderSubtle;
+          btn.title = th.label + ' · ' + role + ': ' + hex + ' (click to copy)';
+          btn.innerHTML = '<span class="compare-swatch-dot" style="background:' + hex + '"></span><span>' + role + '</span>';
+          btn.addEventListener('click', () => copyText(hex, 'Copied ' + th.label + ' ' + role + ' (' + hex + ')'));
+          swatches.appendChild(btn);
+        });
+        card.appendChild(swatches);
+
+        return card;
+      }
+
+      function renderCompareStrip(th, c, cmpTheme, simCmp, cvdTitle) {
+        const strip = document.getElementById('compare-strip');
+        const toggleBtn = document.getElementById('btn-compare-toggle');
+        toggleBtn.setAttribute('aria-pressed', String(compareEnabled));
+        strip.hidden = !compareEnabled;
+        if (!compareEnabled || !cmpTheme || !simCmp) return;
+
+        compareSelect.value = cmpTheme.slug;
+        document.getElementById('compare-vision-note').textContent =
+          cvdTitle + ' · Dashed OKLab polygon tracks Theme B';
+
+        const grid = document.getElementById('compare-grid');
+        grid.innerHTML = '';
+        grid.appendChild(buildCompareCard('Theme A · Active', th, c));
+        grid.appendChild(buildCompareCard('Theme B · Compare', cmpTheme, simCmp));
+      }
+
+      function drawChromaCanvas(simCur, simRef, isLightShell, isCompareActive) {
         const canvas = document.getElementById('canvas-chroma');
         const ctx = canvas.getContext('2d');
         const dpr = window.devicePixelRatio || 1;
@@ -1231,7 +2072,8 @@
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
+        canvas.style.maxWidth = '100%';
+        canvas.style.height = 'auto';
         ctx.scale(dpr, dpr);
         ctx.clearRect(0, 0, w, h);
 
@@ -1260,20 +2102,35 @@
         ctx.fillText('+b (yellow)', cx + 5, 20);
         ctx.fillText('-b (blue)', cx + 5, h - 10);
 
-        if (simSib) {
-          const sibPts = POLY_KEYS.map((k) => {
-            const ok = hexToOklch(simSib[k]);
-            return { x: cx + ok.a * scale, y: cy - ok.b * scale };
+        if (simRef) {
+          const refPts = POLY_KEYS.map((k) => {
+            const hex = simRef[k];
+            const ok = hexToOklch(hex);
+            return { x: cx + ok.a * scale, y: cy - ok.b * scale, hex };
           });
           ctx.save();
           ctx.setLineDash([4, 4]);
-          ctx.strokeStyle = isLightShell ? 'rgba(24,27,32,0.32)' : 'rgba(236,239,244,0.32)';
-          ctx.lineWidth = 1.25;
+          ctx.strokeStyle = isCompareActive
+            ? (isLightShell ? 'rgba(24,27,32,0.55)' : 'rgba(236,239,244,0.55)')
+            : (isLightShell ? 'rgba(24,27,32,0.32)' : 'rgba(236,239,244,0.32)');
+          ctx.lineWidth = isCompareActive ? 1.5 : 1.25;
           ctx.beginPath();
-          sibPts.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)));
+          refPts.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)));
           ctx.closePath();
           ctx.stroke();
           ctx.restore();
+
+          if (isCompareActive) {
+            refPts.forEach((p) => {
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+              ctx.fillStyle = p.hex;
+              ctx.fill();
+              ctx.lineWidth = 1;
+              ctx.strokeStyle = isLightShell ? 'rgba(24,27,32,0.5)' : 'rgba(236,239,244,0.5)';
+              ctx.stroke();
+            });
+          }
         }
 
         const pts = POLY_KEYS.map((k, idx) => {
@@ -1308,7 +2165,8 @@
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
+        canvas.style.maxWidth = '100%';
+        canvas.style.height = 'auto';
         ctx.scale(dpr, dpr);
         ctx.clearRect(0, 0, w, h);
 
@@ -1371,8 +2229,9 @@
       }
 
       function render() {
-        const th = THEMES.find((x) => x.slug === activeSlug) || THEMES[0];
+        const th = getActiveTheme();
         const sib = findSibling(th);
+        const cmpTheme = compareEnabled ? getCompareTheme(th) : sib;
         const isLightShell = th.mode === 'light';
         document.documentElement.dataset.shellMode = th.mode;
         document.body.dataset.shellMode = th.mode;
@@ -1409,7 +2268,10 @@
         // Simulate tokens
         const c = {};
         for (const [k, v] of Object.entries(th.t)) c[k] = simHex(v, activeCvd);
-        const simSib = sib ? Object.fromEntries(Object.entries(sib.t).map(([k, v]) => [k, simHex(v, activeCvd)])) : null;
+        const simCmp = cmpTheme ? Object.fromEntries(Object.entries(cmpTheme.t).map(([k, v]) => [k, simHex(v, activeCvd)])) : null;
+        const cvdTitle = { normal: 'Normal Trichromacy', protan: 'Simulated Protanopia', deutan: 'Simulated Deuteranopia', tritan: 'Simulated Tritanopia' }[activeCvd];
+
+        renderCompareStrip(th, c, cmpTheme, simCmp, cvdTitle);
 
         // Workbench styling
         const wb = document.getElementById('workbench');
@@ -1432,7 +2294,6 @@
         });
 
         const pill = document.getElementById('wb-vision-pill');
-        const cvdTitle = { normal: 'Normal Trichromacy', protan: 'Simulated Protanopia', deutan: 'Simulated Deuteranopia', tritan: 'Simulated Tritanopia' }[activeCvd];
         pill.textContent = cvdTitle;
         pill.style.backgroundColor = c.bgLine;
         pill.style.color = c.fgSecondary;
@@ -1448,6 +2309,7 @@
         const sidebar = document.getElementById('wb-sidebar');
         sidebar.style.backgroundColor = c.bgSidebar;
         sidebar.style.borderRightColor = c.borderSubtle;
+        sidebar.style.borderBottomColor = c.borderSubtle;
         document.getElementById('wb-exp-head').style.color = c.fgMuted;
         document.getElementById('wb-var-head').style.color = c.fgMuted;
         document.getElementById('wb-positron-pane').style.borderTopColor = c.borderSubtle;
@@ -1472,21 +2334,10 @@
         });
 
         // Compute minimum critical pair DeltaE76 under current vision mode
-        let minCritDe = Infinity;
-        let minPairNames = '';
-        for (let i = 0; i < CRITICAL_KEYS.length; i++) {
-          for (let j = i + 1; j < CRITICAL_KEYS.length; j++) {
-            const k1 = CRITICAL_KEYS[i], k2 = CRITICAL_KEYS[j];
-            const d = deltaE76(c[k1], c[k2]);
-            if (d < minCritDe) {
-              minCritDe = d;
-              minPairNames = k1 + '/' + k2;
-            }
-          }
-        }
+        const { minCritDe, minPairNames } = computeMinCritDe(c);
 
         document.getElementById('wb-var-list').innerHTML = [
-          '<div class="wb-var-row"><span style="color:' + c.fgVariable + '">active_slug</span><span style="color:' + c.str + '">"' + th.slug + '"</span></div>',
+          '<div class="wb-var-row"><span style="color:' + c.fgVariable + '">active_slug</span><span style="color:' + c.str + '">"' + escHtml(th.slug) + '"</span></div>',
           '<div class="wb-var-row"><span style="color:' + c.fgVariable + '">release_yr</span><span style="color:' + c.num + '">' + th.year + 'L</span></div>',
           '<div class="wb-var-row"><span style="color:' + c.fgVariable + '">min_de76</span><span style="color:' + c.fn + '">' + minCritDe.toFixed(1) + '</span></div>',
           '<div class="wb-var-row"><span style="color:' + c.fgVariable + '">wcag_gate</span><span style="color:' + c.kw + ';font-weight:700">TRUE</span></div>',
@@ -1512,7 +2363,7 @@
         const fgW = wcag(c.fg, c.bg).toFixed(2);
         const fgLc = Math.abs(apcaLc(c.fg, c.bg)).toFixed(1);
         document.getElementById('wb-console-lines').innerHTML =
-          '<div><span style="color:' + c.kw + ';font-weight:700">&gt;</span> <span style="color:' + c.fn + '">audit_palette</span><span style="color:' + c.fgPunct + '">(</span><span style="color:' + c.str + '">"' + th.slug + '"</span><span style="color:' + c.fgPunct + ')</span></div>' +
+          '<div><span style="color:' + c.kw + ';font-weight:700">&gt;</span> <span style="color:' + c.fn + '">audit_palette</span><span style="color:' + c.fgPunct + '">(</span><span style="color:' + c.str + '">"' + escHtml(th.slug) + '"</span><span style="color:' + c.fgPunct + '">)</span></div>' +
           '<div style="color:' + c.fgSecondary + ';margin-top:2px">✔ fg/bg = <span style="color:' + c.num + '">' + fgW + ':1</span> (APCA |Lc| <span style="color:' + c.num + '">' + fgLc + '</span>) · min critical pair ΔE*ab = <span style="color:' + c.type + '">' + minCritDe.toFixed(1) + '</span> (' + minPairNames + ')</div>';
 
         const ansiOrder = [
@@ -1575,39 +2426,104 @@
         document.getElementById('cvd-min-readout').textContent =
           'Min critical ΔE*ab (' + activeCvd + '): ' + minCritDe.toFixed(1) + ' (' + minPairNames + ')';
 
-        // Pair comparison box
+        // Chromaticity legend & pair comparison box
+        document.getElementById('chroma-meta').textContent = (compareEnabled && cmpTheme)
+          ? 'Solid = ' + th.label + ' · Dashed = ' + cmpTheme.label
+          : 'Solid = active · Dashed = Light/Dark sibling';
+
         const pairBox = document.getElementById('pair-compare-box');
-        if (sib) {
+        if (cmpTheme && simCmp) {
+          const relationLabel = compareEnabled ? 'Compare target:' : 'Paired variant:';
           pairBox.innerHTML =
-            '<span>Paired variant: <strong>' + sib.label + '</strong></span>' +
-            '<span class="swatch-chip">Identity cursor: <span class="swatch-box" style="background:' + c.cur + '"></span><code>' + c.cur + '</code> ↔ <span class="swatch-box" style="background:' + simSib.cur + '"></span><code>' + simSib.cur + '</code></span>';
+            '<span>' + relationLabel + ' <strong>' + escHtml(cmpTheme.label) + '</strong></span>' +
+            '<span class="swatch-chip">Identity cursor: <span class="swatch-box" style="background:' + c.cur + '"></span><code>' + c.cur + '</code> ↔ <span class="swatch-box" style="background:' + simCmp.cur + '"></span><code>' + simCmp.cur + '</code></span>';
         }
 
-        drawChromaCanvas(c, simSib, isLightShell);
+        drawChromaCanvas(c, simCmp, isLightShell, compareEnabled);
         drawLightnessCanvas(c, isLightShell);
       }
 
       // Controls & Keyboard Shortcuts
+      const searchInput = document.getElementById('console-search');
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderEraRail(getActiveTheme());
+      });
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          searchQuery = '';
+          searchInput.value = '';
+          searchInput.blur();
+          renderEraRail(getActiveTheme());
+        }
+      });
+
+      document.querySelectorAll('.maker-chip').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          activeMaker = chip.dataset.maker || 'All';
+          renderEraRail(getActiveTheme());
+        });
+      });
+
+      document.getElementById('btn-reset-filters').addEventListener('click', () => {
+        searchQuery = '';
+        searchInput.value = '';
+        activeMaker = 'All';
+        renderEraRail(getActiveTheme());
+      });
+
+      document.getElementById('btn-copy-export').addEventListener('click', () => {
+        const cur = getActiveTheme();
+        const fmt = document.getElementById('export-format').value || 'vscode';
+        const out = formatPaletteExport(cur, fmt);
+        copyText(out.text, out.label);
+      });
+
+      document.getElementById('btn-compare-toggle').addEventListener('click', () => {
+        compareEnabled = !compareEnabled;
+        render();
+      });
+
+      compareSelect.addEventListener('change', (e) => {
+        compareSlug = e.target.value;
+        compareUserPinned = true;
+        render();
+      });
+
+      document.getElementById('btn-compare-swap').addEventListener('click', () => {
+        const cur = getActiveTheme();
+        const target = getCompareTheme(cur);
+        if (!target || target.slug === cur.slug) return;
+        compareSlug = cur.slug;
+        compareUserPinned = true;
+        selectSlug(target.slug, true);
+      });
+
       document.getElementById('btn-toggle-mode').addEventListener('click', () => {
-        const cur = THEMES.find((x) => x.slug === activeSlug) || THEMES[0];
+        const cur = getActiveTheme();
         const sib = findSibling(cur);
         if (sib) selectSlug(sib.slug, true);
       });
 
       document.getElementById('btn-prev-theme').addEventListener('click', () => {
-        const idx = THEMES.findIndex((x) => x.slug === activeSlug);
-        const nextIdx = (idx - 1 + THEMES.length) % THEMES.length;
-        selectSlug(THEMES[nextIdx].slug, true);
+        const pool = getNavigableThemes();
+        const idx = pool.findIndex((x) => x.slug === activeSlug);
+        const nextIdx = idx === -1 ? pool.length - 1 : (idx - 1 + pool.length) % pool.length;
+        selectSlug(pool[nextIdx].slug, true);
       });
 
       document.getElementById('btn-next-theme').addEventListener('click', () => {
-        const idx = THEMES.findIndex((x) => x.slug === activeSlug);
-        const nextIdx = (idx + 1) % THEMES.length;
-        selectSlug(THEMES[nextIdx].slug, true);
+        const pool = getNavigableThemes();
+        const idx = pool.findIndex((x) => x.slug === activeSlug);
+        const nextIdx = idx === -1 ? 0 : (idx + 1) % pool.length;
+        selectSlug(pool[nextIdx].slug, true);
       });
 
       document.getElementById('btn-random-theme').addEventListener('click', () => {
-        const pool = THEMES.filter((x) => x.slug !== activeSlug);
+        const navPool = getNavigableThemes();
+        const base = navPool.length > 1 ? navPool : THEMES;
+        const pool = base.filter((x) => x.slug !== activeSlug);
         selectSlug(pool[Math.floor(Math.random() * pool.length)].slug, true);
       });
 
@@ -1623,7 +2539,13 @@
         if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA')) return;
         if (e.metaKey || e.ctrlKey || e.altKey) return;
         const k = e.key.toLowerCase();
-        if (k === 't') {
+        if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        } else if (k === 'c') {
+          document.getElementById('btn-compare-toggle').click();
+        } else if (k === 't') {
           document.getElementById('btn-toggle-mode').click();
         } else if (k === 'r') {
           document.getElementById('btn-random-theme').click();

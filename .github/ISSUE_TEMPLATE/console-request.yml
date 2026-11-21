@@ -1,0 +1,75 @@
+name: Request a Gaming Console
+description: Propose a new Light & Dark gaming console palette for Console Palette
+title: "[Console]: "
+labels:
+  - enhancement
+  - console-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new console for **Console Palette**!
+        Every console ships as a matched **Light & Dark** pair synthesized in **OKLCH** and verified against **WCAG 2.1 AA**, **APCA-W3**, **CIEDE2000**, and **Machado et al. (2009)** CVD gates.
+
+  - type: input
+    id: console_name
+    attributes:
+      label: Console name & manufacturer
+      description: Full hardware name and maker.
+      placeholder: "e.g., Sega Game Gear (Sega), Nintendo Wii U (Nintendo), Virtual Boy (Nintendo), Atari Lynx (Atari), WonderSwan (Bandai), Playdate (Panic)"
+    validations:
+      required: true
+
+  - type: input
+    id: launch_year_era
+    attributes:
+      label: Launch year & hardware era
+      description: Original launch year and console generation / hardware category.
+      placeholder: "e.g., 1990 — 8-bit/16-bit Portable · or 2022 — Modern Indie Handheld"
+    validations:
+      required: true
+
+  - type: textarea
+    id: light_finish
+    attributes:
+      label: Light mode finish inspiration
+      description: Outer plastic shell, special edition casing, metallic trim, or system UI surface that should anchor the Light theme background and chrome.
+      placeholder: "e.g., Glossy white Wii U Basic shell with soft cool-grey GamePad bezel accents and Miiverse light UI panels"
+    validations:
+      required: true
+
+  - type: textarea
+    id: dark_finish
+    attributes:
+      label: Dark mode finish inspiration
+      description: Black/charcoal hardware variant, boot/BIOS screen, or display medium (CRT, backlit LCD, OLED) that should anchor the Dark theme.
+      placeholder: "e.g., Piano-black Deluxe console finish or midnight boot screen with crisp backlit display contrast"
+    validations:
+      required: true
+
+  - type: textarea
+    id: accent_colors
+    attributes:
+      label: Iconic hardware accent colors
+      description: Distinctive buttons, LEDs, power indicators, or UI stripes that define the console's industrial color language. Color descriptions or approximate hex values are welcome — please do not attach copyrighted artwork or logos.
+      placeholder: "e.g., Electric cyan power ring / UI highlight, crimson action button, amber battery LED, emerald status indicator"
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra_context
+    attributes:
+      label: Additional hardware context (optional)
+      description: Regional color variants (JP / NA / PAL), display traits, or syntax-role ideas you'd love to see honored.
+      placeholder: "Optional notes on regional finishes, screen tint, or button-to-syntax mapping ideas"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: ip_guidelines
+    attributes:
+      label: Hardware-inspiration-only IP guidelines
+      description: Console Palette celebrates industrial design and color craft exclusively without third-party intellectual property.
+      options:
+        - label: I understand that Console Palette draws strictly from industrial color language and hardware atmosphere — no console logos, sprites, artwork, or trademarks will be included or requested.
+          required: true

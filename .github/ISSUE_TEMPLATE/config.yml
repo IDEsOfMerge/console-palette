@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Live Interactive Workbench & Colorimetry Explorer
+    url: https://idesofmerge.github.io/console-palette/
+    about: Preview all 60 Light & Dark themes, inspect OKLCH/WCAG/APCA metrics, and test protanopia/deuteranopia/tritanopia simulations before opening a request.

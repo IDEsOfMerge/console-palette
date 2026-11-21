@@ -86,6 +86,60 @@ function main() {
     fail(`theme-metadata.json has ${meta?.length} entries, expected ${EXPECTED_THEME_COUNT}`);
   }
 
+  // Verify contributes.commands and contributes.configuration schemas
+  if (!Array.isArray(pkg.contributes?.commands) || pkg.contributes.commands.length === 0) {
+    fail('package.json contributes.commands must be a non-empty array');
+  } else {
+    const seenCommands = new Set();
+    for (const [idx, cmd] of pkg.contributes.commands.entries()) {
+      if (!cmd || typeof cmd.command !== 'string' || !cmd.command.trim()) {
+        fail(`package.json contributes.commands[${idx}] has missing or empty "command"`);
+      } else if (seenCommands.has(cmd.command)) {
+        fail(`package.json contributes.commands contains duplicate command "${cmd.command}"`);
+      } else {
+        seenCommands.add(cmd.command);
+      }
+      if (!cmd || typeof cmd.title !== 'string' || !cmd.title.trim()) {
+        fail(`package.json contributes.commands[${idx}] ("${cmd?.command || ''}") has missing or empty "title"`);
+      }
+    }
+  }
+
+  if (pkg.contributes?.configuration !== undefined) {
+    const configs = Array.isArray(pkg.contributes.configuration)
+      ? pkg.contributes.configuration
+      : [pkg.contributes.configuration];
+    if (configs.length === 0) {
+      fail('package.json contributes.configuration is an empty array');
+    }
+    for (const [idx, cfg] of configs.entries()) {
+      if (!cfg || typeof cfg !== 'object' || Array.isArray(cfg)) {
+        fail(`package.json contributes.configuration[${idx}] must be an object`);
+        continue;
+      }
+      const props = cfg.properties;
+      if (!props || typeof props !== 'object' || Array.isArray(props) || Object.keys(props).length === 0) {
+        fail(`package.json contributes.configuration[${idx}] must define a non-empty "properties" object`);
+        continue;
+      }
+      for (const [propKey, propSchema] of Object.entries(props)) {
+        if (!propKey.trim()) {
+          fail(`package.json contributes.configuration[${idx}].properties contains an empty property key`);
+        }
+        if (!propSchema || typeof propSchema !== 'object' || Array.isArray(propSchema)) {
+          fail(`package.json contributes.configuration[${idx}].properties["${propKey}"] must be an object`);
+          continue;
+        }
+        const validType =
+          (typeof propSchema.type === 'string' && propSchema.type.trim().length > 0) ||
+          (Array.isArray(propSchema.type) && propSchema.type.length > 0);
+        if (!validType) {
+          fail(`package.json contributes.configuration[${idx}].properties["${propKey}"] must specify a valid "type"`);
+        }
+      }
+    }
+  }
+
   // Verify icon and walkthrough media files exist on disk
   if (pkg.icon && !fs.existsSync(path.join(ROOT_DIR, pkg.icon))) {
     fail(`package.json icon missing on disk: ${pkg.icon}`);
@@ -169,6 +223,11 @@ function main() {
         fail(`${target.rel}: missing embedded palette data for slug "${entry.slug}"`);
       }
     }
+  }
+
+  const ogPreviewPath = path.join(ROOT_DIR, 'site', 'og-preview.png');
+  if (!fs.existsSync(ogPreviewPath)) {
+    fail('missing OpenGraph social preview image: site/og-preview.png (run node scripts/generate-explorer.js)');
   }
 
   if (process.exitCode !== 1) {

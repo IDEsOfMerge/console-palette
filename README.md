@@ -214,10 +214,12 @@ code --extensionDevelopmentPath="<full path to this folder>"
 
 ## Selecting & previewing themes
 
-- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — preview R, Python, TypeScript, and Quarto/SQL buffers across all 60 themes, inspect live OKLCH / WCAG 2.1 / APCA readouts and OKLab chromaticity polygons, simulate Protanopia / Deuteranopia / Tritanopia in real time, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
-- **Console Palette: Pick Console Theme** (Command Palette or click the active theme badge in the bottom-right status bar): opens a release-ordered quick-pick grouped by all 30 consoles (with launch year & maker) with **live theme preview** as you arrow up/down, hardware subtitle notes on every entry, an `Active` indicator on your current theme, and clean `Esc` rollback if you cancel.
+- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — filter all 30 consoles by name, maker, year, or era (`/`), open **Side-by-Side Compare** (`C`) to inspect any two themes head-to-head with dual OKLab chromaticity polygons, preview R / Python / TypeScript / Quarto+SQL buffers, simulate Protanopia / Deuteranopia / Tritanopia in real time, export palettes for **VS Code**, **Ghostty**, **WezTerm**, **Alacritty**, or **CSS variables**, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
+- **Console Palette: Pick Console Theme** (Command Palette or click the active theme badge in the bottom-right status bar): opens a release-ordered quick-pick grouped by all 30 consoles (searchable by console name, maker, launch year, or era) with **live theme preview** as you arrow up/down, hardware subtitle notes on every entry, an `Active` indicator on your current theme, and clean `Esc` rollback if you cancel.
 - **Preferences: Color Theme** (`Ctrl+K Ctrl+T` / `Cmd+K Cmd+T`): standard alphabetical VS Code / Positron picker across all 60 themes.
-- **Console Palette: Random Theme**: jumps to a random theme across the other 59 themes — great for touring the catalog.
+- **Console Palette: Random Theme** & **Random Theme (Same Mode)**: jump to a random theme across the catalog, or stay locked to your current Light or Dark polarity.
+- **Console Palette: Sync Current Console with OS Light/Dark**: binds your active console's Light & Dark pair to `workbench.preferredLightColorTheme` and `workbench.preferredDarkColorTheme` and enables `window.autoDetectColorScheme` in one click.
+- **Status Bar Badge Setting** (`consolePalette.showStatusBarItem`): configure the bottom-right theme badge to show `"always"`, `"whenActive"` (only when a Console Palette theme is selected), or `"never"`.
 - **Welcome: Open Walkthrough** → **Welcome to Console Palette**: interactive first-run walkthrough covering theme picking, per-console Light/Dark toggling, hardware identity accents, and launching the interactive Explorer.
 
 ## Smart Light ↔ Dark per-console toggle
@@ -232,17 +234,18 @@ Run **Console Palette: Toggle Theme** from the Command Palette or press `Ctrl+K 
   <img alt="Console Palette Build, Colorimetry &amp; Validation Pipeline: palettes/*.js (60 bespoke console palettes) and shared scripts/color-science.js (OKLCH, WCAG, APCA, CIEDE2000, Machado CVD) feed scripts/generate-themes.js and scripts/generate-explorer.js to emit theme-metadata.json, package.json, themes/*.json, site/index.html, and assets/explorer/explorer.html; theme-metadata.json is read at runtime by extension.js, while scripts/validate.js audits 1,200/1,200 WCAG AA + APCA-W3, CIEDE2000 + Machado CVD, zero-CDN Explorer CSP, and 9,120 verified Positron keys so CI and vsce package succeed" src="assets/diagrams/build-pipeline-dark.png" width="900">
 </picture>
 
-Hand-authoring ~350 workbench, TextMate, semantic-token, and Positron IDE keys across 60 themes doesn't scale by hand, so `scripts/generate-themes.js` expands each console's ~45-token hardware palette (`palettes/*.js`) using OKLCH perceptual mixing, `scripts/generate-explorer.js` compiles the self-contained GitHub Pages (`site/index.html`) and VS Code Webview (`assets/explorer/explorer.html`) interactive explorers from those same modules, and `scripts/validate.js` enforces multi-gate colorimetric and zero-CDN CSP verification on every build:
+Hand-authoring ~400 workbench, Command Center, AI Chat/Inline Chat, Test Explorer, Terminal Sticky Scroll, TextMate, semantic-token, and Positron IDE keys across 60 themes doesn't scale by hand, so `scripts/generate-themes.js` expands each console's ~45-token hardware palette (`palettes/*.js`) using OKLCH perceptual mixing, `scripts/generate-explorer.js` compiles the self-contained GitHub Pages (`site/index.html`) and VS Code Webview (`assets/explorer/explorer.html`) interactive explorers from those same modules, and `scripts/validate.js` + `test/*.test.js` enforce multi-gate colorimetric, zero-CDN CSP, and unit-test verification on every build (see [CONTRIBUTING.md](CONTRIBUTING.md) for details):
 
 ```sh
-node scripts/generate-themes.js          # regenerate themes/*.json + package.json + theme-metadata.json
-node scripts/generate-explorer.js        # regenerate site/index.html + assets/explorer/explorer.html
-node scripts/generate-swatches.js        # regenerate 536 local swatch PNGs in assets/swatches/
+npm run build                            # regenerate themes/*.json, package.json, theme-metadata.json & Explorer bundles
+npm run validate                         # audit all 60 themes, Explorer CSP & Positron key provenance
+npm test                                 # run 42 zero-dependency unit tests (node --test test/*.test.js)
+npm run swatches                         # regenerate 536 local swatch PNGs in assets/swatches/
+npm run package                          # package lightweight .vsix (~431 KB, README-only media excluded)
 python3 scripts/generate-icon.py         # regenerate 4x supersampled 3D-beveled Light/Dark gamepad icon
 python3 scripts/generate-banner.py       # regenerate Dark/Light 2x Retina README banners
 python3 scripts/generate-diagrams.py     # regenerate Dark/Light 2x Retina timeline & pipeline diagrams
 python3 scripts/generate-showcase-gif.py # regenerate animated VS Code / Positron IDE showcase GIF
-node scripts/validate.js                 # audit all 60 themes, Explorer CSP & Positron key provenance
 ```
 
 ## Accessibility & perceptual contrast
