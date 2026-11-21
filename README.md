@@ -55,7 +55,7 @@ Every palette is synthesized and verified in **OKLCH** perceptual color space ag
 
 ## ...and by hardware lineage
 
-Organized as a transit metro map across manufacturer lines — tracing a dedicated **Atari** track (`2600 → Lynx → Jaguar`), showing how **Nintendo Home** (NES → Wii) and **Nintendo Handheld** (Game Boy → Virtual Boy spur → 3DS) physically converge into **Nintendo Switch → Switch 2**, how **PlayStation** spurs into **PSP → PS Vita → PlayStation Portal**, how **Xbox** extends to **ROG Xbox Ally**, and how **Valve / Steam** expands from **Steam Deck** to **Steam Machine** and **Steam Frame** across 49 years of hardware evolution:
+Organized as a transit metro map across manufacturer lines — solid lines trace main hardware generations across **Atari**, **Nintendo**, **Sega**, **PlayStation**, **Xbox**, **Valve / Steam**, and **Arcade / Indie** platforms, while dashed lines mark handheld, companion, and spatial branches (**Virtual Boy**, **PSP → PS Vita → PlayStation Portal**, **ROG Xbox Ally**, and **Steam Frame**), with **Nintendo Home** and **Nintendo Handheld** converging at **Nintendo Switch → Switch 2**:
 
 <img src="assets/timeline/timeline-metro.png" alt="Console Palette Hardware Lineage Metro Map across 39 iconic consoles from 1977 to 2026 showing manufacturer tracks for Atari, Arcade/16-bit, Panic/Indie, Nintendo Home and Handheld converging at Switch and Switch 2, Sega, PlayStation branching to PSP, PS Vita and PlayStation Portal, Xbox to ROG Xbox Ally, and Valve Steam Deck to Steam Machine and Steam Frame" width="900">
 

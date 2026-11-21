@@ -546,7 +546,7 @@ def render_timeline_metro():
     draw.text((120, 56), "Console Palette — Hardware Lineage Metro Map (1977–2026)", font=f_title, fill="#181A20")
     draw.text(
         (120, 124),
-        "39 iconic consoles across 7 lineages: dedicated Atari track; Nintendo Home & Handheld merge at Switch → Switch 2; PlayStation spurs to Portal; Valve expands to Steam Machine & Frame.",
+        "39 iconic consoles mapped by manufacturer lineage — solid lines trace main generations; dashed lines mark handheld, companion, and spatial branches.",
         font=f_sub,
         fill="#525866",
     )
@@ -658,7 +658,6 @@ def render_timeline_metro():
         ("Xbox Series X|S", "ROG Xbox Ally", "#148824", True),
 
         # Valve / Steam
-        ("Nintendo Switch", "Steam Deck", "#D9531E", True),
         ("Steam Deck", "Steam Machine", "#D9531E", False),
         ("Steam Deck", "Steam Frame", "#D9531E", True),
     ]
@@ -685,7 +684,7 @@ def render_timeline_metro():
         ("ATARI",             "Atari 2600",    "#D94616", 44),
         ("ARCADE / 16-BIT",   "TurboGrafx-16", "#C88212", 44),
         ("PANIC / INDIE",     "Playdate",      "#C88212", 44),
-        ("VALVE / STEAM",     "Steam Deck",    "#D9531E", 72),
+        ("VALVE / STEAM",     "Steam Deck",    "#D9531E", 44),
         ("NINTENDO HOME",     "NES",           "#D62432", 44),
         ("NINTENDO HANDHELD", "Game Boy",      "#149658", 44),
         ("SEGA",              "Master System", "#1458C4", 44),

@@ -16,7 +16,8 @@ ERA_COLORS <- c(
   "32/64-bit Polygon Era" = "#743AC2",
   "128-bit & Millennial Classics" = "#1456B8",
   "HD, Motion & Portable Era" = "#0C8288",
-  "Modern, Hybrid & Portable PC" = "#178246"
+  "Modern, Hybrid & Portable PC" = "#178246",
+  "Next-Gen & Spatial Era" = "#B43072"
 )
 
 ROLE_ORDER <- c(
@@ -60,7 +61,7 @@ p_pca <- ggplot(pca_df, aes(PC1, PC2, color = era, shape = mode, label = label))
   ggrepel::geom_text_repel(size = 2.6, max.overlaps = 40, seed = 1, segment.size = 0.3, segment.color = "grey70") +
   labs(
     title = "Which console themes look like each other? A per-theme 39-D PCA",
-    subtitle = sprintf("60 themes × 13 syntax roles in CIE Lab (scaled) -- PC1 %.1f%%, PC2 %.1f%% of variance.", var_explained[1], var_explained[2]),
+    subtitle = sprintf("%d themes × 13 syntax roles in CIE Lab (scaled) -- PC1 %.1f%%, PC2 %.1f%% of variance.", nrow(feature_matrix), var_explained[1], var_explained[2]),
     x = sprintf("PC1 (%.1f%%)", var_explained[1]), y = sprintf("PC2 (%.1f%%)", var_explained[2]),
     color = "Hardware Era", shape = "Mode"
   ) +

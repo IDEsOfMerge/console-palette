@@ -1,6 +1,6 @@
 # Console Palette -- color science analysis
 #
-# Quantifies all 60 themes' palettes: a global PCA of the whole family's
+# Quantifies all 78 themes' palettes: a global PCA of the whole family's
 # color space, per-theme colorspace diagrams (dots + connecting lines in
 # the CIE a*-b* chroma/hue plane), and a color-vision-deficiency (CVD)
 # distinguishability audit -- flagging any theme where two syntax-adjacent
@@ -18,12 +18,13 @@ dir.create("analysis/plots", showWarnings = FALSE, recursive = TRUE)
 dir.create("assets/color-science", showWarnings = FALSE, recursive = TRUE)
 
 ERA_ORDER <- c(
-  "Atari 2600", "NES", "Sega Master System", "Game Boy",
+  "Atari 2600", "NES", "Sega Master System", "Game Boy", "Atari Lynx",
   "TurboGrafx-16", "Sega Genesis", "SNES", "Neo Geo AES",
-  "Sega Saturn", "PlayStation", "Nintendo 64", "Game Boy Color",
+  "Atari Jaguar", "Sega Saturn", "PlayStation", "Virtual Boy", "Nintendo 64", "Game Boy Color",
   "Sega Dreamcast", "PlayStation 2", "Game Boy Advance", "Nintendo GameCube", "Xbox",
   "Nintendo DS", "PlayStation Portable", "Xbox 360", "Nintendo Wii", "PlayStation 3", "Nintendo 3DS", "PlayStation Vita",
-  "PlayStation 4", "Xbox One", "Nintendo Switch", "PlayStation 5", "Xbox Series X|S", "Steam Deck"
+  "PlayStation 4", "Xbox One", "Nintendo Switch", "PlayStation 5", "Xbox Series X|S", "Steam Deck", "Playdate",
+  "PlayStation Portal", "Nintendo Switch 2", "ROG Xbox Ally", "Steam Machine", "Steam Frame"
 )
 
 ERA_COLORS <- c(
@@ -32,7 +33,8 @@ ERA_COLORS <- c(
   "32/64-bit Polygon Era" = "#743AC2",
   "128-bit & Millennial Classics" = "#1456B8",
   "HD, Motion & Portable Era" = "#0C8288",
-  "Modern, Hybrid & Portable PC" = "#178246"
+  "Modern, Hybrid & Portable PC" = "#178246",
+  "Next-Gen & Spatial Era" = "#B43072"
 )
 
 POLYGON_ROLES <- c(
@@ -51,7 +53,8 @@ lab <- srgb_to_lab(raw$hex)
 data <- bind_cols(raw, lab[, c("L", "a", "b")]) %>%
   mutate(console = factor(console, levels = ERA_ORDER))
 
-cat(sprintf("Loaded %d color rows across %d themes.\n", nrow(data), length(unique(data$theme_slug))))
+n_themes <- length(unique(data$theme_slug))
+cat(sprintf("Loaded %d color rows across %d themes.\n", nrow(data), n_themes))
 
 pca_input <- data %>% filter(role_kind == "syntax")
 pca <- prcomp(pca_input[, c("L", "a", "b")], center = TRUE, scale. = FALSE)
@@ -62,7 +65,7 @@ p_pca <- ggplot(pca_df, aes(PC1, PC2, color = role, shape = mode)) +
   geom_point(size = 2.0, alpha = 0.75) +
   scale_shape_manual(values = c(light = 21, dark = 19)) +
   labs(
-    title = "Global PCA of syntax-role colors across all 60 themes (CIE Lab space)",
+    title = sprintf("Global PCA of syntax-role colors across all %d themes (CIE Lab space)", n_themes),
     subtitle = sprintf("PC1 explains %.1f%% of variance, PC2 %.1f%% -- unscaled Lab", var_explained[1], var_explained[2]),
     x = sprintf("PC1 (%.1f%%)", var_explained[1]), y = sprintf("PC2 (%.1f%%)", var_explained[2]),
     color = "Syntax role", shape = "Mode"

@@ -100,7 +100,6 @@ edges <- tribble(
   "Xbox 360", "Xbox One", "#148824", "solid",
   "Xbox One", "Xbox Series X|S", "#148824", "solid",
   "Xbox Series X|S", "ROG Xbox Ally", "#148824", "dashed",
-  "Nintendo Switch", "Steam Deck", "#D9531E", "dashed",
   "Steam Deck", "Steam Machine", "#D9531E", "solid",
   "Steam Deck", "Steam Frame", "#D9531E", "dashed"
 )
@@ -124,7 +123,7 @@ p <- ggplot() +
   geom_text(data = nodes, aes(x, y + label_dy, label = name), size = 3.2, fontface = "bold", hjust = 0.5) +
   labs(
     title = "Console Palette -- Hardware Lineage Metro Map (39 Iconic Consoles, 1977-2026)",
-    subtitle = "Dedicated Atari track; Nintendo Home & Handheld converge at Switch -> Switch 2; PlayStation spurs to Portal; Valve expands to Steam Machine & Frame."
+    subtitle = "39 iconic consoles mapped by manufacturer lineage -- solid lines trace main generations; dashed lines mark handheld, companion, and spatial branches."
   ) +
   theme_void(base_size = 12) +
   theme(plot.title = element_text(face = "bold", size = 16), plot.margin = margin(18, 30, 18, 30))
