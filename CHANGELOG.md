@@ -2,6 +2,22 @@
 
 All notable changes to **Console Palette** will be documented in this file.
 
+## [1.2.0] — 2026-11-21
+
+### Added
+- **Interactive Perceptual Similarity Map (`M`) & Nearest Chromatic Neighbors (`ΔE₀₀`)** in both the in-editor VS Code / Positron Webview and GitHub Pages Explorer:
+  - Zero-dependency interactive 2D **Classical MDS** scatter plot (`Light (39)` / `Dark (39)`) precomputed from pairwise mean CIEDE2000 distances across all 13 syntax roles, with **Theme Swatch / Hardware Era / Manufacturer** coloring, live catalog filter dimming, dotted top-3 sibling tethers, an interactive **Game Boy Dark** off-chart DMG-01 LCD outlier card, live hover/click inspector showing exact mean `ΔE₀₀`, and **Click to activate / Shift+Click to compare**.
+  - **Nearest Chromatic Neighbors (`ΔE₀₀`)** chip bar beneath every active theme's story for one-click jumping or direct side-by-side comparison (`⇄`).
+  - **Stateful URL hash permalinks** (`#playdate-light&compare=atari2600-light&cvd=deutan&map=light`) wired into **Share Link** with clean reset when returning to plain `#slug` hashes.
+- **New Command — `Console Palette: Pick Similar Theme (CIEDE2000)`** (`consolePalette.pickSimilarTheme`): live-preview QuickPick grouped into **Nearest Chromatic Siblings** (sorted by ascending `ΔE₀₀`), **Paired Light / Dark Variant**, and **Maximum Chromatic Contrast (Farthest Polychromatic)** using precomputed distances baked into `theme-metadata.json` with zero runtime dependencies.
+- **Expanded Terminal Exports (8 formats total)**: added **Windows Terminal (JSON)**, **Kitty (`.conf`)**, and **iTerm2 (`.itermcolors` XML plist)** alongside VS Code, Ghostty, WezTerm, Alacritty, and CSS variables.
+- **Per-Mode CIEDE2000 MDS Landscape (`theme-mds.png`) & Ward-Ordered 39×39 Split-Triangle Distance Matrix (`theme-distance-heatmap.png`)**, plus matching pure-R reproduction in `analysis/theme_similarity.R` and `analysis/data/theme-mds.csv`.
+- **Expanded zero-dependency test suite (`51` tests across `test/color-science.test.js`, `test/explorer.test.js`, and `test/extension.test.js`)** covering Jacobi eigendecomposition, Classical MDS accuracy, 78-theme similarity invariants, all 8 export formats, and `pickSimilarTheme`.
+
+### Fixed
+- Updated the animated IDE showcase GIF (`assets/showcase/console-palette-demo.gif`) to current 78-theme / 39-console metrics (`1,560 / 1,560` WCAG AA, `1,248 / 1,248` ANSI, `11,856` Positron keys) across 7 Light ↔ Dark pairs spanning **Atari 2600 (1977)** through **Nintendo Switch 2 (2025)**.
+- Refined the Hardware Lineage Metro Map (`assets/timeline/timeline-metro.png`) subtitle to pure current-state phrasing and removed the legacy cross-manufacturer Nintendo Switch → Steam Deck dashed connector so every edge reflects same-maker lineage.
+
 ## [1.1.0] — 2026-11-20
 
 ### Added

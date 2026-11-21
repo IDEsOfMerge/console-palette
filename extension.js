@@ -9,6 +9,7 @@ const themeMetadata = require('./theme-metadata.json');
 const DEFAULT_THEME = 'SNES Light';
 const TOGGLE_COMMAND_ID = 'consolePalette.toggleTheme';
 const PICK_COMMAND_ID = 'consolePalette.pickTheme';
+const PICK_SIMILAR_COMMAND_ID = 'consolePalette.pickSimilarTheme';
 const RANDOM_COMMAND_ID = 'consolePalette.randomTheme';
 const RANDOM_SAME_MODE_COMMAND_ID = 'consolePalette.randomThemeSameMode';
 const SYNC_OS_PAIR_COMMAND_ID = 'consolePalette.syncOsThemePair';
@@ -16,6 +17,10 @@ const EXPLORER_COMMAND_ID = 'consolePalette.openExplorer';
 
 function findByLabel(label) {
   return themeMetadata.find((t) => t.label === label);
+}
+
+function findBySlug(slug) {
+  return themeMetadata.find((t) => t.slug === slug);
 }
 
 function findSibling(entry) {
@@ -115,6 +120,72 @@ function buildQuickPickItems(currentThemeLabel, separatorKind) {
         description: isCurrent ? `${meta}  $(check) Active` : meta,
         detail: entry.subtitle || undefined,
         themeLabel: entry.label,
+      });
+    }
+  }
+
+  return items;
+}
+
+function buildSimilarQuickPickItems(currentThemeLabel, separatorKind) {
+  const sepKind =
+    separatorKind !== undefined
+      ? separatorKind
+      : vscode && vscode.QuickPickItemKind && vscode.QuickPickItemKind.Separator !== undefined
+        ? vscode.QuickPickItemKind.Separator
+        : -1;
+
+  const current = findByLabel(currentThemeLabel);
+  if (!current) return [];
+
+  const items = [];
+  const neighbors = Array.isArray(current.neighbors) ? current.neighbors : [];
+  if (neighbors.length > 0) {
+    items.push({
+      label: `Nearest Chromatic Siblings to ${current.label} (CIEDE2000 ΔE₀₀)`,
+      kind: sepKind,
+    });
+    for (const nb of neighbors) {
+      const target = findBySlug(nb.slug);
+      if (!target) continue;
+      const modeLabel = target.mode === 'light' ? 'Light' : 'Dark';
+      items.push({
+        label: target.label,
+        description: `ΔE₀₀ ${Number(nb.de).toFixed(1)} · ${modeLabel} · ${target.year} · ${target.maker}`,
+        detail: target.subtitle || undefined,
+        themeLabel: target.label,
+        deltaE00: nb.de,
+      });
+    }
+  }
+
+  const sib = findSibling(current);
+  if (sib) {
+    items.push({
+      label: 'Paired Light / Dark Variant',
+      kind: sepKind,
+    });
+    items.push({
+      label: sib.label,
+      description: `${sib.mode === 'light' ? 'Light' : 'Dark'} sibling · ${sib.year} · ${sib.maker}`,
+      detail: sib.subtitle || undefined,
+      themeLabel: sib.label,
+    });
+  }
+
+  if (current.farthest) {
+    const far = findBySlug(current.farthest.slug);
+    if (far) {
+      items.push({
+        label: 'Maximum Chromatic Contrast (Farthest Polychromatic)',
+        kind: sepKind,
+      });
+      items.push({
+        label: far.label,
+        description: `ΔE₀₀ ${Number(current.farthest.de).toFixed(1)} · ${far.mode === 'light' ? 'Light' : 'Dark'} · ${far.year} · ${far.maker}`,
+        detail: far.subtitle || undefined,
+        themeLabel: far.label,
+        deltaE00: current.farthest.de,
       });
     }
   }
@@ -254,6 +325,64 @@ function activate(context) {
     } catch (err) {
       vscode.window.showErrorMessage(
         `Console Palette: failed to open theme picker -- ${err instanceof Error ? err.message : String(err)}`
+      );
+    }
+  });
+
+  const pickSimilarDisposable = vscode.commands.registerCommand(PICK_SIMILAR_COMMAND_ID, async () => {
+    try {
+      const originalTheme = vscode.workspace.getConfiguration('workbench').get('colorTheme');
+      const currentEntry = findByLabel(originalTheme);
+      if (!currentEntry) {
+        vscode.window.showInformationMessage(
+          'Console Palette: activate any Console Palette theme first to browse its nearest CIEDE2000 neighbors.'
+        );
+        await vscode.commands.executeCommand(PICK_COMMAND_ID);
+        return;
+      }
+
+      const items = buildSimilarQuickPickItems(originalTheme, vscode.QuickPickItemKind.Separator);
+      const firstSelectable = items.find((item) => item.themeLabel) || null;
+
+      const qp = vscode.window.createQuickPick();
+      qp.title = `Similar to ${currentEntry.label} (CIEDE2000 ΔE₀₀)`;
+      qp.placeholder = 'Arrow for live preview · Enter to keep · Esc to restore';
+      qp.matchOnDescription = true;
+      qp.matchOnDetail = true;
+      qp.items = items;
+      if (firstSelectable) qp.activeItems = [firstSelectable];
+
+      let accepted = false;
+      let lastPreviewed = originalTheme;
+
+      qp.onDidChangeActive((active) => {
+        const candidate = active && active[0] && active[0].themeLabel;
+        if (candidate && candidate !== lastPreviewed) {
+          lastPreviewed = candidate;
+          setTheme(candidate).catch(() => {});
+        }
+      });
+
+      qp.onDidAccept(async () => {
+        const selected = qp.selectedItems && qp.selectedItems[0];
+        if (selected && selected.themeLabel) {
+          accepted = true;
+          qp.hide();
+          await setTheme(selected.themeLabel);
+        }
+      });
+
+      qp.onDidHide(async () => {
+        qp.dispose();
+        if (!accepted && originalTheme && lastPreviewed !== originalTheme) {
+          await setTheme(originalTheme).catch(() => {});
+        }
+      });
+
+      qp.show();
+    } catch (err) {
+      vscode.window.showErrorMessage(
+        `Console Palette: failed to open similar-theme picker -- ${err instanceof Error ? err.message : String(err)}`
       );
     }
   });
@@ -400,6 +529,7 @@ function activate(context) {
     configListener,
     toggleDisposable,
     pickDisposable,
+    pickSimilarDisposable,
     randomDisposable,
     randomSameModeDisposable,
     syncOsPairDisposable,
@@ -413,11 +543,13 @@ module.exports = {
   activate,
   deactivate,
   findByLabel,
+  findBySlug,
   findSibling,
   findPairForConsole,
   escapeHtmlAttr,
   shouldShowStatusBar,
   buildQuickPickItems,
+  buildSimilarQuickPickItems,
   pickRandomTheme,
   buildWebviewHtmlFromSource,
 };

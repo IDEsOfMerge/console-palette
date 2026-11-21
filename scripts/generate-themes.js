@@ -728,7 +728,40 @@ function main() {
     .map(({ label, uiTheme, path: p }) => ({ label, uiTheme, path: p }));
   fs.writeFileSync(PACKAGE_JSON, JSON.stringify(pkg, null, 2) + '\n');
 
-  // Emit theme-list metadata for extension.js (smart toggle + live-preview quick pick).
+  // Compute per-mode CIEDE2000 chromatic neighbors across the 13 syntax roles
+  // so extension.js can power "Pick Similar Theme" with zero runtime color math.
+  const SIMILARITY_ROLES = [
+    'accentKeyword', 'accentStorage', 'accentString', 'accentRegex',
+    'accentFunction', 'accentFunctionDim', 'accentType', 'accentInterface',
+    'accentNumber', 'accentDecorator', 'accentNamespace', 'colorError', 'colorWarning',
+  ];
+  const labBySlug = new Map(
+    palettes.map((p) => [p.slug, SIMILARITY_ROLES.map((r) => cs.hexToLab(p.tokens[r]))])
+  );
+  const neighborsBySlug = new Map();
+  const farthestBySlug = new Map();
+  for (const mode of ['light', 'dark']) {
+    const pool = palettes.filter((p) => p.tokens.mode === mode);
+    for (let i = 0; i < pool.length; i++) {
+      const a = pool[i];
+      const la = labBySlug.get(a.slug);
+      const dists = [];
+      for (let j = 0; j < pool.length; j++) {
+        if (i === j) continue;
+        const b = pool[j];
+        const lb = labBySlug.get(b.slug);
+        let sum = 0;
+        for (let k = 0; k < la.length; k++) sum += cs.ciede2000(la[k], lb[k]);
+        dists.push({ slug: b.slug, de: Math.round((sum / la.length) * 10) / 10 });
+      }
+      dists.sort((x, y) => x.de - y.de);
+      neighborsBySlug.set(a.slug, dists.slice(0, 6));
+      const farPool = dists.filter((d) => d.slug !== 'gameboy-dark');
+      farthestBySlug.set(a.slug, farPool[farPool.length - 1] || dists[dists.length - 1]);
+    }
+  }
+
+  // Emit theme-list metadata for extension.js (smart toggle + live-preview quick picks).
   const metaPath = path.join(__dirname, '..', 'theme-metadata.json');
   fs.writeFileSync(
     metaPath,
@@ -752,6 +785,8 @@ function main() {
           mode,
           slug,
           subtitle,
+          neighbors: neighborsBySlug.get(slug) || [],
+          farthest: farthestBySlug.get(slug) || null,
         })),
       null,
       2

@@ -1418,6 +1418,9 @@
             <option value="ghostty">Ghostty</option>
             <option value="wezterm">WezTerm (TOML)</option>
             <option value="alacritty">Alacritty (TOML)</option>
+            <option value="windowsterminal">Windows Terminal (JSON)</option>
+            <option value="kitty">Kitty (.conf)</option>
+            <option value="iterm2">iTerm2 (.itermcolors)</option>
             <option value="css">CSS Variables</option>
           </select>
           <button type="button" id="btn-copy-export" title="Copy active theme in selected format">Copy Export</button>
@@ -2015,6 +2018,99 @@
           return {
             text: lines.join('\n'),
             label: 'Copied Alacritty TOML for ' + th.label,
+          };
+        }
+        if (fmt === 'windowsterminal') {
+          const scheme = {
+            name: 'Console Palette — ' + th.label,
+            background: t.bg,
+            foreground: t.fg,
+            cursorColor: t.cur,
+            selectionBackground: t.tintSelect,
+            black: a.black,
+            red: a.red,
+            green: a.green,
+            yellow: a.yellow,
+            blue: a.blue,
+            purple: a.magenta,
+            cyan: a.cyan,
+            white: a.white,
+            brightBlack: a.brightBlack,
+            brightRed: a.brightRed,
+            brightGreen: a.brightGreen,
+            brightYellow: a.brightYellow,
+            brightBlue: a.brightBlue,
+            brightPurple: a.brightMagenta,
+            brightCyan: a.brightCyan,
+            brightWhite: a.brightWhite,
+          };
+          return {
+            text: JSON.stringify(scheme, null, 2),
+            label: 'Copied Windows Terminal JSON for ' + th.label,
+          };
+        }
+        if (fmt === 'kitty') {
+          const lines = [
+            '# Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ')',
+            'background ' + t.bg,
+            'foreground ' + t.fg,
+            'cursor ' + t.cur,
+            'cursor_text_color ' + t.bg,
+            'selection_background ' + t.tintSelect,
+            'selection_foreground ' + t.fg,
+            'active_border_color ' + t.foc,
+            'inactive_border_color ' + t.borderSubtle,
+          ];
+          ansiOrder.forEach((slot, idx) => {
+            lines.push('color' + idx + ' ' + a[slot]);
+          });
+          return {
+            text: lines.join('\n'),
+            label: 'Copied Kitty config for ' + th.label,
+          };
+        }
+        if (fmt === 'iterm2') {
+          const itermEntry = (keyName, hexVal) => {
+            const [r, g, b] = hexToRgb(hexVal.slice(0, 7));
+            return [
+              '  <key>' + keyName + '</key>',
+              '  <dict>',
+              '    <key>Color Space</key>',
+              '    <string>sRGB</string>',
+              '    <key>Red Component</key>',
+              '    <real>' + (r / 255).toFixed(6) + '</real>',
+              '    <key>Green Component</key>',
+              '    <real>' + (g / 255).toFixed(6) + '</real>',
+              '    <key>Blue Component</key>',
+              '    <real>' + (b / 255).toFixed(6) + '</real>',
+              '  </dict>',
+            ].join('\n');
+          };
+          const blocks = [
+            itermEntry('Background Color', t.bg),
+            itermEntry('Foreground Color', t.fg),
+            itermEntry('Bold Color', t.fg),
+            itermEntry('Cursor Color', t.cur),
+            itermEntry('Cursor Text Color', t.bg),
+            itermEntry('Selection Color', t.tintSelect),
+            itermEntry('Selected Text Color', t.fg),
+          ];
+          ansiOrder.forEach((slot, idx) => {
+            blocks.push(itermEntry('Ansi ' + idx + ' Color', a[slot]));
+          });
+          const xml = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
+            '<plist version="1.0">',
+            '<!-- Console Palette — ' + th.label + ' (' + th.year + ' · ' + th.maker + ') -->',
+            '<dict>',
+            blocks.join('\n'),
+            '</dict>',
+            '</plist>',
+          ].join('\n');
+          return {
+            text: xml,
+            label: 'Copied iTerm2 .itermcolors XML for ' + th.label,
           };
         }
         const cssLines = [

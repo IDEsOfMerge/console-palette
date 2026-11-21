@@ -489,7 +489,7 @@ def build_pipeline_svg(mode: str) -> str:
   <text x="{val_x + 13:.1f}" y="{val_y + 74:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> CIEDE2000 + Machado CVD</text>
   <text x="{val_x + 13:.1f}" y="{val_y + 90:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> Zero-CDN Explorer CSP</text>
   <text x="{val_x + 13:.1f}" y="{val_y + 106:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 11,856 verified Positron keys</text>
-  <text x="{val_x + 13:.1f}" y="{val_y + 122:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 43 unit tests (node --test)</text>'''
+  <text x="{val_x + 13:.1f}" y="{val_y + 122:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 51 unit tests (node --test)</text>'''
 
     a_ok = acc["emerald"]
     ok_x, ok_y, ok_w, ok_h = c4_x, 352.0, c4_w, 64.0

@@ -17,7 +17,7 @@
 ![hardware eras](https://img.shields.io/badge/hardware_eras-1977%E2%80%932026-3B8CE8?style=flat-square)
 [![explorer](https://img.shields.io/badge/live_explorer-interactive_workbench-6247B8?style=flat-square)](https://idesofmerge.github.io/console-palette/)
 [![build](https://github.com/idesofmerge/console-palette/actions/workflows/build.yml/badge.svg)](https://github.com/idesofmerge/console-palette/actions/workflows/build.yml)
-![version](https://img.shields.io/badge/version-1.1.0-264EB5?style=flat-square)
+![version](https://img.shields.io/badge/version-1.2.0-264EB5?style=flat-square)
 ![themes](https://img.shields.io/badge/themes-78-7209B7?style=flat-square)
 ![consoles](https://img.shields.io/badge/consoles-39-00A896?style=flat-square)
 ![contrast](https://img.shields.io/badge/WCAG_AA-100%25_(1560%2F1560)-2A5F25?style=flat-square)
@@ -214,9 +214,9 @@ From this repository root:
 
 ```sh
 npx --yes @vscode/vsce package
-code --install-extension console-palette-1.1.0.vsix
+code --install-extension console-palette-1.2.0.vsix
 # or in Positron:
-positron --install-extension console-palette-1.1.0.vsix
+positron --install-extension console-palette-1.2.0.vsix
 ```
 
 Or launch an Extension Development Host without packaging:
@@ -228,8 +228,9 @@ code --extensionDevelopmentPath="<full path to this folder>"
 
 ## Selecting & previewing themes
 
-- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — filter all 39 consoles by name, maker (`All · Atari · Nintendo · Sony · Sega · Microsoft · Valve · Arcade & Indie`), year, or era (`/`), open the **Interactive Perceptual Similarity Map** (`M`) to explore all themes in 2D CIEDE2000 MDS space with live `ΔE₀₀` distance inspection, hop directly between **Nearest Chromatic Neighbors** chips, launch **Side-by-Side Compare** (`C`) with dual OKLab chromaticity polygons, preview R / Python / TypeScript / Quarto+SQL buffers, simulate Protanopia / Deuteranopia / Tritanopia in real time, export palettes for **VS Code**, **Ghostty**, **WezTerm**, **Alacritty**, or **CSS variables**, copy stateful shareable links, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
+- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — filter all 39 consoles by name, maker (`All · Atari · Nintendo · Sony · Sega · Microsoft · Valve · Arcade & Indie`), year, or era (`/`), open the **Interactive Perceptual Similarity Map** (`M`) to explore all themes in 2D CIEDE2000 MDS space with live `ΔE₀₀` distance inspection, hop directly between **Nearest Chromatic Neighbors** chips, launch **Side-by-Side Compare** (`C`) with dual OKLab chromaticity polygons, preview R / Python / TypeScript / Quarto+SQL buffers, simulate Protanopia / Deuteranopia / Tritanopia in real time, export palettes for **VS Code**, **Ghostty**, **WezTerm**, **Alacritty**, **Windows Terminal**, **Kitty**, **iTerm2**, or **CSS variables**, copy stateful shareable links, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
 - **Console Palette: Pick Console Theme** (Command Palette or click the active theme badge in the bottom-right status bar): opens a release-ordered quick-pick grouped by all 39 consoles (searchable by console name, maker, launch year, or era) with **live theme preview** as you arrow up/down, hardware subtitle notes on every entry, an `Active` indicator on your current theme, and clean `Esc` rollback if you cancel.
+- **Console Palette: Pick Similar Theme (CIEDE2000)**: opens a live-preview quick-pick showing your active theme's nearest chromatic siblings sorted by exact `ΔE₀₀`, its paired Light/Dark variant, and its farthest polychromatic contrast theme (with `Esc` rollback).
 - **Preferences: Color Theme** (`Ctrl+K Ctrl+T` / `Cmd+K Cmd+T`): standard alphabetical VS Code / Positron picker across all 78 themes.
 - **Console Palette: Random Theme** & **Random Theme (Same Mode)**: jump to a random theme across the catalog, or stay locked to your current Light or Dark polarity.
 - **Console Palette: Sync Current Console with OS Light/Dark**: binds your active console's Light & Dark pair to `workbench.preferredLightColorTheme` and `workbench.preferredDarkColorTheme` and enables `window.autoDetectColorScheme` in one click.
@@ -245,7 +246,7 @@ Run **Console Palette: Toggle Theme** from the Command Palette or press `Ctrl+K 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/build-pipeline-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/diagrams/build-pipeline-light.png">
-  <img alt="Console Palette Build, Colorimetry &amp; Validation Pipeline: palettes/*.js (78 bespoke console palettes) and shared scripts/color-science.js (OKLCH, WCAG, APCA, CIEDE2000, Machado CVD) feed scripts/generate-themes.js and scripts/generate-explorer.js to emit theme-metadata.json, package.json, themes/*.json, site/index.html, and assets/explorer/explorer.html; theme-metadata.json is read at runtime by extension.js, while scripts/validate.js and 43 unit tests audit 1,560/1,560 WCAG AA + APCA-W3, CIEDE2000 + Machado CVD, zero-CDN Explorer CSP, and 11,856 verified Positron keys so CI and vsce package succeed" src="assets/diagrams/build-pipeline-dark.png" width="900">
+  <img alt="Console Palette Build, Colorimetry &amp; Validation Pipeline: palettes/*.js (78 bespoke console palettes) and shared scripts/color-science.js (OKLCH, WCAG, APCA, CIEDE2000, Machado CVD) feed scripts/generate-themes.js and scripts/generate-explorer.js to emit theme-metadata.json, package.json, themes/*.json, site/index.html, and assets/explorer/explorer.html; theme-metadata.json is read at runtime by extension.js, while scripts/validate.js and 51 unit tests audit 1,560/1,560 WCAG AA + APCA-W3, CIEDE2000 + Machado CVD, zero-CDN Explorer CSP, and 11,856 verified Positron keys so CI and vsce package succeed" src="assets/diagrams/build-pipeline-dark.png" width="900">
 </picture>
 
 Hand-authoring ~400 workbench, Command Center, AI Chat/Inline Chat, Test Explorer, Terminal Sticky Scroll, TextMate, semantic-token, and Positron IDE keys across 78 themes doesn't scale by hand, so `scripts/generate-themes.js` expands each console's ~45-token hardware palette (`palettes/*.js`) using OKLCH perceptual mixing, `scripts/generate-explorer.js` compiles the self-contained GitHub Pages (`site/index.html`) and VS Code Webview (`assets/explorer/explorer.html`) interactive explorers from those same modules, and `scripts/validate.js` + `test/*.test.js` enforce multi-gate colorimetric, zero-CDN CSP, and unit-test verification on every build (see [CONTRIBUTING.md](CONTRIBUTING.md) for details):
@@ -253,7 +254,7 @@ Hand-authoring ~400 workbench, Command Center, AI Chat/Inline Chat, Test Explore
 ```sh
 npm run build                            # regenerate themes/*.json, package.json, theme-metadata.json & Explorer bundles
 npm run validate                         # audit all 78 themes, Explorer CSP & Positron key provenance
-npm test                                 # run 43 zero-dependency unit tests (node --test test/*.test.js)
+npm test                                 # run 51 zero-dependency unit tests (node --test test/*.test.js)
 npm run swatches                         # regenerate 677 local swatch PNGs in assets/swatches/
 npm run package                          # package lightweight .vsix (README-only media excluded)
 python3 scripts/generate-icon.py         # regenerate 4x supersampled 3D-beveled Light/Dark gamepad icon

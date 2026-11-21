@@ -398,12 +398,13 @@ after(() => {
 });
 
 describe('extension: activation & command registration', () => {
-  it('registers all 6 commands and displays the status bar badge on activation', () => {
+  it('registers all 7 commands and displays the status bar badge on activation', () => {
     const { mock, context } = setupExtension({ 'workbench.colorTheme': 'SNES Light' });
 
     const expectedCommands = [
       'consolePalette.toggleTheme',
       'consolePalette.pickTheme',
+      'consolePalette.pickSimilarTheme',
       'consolePalette.randomTheme',
       'consolePalette.randomThemeSameMode',
       'consolePalette.syncOsThemePair',
@@ -422,6 +423,58 @@ describe('extension: activation & command registration', () => {
     assert.ok(badge.text.includes('SNES Light'), `Expected status bar text to contain active theme, got "${badge.text}"`);
     assert.ok(badge.tooltip && badge.tooltip.length > 0);
     assert.ok(context.subscriptions.length >= expectedCommands.length + 2);
+  });
+});
+
+describe('extension: pickSimilarTheme', () => {
+  it('lists nearest CIEDE2000 siblings in ascending order, paired variant, and farthest theme with live preview + Esc rollback', async () => {
+    const { mock, invokeCommand } = setupExtension({ 'workbench.colorTheme': 'Nintendo Switch 2 Dark' });
+
+    await invokeCommand('consolePalette.pickSimilarTheme');
+    assert.equal(mock.quickPicks.length, 1);
+    const qp = mock.quickPicks[0];
+    assert.equal(qp.shown, true);
+    assert.ok(qp.title.includes('Nintendo Switch 2 Dark'));
+
+    const separators = qp.items.filter((i) => i.kind === mock.vscode.QuickPickItemKind.Separator);
+    assert.equal(separators.length, 3);
+    assert.ok(separators[0].label.includes('Nearest Chromatic Siblings'));
+    assert.ok(separators[1].label.includes('Paired Light / Dark'));
+    assert.ok(separators[2].label.includes('Maximum Chromatic Contrast'));
+
+    // First 6 selectable items are nearest siblings sorted ascending by deltaE00
+    const selectable = qp.items.filter((i) => i.themeLabel);
+    assert.equal(selectable.length, 8); // 6 neighbors + 1 sibling + 1 farthest
+    const neighborItems = selectable.slice(0, 6);
+    assert.equal(neighborItems[0].themeLabel, 'Nintendo Switch Dark');
+    for (let i = 1; i < neighborItems.length; i++) {
+      assert.ok(neighborItems[i].deltaE00 >= neighborItems[i - 1].deltaE00);
+    }
+    assert.equal(selectable[6].themeLabel, 'Nintendo Switch 2 Light');
+
+    // Live preview + Esc rollback
+    await qp._emitDidChangeActive([neighborItems[0]]);
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Nintendo Switch Dark');
+    await qp._emitDidHide();
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Nintendo Switch 2 Dark');
+  });
+
+  it('commits accepted similar theme and falls back cleanly to pickTheme on external themes', async () => {
+    const { mock, invokeCommand } = setupExtension({ 'workbench.colorTheme': 'SNES Light' });
+
+    await invokeCommand('consolePalette.pickSimilarTheme');
+    const qp = mock.quickPicks[0];
+    const firstNeighbor = qp.items.find((i) => i.themeLabel);
+    await qp._emitDidChangeActive([firstNeighbor]);
+    await qp._emitDidAccept([firstNeighbor]);
+    assert.equal(mock.settings.get('workbench.colorTheme'), firstNeighbor.themeLabel);
+
+    // External theme falls back to pickTheme with an info message
+    mock.setSetting('workbench.colorTheme', 'Default Dark+');
+    await invokeCommand('consolePalette.pickSimilarTheme');
+    assert.ok(mock.infoMessages.some((m) => String(m.msg).includes('activate any Console Palette theme')));
+    assert.equal(mock.quickPicks.length, 2);
+    assert.ok(mock.quickPicks[1].title.includes('39 Iconic Consoles'));
   });
 });
 

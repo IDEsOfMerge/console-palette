@@ -7,7 +7,37 @@
     "year": 1977,
     "mode": "light",
     "slug": "atari2600-light",
-    "subtitle": "Warm birch-walnut woodgrain veneer, brushed steel switches & Atari rainbow bands"
+    "subtitle": "Warm birch-walnut woodgrain veneer, brushed steel switches & Atari rainbow bands",
+    "neighbors": [
+      {
+        "slug": "dreamcast-light",
+        "de": 4.7
+      },
+      {
+        "slug": "playdate-light",
+        "de": 6.9
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 7
+      },
+      {
+        "slug": "switch-light",
+        "de": 9.1
+      },
+      {
+        "slug": "switch2-light",
+        "de": 9.1
+      },
+      {
+        "slug": "virtualboy-light",
+        "de": 9.1
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 19.9
+    }
   },
   {
     "label": "Atari 2600 Dark",
@@ -17,7 +47,37 @@
     "year": 1977,
     "mode": "dark",
     "slug": "atari2600-dark",
-    "subtitle": "Ridged matte-black fascia, oiled walnut bezel & glowing CRT Atari rainbow phosphor"
+    "subtitle": "Ridged matte-black fascia, oiled walnut bezel & glowing CRT Atari rainbow phosphor",
+    "neighbors": [
+      {
+        "slug": "dreamcast-dark",
+        "de": 3.9
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 8.2
+      },
+      {
+        "slug": "turbografx16-dark",
+        "de": 8.5
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 9.4
+      },
+      {
+        "slug": "gbc-dark",
+        "de": 11.1
+      },
+      {
+        "slug": "playdate-dark",
+        "de": 11.2
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 23.6
+    }
   },
   {
     "label": "NES Light",
@@ -27,7 +87,37 @@
     "year": 1985,
     "mode": "light",
     "slug": "nes-light",
-    "subtitle": "Two-tone neutral NES grey shell, matte black stripe, crimson A/B & 2C02 PPU hues"
+    "subtitle": "Two-tone neutral NES grey shell, matte black stripe, crimson A/B & 2C02 PPU hues",
+    "neighbors": [
+      {
+        "slug": "gameboy-light",
+        "de": 7.5
+      },
+      {
+        "slug": "turbografx16-light",
+        "de": 10.6
+      },
+      {
+        "slug": "gamecube-light",
+        "de": 11.9
+      },
+      {
+        "slug": "neogeo-light",
+        "de": 12.2
+      },
+      {
+        "slug": "gbc-light",
+        "de": 14.1
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 14.3
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 24.9
+    }
   },
   {
     "label": "NES Dark",
@@ -37,7 +127,37 @@
     "year": 1985,
     "mode": "dark",
     "slug": "nes-dark",
-    "subtitle": "Matte charcoal NES bezel, black cartridge stripe, vivid crimson A/B & 2C02 PPU"
+    "subtitle": "Matte charcoal NES bezel, black cartridge stripe, vivid crimson A/B & 2C02 PPU",
+    "neighbors": [
+      {
+        "slug": "dreamcast-dark",
+        "de": 11.3
+      },
+      {
+        "slug": "atari2600-dark",
+        "de": 11.4
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 12.8
+      },
+      {
+        "slug": "gbc-dark",
+        "de": 13.4
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 13.5
+      },
+      {
+        "slug": "virtualboy-dark",
+        "de": 14.1
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 30.1
+    }
   },
   {
     "label": "Sega Master System Light",
@@ -47,7 +167,37 @@
     "year": 1985,
     "mode": "light",
     "slug": "mastersystem-light",
-    "subtitle": "Crisp white 8-bit grid box-art paper, sharp Sega crimson & cobalt bevel stripes"
+    "subtitle": "Crisp white 8-bit grid box-art paper, sharp Sega crimson & cobalt bevel stripes",
+    "neighbors": [
+      {
+        "slug": "genesis-light",
+        "de": 1
+      },
+      {
+        "slug": "psportal-light",
+        "de": 6.8
+      },
+      {
+        "slug": "ps3-light",
+        "de": 6.9
+      },
+      {
+        "slug": "ps2-light",
+        "de": 7.4
+      },
+      {
+        "slug": "ds-light",
+        "de": 7.5
+      },
+      {
+        "slug": "ps5-light",
+        "de": 7.5
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 24.4
+    }
   },
   {
     "label": "Sega Master System Dark",
@@ -57,7 +207,37 @@
     "year": 1985,
     "mode": "dark",
     "slug": "mastersystem-dark",
-    "subtitle": "Angular flat-black chassis, glossy red/white wedge stripes & electric Sega cobalt"
+    "subtitle": "Angular flat-black chassis, glossy red/white wedge stripes & electric Sega cobalt",
+    "neighbors": [
+      {
+        "slug": "genesis-dark",
+        "de": 1.8
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 7.6
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 7.9
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 8
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 8.1
+      },
+      {
+        "slug": "ds-dark",
+        "de": 8.8
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-dark",
+      "de": 25.7
+    }
   },
   {
     "label": "TurboGrafx-16 Light",
@@ -67,7 +247,37 @@
     "year": 1987,
     "mode": "light",
     "slug": "turbografx16-light",
-    "subtitle": "Japanese PC Engine crisp ivory shell, vivid vermilion HuCard red & cerulean ink"
+    "subtitle": "Japanese PC Engine crisp ivory shell, vivid vermilion HuCard red & cerulean ink",
+    "neighbors": [
+      {
+        "slug": "neogeo-light",
+        "de": 10.5
+      },
+      {
+        "slug": "atari2600-light",
+        "de": 10.6
+      },
+      {
+        "slug": "nes-light",
+        "de": 10.6
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 10.7
+      },
+      {
+        "slug": "gamecube-light",
+        "de": 11.2
+      },
+      {
+        "slug": "gameboy-light",
+        "de": 11.9
+      }
+    ],
+    "farthest": {
+      "slug": "steamframe-light",
+      "de": 22.8
+    }
   },
   {
     "label": "TurboGrafx-16 Dark",
@@ -77,7 +287,37 @@
     "year": 1987,
     "mode": "dark",
     "slug": "turbografx16-dark",
-    "subtitle": "North American TurboGrafx-16 pitch matte black & blazing neon tangerine logo"
+    "subtitle": "North American TurboGrafx-16 pitch matte black & blazing neon tangerine logo",
+    "neighbors": [
+      {
+        "slug": "dreamcast-dark",
+        "de": 7.2
+      },
+      {
+        "slug": "atari2600-dark",
+        "de": 8.5
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 12
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 12.5
+      },
+      {
+        "slug": "saturn-dark",
+        "de": 13
+      },
+      {
+        "slug": "virtualboy-dark",
+        "de": 13.8
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 24.4
+    }
   },
   {
     "label": "Sega Genesis Light",
@@ -87,7 +327,37 @@
     "year": 1988,
     "mode": "light",
     "slug": "genesis-light",
-    "subtitle": "Mega Drive silver-grid white, Sega electric cobalt, 16-BIT gold & Blast crimson"
+    "subtitle": "Mega Drive silver-grid white, Sega electric cobalt, 16-BIT gold & Blast crimson",
+    "neighbors": [
+      {
+        "slug": "mastersystem-light",
+        "de": 1
+      },
+      {
+        "slug": "ps3-light",
+        "de": 7.4
+      },
+      {
+        "slug": "psportal-light",
+        "de": 7.5
+      },
+      {
+        "slug": "ds-light",
+        "de": 7.8
+      },
+      {
+        "slug": "ps2-light",
+        "de": 7.9
+      },
+      {
+        "slug": "ps5-light",
+        "de": 7.9
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 24.6
+    }
   },
   {
     "label": "Sega Genesis Dark",
@@ -97,7 +367,37 @@
     "year": 1988,
     "mode": "dark",
     "slug": "genesis-dark",
-    "subtitle": "Glossy black Model 1 deck, metallic 16-BIT gold, Sega cobalt & red power-LED ring"
+    "subtitle": "Glossy black Model 1 deck, metallic 16-BIT gold, Sega cobalt & red power-LED ring",
+    "neighbors": [
+      {
+        "slug": "mastersystem-dark",
+        "de": 1.8
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 7.8
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 7.9
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 7.9
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 7.9
+      },
+      {
+        "slug": "ds-dark",
+        "de": 9.1
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-dark",
+      "de": 26.1
+    }
   },
   {
     "label": "Game Boy Light",
@@ -107,7 +407,37 @@
     "year": 1989,
     "mode": "light",
     "slug": "gameboy-light",
-    "subtitle": "DMG-01 warm putty shell, burgundy-magenta A/B buttons, navy bezel ink & LCD olive"
+    "subtitle": "DMG-01 warm putty shell, burgundy-magenta A/B buttons, navy bezel ink & LCD olive",
+    "neighbors": [
+      {
+        "slug": "nes-light",
+        "de": 7.5
+      },
+      {
+        "slug": "gamecube-light",
+        "de": 11.7
+      },
+      {
+        "slug": "turbografx16-light",
+        "de": 11.9
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 13.9
+      },
+      {
+        "slug": "gbc-light",
+        "de": 14
+      },
+      {
+        "slug": "neogeo-light",
+        "de": 14.2
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 25.3
+    }
   },
   {
     "label": "Game Boy Dark",
@@ -117,7 +447,37 @@
     "year": 1989,
     "mode": "dark",
     "slug": "gameboy-dark",
-    "subtitle": "1989 DMG-01 4-shade reflective olive-green dot-matrix LCD phosphor ramp"
+    "subtitle": "1989 DMG-01 4-shade reflective olive-green dot-matrix LCD phosphor ramp",
+    "neighbors": [
+      {
+        "slug": "xbox-dark",
+        "de": 36.8
+      },
+      {
+        "slug": "steamdeck-dark",
+        "de": 38.1
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 39.3
+      },
+      {
+        "slug": "turbografx16-dark",
+        "de": 39.3
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 39.5
+      },
+      {
+        "slug": "ds-dark",
+        "de": 39.6
+      }
+    ],
+    "farthest": {
+      "slug": "snes-dark",
+      "de": 45.5
+    }
   },
   {
     "label": "Atari Lynx Light",
@@ -127,7 +487,37 @@
     "year": 1989,
     "mode": "light",
     "slug": "atarilynx-light",
-    "subtitle": "Brushed silver-slate handheld shell, backlit color LCD cyan, Atari orange & amber"
+    "subtitle": "Brushed silver-slate handheld shell, backlit color LCD cyan, Atari orange & amber",
+    "neighbors": [
+      {
+        "slug": "steammachine-light",
+        "de": 4.6
+      },
+      {
+        "slug": "switch2-light",
+        "de": 5.6
+      },
+      {
+        "slug": "saturn-light",
+        "de": 6.3
+      },
+      {
+        "slug": "switch-light",
+        "de": 6.3
+      },
+      {
+        "slug": "wii-light",
+        "de": 7.7
+      },
+      {
+        "slug": "steamdeck-light",
+        "de": 7.8
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 21.5
+    }
   },
   {
     "label": "Atari Lynx Dark",
@@ -137,7 +527,37 @@
     "year": 1989,
     "mode": "dark",
     "slug": "atarilynx-dark",
-    "subtitle": "Chunky matte-charcoal Lynx shell, glowing 16-bit backlit color LCD & amber-orange LEDs"
+    "subtitle": "Chunky matte-charcoal Lynx shell, glowing 16-bit backlit color LCD & amber-orange LEDs",
+    "neighbors": [
+      {
+        "slug": "saturn-dark",
+        "de": 5.6
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 5.7
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 7
+      },
+      {
+        "slug": "switch-dark",
+        "de": 7.3
+      },
+      {
+        "slug": "wii-dark",
+        "de": 7.6
+      },
+      {
+        "slug": "ds-dark",
+        "de": 8.3
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 22.8
+    }
   },
   {
     "label": "SNES Light",
@@ -147,7 +567,37 @@
     "year": 1990,
     "mode": "light",
     "slug": "snes-light",
-    "subtitle": "Classic neutral-cool SNES grey shell, NA violet switches & Super Famicom 4-color ABXY"
+    "subtitle": "Classic neutral-cool SNES grey shell, NA violet switches & Super Famicom 4-color ABXY",
+    "neighbors": [
+      {
+        "slug": "ps2-light",
+        "de": 5.3
+      },
+      {
+        "slug": "atarijaguar-light",
+        "de": 5.6
+      },
+      {
+        "slug": "ps3-light",
+        "de": 5.7
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.7
+      },
+      {
+        "slug": "gba-light",
+        "de": 5.9
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 6.3
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 22.2
+    }
   },
   {
     "label": "SNES Dark",
@@ -157,7 +607,37 @@
     "year": 1990,
     "mode": "dark",
     "slug": "snes-dark",
-    "subtitle": "Mode-7 midnight indigo-slate, vivid Super Famicom ABXY & NA lavender focus"
+    "subtitle": "Mode-7 midnight indigo-slate, vivid Super Famicom ABXY & NA lavender focus",
+    "neighbors": [
+      {
+        "slug": "atarijaguar-dark",
+        "de": 6.1
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 6.4
+      },
+      {
+        "slug": "switch-dark",
+        "de": 6.5
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 6.8
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 7.1
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 7.2
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 23.8
+    }
   },
   {
     "label": "Neo Geo AES Light",
@@ -167,7 +647,37 @@
     "year": 1990,
     "mode": "light",
     "slug": "neogeo-light",
-    "subtitle": "SNK arcade marquee cream, antique Pro-Gear gold & 4-button Red/Yellow/Green/Blue"
+    "subtitle": "SNK arcade marquee cream, antique Pro-Gear gold & 4-button Red/Yellow/Green/Blue",
+    "neighbors": [
+      {
+        "slug": "atari2600-light",
+        "de": 10.5
+      },
+      {
+        "slug": "turbografx16-light",
+        "de": 10.5
+      },
+      {
+        "slug": "gamecube-light",
+        "de": 10.6
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 11.4
+      },
+      {
+        "slug": "nes-light",
+        "de": 12.2
+      },
+      {
+        "slug": "wii-light",
+        "de": 12.3
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 21.9
+    }
   },
   {
     "label": "Neo Geo AES Dark",
@@ -177,7 +687,37 @@
     "year": 1990,
     "mode": "dark",
     "slug": "neogeo-dark",
-    "subtitle": "Pro-Gear Spec obsidian slab, gleaming metallic Neo Geo gold, SNK cyan & 4-button row"
+    "subtitle": "Pro-Gear Spec obsidian slab, gleaming metallic Neo Geo gold, SNK cyan & 4-button row",
+    "neighbors": [
+      {
+        "slug": "atari2600-dark",
+        "de": 8.2
+      },
+      {
+        "slug": "dreamcast-dark",
+        "de": 8.8
+      },
+      {
+        "slug": "playdate-dark",
+        "de": 10.2
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 11.8
+      },
+      {
+        "slug": "turbografx16-dark",
+        "de": 12.5
+      },
+      {
+        "slug": "wii-dark",
+        "de": 13.4
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 26.5
+    }
   },
   {
     "label": "Atari Jaguar Light",
@@ -187,7 +727,37 @@
     "year": 1993,
     "mode": "light",
     "slug": "atarijaguar-light",
-    "subtitle": "Pewter \"Do The Math\" hardware card, Tempest 2000 electric indigo, Jaguar Claw crimson & AvP acid green"
+    "subtitle": "Pewter \"Do The Math\" hardware card, Tempest 2000 electric indigo, Jaguar Claw crimson & AvP acid green",
+    "neighbors": [
+      {
+        "slug": "psportal-light",
+        "de": 4.4
+      },
+      {
+        "slug": "ps2-light",
+        "de": 5
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.2
+      },
+      {
+        "slug": "snes-light",
+        "de": 5.6
+      },
+      {
+        "slug": "gba-light",
+        "de": 5.8
+      },
+      {
+        "slug": "ps3-light",
+        "de": 6.1
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 23.7
+    }
   },
   {
     "label": "Atari Jaguar Dark",
@@ -197,7 +767,37 @@
     "year": 1993,
     "mode": "dark",
     "slug": "atarijaguar-dark",
-    "subtitle": "Matte-charcoal ribbed Jaguar console, Tempest 2000 electric violet, Jaguar Claw crimson & AvP lime"
+    "subtitle": "Matte-charcoal ribbed Jaguar console, Tempest 2000 electric violet, Jaguar Claw crimson & AvP lime",
+    "neighbors": [
+      {
+        "slug": "ps2-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 5.1
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 5.2
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 5.3
+      },
+      {
+        "slug": "gba-dark",
+        "de": 6
+      },
+      {
+        "slug": "snes-dark",
+        "de": 6.1
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-dark",
+      "de": 24.3
+    }
   },
   {
     "label": "Sega Saturn Light",
@@ -207,7 +807,37 @@
     "year": 1994,
     "mode": "light",
     "slug": "saturn-light",
-    "subtitle": "Japanese Model 2 Mist White shell & vivid candy turquoise, pink, blue, and gold oval buttons"
+    "subtitle": "Japanese Model 2 Mist White shell & vivid candy turquoise, pink, blue, and gold oval buttons",
+    "neighbors": [
+      {
+        "slug": "steammachine-light",
+        "de": 5.8
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 6.3
+      },
+      {
+        "slug": "wii-light",
+        "de": 6.6
+      },
+      {
+        "slug": "switch2-light",
+        "de": 7.4
+      },
+      {
+        "slug": "switch-light",
+        "de": 7.6
+      },
+      {
+        "slug": "ds-light",
+        "de": 8.1
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 22
+    }
   },
   {
     "label": "Sega Saturn Dark",
@@ -217,7 +847,37 @@
     "year": 1994,
     "mode": "dark",
     "slug": "saturn-dark",
-    "subtitle": "Model 1 stealth matte-black deck, orbital cyan ring, Sega cobalt & candy rose accents"
+    "subtitle": "Model 1 stealth matte-black deck, orbital cyan ring, Sega cobalt & candy rose accents",
+    "neighbors": [
+      {
+        "slug": "atarilynx-dark",
+        "de": 5.6
+      },
+      {
+        "slug": "wii-dark",
+        "de": 6.2
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 6.3
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 6.4
+      },
+      {
+        "slug": "switch-dark",
+        "de": 7.3
+      },
+      {
+        "slug": "ds-dark",
+        "de": 7.7
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 23.8
+    }
   },
   {
     "label": "PlayStation Light",
@@ -227,7 +887,37 @@
     "year": 1994,
     "mode": "light",
     "slug": "ps1-light",
-    "subtitle": "1994 PS1 neutral cement grey, matte grey chrome, amber boot diamond & △ ○ × □ quartet"
+    "subtitle": "1994 PS1 neutral cement grey, matte grey chrome, amber boot diamond & △ ○ × □ quartet",
+    "neighbors": [
+      {
+        "slug": "n64-light",
+        "de": 5
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 10.3
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 10.9
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 12.3
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 12.8
+      },
+      {
+        "slug": "xbox-light",
+        "de": 15.2
+      }
+    ],
+    "farthest": {
+      "slug": "virtualboy-light",
+      "de": 23.7
+    }
   },
   {
     "label": "PlayStation Dark",
@@ -237,7 +927,37 @@
     "year": 1994,
     "mode": "dark",
     "slug": "ps1-dark",
-    "subtitle": "Black-bottomed CD matte obsidian, amber BIOS diamond & glowing △ ○ × □ quartet"
+    "subtitle": "Black-bottomed CD matte obsidian, amber BIOS diamond & glowing △ ○ × □ quartet",
+    "neighbors": [
+      {
+        "slug": "n64-dark",
+        "de": 5
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 10.8
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 14.4
+      },
+      {
+        "slug": "xboxseries-dark",
+        "de": 14.6
+      },
+      {
+        "slug": "steamframe-dark",
+        "de": 15
+      }
+    ],
+    "farthest": {
+      "slug": "genesis-dark",
+      "de": 25.8
+    }
   },
   {
     "label": "Virtual Boy Light",
@@ -247,7 +967,37 @@
     "year": 1995,
     "mode": "light",
     "slug": "virtualboy-light",
-    "subtitle": "Neutral matte controller grey, sculpted crimson visor hood & 650nm stereoscopic red accents"
+    "subtitle": "Neutral matte controller grey, sculpted crimson visor hood & 650nm stereoscopic red accents",
+    "neighbors": [
+      {
+        "slug": "playdate-light",
+        "de": 6.6
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 8.6
+      },
+      {
+        "slug": "atari2600-light",
+        "de": 9.1
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 10.1
+      },
+      {
+        "slug": "steamdeck-light",
+        "de": 11.6
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 13
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 23.7
+    }
   },
   {
     "label": "Virtual Boy Dark",
@@ -257,7 +1007,37 @@
     "year": 1995,
     "mode": "dark",
     "slug": "virtualboy-dark",
-    "subtitle": "Pitch-black stereoscopic visor void illuminated by blazing 650nm Virtual Boy crimson LEDs"
+    "subtitle": "Pitch-black stereoscopic visor void illuminated by blazing 650nm Virtual Boy crimson LEDs",
+    "neighbors": [
+      {
+        "slug": "atarilynx-dark",
+        "de": 11.7
+      },
+      {
+        "slug": "atari2600-dark",
+        "de": 11.8
+      },
+      {
+        "slug": "playdate-dark",
+        "de": 12
+      },
+      {
+        "slug": "dreamcast-dark",
+        "de": 12.1
+      },
+      {
+        "slug": "snes-dark",
+        "de": 13.1
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 13.4
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 26.1
+    }
   },
   {
     "label": "Nintendo 64 Light",
@@ -267,7 +1047,37 @@
     "year": 1996,
     "mode": "light",
     "slug": "n64-light",
-    "subtitle": "Matte neutral N64 trident controller grey & 3D N-cube Red/Green/Blue/C-Yellow quartet"
+    "subtitle": "Matte neutral N64 trident controller grey & 3D N-cube Red/Green/Blue/C-Yellow quartet",
+    "neighbors": [
+      {
+        "slug": "ps1-light",
+        "de": 5
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 8.4
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 10.1
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 10.4
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 12.7
+      },
+      {
+        "slug": "n3ds-light",
+        "de": 13.5
+      }
+    ],
+    "farthest": {
+      "slug": "genesis-light",
+      "de": 23
+    }
   },
   {
     "label": "Nintendo 64 Dark",
@@ -277,7 +1087,37 @@
     "year": 1996,
     "mode": "dark",
     "slug": "n64-dark",
-    "subtitle": "Sculpted dark-charcoal N64 console deck & glowing A-Blue, B-Green, Start-Red, C-Yellow"
+    "subtitle": "Sculpted dark-charcoal N64 console deck & glowing A-Blue, B-Green, Start-Red, C-Yellow",
+    "neighbors": [
+      {
+        "slug": "ps1-dark",
+        "de": 5
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 7.6
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "xboxseries-dark",
+        "de": 12.6
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 13
+      },
+      {
+        "slug": "n3ds-dark",
+        "de": 14.5
+      }
+    ],
+    "farthest": {
+      "slug": "genesis-dark",
+      "de": 24.4
+    }
   },
   {
     "label": "Game Boy Color Light",
@@ -287,7 +1127,37 @@
     "year": 1998,
     "mode": "light",
     "slug": "gbc-light",
-    "subtitle": "Reflective TFT warm canvas & iconic Berry, Teal, Dandelion, Kiwi, and Grape shells"
+    "subtitle": "Reflective TFT warm canvas & iconic Berry, Teal, Dandelion, Kiwi, and Grape shells",
+    "neighbors": [
+      {
+        "slug": "gamecube-light",
+        "de": 12.9
+      },
+      {
+        "slug": "wii-light",
+        "de": 13.1
+      },
+      {
+        "slug": "gameboy-light",
+        "de": 14
+      },
+      {
+        "slug": "gba-light",
+        "de": 14
+      },
+      {
+        "slug": "nes-light",
+        "de": 14.1
+      },
+      {
+        "slug": "ps3-light",
+        "de": 14.1
+      }
+    ],
+    "farthest": {
+      "slug": "n3ds-light",
+      "de": 23.2
+    }
   },
   {
     "label": "Game Boy Color Dark",
@@ -297,7 +1167,37 @@
     "year": 1998,
     "mode": "dark",
     "slug": "gbc-dark",
-    "subtitle": "Translucent Atomic Purple chassis lit by neon Teal, Kiwi lime, Berry pink & Dandelion"
+    "subtitle": "Translucent Atomic Purple chassis lit by neon Teal, Kiwi lime, Berry pink & Dandelion",
+    "neighbors": [
+      {
+        "slug": "gamecube-dark",
+        "de": 10
+      },
+      {
+        "slug": "atari2600-dark",
+        "de": 11.1
+      },
+      {
+        "slug": "dreamcast-dark",
+        "de": 11.4
+      },
+      {
+        "slug": "gba-dark",
+        "de": 12.9
+      },
+      {
+        "slug": "snes-dark",
+        "de": 13.1
+      },
+      {
+        "slug": "nes-dark",
+        "de": 13.4
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 25
+    }
   },
   {
     "label": "Sega Dreamcast Light",
@@ -307,7 +1207,37 @@
     "year": 1998,
     "mode": "light",
     "slug": "dreamcast-light",
-    "subtitle": "Pure frost-white shell, fiery Dreamcast orange swirl, VMU seafoam-teal & Sega cobalt"
+    "subtitle": "Pure frost-white shell, fiery Dreamcast orange swirl, VMU seafoam-teal & Sega cobalt",
+    "neighbors": [
+      {
+        "slug": "atari2600-light",
+        "de": 4.7
+      },
+      {
+        "slug": "playdate-light",
+        "de": 6
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 7.1
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 8.4
+      },
+      {
+        "slug": "switch-light",
+        "de": 8.5
+      },
+      {
+        "slug": "ps5-light",
+        "de": 8.6
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 19.7
+    }
   },
   {
     "label": "Sega Dreamcast Dark",
@@ -317,7 +1247,37 @@
     "year": 1998,
     "mode": "dark",
     "slug": "dreamcast-dark",
-    "subtitle": "Sega Sports Black chassis, blazing orange spiral swirl & backlit VMU seafoam-cyan"
+    "subtitle": "Sega Sports Black chassis, blazing orange spiral swirl & backlit VMU seafoam-cyan",
+    "neighbors": [
+      {
+        "slug": "atari2600-dark",
+        "de": 3.9
+      },
+      {
+        "slug": "turbografx16-dark",
+        "de": 7.2
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 8.8
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 9.9
+      },
+      {
+        "slug": "nes-dark",
+        "de": 11.3
+      },
+      {
+        "slug": "gbc-dark",
+        "de": 11.4
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 23
+    }
   },
   {
     "label": "PlayStation 2 Light",
@@ -327,7 +1287,37 @@
     "year": 2000,
     "mode": "light",
     "slug": "ps2-light",
-    "subtitle": "Ceramic White PS2 shell, Ocean Blue gradient logo & DualShock 2 symbol accents"
+    "subtitle": "Ceramic White PS2 shell, Ocean Blue gradient logo & DualShock 2 symbol accents",
+    "neighbors": [
+      {
+        "slug": "psportal-light",
+        "de": 2.2
+      },
+      {
+        "slug": "ps3-light",
+        "de": 2.6
+      },
+      {
+        "slug": "ps5-light",
+        "de": 2.7
+      },
+      {
+        "slug": "gba-light",
+        "de": 4.4
+      },
+      {
+        "slug": "ps4-light",
+        "de": 4.5
+      },
+      {
+        "slug": "ds-light",
+        "de": 4.6
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 21.8
+    }
   },
   {
     "label": "PlayStation 2 Dark",
@@ -337,7 +1327,37 @@
     "year": 2000,
     "mode": "dark",
     "slug": "ps2-dark",
-    "subtitle": "Ribbed obsidian monolith, seven-orb crystal sapphire BIOS void & blue-cyan gradient logo"
+    "subtitle": "Ribbed obsidian monolith, seven-orb crystal sapphire BIOS void & blue-cyan gradient logo",
+    "neighbors": [
+      {
+        "slug": "psportal-dark",
+        "de": 1.6
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 2.8
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 3.5
+      },
+      {
+        "slug": "ds-dark",
+        "de": 4.6
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 5.4
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 23.8
+    }
   },
   {
     "label": "Game Boy Advance Light",
@@ -347,7 +1367,37 @@
     "year": 2001,
     "mode": "light",
     "slug": "gba-light",
-    "subtitle": "Glacier Ice translucent pale-azure shell, indigo trim & vivid 32-bit pixel palette"
+    "subtitle": "Glacier Ice translucent pale-azure shell, indigo trim & vivid 32-bit pixel palette",
+    "neighbors": [
+      {
+        "slug": "ps4-light",
+        "de": 2.9
+      },
+      {
+        "slug": "psportal-light",
+        "de": 4.3
+      },
+      {
+        "slug": "ps2-light",
+        "de": 4.4
+      },
+      {
+        "slug": "ds-light",
+        "de": 5.2
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.3
+      },
+      {
+        "slug": "ps3-light",
+        "de": 5.5
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 22.4
+    }
   },
   {
     "label": "Game Boy Advance Dark",
@@ -357,7 +1407,37 @@
     "year": 2001,
     "mode": "dark",
     "slug": "gba-dark",
-    "subtitle": "Indigo & Cobalt SP AGS-101 backlit midnight with crisp 32-bit pixel glow"
+    "subtitle": "Indigo & Cobalt SP AGS-101 backlit midnight with crisp 32-bit pixel glow",
+    "neighbors": [
+      {
+        "slug": "atarijaguar-dark",
+        "de": 6
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 6.1
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 6.3
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 6.4
+      },
+      {
+        "slug": "gamecube-dark",
+        "de": 6.8
+      },
+      {
+        "slug": "ps4-dark",
+        "de": 6.8
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 24.7
+    }
   },
   {
     "label": "Nintendo GameCube Light",
@@ -367,7 +1447,37 @@
     "year": 2001,
     "mode": "light",
     "slug": "gamecube-light",
-    "subtitle": "Metallic Platinum Silver shell, Indigo cube purple, A-emerald, B-red, C-gold & Spice Orange"
+    "subtitle": "Metallic Platinum Silver shell, Indigo cube purple, A-emerald, B-red, C-gold & Spice Orange",
+    "neighbors": [
+      {
+        "slug": "snes-light",
+        "de": 6.5
+      },
+      {
+        "slug": "gba-light",
+        "de": 7.4
+      },
+      {
+        "slug": "ps5-light",
+        "de": 8
+      },
+      {
+        "slug": "ps2-light",
+        "de": 8.1
+      },
+      {
+        "slug": "ps3-light",
+        "de": 8.1
+      },
+      {
+        "slug": "ps4-light",
+        "de": 8.2
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 21.4
+    }
   },
   {
     "label": "Nintendo GameCube Dark",
@@ -377,7 +1487,37 @@
     "year": 2001,
     "mode": "dark",
     "slug": "gamecube-dark",
-    "subtitle": "Rich Indigo GameCube BIOS cube void, A-emerald, vivid B-crimson, C-gold & Spice Orange"
+    "subtitle": "Rich Indigo GameCube BIOS cube void, A-emerald, vivid B-crimson, C-gold & Spice Orange",
+    "neighbors": [
+      {
+        "slug": "snes-dark",
+        "de": 6.4
+      },
+      {
+        "slug": "gba-dark",
+        "de": 6.8
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 8.1
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 8.6
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 8.7
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 9
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 23.3
+    }
   },
   {
     "label": "Xbox Light",
@@ -387,7 +1527,37 @@
     "year": 2001,
     "mode": "light",
     "slug": "xbox-light",
-    "subtitle": "Crystal White frost shell, vivid radioactive Xbox emerald jewel & translucent ABXY gems"
+    "subtitle": "Crystal White frost shell, vivid radioactive Xbox emerald jewel & translucent ABXY gems",
+    "neighbors": [
+      {
+        "slug": "xboxseries-light",
+        "de": 9.9
+      },
+      {
+        "slug": "wii-light",
+        "de": 11.4
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 11.5
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 11.7
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 12.6
+      },
+      {
+        "slug": "dreamcast-light",
+        "de": 13.2
+      }
+    ],
+    "farthest": {
+      "slug": "steamframe-light",
+      "de": 19.5
+    }
   },
   {
     "label": "Xbox Dark",
@@ -397,7 +1567,37 @@
     "year": 2001,
     "mode": "dark",
     "slug": "xbox-dark",
-    "subtitle": "Translucent black-green Duke monolith, pulsing radioactive flubber BIOS & jewel ABXY"
+    "subtitle": "Translucent black-green Duke monolith, pulsing radioactive flubber BIOS & jewel ABXY",
+    "neighbors": [
+      {
+        "slug": "xboxseries-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 12.2
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 13
+      },
+      {
+        "slug": "dreamcast-dark",
+        "de": 13.3
+      },
+      {
+        "slug": "neogeo-dark",
+        "de": 13.8
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 14.1
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 22.9
+    }
   },
   {
     "label": "Nintendo DS Light",
@@ -407,7 +1607,37 @@
     "year": 2004,
     "mode": "light",
     "slug": "ds-light",
-    "subtitle": "DS Lite Polar White & metallic 2004 titanium silver, PictoChat sky blue & DS crimson"
+    "subtitle": "DS Lite Polar White & metallic 2004 titanium silver, PictoChat sky blue & DS crimson",
+    "neighbors": [
+      {
+        "slug": "psportal-light",
+        "de": 3.9
+      },
+      {
+        "slug": "ps4-light",
+        "de": 4.5
+      },
+      {
+        "slug": "ps2-light",
+        "de": 4.6
+      },
+      {
+        "slug": "gba-light",
+        "de": 5.2
+      },
+      {
+        "slug": "ps3-light",
+        "de": 5.2
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.9
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 21.7
+    }
   },
   {
     "label": "Nintendo DS Dark",
@@ -417,7 +1647,37 @@
     "year": 2004,
     "mode": "dark",
     "slug": "ds-dark",
-    "subtitle": "Crimson/Onyx DS Lite backlit dual-screen midnight, PictoChat azure & power-LED emerald"
+    "subtitle": "Crimson/Onyx DS Lite backlit dual-screen midnight, PictoChat azure & power-LED emerald",
+    "neighbors": [
+      {
+        "slug": "psportal-dark",
+        "de": 3.6
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 4.6
+      },
+      {
+        "slug": "ps4-dark",
+        "de": 5.7
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 5.7
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 6.1
+      },
+      {
+        "slug": "switch-dark",
+        "de": 6.6
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 24.6
+    }
   },
   {
     "label": "PlayStation Portable Light",
@@ -427,7 +1687,37 @@
     "year": 2004,
     "mode": "light",
     "slug": "psp-light",
-    "subtitle": "Ceramic White PSP, brushed UMD chrome, amethyst XMB silk ribbon & amber Memory Stick LED"
+    "subtitle": "Ceramic White PSP, brushed UMD chrome, amethyst XMB silk ribbon & amber Memory Stick LED",
+    "neighbors": [
+      {
+        "slug": "psportal-light",
+        "de": 8.5
+      },
+      {
+        "slug": "gba-light",
+        "de": 8.6
+      },
+      {
+        "slug": "ps2-light",
+        "de": 9
+      },
+      {
+        "slug": "ps5-light",
+        "de": 9.1
+      },
+      {
+        "slug": "ps3-light",
+        "de": 9.7
+      },
+      {
+        "slug": "atarijaguar-light",
+        "de": 10.2
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 23.2
+    }
   },
   {
     "label": "PlayStation Portable Dark",
@@ -437,7 +1727,37 @@
     "year": 2004,
     "mode": "dark",
     "slug": "psp-dark",
-    "subtitle": "Piano Black bezel, deep amethyst XMB silk ribbon wave & blinking amber Memory Stick LED"
+    "subtitle": "Piano Black bezel, deep amethyst XMB silk ribbon wave & blinking amber Memory Stick LED",
+    "neighbors": [
+      {
+        "slug": "gba-dark",
+        "de": 9.9
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 10.4
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 11.3
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 11.3
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 24.8
+    }
   },
   {
     "label": "Xbox 360 Light",
@@ -447,7 +1767,37 @@
     "year": 2005,
     "mode": "light",
     "slug": "xbox360-light",
-    "subtitle": "Matte concave white shell, chrome tray, Ring of Light emerald & 2005 Blades Dashboard"
+    "subtitle": "Matte concave white shell, chrome tray, Ring of Light emerald & 2005 Blades Dashboard",
+    "neighbors": [
+      {
+        "slug": "n3ds-light",
+        "de": 7.1
+      },
+      {
+        "slug": "n64-light",
+        "de": 8.4
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 8.8
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 9.2
+      },
+      {
+        "slug": "ps1-light",
+        "de": 10.9
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 11.1
+      }
+    ],
+    "farthest": {
+      "slug": "genesis-light",
+      "de": 24.6
+    }
   },
   {
     "label": "Xbox 360 Dark",
@@ -457,7 +1807,37 @@
     "year": 2005,
     "mode": "dark",
     "slug": "xbox360-dark",
-    "subtitle": "Xbox 360 Elite matte charcoal, glowing Ring of Light lime & Blades orange/violet/blue"
+    "subtitle": "Xbox 360 Elite matte charcoal, glowing Ring of Light lime & Blades orange/violet/blue",
+    "neighbors": [
+      {
+        "slug": "n64-dark",
+        "de": 7.6
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 9.1
+      },
+      {
+        "slug": "n3ds-dark",
+        "de": 9.6
+      },
+      {
+        "slug": "ps1-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "xboxseries-dark",
+        "de": 11.2
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 12
+      }
+    ],
+    "farthest": {
+      "slug": "genesis-dark",
+      "de": 26.1
+    }
   },
   {
     "label": "Nintendo Wii Light",
@@ -467,7 +1847,37 @@
     "year": 2006,
     "mode": "light",
     "slug": "wii-light",
-    "subtitle": "Glossy pure Wii Menu white, cool channel-tile silver & electric disc-slot aqua-cyan"
+    "subtitle": "Glossy pure Wii Menu white, cool channel-tile silver & electric disc-slot aqua-cyan",
+    "neighbors": [
+      {
+        "slug": "steammachine-light",
+        "de": 4.5
+      },
+      {
+        "slug": "switch-light",
+        "de": 4.7
+      },
+      {
+        "slug": "switch2-light",
+        "de": 5.1
+      },
+      {
+        "slug": "ps2-light",
+        "de": 6.2
+      },
+      {
+        "slug": "saturn-light",
+        "de": 6.6
+      },
+      {
+        "slug": "gba-light",
+        "de": 6.7
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 18.6
+    }
   },
   {
     "label": "Nintendo Wii Dark",
@@ -477,7 +1887,37 @@
     "year": 2006,
     "mode": "dark",
     "slug": "wii-dark",
-    "subtitle": "Wii Black Edition glossy jet-black lacquer & hypnotic pulsing cyan disc-slot LED"
+    "subtitle": "Wii Black Edition glossy jet-black lacquer & hypnotic pulsing cyan disc-slot LED",
+    "neighbors": [
+      {
+        "slug": "switch2-dark",
+        "de": 3.9
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "switch-dark",
+        "de": 5
+      },
+      {
+        "slug": "saturn-dark",
+        "de": 6.2
+      },
+      {
+        "slug": "atarilynx-dark",
+        "de": 7.6
+      },
+      {
+        "slug": "gba-dark",
+        "de": 7.6
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 20.6
+    }
   },
   {
     "label": "PlayStation 3 Light",
@@ -487,7 +1927,37 @@
     "year": 2006,
     "mode": "light",
     "slug": "ps3-light",
-    "subtitle": "Classic White PS3, brushed chrome trim, 2006 launch Spider-font crimson & Trophy gold"
+    "subtitle": "Classic White PS3, brushed chrome trim, 2006 launch Spider-font crimson & Trophy gold",
+    "neighbors": [
+      {
+        "slug": "ps5-light",
+        "de": 1.6
+      },
+      {
+        "slug": "ps2-light",
+        "de": 2.6
+      },
+      {
+        "slug": "psportal-light",
+        "de": 3.1
+      },
+      {
+        "slug": "ds-light",
+        "de": 5.2
+      },
+      {
+        "slug": "gba-light",
+        "de": 5.5
+      },
+      {
+        "slug": "ps4-light",
+        "de": 5.5
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 20.4
+    }
   },
   {
     "label": "PlayStation 3 Dark",
@@ -497,7 +1967,37 @@
     "year": 2006,
     "mode": "dark",
     "slug": "ps3-dark",
-    "subtitle": "Piano Black curved monolith, brushed chrome XMB particle-wave, launch crimson & Trophy gold"
+    "subtitle": "Piano Black curved monolith, brushed chrome XMB particle-wave, launch crimson & Trophy gold",
+    "neighbors": [
+      {
+        "slug": "ps5-dark",
+        "de": 2.6
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 3.5
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 4.1
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 5.3
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 6.1
+      },
+      {
+        "slug": "switch-dark",
+        "de": 6.3
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-dark",
+      "de": 21.9
+    }
   },
   {
     "label": "Nintendo 3DS Light",
@@ -507,7 +2007,37 @@
     "year": 2011,
     "mode": "light",
     "slug": "n3ds-light",
-    "subtitle": "Pearl White & Aqua Blue launch gloss, StreetPass emerald LED & vivid eShop tangerine"
+    "subtitle": "Pearl White & Aqua Blue launch gloss, StreetPass emerald LED & vivid eShop tangerine",
+    "neighbors": [
+      {
+        "slug": "xbox360-light",
+        "de": 7.1
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 7.2
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 7.4
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 9.4
+      },
+      {
+        "slug": "xbox-light",
+        "de": 13.2
+      },
+      {
+        "slug": "n64-light",
+        "de": 13.5
+      }
+    ],
+    "farthest": {
+      "slug": "nes-light",
+      "de": 23.8
+    }
   },
   {
     "label": "Nintendo 3DS Dark",
@@ -517,7 +2047,37 @@
     "year": 2011,
     "mode": "dark",
     "slug": "n3ds-dark",
-    "subtitle": "Cosmo Black / New 3DS dark theme, glowing StreetPass emerald & eShop tangerine"
+    "subtitle": "Cosmo Black / New 3DS dark theme, glowing StreetPass emerald & eShop tangerine",
+    "neighbors": [
+      {
+        "slug": "xboxseries-dark",
+        "de": 7.4
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 9.6
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 10.1
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "xbox-dark",
+        "de": 14.2
+      },
+      {
+        "slug": "n64-dark",
+        "de": 14.5
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 25
+    }
   },
   {
     "label": "PlayStation Vita Light",
@@ -527,7 +2087,37 @@
     "year": 2011,
     "mode": "light",
     "slug": "psvita-light",
-    "subtitle": "Glacier White Vita, glossy LiveArea bubbles & crisp OLED cyan-magenta-lime palette"
+    "subtitle": "Glacier White Vita, glossy LiveArea bubbles & crisp OLED cyan-magenta-lime palette",
+    "neighbors": [
+      {
+        "slug": "xboxone-light",
+        "de": 10.2
+      },
+      {
+        "slug": "mastersystem-light",
+        "de": 12.1
+      },
+      {
+        "slug": "genesis-light",
+        "de": 12.4
+      },
+      {
+        "slug": "rogxboxally-light",
+        "de": 13
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 13
+      },
+      {
+        "slug": "ps4-light",
+        "de": 14.6
+      }
+    ],
+    "farthest": {
+      "slug": "gameboy-light",
+      "de": 25.3
+    }
   },
   {
     "label": "PlayStation Vita Dark",
@@ -537,7 +2127,37 @@
     "year": 2011,
     "mode": "dark",
     "slug": "psvita-dark",
-    "subtitle": "PCH-1000 OLED Piano Black, electric cyan PS-button glow & neon LiveArea bubbles"
+    "subtitle": "PCH-1000 OLED Piano Black, electric cyan PS-button glow & neon LiveArea bubbles",
+    "neighbors": [
+      {
+        "slug": "xboxone-dark",
+        "de": 12.2
+      },
+      {
+        "slug": "mastersystem-dark",
+        "de": 13.6
+      },
+      {
+        "slug": "genesis-dark",
+        "de": 14
+      },
+      {
+        "slug": "rogxboxally-dark",
+        "de": 14.9
+      },
+      {
+        "slug": "steamdeck-dark",
+        "de": 16
+      },
+      {
+        "slug": "xboxseries-dark",
+        "de": 16.2
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 30.1
+    }
   },
   {
     "label": "PlayStation 4 Light",
@@ -547,7 +2167,37 @@
     "year": 2013,
     "mode": "light",
     "slug": "ps4-light",
-    "subtitle": "Glacier White angled shell, DualShock 4 Light Bar royal blue & Share-button cyan"
+    "subtitle": "Glacier White angled shell, DualShock 4 Light Bar royal blue & Share-button cyan",
+    "neighbors": [
+      {
+        "slug": "gba-light",
+        "de": 2.9
+      },
+      {
+        "slug": "psportal-light",
+        "de": 3.8
+      },
+      {
+        "slug": "ds-light",
+        "de": 4.5
+      },
+      {
+        "slug": "ps2-light",
+        "de": 4.5
+      },
+      {
+        "slug": "ps3-light",
+        "de": 5.5
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.5
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 22.3
+    }
   },
   {
     "label": "PlayStation 4 Dark",
@@ -557,7 +2207,37 @@
     "year": 2013,
     "mode": "dark",
     "slug": "ps4-dark",
-    "subtitle": "PS4 Home Screen royal-cobalt Flow wave & electric DualShock 4 Light Bar blue"
+    "subtitle": "PS4 Home Screen royal-cobalt Flow wave & electric DualShock 4 Light Bar blue",
+    "neighbors": [
+      {
+        "slug": "psportal-dark",
+        "de": 5
+      },
+      {
+        "slug": "ds-dark",
+        "de": 5.7
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 5.8
+      },
+      {
+        "slug": "gba-dark",
+        "de": 6.8
+      },
+      {
+        "slug": "steamdeck-dark",
+        "de": 7
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 7.6
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 25.3
+    }
   },
   {
     "label": "Xbox One Light",
@@ -567,7 +2247,37 @@
     "year": 2013,
     "mode": "light",
     "slug": "xboxone-light",
-    "subtitle": "Xbox One S Robot White grille & Metro Live-Tile emerald, cerulean, magenta & gold"
+    "subtitle": "Xbox One S Robot White grille & Metro Live-Tile emerald, cerulean, magenta & gold",
+    "neighbors": [
+      {
+        "slug": "rogxboxally-light",
+        "de": 4.6
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 5.7
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 9.2
+      },
+      {
+        "slug": "n3ds-light",
+        "de": 9.4
+      },
+      {
+        "slug": "n64-light",
+        "de": 10.1
+      },
+      {
+        "slug": "psvita-light",
+        "de": 10.2
+      }
+    ],
+    "farthest": {
+      "slug": "gameboy-light",
+      "de": 24.5
+    }
   },
   {
     "label": "Xbox One Dark",
@@ -577,7 +2287,37 @@
     "year": 2013,
     "mode": "dark",
     "slug": "xboxone-dark",
-    "subtitle": "Xbox One X Project Scorpio matte carbon graphite, Xbox Guide green & Metro Live Tiles"
+    "subtitle": "Xbox One X Project Scorpio matte carbon graphite, Xbox Guide green & Metro Live Tiles",
+    "neighbors": [
+      {
+        "slug": "rogxboxally-dark",
+        "de": 6
+      },
+      {
+        "slug": "xboxseries-dark",
+        "de": 6
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 9.1
+      },
+      {
+        "slug": "n3ds-dark",
+        "de": 10.1
+      },
+      {
+        "slug": "n64-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "ps1-dark",
+        "de": 10.8
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 25.6
+    }
   },
   {
     "label": "Nintendo Switch Light",
@@ -587,7 +2327,37 @@
     "year": 2017,
     "mode": "light",
     "slug": "switch-light",
-    "subtitle": "Switch OLED White / Basic White UI sparked by Neon Blue & Neon Red Joy-Cons"
+    "subtitle": "Switch OLED White / Basic White UI sparked by Neon Blue & Neon Red Joy-Cons",
+    "neighbors": [
+      {
+        "slug": "switch2-light",
+        "de": 1.9
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 3.4
+      },
+      {
+        "slug": "wii-light",
+        "de": 4.7
+      },
+      {
+        "slug": "ps5-light",
+        "de": 5.5
+      },
+      {
+        "slug": "psportal-light",
+        "de": 5.5
+      },
+      {
+        "slug": "ps2-light",
+        "de": 5.6
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 19.6
+    }
   },
   {
     "label": "Nintendo Switch Dark",
@@ -597,7 +2367,37 @@
     "year": 2017,
     "mode": "dark",
     "slug": "switch-dark",
-    "subtitle": "Switch Basic Black matte-charcoal Home UI lit by Neon Blue & Neon Red Joy-Cons"
+    "subtitle": "Switch Basic Black matte-charcoal Home UI lit by Neon Blue & Neon Red Joy-Cons",
+    "neighbors": [
+      {
+        "slug": "steammachine-dark",
+        "de": 1.8
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 2.6
+      },
+      {
+        "slug": "wii-dark",
+        "de": 5
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 5.1
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 5.4
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 5.7
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 22.2
+    }
   },
   {
     "label": "PlayStation 5 Light",
@@ -607,7 +2407,37 @@
     "year": 2020,
     "mode": "light",
     "slug": "ps5-light",
-    "subtitle": "Architectural matte-white PS5 faceplates, DualSense slate core & glowing cobalt LED strip"
+    "subtitle": "Architectural matte-white PS5 faceplates, DualSense slate core & glowing cobalt LED strip",
+    "neighbors": [
+      {
+        "slug": "ps3-light",
+        "de": 1.6
+      },
+      {
+        "slug": "ps2-light",
+        "de": 2.7
+      },
+      {
+        "slug": "psportal-light",
+        "de": 2.7
+      },
+      {
+        "slug": "atarijaguar-light",
+        "de": 5.2
+      },
+      {
+        "slug": "gba-light",
+        "de": 5.3
+      },
+      {
+        "slug": "ps4-light",
+        "de": 5.5
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-light",
+      "de": 20.8
+    }
   },
   {
     "label": "PlayStation 5 Dark",
@@ -617,7 +2447,37 @@
     "year": 2020,
     "mode": "dark",
     "slug": "ps5-dark",
-    "subtitle": "Neutral Midnight Black DualSense, golden PS5 boot starburst & sapphire LED strip"
+    "subtitle": "Neutral Midnight Black DualSense, golden PS5 boot starburst & sapphire LED strip",
+    "neighbors": [
+      {
+        "slug": "ps3-dark",
+        "de": 2.6
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 2.8
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 3.1
+      },
+      {
+        "slug": "atarijaguar-dark",
+        "de": 5.1
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 5.2
+      },
+      {
+        "slug": "switch-dark",
+        "de": 5.4
+      }
+    ],
+    "farthest": {
+      "slug": "xbox360-dark",
+      "de": 22.2
+    }
   },
   {
     "label": "Xbox Series X|S Light",
@@ -627,7 +2487,37 @@
     "year": 2020,
     "mode": "light",
     "slug": "xboxseries-light",
-    "subtitle": "Series S stark Robot White slab, iconic circular black-vent graphite & Fluent emerald"
+    "subtitle": "Series S stark Robot White slab, iconic circular black-vent graphite & Fluent emerald",
+    "neighbors": [
+      {
+        "slug": "rogxboxally-light",
+        "de": 5.1
+      },
+      {
+        "slug": "xboxone-light",
+        "de": 5.7
+      },
+      {
+        "slug": "n3ds-light",
+        "de": 7.2
+      },
+      {
+        "slug": "xbox-light",
+        "de": 9.9
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 11.1
+      },
+      {
+        "slug": "ps1-light",
+        "de": 12.3
+      }
+    ],
+    "farthest": {
+      "slug": "gameboy-light",
+      "de": 23.7
+    }
   },
   {
     "label": "Xbox Series X|S Dark",
@@ -637,7 +2527,37 @@
     "year": 2020,
     "mode": "dark",
     "slug": "xboxseries-dark",
-    "subtitle": "Series X obsidian monolith crowned by the iconic concave top-vent emerald glow"
+    "subtitle": "Series X obsidian monolith crowned by the iconic concave top-vent emerald glow",
+    "neighbors": [
+      {
+        "slug": "rogxboxally-dark",
+        "de": 5.6
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 6
+      },
+      {
+        "slug": "n3ds-dark",
+        "de": 7.4
+      },
+      {
+        "slug": "xbox-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 11.2
+      },
+      {
+        "slug": "n64-dark",
+        "de": 12.6
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 25.3
+    }
   },
   {
     "label": "Steam Deck Light",
@@ -647,7 +2567,37 @@
     "year": 2022,
     "mode": "light",
     "slug": "steamdeck-light",
-    "subtitle": "Steam Deck White Limited Edition shell, trackpad slate, Steam blue & OLED flame-orange"
+    "subtitle": "Steam Deck White Limited Edition shell, trackpad slate, Steam blue & OLED flame-orange",
+    "neighbors": [
+      {
+        "slug": "ps4-light",
+        "de": 6.6
+      },
+      {
+        "slug": "ds-light",
+        "de": 7
+      },
+      {
+        "slug": "psportal-light",
+        "de": 7.7
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 7.8
+      },
+      {
+        "slug": "gba-light",
+        "de": 8.2
+      },
+      {
+        "slug": "ps2-light",
+        "de": 8.9
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 23.7
+    }
   },
   {
     "label": "Steam Deck Dark",
@@ -657,7 +2607,37 @@
     "year": 2022,
     "mode": "dark",
     "slug": "steamdeck-dark",
-    "subtitle": "Steam Deck OLED stealth matte charcoal, Steam blue, flame-orange power button & Proton emerald"
+    "subtitle": "Steam Deck OLED stealth matte charcoal, Steam blue, flame-orange power button & Proton emerald",
+    "neighbors": [
+      {
+        "slug": "ps4-dark",
+        "de": 7
+      },
+      {
+        "slug": "ds-dark",
+        "de": 7.2
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 7.5
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 7.7
+      },
+      {
+        "slug": "gba-dark",
+        "de": 8.2
+      },
+      {
+        "slug": "atarilynx-dark",
+        "de": 8.8
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 24.8
+    }
   },
   {
     "label": "Playdate Light",
@@ -667,7 +2647,37 @@
     "year": 2022,
     "mode": "light",
     "slug": "playdate-light",
-    "subtitle": "Iconic Playdate warm canary-yellow chassis, crisp 1-bit Sharp Memory LCD ink & steel crank"
+    "subtitle": "Iconic Playdate warm canary-yellow chassis, crisp 1-bit Sharp Memory LCD ink & steel crank",
+    "neighbors": [
+      {
+        "slug": "dreamcast-light",
+        "de": 6
+      },
+      {
+        "slug": "virtualboy-light",
+        "de": 6.6
+      },
+      {
+        "slug": "atari2600-light",
+        "de": 6.9
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 9.3
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 9.9
+      },
+      {
+        "slug": "saturn-light",
+        "de": 11
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 23
+    }
   },
   {
     "label": "Playdate Dark",
@@ -677,7 +2687,37 @@
     "year": 2022,
     "mode": "dark",
     "slug": "playdate-dark",
-    "subtitle": "Teenage Engineering matte studio-charcoal lit by blazing Playdate Yellow & steel crank"
+    "subtitle": "Teenage Engineering matte studio-charcoal lit by blazing Playdate Yellow & steel crank",
+    "neighbors": [
+      {
+        "slug": "neogeo-dark",
+        "de": 10.2
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 10.2
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 10.4
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 10.5
+      },
+      {
+        "slug": "atarilynx-dark",
+        "de": 10.6
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-dark",
+      "de": 23.8
+    }
   },
   {
     "label": "PlayStation Portal Light",
@@ -687,7 +2727,37 @@
     "year": 2023,
     "mode": "light",
     "slug": "psportal-light",
-    "subtitle": "Split DualSense matte-white grips, slate center LCD bezel & glowing sapphire Remote Play strips"
+    "subtitle": "Split DualSense matte-white grips, slate center LCD bezel & glowing sapphire Remote Play strips",
+    "neighbors": [
+      {
+        "slug": "ps2-light",
+        "de": 2.2
+      },
+      {
+        "slug": "ps5-light",
+        "de": 2.7
+      },
+      {
+        "slug": "ps3-light",
+        "de": 3.1
+      },
+      {
+        "slug": "ps4-light",
+        "de": 3.8
+      },
+      {
+        "slug": "ds-light",
+        "de": 3.9
+      },
+      {
+        "slug": "gba-light",
+        "de": 4.3
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 21.9
+    }
   },
   {
     "label": "PlayStation Portal Dark",
@@ -697,7 +2767,37 @@
     "year": 2023,
     "mode": "dark",
     "slug": "psportal-dark",
-    "subtitle": "Midnight Black Portal edition with electric DualSense blue lightbars & Remote Play cyan"
+    "subtitle": "Midnight Black Portal edition with electric DualSense blue lightbars & Remote Play cyan",
+    "neighbors": [
+      {
+        "slug": "ps2-dark",
+        "de": 1.6
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 3.1
+      },
+      {
+        "slug": "ds-dark",
+        "de": 3.6
+      },
+      {
+        "slug": "ps3-dark",
+        "de": 4.1
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "ps4-dark",
+        "de": 5
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 24.4
+    }
   },
   {
     "label": "Nintendo Switch 2 Light",
@@ -707,7 +2807,37 @@
     "year": 2025,
     "mode": "light",
     "slug": "switch2-light",
-    "subtitle": "Switch 2 Basic Light UI accented by magnetic Joy-Con 2 Light Blue & Light Red rails"
+    "subtitle": "Switch 2 Basic Light UI accented by magnetic Joy-Con 2 Light Blue & Light Red rails",
+    "neighbors": [
+      {
+        "slug": "switch-light",
+        "de": 1.9
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 3.2
+      },
+      {
+        "slug": "wii-light",
+        "de": 5.1
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 5.6
+      },
+      {
+        "slug": "ps2-light",
+        "de": 6.1
+      },
+      {
+        "slug": "ps5-light",
+        "de": 6.1
+      }
+    ],
+    "farthest": {
+      "slug": "psvita-light",
+      "de": 20.5
+    }
   },
   {
     "label": "Nintendo Switch 2 Dark",
@@ -717,7 +2847,37 @@
     "year": 2025,
     "mode": "dark",
     "slug": "switch2-dark",
-    "subtitle": "Matte-black Switch 2 chassis glowing with Joy-Con 2 Light Blue & Light Red magnetic rings"
+    "subtitle": "Matte-black Switch 2 chassis glowing with Joy-Con 2 Light Blue & Light Red magnetic rings",
+    "neighbors": [
+      {
+        "slug": "switch-dark",
+        "de": 2.6
+      },
+      {
+        "slug": "steammachine-dark",
+        "de": 3.2
+      },
+      {
+        "slug": "wii-dark",
+        "de": 3.9
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 5.2
+      },
+      {
+        "slug": "ps2-dark",
+        "de": 5.4
+      },
+      {
+        "slug": "atarilynx-dark",
+        "de": 5.7
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 20.9
+    }
   },
   {
     "label": "ROG Xbox Ally Light",
@@ -727,7 +2887,37 @@
     "year": 2025,
     "mode": "light",
     "slug": "rogxboxally-light",
-    "subtitle": "White ROG Xbox Ally shell uniting Xbox Guide emerald with ROG crimson & Aura violet"
+    "subtitle": "White ROG Xbox Ally shell uniting Xbox Guide emerald with ROG crimson & Aura violet",
+    "neighbors": [
+      {
+        "slug": "xboxone-light",
+        "de": 4.6
+      },
+      {
+        "slug": "xboxseries-light",
+        "de": 5.1
+      },
+      {
+        "slug": "n3ds-light",
+        "de": 7.4
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 8.8
+      },
+      {
+        "slug": "n64-light",
+        "de": 10.4
+      },
+      {
+        "slug": "xbox-light",
+        "de": 11.7
+      }
+    ],
+    "farthest": {
+      "slug": "gameboy-light",
+      "de": 24.2
+    }
   },
   {
     "label": "ROG Xbox Ally Dark",
@@ -737,7 +2927,37 @@
     "year": 2025,
     "mode": "dark",
     "slug": "rogxboxally-dark",
-    "subtitle": "Stealth Black ROG Xbox Ally X with Xbox emerald, ROG crimson & Nebula HDR cyan rings"
+    "subtitle": "Stealth Black ROG Xbox Ally X with Xbox emerald, ROG crimson & Nebula HDR cyan rings",
+    "neighbors": [
+      {
+        "slug": "xboxseries-dark",
+        "de": 5.6
+      },
+      {
+        "slug": "xboxone-dark",
+        "de": 6
+      },
+      {
+        "slug": "n3ds-dark",
+        "de": 10.3
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 12
+      },
+      {
+        "slug": "n64-dark",
+        "de": 13
+      },
+      {
+        "slug": "xbox-dark",
+        "de": 13
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 24.4
+    }
   },
   {
     "label": "Steam Machine Light",
@@ -747,7 +2967,37 @@
     "year": 2026,
     "mode": "light",
     "slug": "steammachine-light",
-    "subtitle": "Swappable magnetic walnut & red-fabric faceplates, 17-LED cyan-blue bar & KDE SteamOS"
+    "subtitle": "Swappable magnetic walnut & red-fabric faceplates, 17-LED cyan-blue bar & KDE SteamOS",
+    "neighbors": [
+      {
+        "slug": "switch2-light",
+        "de": 3.2
+      },
+      {
+        "slug": "switch-light",
+        "de": 3.4
+      },
+      {
+        "slug": "wii-light",
+        "de": 4.5
+      },
+      {
+        "slug": "atarilynx-light",
+        "de": 4.6
+      },
+      {
+        "slug": "saturn-light",
+        "de": 5.8
+      },
+      {
+        "slug": "psportal-light",
+        "de": 6
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-light",
+      "de": 19.4
+    }
   },
   {
     "label": "Steam Machine Dark",
@@ -757,7 +3007,37 @@
     "year": 2026,
     "mode": "dark",
     "slug": "steammachine-dark",
-    "subtitle": "6-inch matte-black living-room cube, 17-LED addressable blue status bar & red-fabric accent"
+    "subtitle": "6-inch matte-black living-room cube, 17-LED addressable blue status bar & red-fabric accent",
+    "neighbors": [
+      {
+        "slug": "switch-dark",
+        "de": 1.8
+      },
+      {
+        "slug": "switch2-dark",
+        "de": 3.2
+      },
+      {
+        "slug": "psportal-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "wii-dark",
+        "de": 4.9
+      },
+      {
+        "slug": "ps5-dark",
+        "de": 5.5
+      },
+      {
+        "slug": "ds-dark",
+        "de": 5.7
+      }
+    ],
+    "farthest": {
+      "slug": "ps1-dark",
+      "de": 21.9
+    }
   },
   {
     "label": "Steam Frame Light",
@@ -767,7 +3047,37 @@
     "year": 2026,
     "mode": "light",
     "slug": "steamframe-light",
-    "subtitle": "Optical frosted-silver VR lab finish, pancake-lens teal, Lambda amber & Wi-Fi 6E indigo"
+    "subtitle": "Optical frosted-silver VR lab finish, pancake-lens teal, Lambda amber & Wi-Fi 6E indigo",
+    "neighbors": [
+      {
+        "slug": "atarilynx-light",
+        "de": 11.5
+      },
+      {
+        "slug": "xbox360-light",
+        "de": 12.1
+      },
+      {
+        "slug": "virtualboy-light",
+        "de": 13.8
+      },
+      {
+        "slug": "wii-light",
+        "de": 14.5
+      },
+      {
+        "slug": "n64-light",
+        "de": 14.6
+      },
+      {
+        "slug": "steammachine-light",
+        "de": 14.8
+      }
+    ],
+    "farthest": {
+      "slug": "turbografx16-light",
+      "de": 22.8
+    }
   },
   {
     "label": "Steam Frame Dark",
@@ -777,6 +3087,36 @@
     "year": 2026,
     "mode": "dark",
     "slug": "steamframe-dark",
-    "subtitle": "Light-blocker VR obsidian, dual-lens SteamVR cyan-teal, Lambda amber & eye-tracking violet"
+    "subtitle": "Light-blocker VR obsidian, dual-lens SteamVR cyan-teal, Lambda amber & eye-tracking violet",
+    "neighbors": [
+      {
+        "slug": "atarilynx-dark",
+        "de": 11.9
+      },
+      {
+        "slug": "xbox360-dark",
+        "de": 12.5
+      },
+      {
+        "slug": "saturn-dark",
+        "de": 13.6
+      },
+      {
+        "slug": "n64-dark",
+        "de": 14.8
+      },
+      {
+        "slug": "ps1-dark",
+        "de": 15
+      },
+      {
+        "slug": "wii-dark",
+        "de": 15
+      }
+    ],
+    "farthest": {
+      "slug": "nes-dark",
+      "de": 23.6
+    }
   }
 ]
