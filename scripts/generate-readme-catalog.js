@@ -13,15 +13,15 @@ const path = require('path');
 const ERAS = [
   {
     title: '8-bit Pioneers (1977–1989)',
-    consoles: ['Atari 2600', 'NES', 'Sega Master System', 'Game Boy'],
+    consoles: ['Atari 2600', 'NES', 'Sega Master System', 'Game Boy', 'Atari Lynx'],
   },
   {
     title: '16-bit Golden Age (1987–1990)',
     consoles: ['TurboGrafx-16', 'Sega Genesis', 'SNES', 'Neo Geo AES'],
   },
   {
-    title: '32/64-bit Polygon Era (1994–1998)',
-    consoles: ['Sega Saturn', 'PlayStation', 'Nintendo 64', 'Game Boy Color'],
+    title: '32/64-bit Polygon Era (1993–1998)',
+    consoles: ['Atari Jaguar', 'Sega Saturn', 'PlayStation', 'Virtual Boy', 'Nintendo 64', 'Game Boy Color'],
   },
   {
     title: '128-bit & Millennial Classics (1998–2001)',
@@ -33,7 +33,11 @@ const ERAS = [
   },
   {
     title: 'Modern, Hybrid & Portable PC (2013–2022)',
-    consoles: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PlayStation 5', 'Xbox Series X|S', 'Steam Deck'],
+    consoles: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PlayStation 5', 'Xbox Series X|S', 'Steam Deck', 'Playdate'],
+  },
+  {
+    title: 'Next-Gen & Spatial Era (2023–2026)',
+    consoles: ['PlayStation Portal', 'Nintendo Switch 2', 'ROG Xbox Ally', 'Steam Machine', 'Steam Frame'],
   },
 ];
 

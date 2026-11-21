@@ -216,7 +216,7 @@ function activate(context) {
       const activeItem = items.find((item) => item.themeLabel === originalTheme) || null;
 
       const qp = vscode.window.createQuickPick();
-      qp.title = 'Console Palette — 30 Iconic Consoles · 60 Themes';
+      qp.title = 'Console Palette — 39 Iconic Consoles · 78 Themes';
       qp.placeholder = 'Filter by console, maker, year, or era · Arrow for live preview · Enter to keep · Esc to restore';
       qp.matchOnDescription = true;
       qp.matchOnDetail = true;

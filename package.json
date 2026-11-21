@@ -1,8 +1,8 @@
 {
   "name": "console-palette",
   "displayName": "Console Palette — Iconic Gaming Consoles",
-  "description": "Scientifically tuned Light and Dark color themes for 30 iconic gaming consoles across 45 years of hardware (60 themes) for VS Code and Positron — crafted in OKLCH with 100% WCAG AA contrast, APCA hierarchy, and CVD resilience.",
-  "version": "1.0.0",
+  "description": "Scientifically tuned Light and Dark color themes for 39 iconic gaming consoles across 49 years of hardware (1977–2026 · 78 themes) for VS Code and Positron — crafted in OKLCH with 100% WCAG AA contrast, APCA hierarchy, and CVD resilience.",
+  "version": "1.1.0",
   "publisher": "idesofmerge",
   "license": "MIT",
   "icon": "icon.png",
@@ -49,6 +49,10 @@
     "ps5",
     "xbox",
     "steam deck",
+    "switch 2",
+    "atari lynx",
+    "virtual boy",
+    "steam machine",
     "oklch",
     "accessible",
     "colorblind",
@@ -77,6 +81,26 @@
         "label": "Atari 2600 Light",
         "uiTheme": "vs",
         "path": "./themes/atari2600-light-color-theme.json"
+      },
+      {
+        "label": "Atari Jaguar Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/atarijaguar-dark-color-theme.json"
+      },
+      {
+        "label": "Atari Jaguar Light",
+        "uiTheme": "vs",
+        "path": "./themes/atarijaguar-light-color-theme.json"
+      },
+      {
+        "label": "Atari Lynx Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/atarilynx-dark-color-theme.json"
+      },
+      {
+        "label": "Atari Lynx Light",
+        "uiTheme": "vs",
+        "path": "./themes/atarilynx-light-color-theme.json"
       },
       {
         "label": "Game Boy Advance Dark",
@@ -169,6 +193,16 @@
         "path": "./themes/gamecube-light-color-theme.json"
       },
       {
+        "label": "Nintendo Switch 2 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/switch2-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo Switch 2 Light",
+        "uiTheme": "vs",
+        "path": "./themes/switch2-light-color-theme.json"
+      },
+      {
         "label": "Nintendo Switch Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/switch-dark-color-theme.json"
@@ -187,6 +221,16 @@
         "label": "Nintendo Wii Light",
         "uiTheme": "vs",
         "path": "./themes/wii-light-color-theme.json"
+      },
+      {
+        "label": "Playdate Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/playdate-dark-color-theme.json"
+      },
+      {
+        "label": "Playdate Light",
+        "uiTheme": "vs",
+        "path": "./themes/playdate-light-color-theme.json"
       },
       {
         "label": "PlayStation 2 Dark",
@@ -249,6 +293,16 @@
         "path": "./themes/psp-light-color-theme.json"
       },
       {
+        "label": "PlayStation Portal Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/psportal-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation Portal Light",
+        "uiTheme": "vs",
+        "path": "./themes/psportal-light-color-theme.json"
+      },
+      {
         "label": "PlayStation Vita Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/psvita-dark-color-theme.json"
@@ -257,6 +311,16 @@
         "label": "PlayStation Vita Light",
         "uiTheme": "vs",
         "path": "./themes/psvita-light-color-theme.json"
+      },
+      {
+        "label": "ROG Xbox Ally Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/rogxboxally-dark-color-theme.json"
+      },
+      {
+        "label": "ROG Xbox Ally Light",
+        "uiTheme": "vs",
+        "path": "./themes/rogxboxally-light-color-theme.json"
       },
       {
         "label": "Sega Dreamcast Dark",
@@ -319,6 +383,26 @@
         "path": "./themes/steamdeck-light-color-theme.json"
       },
       {
+        "label": "Steam Frame Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/steamframe-dark-color-theme.json"
+      },
+      {
+        "label": "Steam Frame Light",
+        "uiTheme": "vs",
+        "path": "./themes/steamframe-light-color-theme.json"
+      },
+      {
+        "label": "Steam Machine Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/steammachine-dark-color-theme.json"
+      },
+      {
+        "label": "Steam Machine Light",
+        "uiTheme": "vs",
+        "path": "./themes/steammachine-light-color-theme.json"
+      },
+      {
         "label": "TurboGrafx-16 Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/turbografx16-dark-color-theme.json"
@@ -327,6 +411,16 @@
         "label": "TurboGrafx-16 Light",
         "uiTheme": "vs",
         "path": "./themes/turbografx16-light-color-theme.json"
+      },
+      {
+        "label": "Virtual Boy Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/virtualboy-dark-color-theme.json"
+      },
+      {
+        "label": "Virtual Boy Light",
+        "uiTheme": "vs",
+        "path": "./themes/virtualboy-light-color-theme.json"
       },
       {
         "label": "Xbox 360 Dark",
@@ -426,12 +520,12 @@
       {
         "id": "consolePalette.gettingStarted",
         "title": "Welcome to Console Palette",
-        "description": "30 iconic gaming consoles · 60 scientifically tuned themes — a quick tour.",
+        "description": "39 iconic gaming consoles · 78 scientifically tuned themes — a quick tour.",
         "steps": [
           {
             "id": "pickTheme",
             "title": "Pick your first console theme (with live preview)",
-            "description": "Every iconic console from the 1977 Atari 2600 to the Steam Deck gets a Light and a Dark theme crafted in OKLCH from its authentic industrial design and display hardware. Arrow through the list to preview live before committing.\n[Pick a Console Theme](command:consolePalette.pickTheme)",
+            "description": "Every iconic console from the 1977 Atari 2600 to Switch 2 & Steam Machine gets a Light and a Dark theme crafted in OKLCH from its authentic industrial design and display hardware. Arrow through the list to preview live before committing.\n[Pick a Console Theme](command:consolePalette.pickTheme)",
             "media": {
               "image": "icon.png",
               "altText": "Console Palette emblem"
@@ -463,7 +557,7 @@
           {
             "id": "colorScience",
             "title": "Launch the Interactive Palette & Colorimetry Explorer",
-            "description": "Inspect OKLCH coordinates, WCAG 2.1 + APCA contrast, OKLab chromaticity polygons, and real-time protanopia/deuteranopia/tritanopia simulations across all 60 themes — and live-sync any theme straight into your editor.\n[Open Interactive Explorer](command:consolePalette.openExplorer)",
+            "description": "Inspect OKLCH coordinates, WCAG 2.1 + APCA contrast, OKLab chromaticity polygons, and real-time protanopia/deuteranopia/tritanopia simulations across all 78 themes — and live-sync any theme straight into your editor.\n[Open Interactive Explorer](command:consolePalette.openExplorer)",
             "media": {
               "markdown": "assets/walkthrough/color-science.md"
             },

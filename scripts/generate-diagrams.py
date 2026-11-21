@@ -2,7 +2,7 @@
 """
 Programmatically renders the Console Palette README architecture and release-timeline
 diagrams as 2x Retina Dark and Light PNGs from pure geometric SVG vectors:
-  - assets/diagrams/release-timeline-dark.png  &  release-timeline-light.png (1920x1140)
+  - assets/diagrams/release-timeline-dark.png  &  release-timeline-light.png (1920x1224)
   - assets/diagrams/build-pipeline-dark.png    &  build-pipeline-light.png   (1920x936)
 
 Run with: python3 scripts/generate-diagrams.py
@@ -32,7 +32,8 @@ ERAS = [
             ("Atari 2600", "Atari 2600", 1977, "Atari"),
             ("NES", "NES", 1985, "Nintendo"),
             ("Sega Master System", "Master System", 1985, "Sega"),
-            ("Game Boy", "Game Boy (DMG)", 1989, "Nintendo"),
+            ("Game Boy", "Game Boy", 1989, "Nintendo"),
+            ("Atari Lynx", "Atari Lynx", 1989, "Atari"),
         ],
     },
     {
@@ -50,11 +51,13 @@ ERAS = [
     {
         "id": "polygon",
         "title": "32/64-BIT POLYGON",
-        "span": "1994–1998",
+        "span": "1993–1998",
         "accent": "violet",
         "consoles": [
+            ("Atari Jaguar", "Atari Jaguar", 1993, "Atari"),
             ("Sega Saturn", "Sega Saturn", 1994, "Sega"),
             ("PlayStation", "PlayStation", 1994, "Sony"),
+            ("Virtual Boy", "Virtual Boy", 1995, "Nintendo"),
             ("Nintendo 64", "Nintendo 64", 1996, "Nintendo"),
             ("Game Boy Color", "Game Boy Color", 1998, "Nintendo"),
         ],
@@ -99,6 +102,20 @@ ERAS = [
             ("PlayStation 5", "PlayStation 5", 2020, "Sony"),
             ("Xbox Series X|S", "Xbox Series X|S", 2020, "Microsoft"),
             ("Steam Deck", "Steam Deck", 2022, "Valve"),
+            ("Playdate", "Playdate", 2022, "Panic"),
+        ],
+    },
+    {
+        "id": "spatial",
+        "title": "NEXT-GEN & SPATIAL",
+        "span": "2023–2026",
+        "accent": "rose",
+        "consoles": [
+            ("PlayStation Portal", "PlayStation Portal", 2023, "Sony"),
+            ("Nintendo Switch 2", "Nintendo Switch 2", 2025, "Nintendo"),
+            ("ROG Xbox Ally", "ROG Xbox Ally", 2025, "MS/ASUS"),
+            ("Steam Machine", "Steam Machine", 2026, "Valve"),
+            ("Steam Frame", "Steam Frame", 2026, "Valve"),
         ],
     },
 ]
@@ -148,6 +165,7 @@ def get_theme(mode: str) -> dict:
                 "teal":     {"fg": "#39D2C0", "bg": "#102424", "bd": "#216D66"},
                 "violet":   {"fg": "#B495F8", "bg": "#1D1730", "bd": "#5C4799"},
                 "ruby":     {"fg": "#F47067", "bg": "#291518", "bd": "#8A3633"},
+                "rose":     {"fg": "#F778BA", "bg": "#2B1422", "bd": "#9E366D"},
             },
         }
     return {
@@ -169,6 +187,7 @@ def get_theme(mode: str) -> dict:
             "teal":     {"fg": "#0B6B68", "bg": "#E5F9F7", "bd": "#38B5AE"},
             "violet":   {"fg": "#6639BA", "bg": "#F4EEFF", "bd": "#A475F9"},
             "ruby":     {"fg": "#CF222E", "bg": "#FFEFEF", "bd": "#FF8182"},
+            "rose":     {"fg": "#BF2669", "bg": "#FFF0F6", "bd": "#F07EB0"},
         },
     }
 
@@ -180,23 +199,23 @@ def esc(s: str) -> str:
 def build_release_timeline_svg(mode: str, swatches: dict) -> str:
     t = get_theme(mode)
     acc = t["accents"]
-    W, H = 960, 570
+    W, H = 960, 612
 
-    # --- Chronological ruler (1977 -> 2022) ---
-    rx0, rx1, spine_y = 58.0, 902.0, 108.0
+    # --- Chronological ruler (1977 -> 2026) ---
+    rx0, rx1, spine_y = 54.0, 906.0, 108.0
 
     def year_x(yr: int) -> float:
-        return rx0 + (yr - 1977) * (rx1 - rx0) / 45.0
+        return rx0 + (yr - 1977) * (rx1 - rx0) / 49.0
 
     ruler_parts = []
-    for yr in (1977, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2022):
+    for yr in (1977, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2026):
         x = year_x(yr)
         ruler_parts.append(
             f'  <line x1="{x:.1f}" y1="{spine_y - 5:.1f}" x2="{x:.1f}" y2="{spine_y + 7:.1f}" '
             f'stroke="{t["border"]}" stroke-width="1.2"/>'
         )
-        lbl_col = acc["sapphire"]["fg"] if yr in (1977, 2022) else t["text_muted"]
-        fw = "700" if yr in (1977, 2022) else "500"
+        lbl_col = acc["sapphire"]["fg"] if yr in (1977, 2026) else t["text_muted"]
+        fw = "700" if yr in (1977, 2026) else "500"
         ruler_parts.append(
             f'  <text x="{x:.1f}" y="{spine_y + 21:.1f}" text-anchor="middle" '
             f'font-family="{FONT_MONO}" font-size="9.5" font-weight="{fw}" fill="{lbl_col}">{yr}</text>'
@@ -208,22 +227,23 @@ def build_release_timeline_svg(mode: str, swatches: dict) -> str:
     )
 
     legend_items = [
-        ("8-bit", acc["gold"]["fg"], 30.0),
-        ("16-bit", acc["ruby"]["fg"], 34.0),
-        ("32/64-bit", acc["violet"]["fg"], 49.0),
-        ("128-bit", acc["sapphire"]["fg"], 40.0),
-        ("HD/Port", acc["teal"]["fg"], 44.0),
-        ("Modern", acc["emerald"]["fg"], 40.0),
+        ("8-bit", acc["gold"]["fg"], 27.0),
+        ("16-bit", acc["ruby"]["fg"], 31.0),
+        ("32/64-bit", acc["violet"]["fg"], 45.0),
+        ("128-bit", acc["sapphire"]["fg"], 36.0),
+        ("HD/Port", acc["teal"]["fg"], 40.0),
+        ("Modern", acc["emerald"]["fg"], 37.0),
+        ("Next-Gen", acc["rose"]["fg"], 45.0),
     ]
-    total_w = sum(11.0 + tw for _, _, tw in legend_items) + 12.0 * (len(legend_items) - 1)
-    lx = 918.0 - total_w + 4.0
+    total_w = sum(10.0 + tw for _, _, tw in legend_items) + 10.0 * (len(legend_items) - 1)
+    lx = 922.0 - total_w + 4.0
     for lbl, col, tw in legend_items:
-        ruler_parts.append(f'  <circle cx="{lx:.1f}" cy="84" r="3.8" fill="{col}"/>')
+        ruler_parts.append(f'  <circle cx="{lx:.1f}" cy="84" r="3.6" fill="{col}"/>')
         ruler_parts.append(
-            f'  <text x="{lx + 7.5:.1f}" y="87.5" font-family="{FONT_SANS}" '
-            f'font-size="9.5" font-weight="600" fill="{t["text_sub"]}">{esc(lbl)}</text>'
+            f'  <text x="{lx + 7.0:.1f}" y="87.2" font-family="{FONT_SANS}" '
+            f'font-size="9.0" font-weight="600" fill="{t["text_sub"]}">{esc(lbl)}</text>'
         )
-        lx += 11.0 + tw + 12.0
+        lx += 10.0 + tw + 10.0
 
     # Group same-year launches so dots stack cleanly vertically without overlap
     by_year = {}
@@ -249,30 +269,70 @@ def build_release_timeline_svg(mode: str, swatches: dict) -> str:
                 f'stroke="{t["surface"]}" stroke-width="1.4"/>'
             )
 
-    def render_console_row(x0: float, w: float, y: float, full_name: str, disp: str, yr: int, maker: str, era_fg: str) -> str:
+    def render_console_row(
+        x0: float,
+        w: float,
+        y: float,
+        full_name: str,
+        disp: str,
+        yr: int,
+        maker: str,
+        era_fg: str,
+        compact: bool = False,
+    ) -> str:
         sw = swatches.get(full_name, {})
         l_bg = sw.get("light", {}).get("bg", "#F2F4F7")
         d_bg = sw.get("dark", {}).get("bg", "#0D1117")
         id_col = sw.get(mode, {}).get("cursor", era_fg)
 
-        sw_w = 28.0
-        sw_x = x0 + w - 11.0 - sw_w
-        mk_short = {"Nintendo": "NIN", "Microsoft": "MS", "Sony": "SONY", "Sega": "SEGA", "Atari": "ATARI", "NEC": "NEC", "SNK": "SNK", "Valve": "VALVE"}.get(maker, maker)
-        plat_w = max(28.0, len(mk_short) * 5.2 + 8.0)
-        plat_x = sw_x - 6.0 - plat_w
+        mk_short = {
+            "Nintendo": "NIN",
+            "Microsoft": "MS",
+            "Sony": "SONY",
+            "Sega": "SEGA",
+            "Atari": "ATARI",
+            "NEC": "NEC",
+            "SNK": "SNK",
+            "Valve": "VALVE",
+            "Panic": "PANIC",
+            "MS/ASUS": "MS/ASUS",
+        }.get(maker, maker)
+
+        if compact:
+            pad = 8.0
+            sw_box, sw_gap = 7.0, 2.0
+            sw_w = sw_box * 3 + sw_gap * 2
+            sw_x = x0 + w - pad - sw_w
+            plat_w = max(23.0, len(mk_short) * 4.5 + 6.5)
+            plat_x = sw_x - 4.5 - plat_w
+            yr_fs, name_fs, name_dx, pill_fs = 9.0, 9.6, 35.5, 7.2
+            sw_h, sw_dy = 9.0, 7.8
+        else:
+            pad = 11.0
+            sw_box, sw_gap = 8.0, 2.0
+            sw_w = sw_box * 3 + sw_gap * 2
+            sw_x = x0 + w - pad - sw_w
+            plat_w = max(28.0, len(mk_short) * 5.0 + 8.0)
+            plat_x = sw_x - 6.0 - plat_w
+            yr_fs, name_fs, name_dx, pill_fs = 10.0, 10.8, 44.0, 7.8
+            sw_h, sw_dy = 9.5, 8.2
 
         return "\n".join([
-            f'  <text x="{x0 + 11:.1f}" y="{y:.1f}" font-family="{FONT_MONO}" font-size="10" font-weight="700" fill="{era_fg}">{yr}</text>',
-            f'  <text x="{x0 + 44:.1f}" y="{y:.1f}" font-family="{FONT_SANS}" font-size="11" font-weight="600" fill="{t["text"]}">{esc(disp)}</text>',
-            f'  <rect x="{plat_x:.1f}" y="{y - 10:.1f}" width="{plat_w:.1f}" height="13.5" rx="3.2" fill="{t["pill_bg"]}"/>',
-            f'  <text x="{plat_x + plat_w / 2:.1f}" y="{y - 0.5:.1f}" text-anchor="middle" font-family="{FONT_MONO}" font-size="8" font-weight="600" fill="{t["text_muted"]}">{esc(mk_short)}</text>',
-            f'  <rect x="{sw_x:.1f}" y="{y - 8.2:.1f}" width="8" height="9.5" rx="2" fill="{l_bg}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
-            f'  <rect x="{sw_x + 10:.1f}" y="{y - 8.2:.1f}" width="8" height="9.5" rx="2" fill="{d_bg}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
-            f'  <rect x="{sw_x + 20:.1f}" y="{y - 8.2:.1f}" width="8" height="9.5" rx="2" fill="{id_col}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
+            f'  <text x="{x0 + pad:.1f}" y="{y:.1f}" font-family="{FONT_MONO}" font-size="{yr_fs}" font-weight="700" fill="{era_fg}">{yr}</text>',
+            f'  <text x="{x0 + name_dx:.1f}" y="{y:.1f}" font-family="{FONT_SANS}" font-size="{name_fs}" font-weight="600" fill="{t["text"]}">{esc(disp)}</text>',
+            f'  <rect x="{plat_x:.1f}" y="{y - 9.6:.1f}" width="{plat_w:.1f}" height="13.0" rx="3.0" fill="{t["pill_bg"]}"/>',
+            f'  <text x="{plat_x + plat_w / 2:.1f}" y="{y - 0.6:.1f}" text-anchor="middle" font-family="{FONT_MONO}" font-size="{pill_fs}" font-weight="600" fill="{t["text_muted"]}">{esc(mk_short)}</text>',
+            f'  <rect x="{sw_x:.1f}" y="{y - sw_dy:.1f}" width="{sw_box:.1f}" height="{sw_h:.1f}" rx="1.8" fill="{l_bg}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
+            f'  <rect x="{sw_x + sw_box + sw_gap:.1f}" y="{y - sw_dy:.1f}" width="{sw_box:.1f}" height="{sw_h:.1f}" rx="1.8" fill="{d_bg}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
+            f'  <rect x="{sw_x + (sw_box + sw_gap) * 2:.1f}" y="{y - sw_dy:.1f}" width="{sw_box:.1f}" height="{sw_h:.1f}" rx="1.8" fill="{id_col}" stroke="{t["swatch_stroke"]}" stroke-width="0.7"/>',
         ])
 
-    def render_card_shell(x: float, y: float, w: float, h: float, title: str, span: str, accent_key: str) -> str:
+    def render_card_shell(x: float, y: float, w: float, h: float, title: str, span: str, accent_key: str, compact: bool = False) -> str:
         a = acc[accent_key]
+        pad = 9.0 if compact else 12.0
+        title_fs = 8.6 if compact else 10.0
+        title_ls = 0.2 if compact else 0.5
+        span_fs = 8.4 if compact else 9.5
         return (
             f'  <rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="8" '
             f'fill="{t["surface"]}" stroke="{t["border"]}" stroke-width="1.2"/>\n'
@@ -280,65 +340,67 @@ def build_release_timeline_svg(mode: str, swatches: dict) -> str:
             f'L {x + w:.1f},{y + 4:.1f} H {x:.1f} Q {x:.1f},{y:.1f} {x + 8:.1f},{y:.1f} Z" fill="{a["fg"]}"/>\n'
             f'  <rect x="{x + 1:.1f}" y="{y + 4:.1f}" width="{w - 2:.1f}" height="27" fill="{a["bg"]}"/>\n'
             f'  <line x1="{x:.1f}" y1="{y + 31:.1f}" x2="{x + w:.1f}" y2="{y + 31:.1f}" stroke="{t["border_soft"]}" stroke-width="1"/>\n'
-            f'  <text x="{x + 12:.1f}" y="{y + 21.5:.1f}" font-family="{FONT_MONO}" font-size="10" font-weight="700" letter-spacing="0.5" fill="{a["fg"]}">{esc(title)}</text>\n'
-            f'  <text x="{x + w - 12:.1f}" y="{y + 21.5:.1f}" text-anchor="end" font-family="{FONT_MONO}" font-size="9.5" font-weight="600" fill="{t["text_muted"]}">{esc(span)}</text>'
+            f'  <text x="{x + pad:.1f}" y="{y + 21.2:.1f}" font-family="{FONT_MONO}" font-size="{title_fs}" font-weight="700" letter-spacing="{title_ls}" fill="{a["fg"]}">{esc(title)}</text>\n'
+            f'  <text x="{x + w - pad:.1f}" y="{y + 21.2:.1f}" text-anchor="end" font-family="{FONT_MONO}" font-size="{span_fs}" font-weight="600" fill="{t["text_muted"]}">{esc(span)}</text>'
         )
 
     cards_parts = []
-    card_w, gap = 292.0, 14.0
 
-    # Row 1: 3 cards (8-bit, 16-bit, 32/64-bit) — 4 consoles each
-    row1_y, row1_h = 152.0, 148.0
-    for i, era in enumerate(ERAS[:3]):
-        cx = 28.0 + i * (card_w + gap)
+    # Row 1: 4 equal-width cards (Eras 1-4: 5, 4, 6, 5 consoles -> max 6 rows)
+    row1_y, row1_h = 152.0, 196.0
+    r1_w, r1_gap = 220.5, 10.0
+    for i, era in enumerate(ERAS[:4]):
+        cx = 24.0 + i * (r1_w + r1_gap)
         a = acc[era["accent"]]
-        cards_parts.append(render_card_shell(cx, row1_y, card_w, row1_h, era["title"], era["span"], era["accent"]))
-        start_y = row1_y + 52.0
-        pitch = 26.5
-        for j, (full_c, disp_c, yr, mk) in enumerate(era["consoles"]):
-            ry = start_y + j * pitch
-            if j > 0:
-                cards_parts.append(
-                    f'  <line x1="{cx + 11:.1f}" y1="{ry - 16.0:.1f}" x2="{cx + card_w - 11:.1f}" y2="{ry - 16.0:.1f}" '
-                    f'stroke="{t["border_soft"]}" stroke-width="0.8"/>'
-                )
-            cards_parts.append(render_console_row(cx, card_w, ry, full_c, disp_c, yr, mk, a["fg"]))
-
-    # Row 2: 3 cards (128-bit: 5 items, HD/Portable: 7 items, Modern: 6 items)
-    row2_y, row2_h = 314.0, 232.0
-    for i, era in enumerate(ERAS[3:]):
-        cx = 28.0 + i * (card_w + gap)
-        a = acc[era["accent"]]
-        cards_parts.append(render_card_shell(cx, row2_y, card_w, row2_h, era["title"], era["span"], era["accent"]))
+        cards_parts.append(render_card_shell(cx, row1_y, r1_w, row1_h, era["title"], era["span"], era["accent"], compact=True))
         n_items = len(era["consoles"])
-        start_y = row2_y + 52.0
-        pitch = 27.5 if n_items == 7 else (31.0 if n_items == 6 else 35.0)
+        start_y = row1_y + (50.0 if n_items == 6 else (53.0 if n_items == 5 else 57.0))
+        pitch = 26.5 if n_items == 6 else (31.5 if n_items == 5 else 38.5)
         for j, (full_c, disp_c, yr, mk) in enumerate(era["consoles"]):
             ry = start_y + j * pitch
             if j > 0:
                 cards_parts.append(
-                    f'  <line x1="{cx + 11:.1f}" y1="{ry - pitch * 0.58:.1f}" x2="{cx + card_w - 11:.1f}" y2="{ry - pitch * 0.58:.1f}" '
+                    f'  <line x1="{cx + 8:.1f}" y1="{ry - pitch * 0.58:.1f}" x2="{cx + r1_w - 8:.1f}" y2="{ry - pitch * 0.58:.1f}" '
                     f'stroke="{t["border_soft"]}" stroke-width="0.8"/>'
                 )
-            cards_parts.append(render_console_row(cx, card_w, ry, full_c, disp_c, yr, mk, a["fg"]))
+            cards_parts.append(render_console_row(cx, r1_w, ry, full_c, disp_c, yr, mk, a["fg"], compact=True))
+
+    # Row 2: 3 equal-width cards (Eras 5-7: 7, 7, 5 consoles -> max 7 rows)
+    row2_y, row2_h = 362.0, 228.0
+    r2_w, r2_gap = 296.0, 12.0
+    for i, era in enumerate(ERAS[4:]):
+        cx = 24.0 + i * (r2_w + r2_gap)
+        a = acc[era["accent"]]
+        cards_parts.append(render_card_shell(cx, row2_y, r2_w, row2_h, era["title"], era["span"], era["accent"], compact=False))
+        n_items = len(era["consoles"])
+        start_y = row2_y + (51.0 if n_items == 7 else 55.0)
+        pitch = 27.0 if n_items == 7 else 37.0
+        for j, (full_c, disp_c, yr, mk) in enumerate(era["consoles"]):
+            ry = start_y + j * pitch
+            if j > 0:
+                cards_parts.append(
+                    f'  <line x1="{cx + 11:.1f}" y1="{ry - pitch * 0.58:.1f}" x2="{cx + r2_w - 11:.1f}" y2="{ry - pitch * 0.58:.1f}" '
+                    f'stroke="{t["border_soft"]}" stroke-width="0.8"/>'
+                )
+            cards_parts.append(render_console_row(cx, r2_w, ry, full_c, disp_c, yr, mk, a["fg"], compact=False))
 
     a_sap = acc["sapphire"]
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">
   <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="12" fill="{t["bg"]}" stroke="{t["border"]}" stroke-width="1"/>
 
   <!-- Header -->
-  <text x="28" y="34" font-family="{FONT_SANS}" font-size="17" font-weight="700" fill="{t["text"]}">Console Palette — 30 Iconic Gaming Consoles by Launch Year (1977–2022)</text>
-  <text x="28" y="53" font-family="{FONT_SANS}" font-size="11.5" fill="{t["text_sub"]}">60 Light &amp; Dark OKLCH themes spanning six hardware eras  ·  swatches show Light bg · Dark bg · identity accent</text>
+  <text x="24" y="34" font-family="{FONT_SANS}" font-size="17" font-weight="700" fill="{t["text"]}">Console Palette — 39 Iconic Gaming Consoles by Launch Year (1977–2026)</text>
+  <text x="24" y="53" font-family="{FONT_SANS}" font-size="11.5" fill="{t["text_sub"]}">78 Light &amp; Dark OKLCH themes spanning seven hardware eras  ·  swatches show Light bg · Dark bg · identity accent</text>
 
-  <rect x="748" y="18" width="184" height="24" rx="12" fill="{a_sap["bg"]}" stroke="{a_sap["bd"]}" stroke-width="1"/>
-  <text x="840" y="33.5" text-anchor="middle" font-family="{FONT_MONO}" font-size="10" font-weight="700" letter-spacing="0.5" fill="{a_sap["fg"]}">30 CONSOLES · 60 THEMES</text>
+  <rect x="752" y="18" width="184" height="24" rx="12" fill="{a_sap["bg"]}" stroke="{a_sap["bd"]}" stroke-width="1"/>
+  <text x="844" y="33.5" text-anchor="middle" font-family="{FONT_MONO}" font-size="10" font-weight="700" letter-spacing="0.5" fill="{a_sap["fg"]}">39 CONSOLES · 78 THEMES</text>
 
   <!-- Chronological Decade Ruler -->
-  <rect x="28" y="68" width="904" height="72" rx="8" fill="{t["surface"]}" stroke="{t["border"]}" stroke-width="1.2"/>
-  <text x="42" y="87.5" font-family="{FONT_MONO}" font-size="9.5" font-weight="700" letter-spacing="0.7" fill="{t["text_muted"]}">HARDWARE LAUNCH CADENCE (1977 → 2022)</text>
+  <rect x="24" y="66" width="912" height="74" rx="8" fill="{t["surface"]}" stroke="{t["border"]}" stroke-width="1.2"/>
+  <text x="38" y="87.2" font-family="{FONT_MONO}" font-size="9.2" font-weight="700" letter-spacing="0.6" fill="{t["text_muted"]}">HARDWARE LAUNCH CADENCE (1977 → 2026)</text>
 {chr(10).join(ruler_parts)}
 
-  <!-- Six Hardware Era Cards -->
+  <!-- Seven Hardware Era Cards -->
 {chr(10).join(cards_parts)}
 </svg>
 '''
@@ -416,25 +478,26 @@ def build_pipeline_svg(mode: str) -> str:
     )
 
     a_val = acc["violet"]
-    val_x, val_y, val_w, val_h = c4_x, 180.0, c4_w, 122.0
+    val_x, val_y, val_w, val_h = c4_x, 176.0, c4_w, 134.0
     val_card = f'''  <rect x="{val_x:.1f}" y="{val_y:.1f}" width="{val_w:.1f}" height="{val_h:.1f}" rx="8" fill="{t["surface"]}" stroke="{a_val["bd"]}" stroke-width="1.5"/>
   <rect x="{val_x + 1:.1f}" y="{val_y + 6:.1f}" width="3.5" height="{val_h - 12:.1f}" rx="1.75" fill="{a_val["fg"]}"/>
   <rect x="{val_x + val_w - 76:.1f}" y="{val_y + 7:.1f}" width="68" height="15" rx="3.5" fill="{a_val["bg"]}" stroke="{a_val["bd"]}" stroke-width="0.8"/>
   <text x="{val_x + val_w - 42:.1f}" y="{val_y + 17.5:.1f}" text-anchor="middle" font-family="{FONT_MONO}" font-size="8" font-weight="700" letter-spacing="0.5" fill="{a_val["fg"]}">AUDIT GATE</text>
-  <text x="{val_x + 13:.1f}" y="{val_y + 34:.1f}" font-family="{FONT_MONO}" font-size="11.5" font-weight="700" fill="{t["text"]}">scripts/validate.js</text>
-  <line x1="{val_x + 13:.1f}" y1="{val_y + 44:.1f}" x2="{val_x + val_w - 12:.1f}" y2="{val_y + 44:.1f}" stroke="{t["border_soft"]}" stroke-width="1"/>
-  <text x="{val_x + 13:.1f}" y="{val_y + 61:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 1,200/1,200 WCAG AA + APCA</text>
-  <text x="{val_x + 13:.1f}" y="{val_y + 78:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> CIEDE2000 + Machado CVD</text>
-  <text x="{val_x + 13:.1f}" y="{val_y + 95:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> Zero-CDN Explorer CSP</text>
-  <text x="{val_x + 13:.1f}" y="{val_y + 112:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 9,120 verified Positron keys</text>'''
+  <text x="{val_x + 13:.1f}" y="{val_y + 33:.1f}" font-family="{FONT_MONO}" font-size="11.5" font-weight="700" fill="{t["text"]}">scripts/validate.js</text>
+  <line x1="{val_x + 13:.1f}" y1="{val_y + 42:.1f}" x2="{val_x + val_w - 12:.1f}" y2="{val_y + 42:.1f}" stroke="{t["border_soft"]}" stroke-width="1"/>
+  <text x="{val_x + 13:.1f}" y="{val_y + 58:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 1,560/1,560 WCAG AA + APCA</text>
+  <text x="{val_x + 13:.1f}" y="{val_y + 74:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> CIEDE2000 + Machado CVD</text>
+  <text x="{val_x + 13:.1f}" y="{val_y + 90:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> Zero-CDN Explorer CSP</text>
+  <text x="{val_x + 13:.1f}" y="{val_y + 106:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 11,856 verified Positron keys</text>
+  <text x="{val_x + 13:.1f}" y="{val_y + 122:.1f}" font-family="{FONT_SANS}" font-size="10.0" fill="{t["text_sub"]}"><tspan fill="{green_c}" font-weight="700">✓</tspan> 43 unit tests (node --test)</text>'''
 
     a_ok = acc["emerald"]
-    ok_x, ok_y, ok_w, ok_h = c4_x, 346.0, c4_w, 66.0
+    ok_x, ok_y, ok_w, ok_h = c4_x, 352.0, c4_w, 64.0
     ok_card = f'''  <rect x="{ok_x:.1f}" y="{ok_y:.1f}" width="{ok_w:.1f}" height="{ok_h:.1f}" rx="8" fill="{a_ok["bg"]}" stroke="{a_ok["bd"]}" stroke-width="1.6"/>
   <rect x="{ok_x + 1:.1f}" y="{ok_y + 6:.1f}" width="3.5" height="{ok_h - 12:.1f}" rx="1.75" fill="{a_ok["fg"]}"/>
-  <text x="{ok_x + 13:.1f}" y="{ok_y + 25:.1f}" font-family="{FONT_SANS}" font-size="12" font-weight="700" fill="{a_ok["fg"]}">✓  CI &amp; vsce package succeed</text>
-  <text x="{ok_x + 13:.1f}" y="{ok_y + 43:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}">GitHub Actions green · .vsix built</text>
-  <text x="{ok_x + 13:.1f}" y="{ok_y + 57:.1f}" font-family="{FONT_MONO}" font-size="9.2" fill="{t["text_muted"]}">VS Code · Positron · Open VSX</text>'''
+  <text x="{ok_x + 13:.1f}" y="{ok_y + 24:.1f}" font-family="{FONT_SANS}" font-size="12" font-weight="700" fill="{a_ok["fg"]}">✓  CI &amp; vsce package succeed</text>
+  <text x="{ok_x + 13:.1f}" y="{ok_y + 42:.1f}" font-family="{FONT_SANS}" font-size="10.2" fill="{t["text_sub"]}">GitHub Actions green · .vsix built</text>
+  <text x="{ok_x + 13:.1f}" y="{ok_y + 56:.1f}" font-family="{FONT_MONO}" font-size="9.2" fill="{t["text_muted"]}">VS Code · Positron · Open VSX</text>'''
 
     connectors = f'''  <path d="M 192,188 L 206,188 Q 212,188 212,182 L 212,140 Q 212,134 218,134 L 226,134"
         fill="none" stroke="{gold_c}" stroke-width="1.8" marker-end="url(#arr-gold-{mode})"/>
@@ -466,10 +529,10 @@ def build_pipeline_svg(mode: str) -> str:
         fill="none" stroke="{line_c}" stroke-width="1.6" marker-end="url(#arr-line-{mode})"/>
   <path d="M 670,350 L 690,350 Q 696,350 696,344 L 696,294 Q 696,288 702,288 L 708,288"
         fill="none" stroke="{line_c}" stroke-width="1.6" marker-end="url(#arr-line-{mode})"/>
-  <path d="M 823,302 L 823,343"
+  <path d="M 823,310 L 823,349"
         fill="none" stroke="{green_c}" stroke-width="2.2" marker-end="url(#arr-green-{mode})"/>
-  <rect x="774" y="313" width="98" height="17" rx="8.5" fill="{a_ok["bg"]}" stroke="{a_ok["bd"]}" stroke-width="0.9"/>
-  <text x="823" y="324.5" text-anchor="middle" font-family="{FONT_MONO}" font-size="8.5" font-weight="700" fill="{green_c}">ALL GATES PASS</text>'''
+  <rect x="774" y="320" width="98" height="17" rx="8.5" fill="{a_ok["bg"]}" stroke="{a_ok["bd"]}" stroke-width="0.9"/>
+  <text x="823" y="331.5" text-anchor="middle" font-family="{FONT_MONO}" font-size="8.5" font-weight="700" fill="{green_c}">ALL GATES PASS</text>'''
 
     def marker(mid: str, color: str) -> str:
         return (
@@ -491,7 +554,7 @@ def build_pipeline_svg(mode: str) -> str:
   <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="12" fill="{t["bg"]}" stroke="{t["border"]}" stroke-width="1"/>
 
   <text x="24" y="34" font-family="{FONT_SANS}" font-size="17" font-weight="700" fill="{t["text"]}">Console Palette — Build, Colorimetry &amp; Validation Pipeline</text>
-  <text x="24" y="52" font-family="{FONT_SANS}" font-size="11.5" fill="{t["text_sub"]}">Deterministic OKLCH expansion from 60 hardware palettes to VS Code / Positron themes, offline Explorers &amp; automated CI gates</text>
+  <text x="24" y="52" font-family="{FONT_SANS}" font-size="11.5" fill="{t["text_sub"]}">Deterministic OKLCH expansion from 78 hardware palettes to VS Code / Positron themes, offline Explorers &amp; automated CI gates</text>
 
 {stage_header(c1_x, c1_w, "1 · SOURCE PALETTES")}
 {stage_header(c2_x, c2_w, "2 · BUILD & ENGINE")}
@@ -500,7 +563,7 @@ def build_pipeline_svg(mode: str) -> str:
 
 {connectors}
 
-{box_card(c1_x, 152, c1_w, 102, "palettes/*.js", ["60 bespoke console palettes", "~45 hardware tokens each"], "gold", tag="INPUT")}
+{box_card(c1_x, 152, c1_w, 102, "palettes/*.js", ["78 bespoke console palettes", "~45 hardware tokens each"], "gold", tag="INPUT")}
 {mini_sw}
 
 {box_card(c2_x, 96, c2_w, 76, "generate-themes.js", ["OKLCH perceptual mixing", "& Positron key synthesis"], "sapphire", tag="SCRIPTS")}
@@ -508,8 +571,8 @@ def build_pipeline_svg(mode: str) -> str:
 {box_card(c2_x, 304, c2_w, 76, "generate-explorer.js", ["Zero-CDN self-contained", "interactive HTML bundles"], "teal", tag="SCRIPTS")}
 
 {artifact_card(c3_x, 92,  c3_w, 44, "theme-metadata.json", "console · maker · mode · slug · year", "gold")}
-{artifact_card(c3_x, 144, c3_w, 44, "package.json", "contributes.themes (60 entries)", "sapphire")}
-{artifact_card(c3_x, 196, c3_w, 44, "themes/*.json", "60 full VS Code + Positron themes", "sapphire")}
+{artifact_card(c3_x, 144, c3_w, 44, "package.json", "contributes.themes (78 entries)", "sapphire")}
+{artifact_card(c3_x, 196, c3_w, 44, "themes/*.json", "78 full VS Code + Positron themes", "sapphire")}
 {artifact_card(c3_x, 272, c3_w, 44, "site/index.html", "GitHub Pages Explorer", "teal")}
 {artifact_card(c3_x, 326, c3_w, 44, "assets/explorer/explorer.html", "VS Code Webview Explorer", "teal")}
 
@@ -548,7 +611,7 @@ def render_png(svg_text: str, out_path: str, width: int, height: int):
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     swatches = load_palette_swatches()
-    assert len(swatches) == 30, f"Expected 30 consoles from palettes/*.js, found {len(swatches)}"
+    assert len(swatches) == 39, f"Expected 39 consoles from palettes/*.js, found {len(swatches)}"
     for era in ERAS:
         for full_c, _, _, _ in era["consoles"]:
             assert full_c in swatches and "light" in swatches[full_c] and "dark" in swatches[full_c], (
@@ -560,7 +623,7 @@ def main():
             build_release_timeline_svg(mode, swatches),
             os.path.join(OUT_DIR, f"release-timeline-{mode}.png"),
             1920,
-            1140,
+            1224,
         )
         render_png(
             build_pipeline_svg(mode),

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Dev-only analytical & visualization generator for Console Palette v1.0.0.
+Dev-only analytical & visualization generator for Console Palette v1.1.0.
 
 Computes exact CIE Lab / OKLCH / CIEDE2000 / Machado-2009 CVD audits, unscaled
-780-token Lab PCA, scaled 39-D per-theme PCA, and Ward's (ward.D2) hierarchical
-clustering across all 60 themes (30 iconic gaming consoles), writing:
+1,014-token Lab PCA, scaled 39-D per-theme PCA, and Ward's (ward.D2) hierarchical
+clustering across all 78 themes (39 iconic gaming consoles), writing:
   - analysis/data/{audit-results,worst-pair-per-theme,critical-flagged,severe-flagged,computed-fixes,theme-pca}.csv
-  - assets/timeline/timeline-metro.png  (Hardware Lineage Metro Map across 6 manufacturer lines)
+  - assets/timeline/timeline-metro.png  (Hardware Lineage Metro Map across 7 manufacturer lines)
   - assets/color-science/{theme-colorspace-grid,pca-global,family-fingerprint,theme-pca,theme-dendrogram,cvd-swatch-grid}.png
   - analysis/plots/{pca_global,theme_colorspace_grid}.png
 
@@ -185,10 +185,13 @@ CONSOLE_ORDER = [
     "TurboGrafx-16",
     "Sega Genesis",
     "Game Boy",
+    "Atari Lynx",
     "SNES",
     "Neo Geo AES",
+    "Atari Jaguar",
     "Sega Saturn",
     "PlayStation",
+    "Virtual Boy",
     "Nintendo 64",
     "Game Boy Color",
     "Sega Dreamcast",
@@ -209,6 +212,12 @@ CONSOLE_ORDER = [
     "PlayStation 5",
     "Xbox Series X|S",
     "Steam Deck",
+    "Playdate",
+    "PlayStation Portal",
+    "Nintendo Switch 2",
+    "ROG Xbox Ally",
+    "Steam Machine",
+    "Steam Frame",
 ]
 
 SHORT_CONSOLE = {
@@ -218,10 +227,13 @@ SHORT_CONSOLE = {
     "TurboGrafx-16": "TurboGrafx-16",
     "Sega Genesis": "Genesis",
     "Game Boy": "Game Boy",
+    "Atari Lynx": "Atari Lynx",
     "SNES": "SNES",
     "Neo Geo AES": "Neo Geo AES",
+    "Atari Jaguar": "Atari Jaguar",
     "Sega Saturn": "Saturn",
     "PlayStation": "PS1",
+    "Virtual Boy": "Virtual Boy",
     "Nintendo 64": "N64",
     "Game Boy Color": "GBC",
     "Sega Dreamcast": "Dreamcast",
@@ -242,6 +254,12 @@ SHORT_CONSOLE = {
     "PlayStation 5": "PS5",
     "Xbox Series X|S": "Series X|S",
     "Steam Deck": "Steam Deck",
+    "Playdate": "Playdate",
+    "PlayStation Portal": "PS Portal",
+    "Nintendo Switch 2": "Switch 2",
+    "ROG Xbox Ally": "ROG Xbox Ally",
+    "Steam Machine": "Steam Machine",
+    "Steam Frame": "Steam Frame",
 }
 
 ERA_LIST = [
@@ -251,6 +269,7 @@ ERA_LIST = [
     "128-bit & Millennial Classics",
     "HD, Motion & Portable Era",
     "Modern, Hybrid & Portable PC",
+    "Next-Gen & Spatial Era",
 ]
 ERA_COLORS = {
     "8-bit Pioneers": "#A86910",
@@ -259,6 +278,7 @@ ERA_COLORS = {
     "128-bit & Millennial Classics": "#1456B8",
     "HD, Motion & Portable Era": "#0C8288",
     "Modern, Hybrid & Portable PC": "#178246",
+    "Next-Gen & Spatial Era": "#E04878",
 }
 
 POLYGON_ROLES = [
@@ -494,7 +514,7 @@ def run_cvd_audit(rows):
             "gameboy-dark",
             "monochrome_dmg_ramp",
             "exempt_by_design",
-            "1989 DMG-01 4-shade green LCD hardware ramp (#0F380F..#9BBC0F); all 59 polychromatic themes have 0 critical pairs < 10 dE76 under protan/deutan/tritan.",
+            f"1989 DMG-01 4-shade green LCD hardware ramp (#0F380F..#9BBC0F); all {len(slug_order) - 1} polychromatic themes have 0 critical pairs < 10 dE76 under protan/deutan/tritan.",
         ])
 
     all_flagged = [r for r in audit_records if r["flagged"] == "TRUE"]
@@ -512,136 +532,171 @@ def run_cvd_audit(rows):
 # ---------- 2. Render Console Hardware Lineage Metro Map ----------
 
 def render_timeline_metro():
-    W, H = 2400, 1240
+    W, H = 2560, 1440
     img = make_canvas(W, H, "#FAF9F5")
     draw = ImageDraw.Draw(img)
 
     f_title = load_font(54, "bold")
-    f_sub = load_font(27, "regular")
-    f_main = load_font(24, "bold")
-    f_yr = load_font(19, "regular")
-    f_tag = load_font(21, "bold")
-    f_leg = load_font(25, "medium")
+    f_sub = load_font(25, "regular")
+    f_main = load_font(23, "bold")
+    f_yr = load_font(18, "regular")
+    f_tag = load_font(20, "bold")
+    f_leg = load_font(24, "medium")
 
-    draw.text((120, 60), "Console Palette — Hardware Lineage Metro Map (1977–2022)", font=f_title, fill="#181A20")
+    draw.text((120, 56), "Console Palette — Hardware Lineage Metro Map (1977–2026)", font=f_title, fill="#181A20")
     draw.text(
-        (120, 130),
-        "30 iconic consoles mapped along manufacturer lineages: Nintendo Home & Handheld lines physically converge at Nintendo Switch; PlayStation branches into PSP & PS Vita.",
+        (120, 124),
+        "39 iconic consoles across 7 lineages: dedicated Atari track; Nintendo Home & Handheld merge at Switch → Switch 2; PlayStation spurs to Portal; Valve expands to Steam Machine & Frame.",
         font=f_sub,
         fill="#525866",
     )
 
-    # X = hardware generation timeline position [1..25], Y = subway line track [-2.3..+2.3]
+    # X = hardware generation timeline position [1..28.5], Y = subway line track [-2.7..+3.1]
     nodes = [
-        # Pioneers / Arcade Line (top, y = +2.25)
-        ("Atari 2600",        2.6,  2.25, "1977", "#CC480C",  0.33),
-        ("TurboGrafx-16",     7.2,  2.25, "1987", "#DE3518",  0.33),
-        ("Neo Geo AES",       9.6,  2.25, "1990", "#BD8908",  0.33),
+        # Atari Line (top track, y = +3.05)
+        ("Atari 2600",         2.6,  3.05, "1977", "#CC480C",  0.34),
+        ("Atari Lynx",         8.4,  3.05, "1989", "#E04D12",  0.34),
+        ("Atari Jaguar",      11.0,  3.05, "1993", "#D91828",  0.34),
 
-        # Nintendo Home Line (y = +1.30, converges to +0.82 at Switch)
-        ("NES",               5.0,  1.30, "1985", "#D91E28",  0.33),
-        ("SNES",              9.6,  1.30, "1990", "#5E44B8",  0.33),
-        ("Nintendo 64",      12.2,  1.30, "1996", "#C99600",  0.33),
-        ("GameCube",         14.8,  1.30, "2001", "#5942B2",  0.33),
-        ("Nintendo Wii",     17.8,  1.30, "2006", "#009AC7",  0.33),
+        # Arcade / Indie Line (y = +2.18, plus Playdate indie track at y = +3.05)
+        ("TurboGrafx-16",      6.8,  2.18, "1987", "#DE3518",  0.34),
+        ("Neo Geo AES",        9.6,  2.18, "1990", "#BD8908",  0.34),
+        ("Playdate",          25.5,  3.05, "2022", "#E5A600",  0.34),
 
-        # Nintendo Handheld Line (y = +0.32, converges into Switch!)
-        ("Game Boy",          8.0,  0.32, "1989", "#5C8514",  0.33),
-        ("Game Boy Color",   12.8,  0.32, "1998", "#008A96", -0.34),
-        ("Game Boy Advance", 14.8,  0.32, "2001", "#4F3EC4",  0.33),
-        ("Nintendo DS",      16.9,  0.32, "2004", "#0D78C8",  0.33),
-        ("Nintendo 3DS",     19.6,  0.32, "2011", "#009E56",  0.33),
+        # Nintendo Home Line (y = +1.35, converges to +0.78 at Switch)
+        ("NES",                5.0,  1.35, "1985", "#D91E28",  0.34),
+        ("SNES",               9.6,  1.35, "1990", "#5E44B8",  0.34),
+        ("Nintendo 64",       13.4,  1.35, "1996", "#C99600",  0.34),
+        ("GameCube",          16.6,  1.35, "2001", "#5942B2",  0.34),
+        ("Nintendo Wii",      19.8,  1.35, "2006", "#009AC7",  0.34),
 
-        # Nintendo Hybrid Convergence Station (y = +0.82)
-        ("Nintendo Switch",  22.0,  0.82, "2017", "#E60012",  0.35),
+        # Nintendo Handheld Line (y = +0.20, converges into Switch) + Virtual Boy crimson spur (y = +0.78)
+        ("Game Boy",           8.4,  0.20, "1989", "#5C8514",  0.34),
+        ("Virtual Boy",       11.8,  0.78, "1995", "#D90E22",  0.28),
+        ("Game Boy Color",    14.5,  0.20, "1998", "#008A96", -0.34),
+        ("Game Boy Advance",  16.6,  0.20, "2001", "#4F3EC4",  0.34),
+        ("Nintendo DS",       18.5,  0.20, "2004", "#0D78C8",  0.34),
+        ("Nintendo 3DS",      21.4,  0.20, "2011", "#009E56",  0.34),
 
-        # Sega Line (y = -0.58)
-        ("Master System",     5.0, -0.58, "1985", "#D91A28", -0.34),
-        ("Sega Genesis",      8.0, -0.58, "1988", "#1752BD", -0.34),
-        ("Sega Saturn",      11.0, -0.58, "1994", "#008A9E", -0.34),
-        ("Sega Dreamcast",   13.4, -0.58, "1998", "#E04F0E", -0.34),
+        # Nintendo Hybrid Convergence Stations (y = +0.78)
+        ("Nintendo Switch",   23.6,  0.78, "2017", "#E60012", -0.36),
+        ("Nintendo Switch 2", 27.0,  0.78, "2025", "#E84A42",  0.35),
 
-        # PlayStation Home Line (y = -1.42) + Portable Branch (y = -0.58)
-        ("PlayStation",      11.0, -1.42, "1994", "#DE6A16", -0.34),
-        ("PlayStation 2",    14.0, -1.42, "2000", "#1660EE", -0.34),
-        ("PlayStation 3",    17.8, -1.42, "2006", "#C82230", -0.34),
-        ("PlayStation 4",    20.6, -1.42, "2013", "#006CE6", -0.34),
-        ("PlayStation 5",    23.4, -1.42, "2020", "#1B62F2", -0.34),
+        # Sega Line (y = -0.72)
+        ("Master System",      5.0, -0.72, "1985", "#D91A28", -0.34),
+        ("Sega Genesis",       7.7, -0.72, "1988", "#1752BD", -0.34),
+        ("Sega Saturn",       11.7, -0.72, "1994", "#008A9E", -0.34),
+        ("Sega Dreamcast",    14.5, -0.72, "1998", "#E04F0E", -0.34),
 
-        ("PSP",              16.9, -0.58, "2004", "#DE7F08", -0.34),
-        ("PS Vita",          19.6, -0.58, "2011", "#0090E6", -0.34),
+        # PlayStation Home Line (y = -1.72) + Portable / Remote Branch (y = -0.72)
+        ("PlayStation",       11.7, -1.72, "1994", "#DE6A16", -0.34),
+        ("PlayStation 2",     15.7, -1.72, "2000", "#1660EE", -0.34),
+        ("PlayStation 3",     19.8, -1.72, "2006", "#C82230", -0.34),
+        ("PlayStation 4",     22.3, -1.72, "2013", "#006CE6", -0.34),
+        ("PlayStation 5",     24.6, -1.72, "2020", "#1B62F2", -0.34),
 
-        # Xbox Line (y = -2.24)
-        ("Xbox",             14.8, -2.24, "2001", "#108910", -0.34),
-        ("Xbox 360",         17.3, -2.24, "2005", "#DF5D0E", -0.34),
-        ("Xbox One",         20.6, -2.24, "2013", "#107C10", -0.34),
-        ("Xbox Series X|S",  23.4, -2.24, "2020", "#107C10", -0.34),
+        ("PSP",               18.5, -0.72, "2004", "#DE7F08", -0.34),
+        ("PS Vita",           21.4, -0.72, "2011", "#0090E6", -0.34),
+        ("PlayStation Portal",26.1, -0.72, "2023", "#0D72F5",  0.35),
 
-        # Portable PC Horizon (Valve, y = +2.05)
-        ("Steam Deck",       24.2,  2.05, "2022", "#DF5012",  0.35),
+        # Xbox Line (y = -2.68)
+        ("Xbox",              16.6, -2.68, "2001", "#108910", -0.34),
+        ("Xbox 360",          19.0, -2.68, "2005", "#DF5D0E", -0.34),
+        ("Xbox One",          22.3, -2.68, "2013", "#107C10", -0.34),
+        ("Xbox Series X|S",   24.6, -2.68, "2020", "#107C10", -0.34),
+        ("ROG Xbox Ally",     27.0, -2.68, "2025", "#108926", -0.34),
+
+        # Valve / Steam Line (upper-right: y = +2.18 + spatial spur at y = +3.05)
+        ("Steam Deck",        25.5,  2.18, "2022", "#DF5012",  0.32),
+        ("Steam Machine",     28.0,  2.18, "2026", "#0088C8", -0.34),
+        ("Steam Frame",       28.0,  3.05, "2026", "#E06810",  0.34),
     ]
 
     edges = [
-        ("Atari 2600", "TurboGrafx-16", "#C86A18", False),
-        ("TurboGrafx-16", "Neo Geo AES", "#C86A18", False),
+        # Atari
+        ("Atari 2600", "Atari Lynx", "#D94616", False),
+        ("Atari Lynx", "Atari Jaguar", "#D94616", False),
 
+        # Arcade / Indie
+        ("TurboGrafx-16", "Neo Geo AES", "#C88212", False),
+
+        # Nintendo Home -> Hybrid
         ("NES", "SNES", "#D62432", False),
         ("SNES", "Nintendo 64", "#D62432", False),
         ("Nintendo 64", "GameCube", "#D62432", False),
         ("GameCube", "Nintendo Wii", "#D62432", False),
         ("Nintendo Wii", "Nintendo Switch", "#D62432", False),
+        ("Nintendo Switch", "Nintendo Switch 2", "#D62432", False),
 
+        # Nintendo Handheld -> Hybrid + Virtual Boy spur
+        ("Game Boy", "Virtual Boy", "#D90E22", True),
         ("Game Boy", "Game Boy Color", "#149658", False),
         ("Game Boy Color", "Game Boy Advance", "#149658", False),
         ("Game Boy Advance", "Nintendo DS", "#149658", False),
         ("Nintendo DS", "Nintendo 3DS", "#149658", False),
         ("Nintendo 3DS", "Nintendo Switch", "#149658", False),
 
+        # Sega
         ("Master System", "Sega Genesis", "#1458C4", False),
         ("Sega Genesis", "Sega Saturn", "#1458C4", False),
         ("Sega Saturn", "Sega Dreamcast", "#1458C4", False),
 
+        # PlayStation Home + Portable / Remote
         ("PlayStation", "PlayStation 2", "#264CC4", False),
         ("PlayStation 2", "PlayStation 3", "#264CC4", False),
         ("PlayStation 3", "PlayStation 4", "#264CC4", False),
         ("PlayStation 4", "PlayStation 5", "#264CC4", False),
         ("PlayStation 2", "PSP", "#4B7CF0", True),
         ("PSP", "PS Vita", "#4B7CF0", False),
+        ("PS Vita", "PlayStation Portal", "#4B7CF0", True),
+        ("PlayStation 5", "PlayStation Portal", "#4B7CF0", True),
 
+        # Xbox + Handheld PC spur
         ("Xbox", "Xbox 360", "#148824", False),
         ("Xbox 360", "Xbox One", "#148824", False),
         ("Xbox One", "Xbox Series X|S", "#148824", False),
+        ("Xbox Series X|S", "ROG Xbox Ally", "#148824", True),
 
+        # Valve / Steam
         ("Nintendo Switch", "Steam Deck", "#D9531E", True),
+        ("Steam Deck", "Steam Machine", "#D9531E", False),
+        ("Steam Deck", "Steam Frame", "#D9531E", True),
     ]
 
     def to_px(x, y):
-        px = 230 + (x - 1.0) / 23.8 * (W * 2 - 440)
-        py = 1230 - y * 365
+        px = 340 + (x - 1.0) / 27.8 * (W * 2 - 560)
+        py = 1480 - y * 335
         return px, py
 
     pos = {n[0]: to_px(n[1], n[2]) for n in nodes}
 
-    # Subtle vertical decade guides
-    for yr_lbl, gx_val in [("1977", 2.6), ("1985", 5.0), ("1990", 9.6), ("1995", 11.6), ("2000", 14.0), ("2005", 17.3), ("2010", 19.2), ("2015", 21.3), ("2020", 23.4)]:
+    # Subtle vertical decade / milestone guides (1977 -> 2026)
+    for yr_lbl, gx_val in [
+        ("1977", 2.6), ("1985", 5.0), ("1990", 9.6), ("1995", 12.6),
+        ("2000", 15.7), ("2005", 19.0), ("2010", 21.0), ("2015", 23.0),
+        ("2020", 24.6), ("2026", 28.0),
+    ]:
         gx, _ = to_px(gx_val, 0)
-        draw.line([(gx, 240), (gx, H * 2 - 200)], fill="#ECEAE2", width=2)
-        draw_text_centered(draw, gx, H * 2 - 175, yr_lbl, f_yr, fill="#8A8E99")
+        draw.line([(gx, 225), (gx, H * 2 - 235)], fill="#ECEAE2", width=2)
+        draw_text_centered(draw, gx, H * 2 - 205, yr_lbl, f_yr, fill="#8A8E99")
 
     # Clean pill line-badges anchored right beside each track's starting station
-    for txt, start_station, col in [
-        ("ARCADE / PIONEERS", "Atari 2600", "#C86A18"),
-        ("NINTENDO HOME",     "NES",        "#D62432"),
-        ("NINTENDO HANDHELD", "Game Boy",   "#149658"),
-        ("SEGA",              "Master System", "#1458C4"),
-        ("PLAYSTATION",       "PlayStation", "#264CC4"),
-        ("XBOX",              "Xbox", "#148824"),
+    for txt, start_station, col, x_gap in [
+        ("ATARI",             "Atari 2600",    "#D94616", 44),
+        ("ARCADE / 16-BIT",   "TurboGrafx-16", "#C88212", 44),
+        ("PANIC / INDIE",     "Playdate",      "#C88212", 44),
+        ("VALVE / STEAM",     "Steam Deck",    "#D9531E", 72),
+        ("NINTENDO HOME",     "NES",           "#D62432", 44),
+        ("NINTENDO HANDHELD", "Game Boy",      "#149658", 44),
+        ("SEGA",              "Master System", "#1458C4", 44),
+        ("PLAYSTATION",       "PlayStation",   "#264CC4", 44),
+        ("XBOX",              "Xbox",          "#148824", 44),
     ]:
         sx, sy = pos[start_station]
         bbox = draw.textbbox((0, 0), txt, font=f_tag)
         tw = bbox[2] - bbox[0]
         th = bbox[3] - bbox[1]
-        bx1 = sx - 44
+        bx1 = sx - x_gap
         bx0 = bx1 - tw - 28
         by0 = sy - th / 2 - 10
         by1 = sy + th / 2 + 10
@@ -656,7 +711,10 @@ def render_timeline_metro():
         x2, y2 = pos[v]
         rgb = hex_to_rgb_tuple(col)
         if dashed:
-            steps = 22
+            seg_len = math.hypot(x2 - x1, y2 - y1)
+            steps = max(14, int(seg_len / 26))
+            if steps % 2 == 1:
+                steps += 1
             for k in range(0, steps, 2):
                 xa = x1 + (x2 - x1) * (k / steps)
                 ya = y1 + (y2 - y1) * (k / steps)
@@ -669,40 +727,42 @@ def render_timeline_metro():
     # Draw stations
     for name, x, y, yr, col, dy in nodes:
         cx, cy = pos[name]
-        is_hub = name in ("Nintendo Switch", "Steam Deck")
+        is_hub = name in ("Nintendo Switch", "Steam Deck", "PlayStation Portal")
         r = 24 if is_hub else 19
         draw_circle(draw, cx, cy, r + 5, fill="#FAF9F5")
         draw_circle(draw, cx, cy, r, fill=hex_to_rgb_tuple(col), outline="#FFFFFF", width=3)
         lx, ly = to_px(x, y + dy)
         draw_text_centered(draw, lx, ly, name, f_main, fill="#181A20")
-        draw_text_centered(draw, lx, ly + (30 if dy < 0 else -28), yr, f_yr, fill="#6A7080")
+        draw_text_centered(draw, lx, ly + (29 if dy < 0 else -27), yr, f_yr, fill="#6A7080")
 
     # Bottom legend
-    leg_y = H * 2 - 84
-    draw.line([(120, leg_y - 36), (W * 2 - 120, leg_y - 36)], fill="#E2E0D8", width=2)
+    leg_y = H * 2 - 96
+    draw.line([(120, leg_y - 40), (W * 2 - 120, leg_y - 40)], fill="#E2E0D8", width=2)
     legend_items = [
-        ("Atari / NEC / SNK", "#C86A18"),
+        ("Atari", "#D94616"),
+        ("Arcade / Indie", "#C88212"),
         ("Nintendo Home", "#D62432"),
         ("Nintendo Handheld", "#149658"),
         ("Sega", "#1458C4"),
         ("PlayStation (+ Portable)", "#264CC4"),
         ("Xbox", "#148824"),
-        ("Portable PC (Valve)", "#D9531E"),
+        ("Valve / Steam", "#D9531E"),
     ]
-    lx = 130
+    total_leg_w = sum(draw.textbbox((0, 0), lbl, font=f_leg)[2] + 84 for lbl, _ in legend_items) - 52
+    lx = (W * 2 - total_leg_w) / 2
     for label, col in legend_items:
         draw_circle(draw, lx + 12, leg_y, 11, fill=hex_to_rgb_tuple(col))
         draw.text((lx + 32, leg_y - 14), label, font=f_leg, fill="#343842")
-        lx += draw.textbbox((0, 0), label, font=f_leg)[2] + 92
+        lx += draw.textbbox((0, 0), label, font=f_leg)[2] + 84
 
     save_downsampled(img, TIMELINE_ASSETS / "timeline-metro.png", W, H)
     print("Saved assets/timeline/timeline-metro.png")
 
 
-# ---------- 3. Render 60-Theme CIE a*-b* Small-Multiples Grid (6 x 10) ----------
+# ---------- 3. Render 78-Theme CIE a*-b* Small-Multiples Grid (6 x 13) ----------
 
 def render_colorspace_grid(rows, slug_order):
-    W, H = 2600, 3960
+    W, H = 2600, 5100
     img = make_canvas(W, H, "#FAF9F6")
     draw = ImageDraw.Draw(img)
 
@@ -711,10 +771,10 @@ def render_colorspace_grid(rows, slug_order):
     f_panel = load_font(25, "bold")
     f_axis = load_font(22, "regular")
 
-    draw.text((100, 56), "Each Theme's 10 Syntax Roles in the CIE a*–b* Chroma/Hue Plane", font=f_title, fill="#181A20")
+    draw.text((100, 56), "All 78 Themes in the CIE a*–b* Chromaticity Plane (39 Consoles, 1977–2026)", font=f_title, fill="#181A20")
     draw.text(
         (100, 128),
-        "All 60 themes (6 × 10 chronological grid, 3 Light/Dark console pairs per row). Connected: keyword · storage · string · regex · function · type · interface · number · decorator · namespace. Rings = C* 30, 60, 90.",
+        "All 78 themes (6 × 13 chronological grid, 3 Light/Dark console pairs per row). Connected: keyword · storage · string · regex · function · type · interface · number · decorator · namespace. Rings = C* 30, 60, 90.",
         font=f_sub,
         fill="#525866",
     )
@@ -726,9 +786,9 @@ def render_colorspace_grid(rows, slug_order):
         if r["role"] in POLYGON_ROLES:
             poly_by_slug.setdefault(r["theme_slug"], {})[r["role"]] = r
 
-    cols, nrows = 6, 10
+    cols, nrows = 6, 13
     pad_l, pad_r, pad_t, pad_b = 90, 90, 220, 105
-    gap_x, gap_y = 42, 50
+    gap_x, gap_y = 42, 48
     cell_w = (W * 2 - pad_l - pad_r - gap_x * (cols - 1)) / cols
     cell_h = (H * 2 - pad_t - pad_b - gap_y * (nrows - 1)) / nrows
 
@@ -790,10 +850,12 @@ def render_colorspace_grid(rows, slug_order):
     print("Saved assets/color-science/theme-colorspace-grid.png")
 
 
-# ---------- 4. Render Global 780-Color Lab PCA ----------
+# ---------- 4. Render Global 1,014-Color Lab PCA ----------
 
 def render_global_pca(rows):
     syntax_rows = [r for r in rows if r["role_kind"] == "syntax"]
+    n_tokens = len(syntax_rows)
+    n_themes = len({r["theme_slug"] for r in syntax_rows})
     X = np.array([[r["L"], r["a"], r["b"]] for r in syntax_rows], dtype=np.float64)
     X_centered = X - X.mean(axis=0, keepdims=True)
     U, S, Vt = np.linalg.svd(X_centered, full_matrices=False)
@@ -817,10 +879,10 @@ def render_global_pca(rows):
     f_leg_h = load_font(25, "bold")
     f_leg = load_font(23, "regular")
 
-    draw.text((90, 52), "Global PCA of Syntax-Role Colors Across All 60 Themes (CIE Lab)", font=f_title, fill="#181A20")
+    draw.text((90, 52), f"Global PCA of Syntax-Role Colors Across All {n_themes} Themes (CIE Lab)", font=f_title, fill="#181A20")
     draw.text(
         (90, 114),
-        f"780 tokens (60 themes × 13 syntax roles), unscaled Lab — PC1 ({var_exp[0]:.1f}%) & PC2 ({var_exp[1]:.1f}%) capture chromatic + luminance spread.",
+        f"{n_tokens:,} tokens ({n_themes} themes × 13 syntax roles), unscaled Lab — PC1 ({var_exp[0]:.1f}%) & PC2 ({var_exp[1]:.1f}%) capture chromatic + luminance spread.",
         font=f_sub,
         fill="#525866",
     )
@@ -888,22 +950,22 @@ def render_global_pca(rows):
     print(f"Saved assets/color-science/pca-global.png (PC1={var_exp[0]:.1f}%, PC2={var_exp[1]:.1f}%)")
 
 
-# ---------- 5. Render 6-Era Faceted Family Fingerprint (3 x 2 grid) ----------
+# ---------- 5. Render 7-Era Faceted Family Fingerprint (4 top + 3 centered bottom) ----------
 
 def render_family_fingerprint(rows, slug_order):
-    W, H = 1800, 1200
+    W, H = 2200, 1220
     img = make_canvas(W, H, "#FAF9F6")
     draw = ImageDraw.Draw(img)
 
     f_title = load_font(48, "bold")
     f_sub = load_font(25, "regular")
-    f_strip = load_font(27, "bold")
+    f_strip = load_font(26, "bold")
     f_note = load_font(22, "regular")
 
-    draw.text((100, 56), 'The Family\'s Color-Space "Fingerprint", Faceted by Hardware Era', font=f_title, fill="#181A20")
+    draw.text((110, 56), 'The Family\'s Color-Space "Fingerprint", Faceted by Hardware Era', font=f_title, fill="#181A20")
     draw.text(
-        (100, 120),
-        "Every theme's 10-role CIE a*–b* polygon overlaid across all 6 hardware eras (showing Game Boy Dark's authentic DMG-01 monochrome LCD cluster).",
+        (110, 120),
+        "Every theme's 10-role CIE a*–b* polygon overlaid across all 7 hardware eras (showing Game Boy Dark's authentic DMG-01 monochrome LCD cluster).",
         font=f_sub,
         fill="#525866",
     )
@@ -915,10 +977,10 @@ def render_family_fingerprint(rows, slug_order):
         if r["role"] in POLYGON_ROLES:
             poly_by_slug.setdefault(r["theme_slug"], {})[r["role"]] = r
 
-    panel_w, panel_h = 1040, 940
+    panel_w, panel_h = 1000, 960
     positions = [
-        (120, 210), (1280, 210), (2440, 210),
-        (120, 1230), (1280, 1230), (2440, 1230),
+        (110, 210), (1170, 210), (2230, 210), (3290, 210),
+        (640, 1250), (1700, 1250), (2760, 1250),
     ]
     LIM = 105.0
 
@@ -973,7 +1035,8 @@ def render_theme_similarity(rows, slug_order):
             L, a, b = by_slug[s][rl]
             vec.extend([L, a, b])
         mat.append(vec)
-    X = np.array(mat, dtype=np.float64)  # 60 x 39
+    X = np.array(mat, dtype=np.float64)  # 78 x 39
+    n_themes = len(slug_order)
     means = X.mean(axis=0, keepdims=True)
     stds = X.std(axis=0, ddof=1, keepdims=True)
     Z = (X - means) / stds
@@ -997,27 +1060,27 @@ def render_theme_similarity(rows, slug_order):
             ])
 
     # --- Render theme-pca.png ---
-    W, H = 1920, 1420
+    W, H = 1960, 1480
     img = make_canvas(W, H, "#FAF9F6")
     draw = ImageDraw.Draw(img)
 
     f_title = load_font(48, "bold")
     f_sub = load_font(25, "regular")
-    f_lbl = load_font(18, "medium")
+    f_lbl = load_font(17, "medium")
     f_ax = load_font(26, "medium")
     f_tick = load_font(22, "regular")
     f_leg_h = load_font(25, "bold")
     f_leg = load_font(22, "regular")
 
-    draw.text((95, 52), "Which Themes Look Like Each Other? Per-Theme 39-D PCA", font=f_title, fill="#181A20")
+    draw.text((95, 52), f"Which Themes Look Like Each Other? Per-Theme 39-D PCA (All {n_themes} Themes)", font=f_title, fill="#181A20")
     draw.text(
         (95, 114),
-        f"Each point = one theme's full 13-role syntax palette in CIE Lab (39 standardized channels across 60 themes) — PC1 ({var_exp[0]:.1f}%), PC2 ({var_exp[1]:.1f}%).",
+        f"Each point = one theme's full 13-role syntax palette in CIE Lab (39 standardized channels across {n_themes} themes) — PC1 ({var_exp[0]:.1f}%), PC2 ({var_exp[1]:.1f}%).",
         font=f_sub,
         fill="#525866",
     )
 
-    px0, py0, pw, ph = 165, 185, 2900, 2440
+    px0, py0, pw, ph = 165, 185, 2960, 2540
     draw.rounded_rectangle((px0, py0, px0 + pw, py0 + ph), radius=14, fill="#FFFFFF", outline="#DEDCD4", width=2)
 
     xs, ys = scores[:, 0], scores[:, 1]
@@ -1064,8 +1127,8 @@ def render_theme_similarity(rows, slug_order):
                 "text": lbl,
                 "ax": pts_px[i][0],
                 "ay": pts_px[i][1],
-                "x": pts_px[i][0] + math.cos(ang) * 90,
-                "y": pts_px[i][1] + math.sin(ang) * 80,
+                "x": pts_px[i][0] + math.cos(ang) * 165,
+                "y": pts_px[i][1] + math.sin(ang) * 145,
                 "w": lw,
                 "h": lh,
                 "era": m["era"],
@@ -1088,42 +1151,42 @@ def render_theme_similarity(rows, slug_order):
         "mode": "dark",
     })
 
-    for _ in range(420):
+    for _ in range(700):
         for i, li in enumerate(labels):
             fx, fy = 0.0, 0.0
             dx_a = li["x"] - li["ax"]
             dy_a = li["y"] - li["ay"]
             dist_a = math.hypot(dx_a, dy_a) + 1e-4
-            if dist_a > 240:
-                fx -= (dx_a / dist_a) * (dist_a - 240) * 0.10
-                fy -= (dy_a / dist_a) * (dist_a - 240) * 0.10
-            elif dist_a < 34:
-                fx += (dx_a / dist_a) * (34 - dist_a) * 0.30
-                fy += (dy_a / dist_a) * (34 - dist_a) * 0.30
+            if dist_a > 440:
+                fx -= (dx_a / dist_a) * (dist_a - 440) * 0.06
+                fy -= (dy_a / dist_a) * (dist_a - 440) * 0.06
+            elif dist_a < 40:
+                fx += (dx_a / dist_a) * (40 - dist_a) * 0.35
+                fy += (dy_a / dist_a) * (40 - dist_a) * 0.35
 
             for ax, ay in pts_px:
-                ox = abs(li["x"] - ax) - (li["w"] / 2 + 18)
-                oy = abs(li["y"] - ay) - (li["h"] / 2 + 18)
+                ox = abs(li["x"] - ax) - (li["w"] / 2 + 20)
+                oy = abs(li["y"] - ay) - (li["h"] / 2 + 20)
                 if ox < 0 and oy < 0:
                     sx = 1.0 if li["x"] >= ax else -1.0
                     sy = 1.0 if li["y"] >= ay else -1.0
                     if abs(ox) < abs(oy):
-                        fx += sx * (-ox) * 0.42
+                        fx += sx * (-ox) * 0.45
                     else:
-                        fy += sy * (-oy) * 0.48
+                        fy += sy * (-oy) * 0.50
 
             for j, lj in enumerate(labels):
                 if i == j:
                     continue
-                ox = abs(li["x"] - lj["x"]) - (li["w"] + lj["w"]) / 2 - 10
-                oy = abs(li["y"] - lj["y"]) - (li["h"] + lj["h"]) / 2 - 7
+                ox = abs(li["x"] - lj["x"]) - (li["w"] + lj["w"]) / 2 - 12
+                oy = abs(li["y"] - lj["y"]) - (li["h"] + lj["h"]) / 2 - 8
                 if ox < 0 and oy < 0:
                     sx = 1.0 if (li["x"] > lj["x"] or (li["x"] == lj["x"] and i > j)) else -1.0
                     sy = 1.0 if (li["y"] > lj["y"] or (li["y"] == lj["y"] and i > j)) else -1.0
                     if abs(ox) < abs(oy):
-                        fx += sx * (-ox) * 0.46
+                        fx += sx * (-ox) * 0.54
                     else:
-                        fy += sy * (-oy) * 0.46
+                        fy += sy * (-oy) * 0.54
 
             li["x"] = min(px0 + pw - li["w"] / 2 - 16, max(px0 + li["w"] / 2 + 16, li["x"] + fx))
             li["y"] = min(py0 + ph - li["h"] / 2 - 16, max(py0 + li["h"] / 2 + 16, li["y"] + fy))
@@ -1177,7 +1240,7 @@ def render_theme_similarity(rows, slug_order):
     save_downsampled(img, CS_ASSETS / "theme-pca.png", W, H)
     print(f"Saved assets/color-science/theme-pca.png (PC1={var_exp[0]:.1f}%, PC2={var_exp[1]:.1f}%)")
 
-    # --- Render Ward.D2 Dendrogram (tall crisp horizontal tree for all 60 themes) ---
+    # --- Render Ward.D2 Dendrogram (tall crisp horizontal tree for all 78 themes) ---
     merges = ward_d2_clustering(Z)
     n = len(slug_order)
     children = {m[3]: (m[0], m[1], m[2]) for m in merges}
@@ -1193,13 +1256,13 @@ def render_theme_similarity(rows, slug_order):
             collect_leaves(right)
     collect_leaves(root_id)
 
-    DW, DH = 1960, 1780
+    DW, DH = 1960, 2240
     dimg = make_canvas(DW, DH, "#FAF9F6")
     ddraw = ImageDraw.Draw(dimg)
 
     ddraw.text(
         (95, 52),
-        "Hierarchical Clustering of All 60 Themes (Ward's Method on 39-D Lab Profile)",
+        f"Hierarchical Clustering of All {n} Themes (Ward's Method on 39-D Lab Profile)",
         font=f_title,
         fill="#181A20",
     )
@@ -1210,7 +1273,7 @@ def render_theme_similarity(rows, slug_order):
         fill="#525866",
     )
 
-    tx0, ty0, tw, th = 140, 210, 2680, 3140
+    tx0, ty0, tw, th = 140, 210, 2660, 4050
     max_h = merges[-1][2] * 1.04
 
     leaf_y = {}
@@ -1256,7 +1319,7 @@ def render_theme_similarity(rows, slug_order):
         ddraw.text((tx0 + tw + 38, yp - 13), f"{m['console']} {mode_word}", font=f_leaf, fill=era_col)
 
     leg_x, leg_y = 160, 240
-    ddraw.rounded_rectangle((leg_x, leg_y, leg_x + 560, leg_y + 340), radius=14, fill="#FFFFFF", outline="#DEDCD4", width=2)
+    ddraw.rounded_rectangle((leg_x, leg_y, leg_x + 560, leg_y + 390), radius=14, fill="#FFFFFF", outline="#DEDCD4", width=2)
     ddraw.text((leg_x + 24, leg_y + 18), "Hardware Era", font=f_leg_h, fill="#181A20")
     cy_l = leg_y + 64
     for era in ERA_LIST:
@@ -1279,15 +1342,15 @@ def render_cvd_swatch_grid(rows):
         "atari2600-dark",
         "nes-light",
         "gameboy-dark",
-        "genesis-dark",
         "snes-light",
         "ps1-light",
-        "gbc-dark",
         "dreamcast-light",
         "ps2-dark",
         "xbox-dark",
         "switch-dark",
-        "steamdeck-dark",
+        "playdate-light",
+        "switch2-dark",
+        "steammachine-dark",
     ]
     poly_by_slug = {}
     meta_by_slug = {}

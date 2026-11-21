@@ -2,7 +2,7 @@
 
 Thank you for your interest in **Console Palette**! Whether you are proposing a new gaming console, refining an existing palette's hardware fidelity, improving VS Code / Positron token coverage, or tightening our color-science tooling, this guide covers how the project is structured and verified.
 
-Want to suggest a console without writing code? Open a **[Request a Gaming Console](.github/ISSUE_TEMPLATE/console-request.yml)** issue (you can preview all 60 existing themes first in the **[Live Interactive Workbench & Colorimetry Explorer](https://idesofmerge.github.io/console-palette/)**).
+Want to suggest a console without writing code? Open a **[Request a Gaming Console](.github/ISSUE_TEMPLATE/console-request.yml)** issue (you can preview all 78 existing themes first in the **[Live Interactive Workbench & Colorimetry Explorer](https://idesofmerge.github.io/console-palette/)**).
 
 ---
 
@@ -84,7 +84,7 @@ Rscript --vanilla analysis/timeline_metro.R
 ## Adding or Tuning a Console Palette
 
 1. **Create or edit** both `palettes/<slug>-light.js` and `palettes/<slug>-dark.js` (use an existing pair such as `palettes/snes-light.js` and `palettes/snes-dark.js` as a reference for metadata and token keys).
-2. If you are adding a **brand-new console** (expanding the catalog beyond 30 consoles / 60 themes), update `EXPECTED_THEME_COUNT` in `scripts/validate.js` and refresh the catalog via `node scripts/generate-readme-catalog.js`.
+2. If you are adding a **brand-new console** (expanding the catalog beyond 39 consoles / 78 themes), update `EXPECTED_THEME_COUNT` in `scripts/validate.js` and refresh the catalog via `node scripts/generate-readme-catalog.js`.
 3. Run `npm run build`, `npm run swatches`, `npm run validate`, and `npm test`, ensuring zero errors and zero CVD warnings on polychromatic themes.
 4. Preview both themes in the Extension Development Host (and inside the Interactive Explorer) across Light, Dark, and Protanopia / Deuteranopia / Tritanopia views.
 5. Open a pull request describing the hardware finish, button/display color sources, and any perceptual trade-offs.

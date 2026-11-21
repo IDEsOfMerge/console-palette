@@ -2,6 +2,20 @@
 
 All notable changes to **Console Palette** will be documented in this file.
 
+## [1.1.0] — 2026-11-20
+
+### Added
+- **Expanded Console Palette to 39 iconic gaming consoles (78 Light & Dark OKLCH themes) spanning 49 years of hardware (1977–2026)** across **7 hardware eras**, adding **9 new consoles (18 themes)**:
+  - **Atari lineage expansion**: **Atari Lynx** (1989 · backlit color LCD cyan & Atari flame-orange) and **Atari Jaguar** (1993 · Tempest 2000 electric violet, Jaguar Claw crimson & AvP acid green) — joined with **Atari 2600** (1977) under a dedicated **Atari** Explorer filter chip and **ATARI** Hardware Lineage Metro Map track.
+  - **Classic & Indie hardware**: **Virtual Boy** (1995 · neutral matte controller grey Light & pitch-black 650nm crimson-LED visor Dark) and **Playdate** (2022 · warm canary-yellow chassis & 1-bit Sharp Memory LCD ink Light, Teenage Engineering studio-charcoal & blazing Playdate Yellow Dark).
+  - **New 7th Era — Next-Gen & Spatial Era (2023–2026)**:
+    - **PlayStation Portal** (2023 · DualSense White / Midnight Black grips with glowing sapphire Remote Play lightbars).
+    - **Nintendo Switch 2** (2025 · Basic Light / matte-black Basic Dark illuminated by magnetic Joy-Con 2 Light Blue & Light Red rail accents).
+    - **ROG Xbox Ally** (2025 · White Ally Light & Black Ally X Dark uniting Xbox Guide emerald with ROG Fearless-Eye crimson & Nebula cyan).
+    - **Steam Machine** (2026 · swappable walnut & red-fabric magnetic faceplates Light / 6-inch matte-black cube with 17-LED addressable blue-cyan status bar Dark).
+    - **Steam Frame** (2026 · optical frosted-silver / light-blocker VR obsidian with pancake-lens SteamVR cyan-teal & Half-Life Lambda amber).
+- **Updated colorimetry, Explorer & visual suite**: `1,560 / 1,560` WCAG 2.1 AA foreground/syntax tokens, `1,248 / 1,248` ANSI slots, `11,856` verified `positron*` keys, **0 severe / 0 moderate CVD collisions** across all 77 polychromatic themes (`≥ 10.37 ΔE*ab`), `6×13` 78-theme colorspace grid, 7-era fingerprint & timeline diagrams, 1977–2026 Hardware Lineage Metro Map, 677 local swatch PNGs, and 43 zero-dependency unit tests.
+
 ## [1.0.0] — 2026-11-20
 
 ### Added

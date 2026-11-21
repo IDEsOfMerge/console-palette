@@ -4,23 +4,23 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner/banner-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/banner/banner-light.png">
-  <img alt="Console Palette — 45 Years of Hardware (1977–2022) · 30 Iconic Gaming Consoles · 60 Light &amp; Dark Themes · VS Code / Positron · OKLCH Colorimetry · 100% WCAG AA · APCA-W3 · CIEDE2000 · CVD Safe" src="assets/banner/banner-dark.png" width="900">
+  <img alt="Console Palette — 49 Years of Hardware (1977–2026) · 39 Iconic Gaming Consoles · 78 Light &amp; Dark Themes · VS Code / Positron · OKLCH Colorimetry · 100% WCAG AA · APCA-W3 · CIEDE2000 · CVD Safe" src="assets/banner/banner-dark.png" width="900">
 </picture>
 
 # Console Palette
 
 **A Light and Dark color theme for every iconic gaming console.**
-30 consoles · 60 themes · one VS Code / Positron extension.
+39 consoles · 78 themes · one VS Code / Positron extension.
 
-*An independent tribute to 45 years of gaming console industrial design, controller color craft, and display hardware (1977–2022).*
+*An independent tribute to 49 years of gaming console industrial design, controller color craft, and display hardware (1977–2026).*
 
-![hardware eras](https://img.shields.io/badge/hardware_eras-1977%E2%80%932022-3B8CE8?style=flat-square)
+![hardware eras](https://img.shields.io/badge/hardware_eras-1977%E2%80%932026-3B8CE8?style=flat-square)
 [![explorer](https://img.shields.io/badge/live_explorer-interactive_workbench-6247B8?style=flat-square)](https://idesofmerge.github.io/console-palette/)
 [![build](https://github.com/idesofmerge/console-palette/actions/workflows/build.yml/badge.svg)](https://github.com/idesofmerge/console-palette/actions/workflows/build.yml)
-![version](https://img.shields.io/badge/version-1.0.0-264EB5?style=flat-square)
-![themes](https://img.shields.io/badge/themes-60-7209B7?style=flat-square)
-![consoles](https://img.shields.io/badge/consoles-30-00A896?style=flat-square)
-![contrast](https://img.shields.io/badge/WCAG_AA-100%25_(1200%2F1200)-2A5F25?style=flat-square)
+![version](https://img.shields.io/badge/version-1.1.0-264EB5?style=flat-square)
+![themes](https://img.shields.io/badge/themes-78-7209B7?style=flat-square)
+![consoles](https://img.shields.io/badge/consoles-39-00A896?style=flat-square)
+![contrast](https://img.shields.io/badge/WCAG_AA-100%25_(1560%2F1560)-2A5F25?style=flat-square)
 ![perceptual](https://img.shields.io/badge/OKLCH_%C2%B7_APCA_%C2%B7_CIEDE2000-verified-1B5EA8?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
@@ -37,27 +37,27 @@
 
 Every pair in **Console Palette** is individually authored from its machine's authentic outer plastic shell, controller face buttons, LED indicators, boot/BIOS screen, and display hardware — never a generic syntax template reskinned onto a new background:
 
+- **Atari 2600**, **Atari Lynx**, and **Atari Jaguar** anchor the full Atari lineage — from 1977 Heavy Sixer oiled walnut and cartridge rainbow bands to 1989 backlit color LCD cyan/orange and 1993 Tempest 2000 electric violet & Jaguar Claw crimson.
 - **PlayStation (PS1)** maps syntax roles directly to the iconic DualShock geometric quartet — Triangle Emerald, Circle Coral, Cross Cobalt, and Square Rose — anchored by the unmistakable amber-orange startup BIOS diamond.
-- **SNES** unites both regional legends in one pair: North American warm grey-lavender shell & violet switches alongside the Japanese/PAL Super Famicom four-color ABXY palette.
-- **TurboGrafx-16** flips across the Pacific on Light ↔ Dark toggle: crisp ivory Japanese **PC Engine** with vermilion HuCard accents in Light mode, and stealth charcoal-black North American **TurboGrafx-16** with blazing tangerine lettering in Dark mode.
-- **Game Boy Dark** honors the 1989 DMG-01's iconic 4-shade reflective olive-green STN LCD (`#0F380F`–`#9BBC0F`) with a perceptually monotonic OKLCH lightness ramp that still clears WCAG AA across every role, keeping only the glowing left-bezel battery LED for errors.
-- **Sega Dreamcast**, **Xbox**, **Nintendo Switch**, and **Steam Deck** anchor their entire syntax envelopes to each console's unmistakable hardware signature — orange swirl & VMU seafoam, radioactive flubber emerald, Neon Blue & Neon Red Joy-Cons, and OLED flame-orange & Steam steel-blue.
+- **SNES** unites both regional legends in one pair: North American neutral-cool grey shell & violet switches alongside the Japanese/PAL Super Famicom four-color ABXY palette.
+- **Game Boy Dark** & **Virtual Boy Dark** honor Nintendo's most iconic display experiments — the 1989 DMG-01's 4-shade olive STN LCD (`#0F380F`–`#9BBC0F`) with a perceptually monotonic OKLCH ramp, and the 1995 pitch-black stereoscopic visor illuminated by blazing 650nm crimson LEDs.
+- **Playdate**, **Nintendo Switch 2**, **ROG Xbox Ally**, **Steam Machine**, and **Steam Frame** carry the craft all the way through **2026** — canary yellow & 1-bit Sharp Memory LCD ink, magnetic Joy-Con 2 Light Blue & Light Red rails, White/Black Ally emerald & ROG crimson, 6-inch cube walnut/red-fabric faceplates with 17-LED cyan-blue progress strips, and pancake-lens SteamVR teal with Half-Life Lambda amber.
 
 Every palette is synthesized and verified in **OKLCH** perceptual color space against **WCAG 2.1**, **APCA-W3**, **CIEDE2000** (ΔE₀₀), and **Machado et al. (2009)** dichromacy simulation. Design inspiration comes strictly from **industrial color language and hardware atmosphere** — no console logos, trademarks, sprites, or copyrighted assets are included or referenced anywhere in this repository.
 
-## The 30 consoles, by launch year
+## The 39 consoles, by launch year
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/release-timeline-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/diagrams/release-timeline-light.png">
-  <img alt="Console Palette — 30 Iconic Gaming Consoles by Launch Year (1977–2022) across 6 hardware eras: 8-bit Pioneers (Atari 2600, NES, Master System, Game Boy), 16-bit Golden Age (TurboGrafx-16, Sega Genesis, SNES, Neo Geo AES), 32/64-bit Polygon (Sega Saturn, PlayStation, Nintendo 64, Game Boy Color), 128-bit &amp; Millennial (Sega Dreamcast, PlayStation 2, Game Boy Advance, GameCube, Xbox), HD, Motion &amp; Portable (Nintendo DS, PSP, Xbox 360, Nintendo Wii, PlayStation 3, Nintendo 3DS, PS Vita), and Modern &amp; Hybrid (PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X|S, Steam Deck)" src="assets/diagrams/release-timeline-dark.png" width="900">
+  <img alt="Console Palette — 39 Iconic Gaming Consoles by Launch Year (1977–2026) across 7 hardware eras: 8-bit Pioneers (Atari 2600, NES, Master System, Game Boy, Atari Lynx), 16-bit Golden Age (TurboGrafx-16, Sega Genesis, SNES, Neo Geo AES), 32/64-bit Polygon (Atari Jaguar, Sega Saturn, PlayStation, Virtual Boy, Nintendo 64, Game Boy Color), 128-bit &amp; Millennial (Sega Dreamcast, PlayStation 2, Game Boy Advance, GameCube, Xbox), HD, Motion &amp; Portable (Nintendo DS, PSP, Xbox 360, Nintendo Wii, PlayStation 3, Nintendo 3DS, PS Vita), Modern &amp; Hybrid (PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X|S, Steam Deck, Playdate), and Next-Gen &amp; Spatial (PlayStation Portal, Nintendo Switch 2, ROG Xbox Ally, Steam Machine, Steam Frame)" src="assets/diagrams/release-timeline-dark.png" width="900">
 </picture>
 
 ## ...and by hardware lineage
 
-Organized as a transit metro map across manufacturer lines — showing how **Nintendo Home** (NES → Wii) and **Nintendo Handheld** (Game Boy → 3DS) physically converge into the hybrid **Nintendo Switch**, how **PlayStation** branches into **PSP → PS Vita**, and how **Sega**, **Xbox**, **Arcade Pioneers**, and **Steam Deck** trace 45 years of hardware evolution:
+Organized as a transit metro map across manufacturer lines — tracing a dedicated **Atari** track (`2600 → Lynx → Jaguar`), showing how **Nintendo Home** (NES → Wii) and **Nintendo Handheld** (Game Boy → Virtual Boy spur → 3DS) physically converge into **Nintendo Switch → Switch 2**, how **PlayStation** spurs into **PSP → PS Vita → PlayStation Portal**, how **Xbox** extends to **ROG Xbox Ally**, and how **Valve / Steam** expands from **Steam Deck** to **Steam Machine** and **Steam Frame** across 49 years of hardware evolution:
 
-<img src="assets/timeline/timeline-metro.png" alt="Console Palette Hardware Lineage Metro Map across 30 iconic consoles from 1977 to 2022 showing manufacturer tracks for Arcade/Pioneers, Nintendo Home and Handheld converging at Nintendo Switch, Sega, PlayStation branching to PSP and PS Vita, Xbox, and Steam Deck" width="900">
+<img src="assets/timeline/timeline-metro.png" alt="Console Palette Hardware Lineage Metro Map across 39 iconic consoles from 1977 to 2026 showing manufacturer tracks for Atari, Arcade/16-bit, Panic/Indie, Nintendo Home and Handheld converging at Switch and Switch 2, Sega, PlayStation branching to PSP, PS Vita and PlayStation Portal, Xbox to ROG Xbox Ally, and Valve Steam Deck to Steam Machine and Steam Frame" width="900">
 
 ```sh
 python3 scripts/generate-color-science-assets.py  # or: Rscript --vanilla analysis/timeline_metro.R
@@ -114,7 +114,7 @@ Four examples of how a Light/Dark pair is built — anchored to each console's r
 ## The full catalog
 
 <details>
-<summary><strong>All 60 themes across 30 iconic consoles, era by era — click to expand</strong></summary>
+<summary><strong>All 78 themes across 39 iconic consoles, era by era — click to expand</strong></summary>
 
 Each swatch strip reads left to right: **background · keywords · strings · functions · types**. Every single theme has unique primary hexes — zero copy-pasted syntax templates across consoles.
 
@@ -127,6 +127,7 @@ Each swatch strip reads left to right: **background · keywords · strings · fu
 | **NES** (1985 · Nintendo) | ![](assets/swatches/E8E7E6.png) ![](assets/swatches/A00021.png) ![](assets/swatches/005A20.png) ![](assets/swatches/00326B.png) ![](assets/swatches/006E71.png) | ![](assets/swatches/161718.png) ![](assets/swatches/F24971.png) ![](assets/swatches/41BB5E.png) ![](assets/swatches/0094F3.png) ![](assets/swatches/00CFD1.png) |
 | **Sega Master System** (1985 · Sega) | ![](assets/swatches/F0F3F5.png) ![](assets/swatches/0058B2.png) ![](assets/swatches/B50528.png) ![](assets/swatches/005C24.png) ![](assets/swatches/00727A.png) | ![](assets/swatches/111315.png) ![](assets/swatches/82C2FF.png) ![](assets/swatches/FF6D6F.png) ![](assets/swatches/009B55.png) ![](assets/swatches/00ADB7.png) |
 | **Game Boy** (1989 · Nintendo) | ![](assets/swatches/E8E6DA.png) ![](assets/swatches/98256B.png) ![](assets/swatches/425100.png) ![](assets/swatches/0A2B85.png) ![](assets/swatches/005C3D.png) | ![](assets/swatches/0F380F.png) ![](assets/swatches/9BBC0F.png) ![](assets/swatches/B6D63C.png) ![](assets/swatches/8CC42B.png) ![](assets/swatches/A6CF52.png) |
+| **Atari Lynx** (1989 · Atari) | ![](assets/swatches/E2E8EC.png) ![](assets/swatches/005355.png) ![](assets/swatches/AF3B00.png) ![](assets/swatches/004C9D.png) ![](assets/swatches/007131.png) | ![](assets/swatches/0D1114.png) ![](assets/swatches/00C6C8.png) ![](assets/swatches/FF7A49.png) ![](assets/swatches/0F98F8.png) ![](assets/swatches/76EE95.png) |
 
 **16-bit Golden Age (1987–1990)**
 
@@ -137,12 +138,14 @@ Each swatch strip reads left to right: **background · keywords · strings · fu
 | **SNES** (1990 · Nintendo) | ![](assets/swatches/E2E3E8.png) ![](assets/swatches/5442BA.png) ![](assets/swatches/A1001F.png) ![](assets/swatches/005092.png) ![](assets/swatches/005F22.png) | ![](assets/swatches/0F0F1A.png) ![](assets/swatches/816DE2.png) ![](assets/swatches/F35051.png) ![](assets/swatches/31A8FF.png) ![](assets/swatches/35B35E.png) |
 | **Neo Geo AES** (1990 · SNK) | ![](assets/swatches/F3EFE3.png) ![](assets/swatches/593A00.png) ![](assets/swatches/AB0024.png) ![](assets/swatches/00315F.png) ![](assets/swatches/004F4F.png) | ![](assets/swatches/110E0A.png) ![](assets/swatches/E9B600.png) ![](assets/swatches/FF6D70.png) ![](assets/swatches/0F94F5.png) ![](assets/swatches/00C7C6.png) |
 
-**32/64-bit Polygon Era (1994–1998)**
+**32/64-bit Polygon Era (1993–1998)**
 
 | Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
 |---|---|---|
+| **Atari Jaguar** (1993 · Atari) | ![](assets/swatches/E7E9ED.png) ![](assets/swatches/4945BF.png) ![](assets/swatches/B92144.png) ![](assets/swatches/005157.png) ![](assets/swatches/007214.png) | ![](assets/swatches/0D0E12.png) ![](assets/swatches/9BA5FF.png) ![](assets/swatches/FF6F73.png) ![](assets/swatches/00A3AC.png) ![](assets/swatches/6AD96C.png) |
 | **Sega Saturn** (1994 · Sega) | ![](assets/swatches/E9F1F3.png) ![](assets/swatches/005352.png) ![](assets/swatches/A00C60.png) ![](assets/swatches/00569E.png) ![](assets/swatches/167C34.png) | ![](assets/swatches/0E1216.png) ![](assets/swatches/00C8C8.png) ![](assets/swatches/E04E9A.png) ![](assets/swatches/2EA2FF.png) ![](assets/swatches/7BE88F.png) |
 | **PlayStation** (1994 · Sony) | ![](assets/swatches/DDDFE2.png) ![](assets/swatches/006D42.png) ![](assets/swatches/9A001F.png) ![](assets/swatches/003775.png) ![](assets/swatches/6A004D.png) | ![](assets/swatches/111215.png) ![](assets/swatches/1DCD83.png) ![](assets/swatches/FF706D.png) ![](assets/swatches/2291F8.png) ![](assets/swatches/F87CC9.png) |
+| **Virtual Boy** (1995 · Nintendo) | ![](assets/swatches/E2E3E4.png) ![](assets/swatches/AA0024.png) ![](assets/swatches/AB3E00.png) ![](assets/swatches/003D60.png) ![](assets/swatches/005E5B.png) | ![](assets/swatches/0F0606.png) ![](assets/swatches/FF7474.png) ![](assets/swatches/FF8E61.png) ![](assets/swatches/00A6F9.png) ![](assets/swatches/00C9B7.png) |
 | **Nintendo 64** (1996 · Nintendo) | ![](assets/swatches/E0E1E3.png) ![](assets/swatches/005B29.png) ![](assets/swatches/A60026.png) ![](assets/swatches/00326E.png) ![](assets/swatches/36187C.png) | ![](assets/swatches/18191C.png) ![](assets/swatches/4FCB6A.png) ![](assets/swatches/FF2E30.png) ![](assets/swatches/0092F9.png) ![](assets/swatches/AD9EFF.png) |
 | **Game Boy Color** (1998 · Nintendo) | ![](assets/swatches/F2F0E2.png) ![](assets/swatches/80005E.png) ![](assets/swatches/A3061D.png) ![](assets/swatches/291A85.png) ![](assets/swatches/007776.png) | ![](assets/swatches/120B1C.png) ![](assets/swatches/FD74D0.png) ![](assets/swatches/FF6658.png) ![](assets/swatches/1B92F4.png) ![](assets/swatches/00F0EF.png) |
 
@@ -178,6 +181,17 @@ Each swatch strip reads left to right: **background · keywords · strings · fu
 | **PlayStation 5** (2020 · Sony) | ![](assets/swatches/F4F6F9.png) ![](assets/swatches/124FC6.png) ![](assets/swatches/B11536.png) ![](assets/swatches/004858.png) ![](assets/swatches/006954.png) | ![](assets/swatches/0E1013.png) ![](assets/swatches/74B6FF.png) ![](assets/swatches/FF6271.png) ![](assets/swatches/00A0B9.png) ![](assets/swatches/00CC9B.png) |
 | **Xbox Series X\|S** (2020 · Microsoft) | ![](assets/swatches/F3F5F3.png) ![](assets/swatches/006A31.png) ![](assets/swatches/A1001D.png) ![](assets/swatches/006E9C.png) ![](assets/swatches/373F9F.png) | ![](assets/swatches/09100B.png) ![](assets/swatches/56DC69.png) ![](assets/swatches/F73D4E.png) ![](assets/swatches/008DBE.png) ![](assets/swatches/828AFC.png) |
 | **Steam Deck** (2022 · Valve) | ![](assets/swatches/EFF3F6.png) ![](assets/swatches/005E9D.png) ![](assets/swatches/B73E00.png) ![](assets/swatches/00524B.png) ![](assets/swatches/007037.png) | ![](assets/swatches/101315.png) ![](assets/swatches/4EB7FF.png) ![](assets/swatches/FF794F.png) ![](assets/swatches/00A49F.png) ![](assets/swatches/3AC570.png) |
+| **Playdate** (2022 · Panic) | ![](assets/swatches/F9F2DA.png) ![](assets/swatches/A54F00.png) ![](assets/swatches/9F002C.png) ![](assets/swatches/004271.png) ![](assets/swatches/007560.png) | ![](assets/swatches/13110E.png) ![](assets/swatches/EAB700.png) ![](assets/swatches/FF757A.png) ![](assets/swatches/00B0FC.png) ![](assets/swatches/00BA9A.png) |
+
+**Next-Gen & Spatial Era (2023–2026)**
+
+| Console | Light (bg · keyword · string · function · type) | Dark (bg · keyword · string · function · type) |
+|---|---|---|
+| **PlayStation Portal** (2023 · Sony) | ![](assets/swatches/F2F5F9.png) ![](assets/swatches/0058B0.png) ![](assets/swatches/B30E35.png) ![](assets/swatches/005158.png) ![](assets/swatches/007749.png) | ![](assets/swatches/0A0E14.png) ![](assets/swatches/6BB8FF.png) ![](assets/swatches/FF3953.png) ![](assets/swatches/009498.png) ![](assets/swatches/29C479.png) |
+| **Nintendo Switch 2** (2025 · Nintendo) | ![](assets/swatches/F1F4F6.png) ![](assets/swatches/00738E.png) ![](assets/swatches/BB1F24.png) ![](assets/swatches/194AAC.png) ![](assets/swatches/176421.png) | ![](assets/swatches/131517.png) ![](assets/swatches/00C2E6.png) ![](assets/swatches/FF6E66.png) ![](assets/swatches/73A8FF.png) ![](assets/swatches/50DF92.png) |
+| **ROG Xbox Ally** (2025 · Microsoft / ASUS) | ![](assets/swatches/F1F4F2.png) ![](assets/swatches/1C6900.png) ![](assets/swatches/A90034.png) ![](assets/swatches/005F8E.png) ![](assets/swatches/50107C.png) | ![](assets/swatches/0D110F.png) ![](assets/swatches/009F32.png) ![](assets/swatches/F04662.png) ![](assets/swatches/0089BC.png) ![](assets/swatches/A569DD.png) |
+| **Steam Machine** (2026 · Valve) | ![](assets/swatches/F3EDE6.png) ![](assets/swatches/005668.png) ![](assets/swatches/AF002B.png) ![](assets/swatches/0351AF.png) ![](assets/swatches/00703C.png) | ![](assets/swatches/0F1214.png) ![](assets/swatches/00A9CF.png) ![](assets/swatches/FB4156.png) ![](assets/swatches/8CBDFF.png) ![](assets/swatches/2CC473.png) |
+| **Steam Frame** (2026 · Valve) | ![](assets/swatches/EBF3F6.png) ![](assets/swatches/006869.png) ![](assets/swatches/B04000.png) ![](assets/swatches/0B319A.png) ![](assets/swatches/702385.png) | ![](assets/swatches/070D12.png) ![](assets/swatches/00C7C5.png) ![](assets/swatches/FF732B.png) ![](assets/swatches/4C9FFF.png) ![](assets/swatches/E5A2FF.png) |
 <!-- CATALOG:END -->
 
 *(Swatch PNGs are generated locally by `scripts/generate-swatches.js` — no third-party badge service, no network dependency for viewers, nothing to go stale.)*
@@ -200,9 +214,9 @@ From this repository root:
 
 ```sh
 npx --yes @vscode/vsce package
-code --install-extension console-palette-1.0.0.vsix
+code --install-extension console-palette-1.1.0.vsix
 # or in Positron:
-positron --install-extension console-palette-1.0.0.vsix
+positron --install-extension console-palette-1.1.0.vsix
 ```
 
 Or launch an Extension Development Host without packaging:
@@ -214,9 +228,9 @@ code --extensionDevelopmentPath="<full path to this folder>"
 
 ## Selecting & previewing themes
 
-- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — filter all 30 consoles by name, maker, year, or era (`/`), open **Side-by-Side Compare** (`C`) to inspect any two themes head-to-head with dual OKLab chromaticity polygons, preview R / Python / TypeScript / Quarto+SQL buffers, simulate Protanopia / Deuteranopia / Tritanopia in real time, export palettes for **VS Code**, **Ghostty**, **WezTerm**, **Alacritty**, or **CSS variables**, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
-- **Console Palette: Pick Console Theme** (Command Palette or click the active theme badge in the bottom-right status bar): opens a release-ordered quick-pick grouped by all 30 consoles (searchable by console name, maker, launch year, or era) with **live theme preview** as you arrow up/down, hardware subtitle notes on every entry, an `Active` indicator on your current theme, and clean `Esc` rollback if you cancel.
-- **Preferences: Color Theme** (`Ctrl+K Ctrl+T` / `Cmd+K Cmd+T`): standard alphabetical VS Code / Positron picker across all 60 themes.
+- **Console Palette: Open Palette & Colorimetry Explorer** (Command Palette or Welcome walkthrough): opens a 100% offline interactive workbench & colorimetry studio directly inside VS Code / Positron — filter all 39 consoles by name, maker (`All · Atari · Nintendo · Sony · Sega · Microsoft · Valve · Arcade & Indie`), year, or era (`/`), open **Side-by-Side Compare** (`C`) to inspect any two themes head-to-head with dual OKLab chromaticity polygons, preview R / Python / TypeScript / Quarto+SQL buffers, simulate Protanopia / Deuteranopia / Tritanopia in real time, export palettes for **VS Code**, **Ghostty**, **WezTerm**, **Alacritty**, or **CSS variables**, and click **Apply to Workbench** (or toggle **Live-sync IDE**) to switch your editor theme on the fly. The exact same explorer is also hosted on the web via **[GitHub Pages](https://idesofmerge.github.io/console-palette/)**.
+- **Console Palette: Pick Console Theme** (Command Palette or click the active theme badge in the bottom-right status bar): opens a release-ordered quick-pick grouped by all 39 consoles (searchable by console name, maker, launch year, or era) with **live theme preview** as you arrow up/down, hardware subtitle notes on every entry, an `Active` indicator on your current theme, and clean `Esc` rollback if you cancel.
+- **Preferences: Color Theme** (`Ctrl+K Ctrl+T` / `Cmd+K Cmd+T`): standard alphabetical VS Code / Positron picker across all 78 themes.
 - **Console Palette: Random Theme** & **Random Theme (Same Mode)**: jump to a random theme across the catalog, or stay locked to your current Light or Dark polarity.
 - **Console Palette: Sync Current Console with OS Light/Dark**: binds your active console's Light & Dark pair to `workbench.preferredLightColorTheme` and `workbench.preferredDarkColorTheme` and enables `window.autoDetectColorScheme` in one click.
 - **Status Bar Badge Setting** (`consolePalette.showStatusBarItem`): configure the bottom-right theme badge to show `"always"`, `"whenActive"` (only when a Console Palette theme is selected), or `"never"`.
@@ -224,24 +238,24 @@ code --extensionDevelopmentPath="<full path to this folder>"
 
 ## Smart Light ↔ Dark per-console toggle
 
-Run **Console Palette: Toggle Theme** from the Command Palette or press `Ctrl+K Ctrl+G` (`Cmd+K Cmd+G` on macOS). Unlike a generic light/dark switch, it flips between the Light and Dark variant of **whichever console you're currently using** (e.g. *PlayStation Light* ↔ *PlayStation Dark*, *Steam Deck Light* ↔ *Steam Deck Dark*, *Game Boy Light* ↔ *Game Boy Dark*). If a non-Console Palette theme is active, it starts on *SNES Light*. Only the standard `workbench.colorTheme` User setting is read or written.
+Run **Console Palette: Toggle Theme** from the Command Palette or press `Ctrl+K Ctrl+G` (`Cmd+K Cmd+G` on macOS). Unlike a generic light/dark switch, it flips between the Light and Dark variant of **whichever console you're currently using** (e.g. *PlayStation Light* ↔ *PlayStation Dark*, *Nintendo Switch 2 Light* ↔ *Nintendo Switch 2 Dark*, *Steam Machine Light* ↔ *Steam Machine Dark*, *Game Boy Light* ↔ *Game Boy Dark*). If a non-Console Palette theme is active, it starts on *SNES Light*. Only the standard `workbench.colorTheme` User setting is read or written.
 
 ## How the themes are built
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/build-pipeline-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/diagrams/build-pipeline-light.png">
-  <img alt="Console Palette Build, Colorimetry &amp; Validation Pipeline: palettes/*.js (60 bespoke console palettes) and shared scripts/color-science.js (OKLCH, WCAG, APCA, CIEDE2000, Machado CVD) feed scripts/generate-themes.js and scripts/generate-explorer.js to emit theme-metadata.json, package.json, themes/*.json, site/index.html, and assets/explorer/explorer.html; theme-metadata.json is read at runtime by extension.js, while scripts/validate.js audits 1,200/1,200 WCAG AA + APCA-W3, CIEDE2000 + Machado CVD, zero-CDN Explorer CSP, and 9,120 verified Positron keys so CI and vsce package succeed" src="assets/diagrams/build-pipeline-dark.png" width="900">
+  <img alt="Console Palette Build, Colorimetry &amp; Validation Pipeline: palettes/*.js (78 bespoke console palettes) and shared scripts/color-science.js (OKLCH, WCAG, APCA, CIEDE2000, Machado CVD) feed scripts/generate-themes.js and scripts/generate-explorer.js to emit theme-metadata.json, package.json, themes/*.json, site/index.html, and assets/explorer/explorer.html; theme-metadata.json is read at runtime by extension.js, while scripts/validate.js and 43 unit tests audit 1,560/1,560 WCAG AA + APCA-W3, CIEDE2000 + Machado CVD, zero-CDN Explorer CSP, and 11,856 verified Positron keys so CI and vsce package succeed" src="assets/diagrams/build-pipeline-dark.png" width="900">
 </picture>
 
-Hand-authoring ~400 workbench, Command Center, AI Chat/Inline Chat, Test Explorer, Terminal Sticky Scroll, TextMate, semantic-token, and Positron IDE keys across 60 themes doesn't scale by hand, so `scripts/generate-themes.js` expands each console's ~45-token hardware palette (`palettes/*.js`) using OKLCH perceptual mixing, `scripts/generate-explorer.js` compiles the self-contained GitHub Pages (`site/index.html`) and VS Code Webview (`assets/explorer/explorer.html`) interactive explorers from those same modules, and `scripts/validate.js` + `test/*.test.js` enforce multi-gate colorimetric, zero-CDN CSP, and unit-test verification on every build (see [CONTRIBUTING.md](CONTRIBUTING.md) for details):
+Hand-authoring ~400 workbench, Command Center, AI Chat/Inline Chat, Test Explorer, Terminal Sticky Scroll, TextMate, semantic-token, and Positron IDE keys across 78 themes doesn't scale by hand, so `scripts/generate-themes.js` expands each console's ~45-token hardware palette (`palettes/*.js`) using OKLCH perceptual mixing, `scripts/generate-explorer.js` compiles the self-contained GitHub Pages (`site/index.html`) and VS Code Webview (`assets/explorer/explorer.html`) interactive explorers from those same modules, and `scripts/validate.js` + `test/*.test.js` enforce multi-gate colorimetric, zero-CDN CSP, and unit-test verification on every build (see [CONTRIBUTING.md](CONTRIBUTING.md) for details):
 
 ```sh
 npm run build                            # regenerate themes/*.json, package.json, theme-metadata.json & Explorer bundles
-npm run validate                         # audit all 60 themes, Explorer CSP & Positron key provenance
-npm test                                 # run 42 zero-dependency unit tests (node --test test/*.test.js)
-npm run swatches                         # regenerate 536 local swatch PNGs in assets/swatches/
-npm run package                          # package lightweight .vsix (~431 KB, README-only media excluded)
+npm run validate                         # audit all 78 themes, Explorer CSP & Positron key provenance
+npm test                                 # run 43 zero-dependency unit tests (node --test test/*.test.js)
+npm run swatches                         # regenerate 677 local swatch PNGs in assets/swatches/
+npm run package                          # package lightweight .vsix (README-only media excluded)
 python3 scripts/generate-icon.py         # regenerate 4x supersampled 3D-beveled Light/Dark gamepad icon
 python3 scripts/generate-banner.py       # regenerate Dark/Light 2x Retina README banners
 python3 scripts/generate-diagrams.py     # regenerate Dark/Light 2x Retina timeline & pipeline diagrams
@@ -252,63 +266,64 @@ python3 scripts/generate-showcase-gif.py # regenerate animated VS Code / Positro
 
 Every single theme must clear strict automated perceptual gates before `generate-themes.js` or `validate.js` will succeed:
 
-- **100% WCAG 2.1 AA compliance (`1,200 / 1,200` foreground & syntax tokens)**: all 20 foreground/syntax tokens in all 60 themes clear **≥ 4.5:1** on `editor.background` (actual range across the family: **`4.61:1` to `16.53:1`**) and **≥ 3.8:1** on `editor.lineHighlightBackground`.
-- **APCA-W3 spatial contrast**: primary body text (`fg` on `bg`) achieves **`|Lc| = 83.2` to `99.8`** (`12.65:1`–`16.53:1` WCAG) across all 59 polychromatic themes, tuned to avoid OLED halation in Dark mode while keeping Light plastic-shell surfaces glare-free and crisp.
+- **100% WCAG 2.1 AA compliance (`1,560 / 1,560` foreground & syntax tokens)**: all 20 foreground/syntax tokens in all 78 themes clear **≥ 4.5:1** on `editor.background` (actual range across the family: **`4.61:1` to `16.53:1`**) and **≥ 3.8:1** on `editor.lineHighlightBackground`.
+- **APCA-W3 spatial contrast**: primary body text (`fg` on `bg`) achieves **`|Lc| = 83.2` to `99.8`** (`12.65:1`–`16.53:1` WCAG) across all 77 polychromatic themes, tuned to avoid OLED halation in Dark mode while keeping Light plastic-shell surfaces glare-free and crisp.
 - **Figure–ground hierarchy**: comments (`fgComment`) clear AA comfortably (`4.77:1`–`6.96:1`) while remaining perceptually subordinate to active code tokens so documentation never competes with control flow.
-- **960 / 960 ANSI terminal tokens verified**: all 16 ANSI colors in every integrated terminal / Positron console clear contrast gates while preserving canonical terminal hue bands (so red errors stay red and green diffs stay green regardless of a console's keyword accent).
+- **1,248 / 1,248 ANSI terminal tokens verified**: all 16 ANSI colors in every integrated terminal / Positron console clear contrast gates while preserving canonical terminal hue bands (so red errors stay red and green diffs stay green regardless of a console's keyword accent).
 
 | Representative Theme | Editor `fg` / `bg` (WCAG) | Editor `fg` / `bg` (`|Lc|` APCA) | Comment / `bg` | Tightest foreground/syntax role / `bg` |
 |---|---|---|---|---|
 | **Nintendo Switch Light** | `16.23:1` | `98.4` | `6.77:1` | `5.12:1` |
 | **Sega Dreamcast Light** | `16.11:1` | `98.2` | `6.76:1` | `5.16:1` |
+| **Nintendo Switch 2 Light** | `16.00:1` | `97.6` | `6.73:1` | `4.95:1` |
+| **Playdate Light** | `15.84:1` | `96.7` | `6.65:1` | `5.04:1` |
+| **Virtual Boy Dark** | `14.31:1` | `84.0` | `6.64:1` | `4.71:1` |
 | **SNES Light** | `13.82:1` | `88.1` | `5.84:1` | `4.75:1` |
 | **Nintendo 64 Light** | `13.57:1` | `86.9` | `5.66:1` | `4.72:1` |
-| **Xbox Dark** | `13.72:1` | `84.5` | `6.33:1` | `4.78:1` |
-| **PlayStation Dark** | `13.51:1` | `84.1` | `6.24:1` | `4.98:1` |
-| **Steam Deck Dark** | `13.39:1` | `83.8` | `6.23:1` | `4.63:1` |
+| **Steam Machine Dark** | `13.57:1` | `84.2` | `6.28:1` | `5.09:1` |
 | **Game Boy Dark** *(1989 DMG-01 LCD ramp)* | `8.83:1` | `74.8` | `4.77:1` | `4.61:1` |
 
 ## Color science
 
-Every theme's 13 adjacent syntax-relevant roles (`keyword`, `storage`, `string`, `regex`, `function`, `function-dim`, `type`, `interface`, `number`, `decorator`, `namespace`, `error`, `warning` — **780 syntax tokens** across 60 themes) are synthesized in Björn Ottosson's **OKLCH** perceptual color space and audited in **CIE 1976 `L*a*b*`** (`CIEDE2000` ΔE₀₀ for normal-vision categorical distinctness and **Machado, Oliveira & Fernandes (2009)** physiological cone-matrix simulation for protanopia, deuteranopia, and tritanopia).
+Every theme's 13 adjacent syntax-relevant roles (`keyword`, `storage`, `string`, `regex`, `function`, `function-dim`, `type`, `interface`, `number`, `decorator`, `namespace`, `error`, `warning` — **1,014 syntax tokens** across 78 themes) are synthesized in Björn Ottosson's **OKLCH** perceptual color space and audited in **CIE 1976 `L*a*b*`** (`CIEDE2000` ΔE₀₀ for normal-vision categorical distinctness and **Machado, Oliveira & Fernandes (2009)** physiological cone-matrix simulation for protanopia, deuteranopia, and tritanopia).
 
-<img src="assets/color-science/theme-colorspace-grid.png" alt="All 60 themes' 10 core syntax colors plotted in the CIE a*-b* plane, connected in fixed semantic order across a 6x10 chronological grid" width="900">
+<img src="assets/color-science/theme-colorspace-grid.png" alt="All 78 themes' 10 core syntax colors plotted in the CIE a*-b* plane, connected in fixed semantic order across a 6x13 chronological grid" width="900">
 
 Plotting each theme's 10 core syntax roles in the CIE `a*`–`b*` chromaticity plane and connecting them in fixed role order reveals each console's chromatic signature at a glance: *Game Boy Dark* collapses into a tight olive-chartreuse needle near a single hue angle (authentic 1989 DMG-01 LCD), while every other console spans a wide, balanced polygon tailored to its specific hardware accent architecture.
 
-<img src="assets/color-science/family-fingerprint.png" alt="Chromatic polygons of all 60 themes faceted across the 6 hardware eras" width="900">
+<img src="assets/color-science/family-fingerprint.png" alt="Chromatic polygons of all 78 themes faceted across all 7 hardware eras" width="900">
 
-<img src="assets/color-science/pca-global.png" alt="Global PCA of all 780 syntax tokens across 60 themes in CIE Lab space, colored by semantic role" width="750">
+<img src="assets/color-science/pca-global.png" alt="Global PCA of all 1,014 syntax tokens across 78 themes in CIE Lab space, colored by semantic role" width="750">
 
-An unscaled global PCA across all **780 syntax tokens** (`PC1 = 51.2%`, `PC2 = 39.2%`, explaining **90.4%** of total perceptual variance in 2D) shows how semantic roles occupy structured, well-separated regions while giving consoles expressive cross-hue freedom where hardware identity calls for violet keywords (SNES/GameCube/PSP), orange keywords (Dreamcast/Atari), emerald keywords (Xbox/PS1/N64), or sapphire/cyan keywords (PS2/PS4/PS5/Genesis/Switch).
+An unscaled global PCA across all **1,014 syntax tokens** (`PC1 = 50.7%`, `PC2 = 39.6%`, explaining **90.3%** of total perceptual variance in 2D) shows how semantic roles occupy structured, well-separated regions while giving consoles expressive cross-hue freedom where hardware identity calls for violet keywords (SNES/GameCube/PSP/Atari Jaguar), orange/gold keywords (Dreamcast/Atari 2600/Playdate), emerald keywords (Xbox/PS1/N64/ROG Xbox Ally), or sapphire/cyan keywords (PS2/PS4/PS5/PS Portal/Switch/Switch 2/Steam Machine).
 
 ### Which console themes look like each other
 
-Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` feature vector** (`analysis/theme_similarity.R`) lets us compare entire themes side-by-side via standardized PCA (`PC1 = 40.3%`, `PC2 = 14.9%`) and **Ward's minimum-variance hierarchical clustering**:
+Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` feature vector** (`analysis/theme_similarity.R`) lets us compare entire themes side-by-side via standardized PCA (`PC1 = 40.3%`, `PC2 = 14.2%`) and **Ward's minimum-variance hierarchical clustering**:
 
-<img src="assets/color-science/theme-pca.png" alt="Per-theme 39-D standardized CIE Lab PCA across all 60 themes, colored by hardware era and shaped by Light/Dark mode" width="900">
+<img src="assets/color-science/theme-pca.png" alt="Per-theme 39-D standardized CIE Lab PCA across all 78 themes, colored by hardware era and shaped by Light/Dark mode" width="900">
 
-<img src="assets/color-science/theme-dendrogram.png" alt="Ward's hierarchical clustering dendrogram of all 60 themes on 39-D standardized CIE Lab profiles" width="900">
+<img src="assets/color-science/theme-dendrogram.png" alt="Ward's hierarchical clustering dendrogram of all 78 themes on 39-D standardized CIE Lab profiles" width="900">
 
 Three empirical patterns emerge directly from the geometry without any manual grouping:
 
-1. **Clean polarity separation + 1989 DMG-01 hardware isolation**: All 30 Light themes and 30 Dark themes split cleanly along `PC1`, while **Game Boy Dark** branches off completely alone at the boundary of the Dark supercluster, quantitatively confirming its unique 1989 DMG-01 olive LCD ramp.
-2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, 3, and 5** form a consecutive PlayStation home-console block in *both* Light and Dark modes (while **PSP**'s amethyst XMB and **PS Vita**'s OLED LiveArea cyan/magenta split onto distinct branches); **Xbox, Xbox One, and Xbox Series X\|S** cluster directly together in Dark mode; and **Sega Master System + Sega Genesis** pair up directly in *both* modes from their shared Sega cobalt-and-crimson DNA.
-3. **Cross-generation industrial kin pair as nearest neighbors**: **SNES** and **Nintendo GameCube** pair directly in *both* Light and Dark modes (Nintendo's lavender-indigo heritage), **PlayStation (PS1)** and **Nintendo 64** pair in *both* modes (1994–1996 neutral-grey/charcoal shells with primary button quartets), **Nintendo Wii** and **Nintendo Switch** pair in *both* modes, and fiery orange hardware icons (**Atari 2600** and **Sega Dreamcast**) pair directly from color coordinates alone.
+1. **Clean polarity separation + 1989 DMG-01 hardware isolation**: All 39 Light themes and 39 Dark themes split cleanly along `PC1`, while **Game Boy Dark** branches off completely alone at the boundary of the Dark supercluster, quantitatively confirming its unique 1989 DMG-01 olive LCD ramp.
+2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, PlayStation Portal, PlayStation 3, and PlayStation 5** form an unbroken four-console PlayStation block in *both* Light and Dark modes; **Xbox, Xbox One, Xbox Series X\|S, and ROG Xbox Ally** cluster consecutively in Dark mode; **Nintendo Switch** and **Nintendo Switch 2** pair directly as nearest neighbors in *both* modes; and **Sega Master System + Sega Genesis** pair directly in *both* modes from their shared Sega cobalt-and-crimson DNA.
+3. **Cross-generation industrial kin pair as nearest neighbors**: **SNES** and **Nintendo GameCube** pair directly in *both* Light and Dark modes (Nintendo's lavender-indigo heritage), **PlayStation (PS1)** and **Nintendo 64** pair in *both* modes (1994–1996 neutral-grey/charcoal shells with primary button quartets), and fiery orange hardware icons (**Atari 2600** and **Sega Dreamcast**) pair directly from color coordinates alone.
 
 ### Color-vision-deficiency (CVD) resilience via OKLCH lightness staggering
 
 Categorical syntax palettes that rely purely on hue (such as an isoluminant red string next to a green keyword) collapse under protanopia or deuteranopia. To prevent this scientifically, every Console Palette theme staggers adjacent syntax roles across **OKLCH perceptual lightness (`L`)** as well as hue — because luminance contrast survives all three cone deficiencies even when chromatic axes collapse.
 
-<img src="assets/color-science/cvd-swatch-grid.png" alt="Dichromacy simulation across 12 representative console themes showing 10 syntax roles under Normal Vision, Protanopia, Deuteranopia, and Tritanopia" width="850">
+<img src="assets/color-science/cvd-swatch-grid.png" alt="Dichromacy simulation across 12 representative console themes spanning 1977 to 2026 showing 10 syntax roles under Normal Vision, Protanopia, Deuteranopia, and Tritanopia" width="850">
 
-Across all **4,680 role-pairs** (`60 themes × 78 pairs`) and **1,260 critical adjacent syntax pairs** (`keyword`, `storage`, `string`, `function`, `type`, `number`, `error`):
+Across all **6,084 role-pairs** (`78 themes × 78 pairs`) and **1,638 critical adjacent syntax pairs** (`keyword`, `storage`, `string`, `function`, `type`, `number`, `error`):
 
-- **59 polychromatic themes (`1,239` critical pairs)**: **0 severe collisions** (`< 5 ΔE*ab`) and **0 moderate collisions** (`< 10 ΔE*ab`) under simulated protanopia, deuteranopia, or tritanopia. Every critical syntax pair stays `≥ 10.37 ΔE*ab` apart across all three CVD simulations.
-- **Game Boy Dark (monochrome hardware tribute)**: accounts for the only **3** critical pairs below `10 ΔE*ab` in the entire 60-theme family (`accentStorage`/`colorError` at `2.46`, `accentKeyword`/`accentType` at `7.63`, and `accentKeyword`/`accentStorage` at `9.67`), preserved intentionally as a documented, faithful tribute to the 1989 Game Boy's single-hue olive LCD ramp while still clearing WCAG AA (`4.61:1`–`8.83:1`) on every token.
+- **77 polychromatic themes (`1,617` critical pairs)**: **0 severe collisions** (`< 5 ΔE*ab`) and **0 moderate collisions** (`< 10 ΔE*ab`) under simulated protanopia, deuteranopia, or tritanopia. Every critical syntax pair stays `≥ 10.37 ΔE*ab` apart across all three CVD simulations.
+- **Game Boy Dark (monochrome hardware tribute)**: accounts for the only **3** critical pairs below `10 ΔE*ab` in the entire 78-theme family (`accentStorage`/`colorError` at `2.46`, `accentKeyword`/`accentType` at `7.63`, and `accentKeyword`/`accentStorage` at `9.67`), preserved intentionally as a documented, faithful tribute to the 1989 Game Boy's single-hue olive LCD ramp while still clearing WCAG AA (`4.61:1`–`8.83:1`) on every token.
 
 ```sh
-node scripts/export-color-data.js                  # export 900 token rows (Lab + OKLCH + WCAG + APCA) to analysis/data/colors.csv
+node scripts/export-color-data.js                  # export 1,170 token rows (Lab + OKLCH + WCAG + APCA) to analysis/data/colors.csv
 python3 scripts/generate-color-science-assets.py   # regenerate all high-DPI PNG plots + audit CSVs + metro map
 # Pure-R analytical scripts are also included:
 Rscript --vanilla analysis/color_science.R
@@ -318,10 +333,10 @@ Rscript --vanilla analysis/timeline_metro.R
 
 ## Notes
 
-- An independent, unofficial tribute to gaming hardware industrial design — not affiliated with or endorsed by Atari, Nintendo, Sega, NEC, SNK, Sony, Microsoft, or Valve.
+- An independent, unofficial tribute to gaming hardware industrial design — not affiliated with or endorsed by Atari, Nintendo, Sega, NEC, SNK, Sony, Microsoft, ASUS, Panic, or Valve.
 - Zero runtime `npm` dependencies — `extension.js` uses only the built-in `vscode` API and static `theme-metadata.json`.
-- Positron-specific workbench tokens (`positronConsole.*`, `positronVariables.*`, `positronPlots.*`, `positronDataExplorer.*`, etc.) are strictly validated against Positron's upstream color registry (`9,120` verified usages across 60 themes).
-- No console logos, trademarks, sprites, or copyrighted assets appear anywhere in this repository — every visual (extension icon, README banners, animated IDE showcase GIF, 536 swatch PNGs, timeline & architecture diagrams, Hardware Lineage Metro Map, and color-science plots) is generated algorithmically from hex coordinates and geometric primitives.
+- Positron-specific workbench tokens (`positronConsole.*`, `positronVariables.*`, `positronPlots.*`, `positronDataExplorer.*`, etc.) are strictly validated against Positron's upstream color registry (`11,856` verified usages across 78 themes).
+- No console logos, trademarks, sprites, or copyrighted assets appear anywhere in this repository — every visual (extension icon, README banners, animated IDE showcase GIF, 677 swatch PNGs, timeline & architecture diagrams, Hardware Lineage Metro Map, and color-science plots) is generated algorithmically from hex coordinates and geometric primitives.
 
 ## License
 

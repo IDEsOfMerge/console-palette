@@ -6,7 +6,7 @@ Programmatically renders the Console Palette README Retro ASCII banners
   - Double-line Unicode box-drawing terminal frame
   - Upper dithered Light-shell D-pad cross / Lower 4-button jewel diamond
   - 5x5 pixel-block ANSI-Shadow lettering for CONSOLE / PALETTE
-  - 45 Years of Console Hardware (1977-2022) & OKLCH colorimetry footer
+  - 49 Years of Console Hardware (1977-2026) & OKLCH colorimetry footer
 
 Run with: python3 scripts/generate-banner.py
 """
@@ -164,7 +164,7 @@ def build_retro_banner_svg(mode: str) -> str:
   </g>
   <text x="{cx}" y="234" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700" letter-spacing="1.6" fill="{bot_accent}">── BIOS ──</text>
 
-  <text x="{right_cx}" y="36" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" letter-spacing="1.8" fill="{top_accent}">──── 45 YEARS OF HARDWARE · 1977–2022 ────</text>
+  <text x="{right_cx}" y="36" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" letter-spacing="1.8" fill="{top_accent}">──── 49 YEARS OF HARDWARE · 1977–2026 ────</text>
   <g>
 {word_console}
   </g>
@@ -172,7 +172,7 @@ def build_retro_banner_svg(mode: str) -> str:
 {word_palette}
   </g>
 
-  <text x="480" y="264" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="600" letter-spacing="1.2" fill="{text_c}">30 ICONIC GAMING CONSOLES  ·  60 LIGHT &amp; DARK THEMES  ·  VS CODE / POSITRON</text>
+  <text x="480" y="264" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="600" letter-spacing="1.2" fill="{text_c}">39 ICONIC GAMING CONSOLES  ·  78 LIGHT &amp; DARK THEMES  ·  VS CODE / POSITRON</text>
   <text x="480" y="282" text-anchor="middle" font-family="'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="{muted_c}">OKLCH COLORIMETRY  ·  100% WCAG AA  ·  APCA-W3  ·  CIEDE2000  ·  CVD SAFE</text>
 </svg>
 '''

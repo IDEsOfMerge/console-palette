@@ -4,7 +4,7 @@
 // Validates every palette, generated theme JSON, metadata file, and asset
 // reference before packaging or CI passes:
 //   1. Strict JSON parsing of package.json, theme-metadata.json, and themes/*.json
-//   2. Exact 60-theme count across palettes/, themes/, package.json, and metadata
+//   2. Exact 78-theme count across palettes/, themes/, package.json, and metadata
 //   3. Valid #RRGGBB / #RRGGBBAA hex syntax on every theme color key
 //   4. Every `positron*` color key drawn strictly from Positron's confirmed source
 //      list (src/vs/workbench/common/theme.ts on posit-dev/positron)
@@ -21,7 +21,7 @@ const PALETTES_DIR = path.join(ROOT_DIR, 'palettes');
 const THEMES_DIR = path.join(ROOT_DIR, 'themes');
 const PACKAGE_JSON = path.join(ROOT_DIR, 'package.json');
 const META_JSON = path.join(ROOT_DIR, 'theme-metadata.json');
-const EXPECTED_THEME_COUNT = 60;
+const EXPECTED_THEME_COUNT = 78;
 
 const CONFIRMED_POSITRON_KEYS = new Set([
   'positronError.foreground', 'positronScrollBar.border',

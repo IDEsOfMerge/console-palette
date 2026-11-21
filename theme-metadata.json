@@ -120,6 +120,26 @@
     "subtitle": "1989 DMG-01 4-shade reflective olive-green dot-matrix LCD phosphor ramp"
   },
   {
+    "label": "Atari Lynx Light",
+    "console": "Atari Lynx",
+    "maker": "Atari",
+    "era": "8-bit Pioneers",
+    "year": 1989,
+    "mode": "light",
+    "slug": "atarilynx-light",
+    "subtitle": "Brushed silver-slate handheld shell, backlit color LCD cyan, Atari orange & amber"
+  },
+  {
+    "label": "Atari Lynx Dark",
+    "console": "Atari Lynx",
+    "maker": "Atari",
+    "era": "8-bit Pioneers",
+    "year": 1989,
+    "mode": "dark",
+    "slug": "atarilynx-dark",
+    "subtitle": "Chunky matte-charcoal Lynx shell, glowing 16-bit backlit color LCD & amber-orange LEDs"
+  },
+  {
     "label": "SNES Light",
     "console": "SNES",
     "maker": "Nintendo",
@@ -160,6 +180,26 @@
     "subtitle": "Pro-Gear Spec obsidian slab, gleaming metallic Neo Geo gold, SNK cyan & 4-button row"
   },
   {
+    "label": "Atari Jaguar Light",
+    "console": "Atari Jaguar",
+    "maker": "Atari",
+    "era": "32/64-bit Polygon Era",
+    "year": 1993,
+    "mode": "light",
+    "slug": "atarijaguar-light",
+    "subtitle": "Pewter \"Do The Math\" hardware card, Tempest 2000 electric indigo, Jaguar Claw crimson & AvP acid green"
+  },
+  {
+    "label": "Atari Jaguar Dark",
+    "console": "Atari Jaguar",
+    "maker": "Atari",
+    "era": "32/64-bit Polygon Era",
+    "year": 1993,
+    "mode": "dark",
+    "slug": "atarijaguar-dark",
+    "subtitle": "Matte-charcoal ribbed Jaguar console, Tempest 2000 electric violet, Jaguar Claw crimson & AvP lime"
+  },
+  {
     "label": "Sega Saturn Light",
     "console": "Sega Saturn",
     "maker": "Sega",
@@ -198,6 +238,26 @@
     "mode": "dark",
     "slug": "ps1-dark",
     "subtitle": "Black-bottomed CD matte obsidian, amber BIOS diamond & glowing △ ○ × □ quartet"
+  },
+  {
+    "label": "Virtual Boy Light",
+    "console": "Virtual Boy",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1995,
+    "mode": "light",
+    "slug": "virtualboy-light",
+    "subtitle": "Neutral matte controller grey, sculpted crimson visor hood & 650nm stereoscopic red accents"
+  },
+  {
+    "label": "Virtual Boy Dark",
+    "console": "Virtual Boy",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1995,
+    "mode": "dark",
+    "slug": "virtualboy-dark",
+    "subtitle": "Pitch-black stereoscopic visor void illuminated by blazing 650nm Virtual Boy crimson LEDs"
   },
   {
     "label": "Nintendo 64 Light",
@@ -598,5 +658,125 @@
     "mode": "dark",
     "slug": "steamdeck-dark",
     "subtitle": "Steam Deck OLED stealth matte charcoal, Steam blue, flame-orange power button & Proton emerald"
+  },
+  {
+    "label": "Playdate Light",
+    "console": "Playdate",
+    "maker": "Panic",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2022,
+    "mode": "light",
+    "slug": "playdate-light",
+    "subtitle": "Iconic Playdate warm canary-yellow chassis, crisp 1-bit Sharp Memory LCD ink & steel crank"
+  },
+  {
+    "label": "Playdate Dark",
+    "console": "Playdate",
+    "maker": "Panic",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2022,
+    "mode": "dark",
+    "slug": "playdate-dark",
+    "subtitle": "Teenage Engineering matte studio-charcoal lit by blazing Playdate Yellow & steel crank"
+  },
+  {
+    "label": "PlayStation Portal Light",
+    "console": "PlayStation Portal",
+    "maker": "Sony",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2023,
+    "mode": "light",
+    "slug": "psportal-light",
+    "subtitle": "Split DualSense matte-white grips, slate center LCD bezel & glowing sapphire Remote Play strips"
+  },
+  {
+    "label": "PlayStation Portal Dark",
+    "console": "PlayStation Portal",
+    "maker": "Sony",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2023,
+    "mode": "dark",
+    "slug": "psportal-dark",
+    "subtitle": "Midnight Black Portal edition with electric DualSense blue lightbars & Remote Play cyan"
+  },
+  {
+    "label": "Nintendo Switch 2 Light",
+    "console": "Nintendo Switch 2",
+    "maker": "Nintendo",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2025,
+    "mode": "light",
+    "slug": "switch2-light",
+    "subtitle": "Switch 2 Basic Light UI accented by magnetic Joy-Con 2 Light Blue & Light Red rails"
+  },
+  {
+    "label": "Nintendo Switch 2 Dark",
+    "console": "Nintendo Switch 2",
+    "maker": "Nintendo",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2025,
+    "mode": "dark",
+    "slug": "switch2-dark",
+    "subtitle": "Matte-black Switch 2 chassis glowing with Joy-Con 2 Light Blue & Light Red magnetic rings"
+  },
+  {
+    "label": "ROG Xbox Ally Light",
+    "console": "ROG Xbox Ally",
+    "maker": "Microsoft / ASUS",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2025,
+    "mode": "light",
+    "slug": "rogxboxally-light",
+    "subtitle": "White ROG Xbox Ally shell uniting Xbox Guide emerald with ROG crimson & Aura violet"
+  },
+  {
+    "label": "ROG Xbox Ally Dark",
+    "console": "ROG Xbox Ally",
+    "maker": "Microsoft / ASUS",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2025,
+    "mode": "dark",
+    "slug": "rogxboxally-dark",
+    "subtitle": "Stealth Black ROG Xbox Ally X with Xbox emerald, ROG crimson & Nebula HDR cyan rings"
+  },
+  {
+    "label": "Steam Machine Light",
+    "console": "Steam Machine",
+    "maker": "Valve",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2026,
+    "mode": "light",
+    "slug": "steammachine-light",
+    "subtitle": "Swappable magnetic walnut & red-fabric faceplates, 17-LED cyan-blue bar & KDE SteamOS"
+  },
+  {
+    "label": "Steam Machine Dark",
+    "console": "Steam Machine",
+    "maker": "Valve",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2026,
+    "mode": "dark",
+    "slug": "steammachine-dark",
+    "subtitle": "6-inch matte-black living-room cube, 17-LED addressable blue status bar & red-fabric accent"
+  },
+  {
+    "label": "Steam Frame Light",
+    "console": "Steam Frame",
+    "maker": "Valve",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2026,
+    "mode": "light",
+    "slug": "steamframe-light",
+    "subtitle": "Optical frosted-silver VR lab finish, pancake-lens teal, Lambda amber & Wi-Fi 6E indigo"
+  },
+  {
+    "label": "Steam Frame Dark",
+    "console": "Steam Frame",
+    "maker": "Valve",
+    "era": "Next-Gen & Spatial Era",
+    "year": 2026,
+    "mode": "dark",
+    "slug": "steamframe-dark",
+    "subtitle": "Light-blocker VR obsidian, dual-lens SteamVR cyan-teal, Lambda amber & eye-tracking violet"
   }
 ]

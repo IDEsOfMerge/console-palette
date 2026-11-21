@@ -22,7 +22,7 @@ const WEBVIEW_DIR = path.join(ROOT_DIR, 'assets', 'explorer');
 const ERA_GROUPS = [
   {
     era: '8-bit Pioneers',
-    consoles: ['Atari 2600', 'NES', 'Sega Master System', 'Game Boy'],
+    consoles: ['Atari 2600', 'NES', 'Sega Master System', 'Game Boy', 'Atari Lynx'],
   },
   {
     era: '16-bit Golden Age',
@@ -30,7 +30,7 @@ const ERA_GROUPS = [
   },
   {
     era: '32/64-bit Polygon Era',
-    consoles: ['Sega Saturn', 'PlayStation', 'Nintendo 64', 'Game Boy Color'],
+    consoles: ['Atari Jaguar', 'Sega Saturn', 'PlayStation', 'Virtual Boy', 'Nintendo 64', 'Game Boy Color'],
   },
   {
     era: '128-bit & Millennial Classics',
@@ -42,7 +42,11 @@ const ERA_GROUPS = [
   },
   {
     era: 'Modern, Hybrid & Portable PC',
-    consoles: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PlayStation 5', 'Xbox Series X|S', 'Steam Deck'],
+    consoles: ['PlayStation 4', 'Xbox One', 'Nintendo Switch', 'PlayStation 5', 'Xbox Series X|S', 'Steam Deck', 'Playdate'],
+  },
+  {
+    era: 'Next-Gen & Spatial Era',
+    consoles: ['PlayStation Portal', 'Nintendo Switch 2', 'ROG Xbox Ally', 'Steam Machine', 'Steam Frame'],
   },
 ];
 
@@ -51,12 +55,15 @@ const SHORT_CONSOLE_NAMES = {
   'NES': 'NES',
   'Sega Master System': 'Master System',
   'Game Boy': 'Game Boy',
+  'Atari Lynx': 'Atari Lynx',
   'TurboGrafx-16': 'TurboGrafx-16',
   'Sega Genesis': 'Genesis',
   'SNES': 'SNES',
   'Neo Geo AES': 'Neo Geo',
+  'Atari Jaguar': 'Atari Jaguar',
   'Sega Saturn': 'Saturn',
   'PlayStation': 'PS1',
+  'Virtual Boy': 'Virtual Boy',
   'Nintendo 64': 'N64',
   'Game Boy Color': 'GBC',
   'Sega Dreamcast': 'Dreamcast',
@@ -77,6 +84,12 @@ const SHORT_CONSOLE_NAMES = {
   'PlayStation 5': 'PS5',
   'Xbox Series X|S': 'Series X|S',
   'Steam Deck': 'Steam Deck',
+  'Playdate': 'Playdate',
+  'PlayStation Portal': 'PS Portal',
+  'Nintendo Switch 2': 'Switch 2',
+  'ROG Xbox Ally': 'Xbox Ally',
+  'Steam Machine': 'Steam Machine',
+  'Steam Frame': 'Steam Frame',
 };
 
 function extractRationale(filePath) {
@@ -172,19 +185,20 @@ function loadThemeDataset() {
 
 function buildHtml({ dataset, target }) {
   const isWeb = target === 'web';
+  const totalConsoles = ERA_GROUPS.reduce((acc, g) => acc + g.consoles.length, 0);
   const cspTag = isWeb
     ? `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline';" />`
     : '{{CSP_META}}';
   const scriptOpen = isWeb ? '<script>' : '<script nonce="{{CSP_NONCE}}">';
   const seoTags = isWeb
     ? `
-  <meta name="description" content="Interactive workbench preview and perceptual colorimetry explorer for Console Palette — featuring 60 scientifically tuned Light and Dark VS Code & Positron themes across 30 iconic gaming consoles (1977–2022)." />
+  <meta name="description" content="Interactive workbench preview and perceptual colorimetry explorer for Console Palette — featuring 78 scientifically tuned Light and Dark VS Code & Positron themes across 39 iconic gaming consoles (1977–2026)." />
   <meta property="og:title" content="Console Palette — Interactive Workbench & Colorimetry Explorer" />
-  <meta property="og:description" content="Explore all 60 OKLCH-calibrated Light and Dark themes for VS Code & Positron across 30 iconic consoles with live R/Python/TypeScript syntax previews, WCAG 2.1 + APCA contrast readouts, and real-time dichromacy simulation." />
+  <meta property="og:description" content="Explore all 78 OKLCH-calibrated Light and Dark themes for VS Code & Positron across 39 iconic consoles with live R/Python/TypeScript syntax previews, WCAG 2.1 + APCA contrast readouts, and real-time dichromacy simulation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://idesofmerge.github.io/console-palette/" />
   <meta property="og:image" content="https://idesofmerge.github.io/console-palette/og-preview.png" />
-  <meta property="og:image:alt" content="Console Palette — 30 Iconic Gaming Consoles · 60 OKLCH Themes for VS Code & Positron" />
+  <meta property="og:image:alt" content="Console Palette — 39 Iconic Gaming Consoles · 78 OKLCH Themes for VS Code & Positron" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://idesofmerge.github.io/console-palette/og-preview.png" />
   <link rel="icon" type="image/png" href="icon.png" />`
@@ -1335,7 +1349,7 @@ function buildHtml({ dataset, target }) {
         </svg>
         <div>
           <h1>Console Palette</h1>
-          <p class="brand-sub">45 Years of Gaming Hardware (1977–2022) · 30 Iconic Consoles · 60 OKLCH-Calibrated Themes</p>
+          <p class="brand-sub">49 Years of Gaming Hardware (1977–2026) · 39 Iconic Consoles · 78 OKLCH-Calibrated Themes</p>
         </div>
       </div>
 
@@ -1371,14 +1385,15 @@ function buildHtml({ dataset, target }) {
         <input type="search" id="console-search" class="console-search" placeholder="Filter consoles by name, maker, year, or era… (/)" aria-label="Filter consoles by name, maker, year, or era" autocomplete="off" spellcheck="false" />
         <div class="maker-chips" id="maker-chips" role="group" aria-label="Filter by manufacturer">
           <button type="button" class="maker-chip" data-maker="All" aria-pressed="true">All</button>
+          <button type="button" class="maker-chip" data-maker="Atari" aria-pressed="false">Atari</button>
           <button type="button" class="maker-chip" data-maker="Nintendo" aria-pressed="false">Nintendo</button>
           <button type="button" class="maker-chip" data-maker="Sony" aria-pressed="false">Sony</button>
           <button type="button" class="maker-chip" data-maker="Sega" aria-pressed="false">Sega</button>
           <button type="button" class="maker-chip" data-maker="Microsoft" aria-pressed="false">Microsoft</button>
-          <button type="button" class="maker-chip" data-maker="Pioneers" aria-pressed="false">Pioneers</button>
           <button type="button" class="maker-chip" data-maker="Valve" aria-pressed="false">Valve</button>
+          <button type="button" class="maker-chip" data-maker="Arcade &amp; Indie" aria-pressed="false">Arcade &amp; Indie</button>
         </div>
-        <span class="filter-count" id="filter-count" aria-live="polite">Showing 30 / 30 consoles</span>
+        <span class="filter-count" id="filter-count" aria-live="polite">Showing ${totalConsoles} / ${totalConsoles} consoles</span>
       </div>
       <div class="era-groups" id="era-groups"></div>
       <div class="era-empty" id="era-empty" hidden>No matching consoles. <button type="button" id="btn-reset-filters" class="era-reset-btn">Reset filters</button></div>
@@ -1666,7 +1681,8 @@ function buildHtml({ dataset, target }) {
 
       function matchesMaker(th, maker) {
         if (!maker || maker === 'All') return true;
-        if (maker === 'Pioneers') return /atari|nec|hudson|snk/i.test(th.maker);
+        if (maker === 'Microsoft') return th.maker.includes('Microsoft');
+        if (maker === 'Arcade & Indie') return ['NEC / Hudson', 'SNK', 'Panic'].includes(th.maker);
         return th.maker === maker;
       }
 
@@ -1885,7 +1901,7 @@ function buildHtml({ dataset, target }) {
         };
       }
 
-      // Populate Compare target dropdown with all 60 themes
+      // Populate Compare target dropdown with all 78 themes
       const compareSelect = document.getElementById('compare-select');
       THEMES.forEach((t) => {
         const opt = document.createElement('option');
@@ -1963,7 +1979,7 @@ function buildHtml({ dataset, target }) {
         render();
       }
 
-      // Render 6-era chronological console selector strip with search & maker filtering
+      // Render 7-era chronological console selector strip with search & maker filtering
       function renderEraRail(cur) {
         document.querySelectorAll('.maker-chip').forEach((chip) => {
           chip.setAttribute('aria-pressed', String(chip.dataset.maker === activeMaker));
@@ -2066,7 +2082,7 @@ function buildHtml({ dataset, target }) {
             '',
             sp(c.dec, '@command', 'font-style:italic') + sp(c.fgPunct, '(') + sp(c.str, '"consolePalette.toggleTheme"') + sp(c.fgPunct, ')'),
             sp(c.kw, 'export async', 'font-weight:700') + ' ' + sp(c.stor, 'function', 'font-style:italic') + ' ' + sp(c.fn, 'activatePair') + sp(c.fgPunct, '(') + sp(c.fgParameter, 'entry', 'font-style:italic') + sp(c.fgPunct, ':') + ' ' + sp(c.iface, 'ConsoleThemeEntry', 'font-style:italic') + sp(c.fgPunct, ') {'),
-            '  ' + sp(c.stor, 'const', 'font-style:italic') + ' ' + sp(c.fgVariable, 'themesTotal') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, '60') + sp(c.fgPunct, ';'),
+            '  ' + sp(c.stor, 'const', 'font-style:italic') + ' ' + sp(c.fgVariable, 'themesTotal') + ' ' + sp(c.fgPunct, '=') + ' ' + sp(c.num, String(THEMES.length)) + sp(c.fgPunct, ';'),
             '  ' + sp(c.kw, 'await', 'font-weight:700') + ' ' + sp(c.ns, 'workbench') + sp(c.fgPunct, '.') + sp(c.fn, 'setColorTheme') + sp(c.fgPunct, '(') + sp(c.str, '"' + escHtml(th.label) + '"') + sp(c.fgPunct, ')') + cur,
             sp(c.fgPunct, '}'),
           ];

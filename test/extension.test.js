@@ -443,6 +443,23 @@ describe('extension: toggleTheme', () => {
     assert.equal(mock.settings.get('workbench.colorTheme'), 'PlayStation Dark');
   });
 
+  it('flips Nintendo Switch 2 Light <-> Nintendo Switch 2 Dark and Steam Machine Light <-> Steam Machine Dark', async () => {
+    const { mock, invokeCommand } = setupExtension({ 'workbench.colorTheme': 'Nintendo Switch 2 Light' });
+
+    await invokeCommand('consolePalette.toggleTheme');
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Nintendo Switch 2 Dark');
+
+    await invokeCommand('consolePalette.toggleTheme');
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Nintendo Switch 2 Light');
+
+    mock.setSetting('workbench.colorTheme', 'Steam Machine Light');
+    await invokeCommand('consolePalette.toggleTheme');
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Steam Machine Dark');
+
+    await invokeCommand('consolePalette.toggleTheme');
+    assert.equal(mock.settings.get('workbench.colorTheme'), 'Steam Machine Light');
+  });
+
   it('falls back to SNES Light when active theme is external', async () => {
     const { mock, invokeCommand } = setupExtension({ 'workbench.colorTheme': 'Default Dark+' });
 
@@ -502,7 +519,7 @@ describe('extension: showStatusBarItem setting', () => {
 });
 
 describe('extension: pickTheme', () => {
-  it('builds 30 chronological console separators + 60 theme items with year & maker in descriptions', async () => {
+  it('builds 39 chronological console separators + 78 theme items with year & maker in descriptions', async () => {
     const { mock, invokeCommand } = setupExtension({ 'workbench.colorTheme': 'SNES Light' });
 
     await invokeCommand('consolePalette.pickTheme');
@@ -510,15 +527,16 @@ describe('extension: pickTheme', () => {
 
     const qp = mock.quickPicks[0];
     assert.equal(qp.shown, true);
+    assert.equal(qp.title, 'Console Palette — 39 Iconic Consoles · 78 Themes');
     assert.equal(qp.matchOnDescription, true);
     assert.equal(qp.matchOnDetail, true);
 
     const separators = qp.items.filter((i) => i.kind === mock.vscode.QuickPickItemKind.Separator);
     const themeItems = qp.items.filter((i) => i.kind !== mock.vscode.QuickPickItemKind.Separator);
 
-    assert.equal(separators.length, 30);
-    assert.equal(themeItems.length, 60);
-    assert.equal(qp.items.length, 90);
+    assert.equal(separators.length, 39);
+    assert.equal(themeItems.length, 78);
+    assert.equal(qp.items.length, 117);
 
     // Verify chronological release-year order matching theme-metadata.json.
     const metaByLabel = new Map(themeMetadata.map((m) => [m.label, m]));
@@ -544,7 +562,7 @@ describe('extension: pickTheme', () => {
     }
 
     assert.equal(themeItems[0].themeLabel, 'Atari 2600 Light');
-    assert.equal(themeItems[themeItems.length - 1].themeLabel, 'Steam Deck Dark');
+    assert.equal(themeItems[themeItems.length - 1].themeLabel, 'Steam Frame Dark');
     assert.equal(qp.activeItems[0].themeLabel, 'SNES Light');
   });
 
@@ -654,7 +672,7 @@ describe('extension: syncOsThemePair', () => {
     await invokeCommand('consolePalette.syncOsThemePair');
 
     assert.equal(mock.showQuickPickCalls.length, 1);
-    assert.equal(mock.showQuickPickCalls[0].items.length, 30);
+    assert.equal(mock.showQuickPickCalls[0].items.length, 39);
     assert.equal(mock.settings.get('workbench.preferredLightColorTheme'), 'PlayStation Light');
     assert.equal(mock.settings.get('workbench.preferredDarkColorTheme'), 'PlayStation Dark');
     assert.equal(mock.settings.get('window.autoDetectColorScheme'), true);
