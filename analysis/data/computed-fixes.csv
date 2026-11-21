@@ -1,0 +1,2 @@
+theme_slug,role,status,note
+gameboy-dark,monochrome_dmg_ramp,exempt_by_design,1989 DMG-01 4-shade green LCD hardware ramp (#0F380F..#9BBC0F); all 59 polychromatic themes have 0 critical pairs < 10 dE76 under protan/deutan/tritan.

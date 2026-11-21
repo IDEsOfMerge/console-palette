@@ -1,0 +1,441 @@
+{
+  "name": "console-palette",
+  "displayName": "Console Palette — Iconic Gaming Consoles",
+  "description": "Scientifically tuned Light and Dark color themes for 30 iconic gaming consoles across 45 years of hardware (60 themes) for VS Code and Positron — crafted in OKLCH with 100% WCAG AA contrast, APCA hierarchy, and CVD resilience.",
+  "version": "1.0.0",
+  "publisher": "idesofmerge",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#121626",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idesofmerge/console-palette.git"
+  },
+  "bugs": {
+    "url": "https://github.com/idesofmerge/console-palette/issues"
+  },
+  "homepage": "https://idesofmerge.github.io/console-palette/",
+  "engines": {
+    "vscode": "^1.90.0",
+    "positron": ">=2025.1.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color theme",
+    "gaming",
+    "console",
+    "retro",
+    "atari",
+    "nes",
+    "snes",
+    "game boy",
+    "nintendo 64",
+    "gamecube",
+    "wii",
+    "nintendo switch",
+    "sega genesis",
+    "dreamcast",
+    "playstation",
+    "ps2",
+    "ps5",
+    "xbox",
+    "steam deck",
+    "oklch",
+    "accessible",
+    "colorblind",
+    "dark theme",
+    "light theme",
+    "positron"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Atari 2600 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/atari2600-dark-color-theme.json"
+      },
+      {
+        "label": "Atari 2600 Light",
+        "uiTheme": "vs",
+        "path": "./themes/atari2600-light-color-theme.json"
+      },
+      {
+        "label": "Game Boy Advance Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gba-dark-color-theme.json"
+      },
+      {
+        "label": "Game Boy Advance Light",
+        "uiTheme": "vs",
+        "path": "./themes/gba-light-color-theme.json"
+      },
+      {
+        "label": "Game Boy Color Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gbc-dark-color-theme.json"
+      },
+      {
+        "label": "Game Boy Color Light",
+        "uiTheme": "vs",
+        "path": "./themes/gbc-light-color-theme.json"
+      },
+      {
+        "label": "Game Boy Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gameboy-dark-color-theme.json"
+      },
+      {
+        "label": "Game Boy Light",
+        "uiTheme": "vs",
+        "path": "./themes/gameboy-light-color-theme.json"
+      },
+      {
+        "label": "Neo Geo AES Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neogeo-dark-color-theme.json"
+      },
+      {
+        "label": "Neo Geo AES Light",
+        "uiTheme": "vs",
+        "path": "./themes/neogeo-light-color-theme.json"
+      },
+      {
+        "label": "NES Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nes-dark-color-theme.json"
+      },
+      {
+        "label": "NES Light",
+        "uiTheme": "vs",
+        "path": "./themes/nes-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo 3DS Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/n3ds-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo 3DS Light",
+        "uiTheme": "vs",
+        "path": "./themes/n3ds-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo 64 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/n64-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo 64 Light",
+        "uiTheme": "vs",
+        "path": "./themes/n64-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo DS Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ds-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo DS Light",
+        "uiTheme": "vs",
+        "path": "./themes/ds-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo GameCube Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gamecube-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo GameCube Light",
+        "uiTheme": "vs",
+        "path": "./themes/gamecube-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo Switch Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/switch-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo Switch Light",
+        "uiTheme": "vs",
+        "path": "./themes/switch-light-color-theme.json"
+      },
+      {
+        "label": "Nintendo Wii Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wii-dark-color-theme.json"
+      },
+      {
+        "label": "Nintendo Wii Light",
+        "uiTheme": "vs",
+        "path": "./themes/wii-light-color-theme.json"
+      },
+      {
+        "label": "Original Xbox Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xbox-dark-color-theme.json"
+      },
+      {
+        "label": "Original Xbox Light",
+        "uiTheme": "vs",
+        "path": "./themes/xbox-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation 2 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ps2-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation 2 Light",
+        "uiTheme": "vs",
+        "path": "./themes/ps2-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation 3 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ps3-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation 3 Light",
+        "uiTheme": "vs",
+        "path": "./themes/ps3-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation 4 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ps4-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation 4 Light",
+        "uiTheme": "vs",
+        "path": "./themes/ps4-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation 5 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ps5-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation 5 Light",
+        "uiTheme": "vs",
+        "path": "./themes/ps5-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ps1-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation Light",
+        "uiTheme": "vs",
+        "path": "./themes/ps1-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation Portable Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/psp-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation Portable Light",
+        "uiTheme": "vs",
+        "path": "./themes/psp-light-color-theme.json"
+      },
+      {
+        "label": "PlayStation Vita Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/psvita-dark-color-theme.json"
+      },
+      {
+        "label": "PlayStation Vita Light",
+        "uiTheme": "vs",
+        "path": "./themes/psvita-light-color-theme.json"
+      },
+      {
+        "label": "Sega Dreamcast Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dreamcast-dark-color-theme.json"
+      },
+      {
+        "label": "Sega Dreamcast Light",
+        "uiTheme": "vs",
+        "path": "./themes/dreamcast-light-color-theme.json"
+      },
+      {
+        "label": "Sega Genesis Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/genesis-dark-color-theme.json"
+      },
+      {
+        "label": "Sega Genesis Light",
+        "uiTheme": "vs",
+        "path": "./themes/genesis-light-color-theme.json"
+      },
+      {
+        "label": "Sega Master System Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/mastersystem-dark-color-theme.json"
+      },
+      {
+        "label": "Sega Master System Light",
+        "uiTheme": "vs",
+        "path": "./themes/mastersystem-light-color-theme.json"
+      },
+      {
+        "label": "Sega Saturn Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/saturn-dark-color-theme.json"
+      },
+      {
+        "label": "Sega Saturn Light",
+        "uiTheme": "vs",
+        "path": "./themes/saturn-light-color-theme.json"
+      },
+      {
+        "label": "SNES Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/snes-dark-color-theme.json"
+      },
+      {
+        "label": "SNES Light",
+        "uiTheme": "vs",
+        "path": "./themes/snes-light-color-theme.json"
+      },
+      {
+        "label": "Steam Deck Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/steamdeck-dark-color-theme.json"
+      },
+      {
+        "label": "Steam Deck Light",
+        "uiTheme": "vs",
+        "path": "./themes/steamdeck-light-color-theme.json"
+      },
+      {
+        "label": "TurboGrafx-16 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/turbografx16-dark-color-theme.json"
+      },
+      {
+        "label": "TurboGrafx-16 Light",
+        "uiTheme": "vs",
+        "path": "./themes/turbografx16-light-color-theme.json"
+      },
+      {
+        "label": "Xbox 360 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xbox360-dark-color-theme.json"
+      },
+      {
+        "label": "Xbox 360 Light",
+        "uiTheme": "vs",
+        "path": "./themes/xbox360-light-color-theme.json"
+      },
+      {
+        "label": "Xbox One Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xboxone-dark-color-theme.json"
+      },
+      {
+        "label": "Xbox One Light",
+        "uiTheme": "vs",
+        "path": "./themes/xboxone-light-color-theme.json"
+      },
+      {
+        "label": "Xbox Series X|S Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xboxseries-dark-color-theme.json"
+      },
+      {
+        "label": "Xbox Series X|S Light",
+        "uiTheme": "vs",
+        "path": "./themes/xboxseries-light-color-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "consolePalette.toggleTheme",
+        "title": "Console Palette: Toggle Theme"
+      },
+      {
+        "command": "consolePalette.pickTheme",
+        "title": "Console Palette: Pick Console Theme"
+      },
+      {
+        "command": "consolePalette.randomTheme",
+        "title": "Console Palette: Random Theme"
+      },
+      {
+        "command": "consolePalette.openExplorer",
+        "title": "Console Palette: Open Palette & Colorimetry Explorer"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "consolePalette.toggleTheme",
+        "key": "ctrl+k ctrl+g",
+        "mac": "cmd+k cmd+g"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "consolePalette.gettingStarted",
+        "title": "Welcome to Console Palette",
+        "description": "30 iconic gaming consoles · 60 scientifically tuned themes — a quick tour.",
+        "steps": [
+          {
+            "id": "pickTheme",
+            "title": "Pick your first console theme (with live preview)",
+            "description": "Every iconic console from the 1977 Atari 2600 to the Steam Deck gets a Light and a Dark theme crafted in OKLCH from its authentic industrial design and display hardware. Arrow through the list to preview live before committing.\n[Pick a Console Theme](command:consolePalette.pickTheme)",
+            "media": {
+              "image": "icon.png",
+              "altText": "Console Palette emblem"
+            },
+            "completionEvents": [
+              "onCommand:consolePalette.pickTheme"
+            ]
+          },
+          {
+            "id": "toggle",
+            "title": "Toggle Light and Dark",
+            "description": "A smart, per-console toggle — flips between the Light and Dark variant of whichever console's theme is active. Bound to `ctrl+k ctrl+g` (`cmd+k cmd+g` on Mac), or run it from the Command Palette.\n[Toggle Theme](command:consolePalette.toggleTheme)",
+            "media": {
+              "markdown": "assets/walkthrough/toggle.md"
+            },
+            "completionEvents": [
+              "onCommand:consolePalette.toggleTheme"
+            ]
+          },
+          {
+            "id": "story",
+            "title": "Every pair tells a hardware story",
+            "description": "PlayStation maps syntax roles to Triangle Emerald, Circle Coral, Cross Cobalt, and Square Rose anchored by the amber BIOS boot diamond. SNES blends North American lavender-violet with Super Famicom 4-color ABXY. Game Boy Dark honors the authentic 1989 DMG-01 4-shade olive LCD ramp, while Nintendo Switch sparks Neon Blue against Neon Red Joy-Cons.",
+            "media": {
+              "image": "icon.png",
+              "altText": "Console Palette dual finish emblem"
+            }
+          },
+          {
+            "id": "colorScience",
+            "title": "Launch the Interactive Palette & Colorimetry Explorer",
+            "description": "Inspect OKLCH coordinates, WCAG 2.1 + APCA contrast, OKLab chromaticity polygons, and real-time protanopia/deuteranopia/tritanopia simulations across all 60 themes — and live-sync any theme straight into your editor.\n[Open Interactive Explorer](command:consolePalette.openExplorer)",
+            "media": {
+              "markdown": "assets/walkthrough/color-science.md"
+            },
+            "completionEvents": [
+              "onCommand:consolePalette.openExplorer"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

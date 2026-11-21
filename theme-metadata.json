@@ -1,0 +1,602 @@
+[
+  {
+    "label": "Atari 2600 Light",
+    "console": "Atari 2600",
+    "maker": "Atari",
+    "era": "8-bit Pioneers",
+    "year": 1977,
+    "mode": "light",
+    "slug": "atari2600-light",
+    "subtitle": "Warm birch-walnut woodgrain veneer, brushed steel switches & Atari rainbow cartridge bands"
+  },
+  {
+    "label": "Atari 2600 Dark",
+    "console": "Atari 2600",
+    "maker": "Atari",
+    "era": "8-bit Pioneers",
+    "year": 1977,
+    "mode": "dark",
+    "slug": "atari2600-dark",
+    "subtitle": "Ridged matte-black fascia, faux-walnut bezel & glowing CRT Atari rainbow phosphor"
+  },
+  {
+    "label": "NES Light",
+    "console": "NES",
+    "maker": "Nintendo",
+    "era": "8-bit Pioneers",
+    "year": 1985,
+    "mode": "light",
+    "slug": "nes-light",
+    "subtitle": "Two-tone warm grey shell, crimson A/B buttons, Famicom gold & 2C02 PPU hues"
+  },
+  {
+    "label": "NES Dark",
+    "console": "NES",
+    "maker": "Nintendo",
+    "era": "8-bit Pioneers",
+    "year": 1985,
+    "mode": "dark",
+    "slug": "nes-dark",
+    "subtitle": "Charcoal CRT bezel, matte black front stripe, crimson A/B & glowing 2C02 PPU"
+  },
+  {
+    "label": "Sega Master System Light",
+    "console": "Sega Master System",
+    "maker": "Sega",
+    "era": "8-bit Pioneers",
+    "year": 1985,
+    "mode": "light",
+    "slug": "mastersystem-light",
+    "subtitle": "Crisp white 8-bit grid box-art paper, Sega crimson-cobalt stripes & arcade slate"
+  },
+  {
+    "label": "Sega Master System Dark",
+    "console": "Sega Master System",
+    "maker": "Sega",
+    "era": "8-bit Pioneers",
+    "year": 1985,
+    "mode": "dark",
+    "slug": "mastersystem-dark",
+    "subtitle": "Angular matte-black deck, glossy red/white wedge stripes & luminous Sega blue"
+  },
+  {
+    "label": "TurboGrafx-16 Light",
+    "console": "TurboGrafx-16",
+    "maker": "NEC / Hudson",
+    "era": "16-bit Golden Age",
+    "year": 1987,
+    "mode": "light",
+    "slug": "turbografx16-light",
+    "subtitle": "Japanese PC Engine crisp ivory shell, vermilion HuCard accents & cerulean print"
+  },
+  {
+    "label": "TurboGrafx-16 Dark",
+    "console": "TurboGrafx-16",
+    "maker": "NEC / Hudson",
+    "era": "16-bit Golden Age",
+    "year": 1987,
+    "mode": "dark",
+    "slug": "turbografx16-dark",
+    "subtitle": "North American TurboGrafx-16 stealth charcoal-black & blazing tangerine logo"
+  },
+  {
+    "label": "Sega Genesis Light",
+    "console": "Sega Genesis",
+    "maker": "Sega",
+    "era": "16-bit Golden Age",
+    "year": 1988,
+    "mode": "light",
+    "slug": "genesis-light",
+    "subtitle": "Mega Drive silver-grid white, Sega cobalt blue, 16-BIT gold & crimson accent trim"
+  },
+  {
+    "label": "Sega Genesis Dark",
+    "console": "Sega Genesis",
+    "maker": "Sega",
+    "era": "16-bit Golden Age",
+    "year": 1988,
+    "mode": "dark",
+    "slug": "genesis-dark",
+    "subtitle": "Glossy black Model 1 deck, embossed 16-BIT gold, Sega cobalt & Blast crimson LED"
+  },
+  {
+    "label": "Game Boy Light",
+    "console": "Game Boy",
+    "maker": "Nintendo",
+    "era": "8-bit Pioneers",
+    "year": 1989,
+    "mode": "light",
+    "slug": "gameboy-light",
+    "subtitle": "DMG-01 warm putty shell, burgundy-magenta A/B buttons, navy bezel ink & LCD olive"
+  },
+  {
+    "label": "Game Boy Dark",
+    "console": "Game Boy",
+    "maker": "Nintendo",
+    "era": "8-bit Pioneers",
+    "year": 1989,
+    "mode": "dark",
+    "slug": "gameboy-dark",
+    "subtitle": "1989 DMG-01 4-shade reflective olive-green dot-matrix LCD phosphor ramp"
+  },
+  {
+    "label": "SNES Light",
+    "console": "SNES",
+    "maker": "Nintendo",
+    "era": "16-bit Golden Age",
+    "year": 1990,
+    "mode": "light",
+    "slug": "snes-light",
+    "subtitle": "Classic warm grey-lavender shell, NA violet switches & Super Famicom 4-color ABXY"
+  },
+  {
+    "label": "SNES Dark",
+    "console": "SNES",
+    "maker": "Nintendo",
+    "era": "16-bit Golden Age",
+    "year": 1990,
+    "mode": "dark",
+    "slug": "snes-dark",
+    "subtitle": "Mode-7 midnight indigo-slate, luminous Super Famicom ABXY & NA lavender focus"
+  },
+  {
+    "label": "Neo Geo AES Light",
+    "console": "Neo Geo AES",
+    "maker": "SNK",
+    "era": "16-bit Golden Age",
+    "year": 1990,
+    "mode": "light",
+    "slug": "neogeo-light",
+    "subtitle": "SNK arcade cabinet cream, Pro-Gear bronze-gold & 4-button Red/Yellow/Green/Blue"
+  },
+  {
+    "label": "Neo Geo AES Dark",
+    "console": "Neo Geo AES",
+    "maker": "SNK",
+    "era": "16-bit Golden Age",
+    "year": 1990,
+    "mode": "dark",
+    "slug": "neogeo-dark",
+    "subtitle": "Pro-Gear Spec obsidian slab, brushed Neo Geo gold, SNK turquoise & 4-button arcade row"
+  },
+  {
+    "label": "Sega Saturn Light",
+    "console": "Sega Saturn",
+    "maker": "Sega",
+    "era": "32/64-bit Polygon Era",
+    "year": 1994,
+    "mode": "light",
+    "slug": "saturn-light",
+    "subtitle": "Japanese Model 2 Mist White shell & candy turquoise, pink, blue, and yellow oval buttons"
+  },
+  {
+    "label": "Sega Saturn Dark",
+    "console": "Sega Saturn",
+    "maker": "Sega",
+    "era": "32/64-bit Polygon Era",
+    "year": 1994,
+    "mode": "dark",
+    "slug": "saturn-dark",
+    "subtitle": "Model 1 stealth charcoal-black deck, orbital cyan ring & Sega royal cobalt"
+  },
+  {
+    "label": "PlayStation Light",
+    "console": "PlayStation",
+    "maker": "Sony",
+    "era": "32/64-bit Polygon Era",
+    "year": 1994,
+    "mode": "light",
+    "slug": "ps1-light",
+    "subtitle": "Iconic PS1 grey shell, amber-orange boot diamond & Triangle/Circle/Cross/Square quartet"
+  },
+  {
+    "label": "PlayStation Dark",
+    "console": "PlayStation",
+    "maker": "Sony",
+    "era": "32/64-bit Polygon Era",
+    "year": 1994,
+    "mode": "dark",
+    "slug": "ps1-dark",
+    "subtitle": "Black-bottomed CD obsidian, midnight BIOS diamond & glowing Triangle/Circle/Cross/Square"
+  },
+  {
+    "label": "Nintendo 64 Light",
+    "console": "Nintendo 64",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1996,
+    "mode": "light",
+    "slug": "n64-light",
+    "subtitle": "Stone-grey controller canvas, 3D N-cube primary quartet & Funtastic violet"
+  },
+  {
+    "label": "Nintendo 64 Dark",
+    "console": "Nintendo 64",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1996,
+    "mode": "dark",
+    "slug": "n64-dark",
+    "subtitle": "Charcoal curved chassis, glowing A/B/C primary buttons & Funtastic Atomic Purple"
+  },
+  {
+    "label": "Game Boy Color Light",
+    "console": "Game Boy Color",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1998,
+    "mode": "light",
+    "slug": "gbc-light",
+    "subtitle": "Reflective TFT warm canvas & iconic Berry, Teal, Dandelion, Kiwi, and Grape shells"
+  },
+  {
+    "label": "Game Boy Color Dark",
+    "console": "Game Boy Color",
+    "maker": "Nintendo",
+    "era": "32/64-bit Polygon Era",
+    "year": 1998,
+    "mode": "dark",
+    "slug": "gbc-dark",
+    "subtitle": "Translucent Atomic Purple chassis lit by neon Teal, Kiwi lime, Berry pink & Dandelion"
+  },
+  {
+    "label": "Sega Dreamcast Light",
+    "console": "Sega Dreamcast",
+    "maker": "Sega",
+    "era": "128-bit & Millennial Classics",
+    "year": 1998,
+    "mode": "light",
+    "slug": "dreamcast-light",
+    "subtitle": "Frost-white shell, iconic Dreamcast orange swirl, VMU seafoam-teal & Sega cobalt"
+  },
+  {
+    "label": "Sega Dreamcast Dark",
+    "console": "Sega Dreamcast",
+    "maker": "Sega",
+    "era": "128-bit & Millennial Classics",
+    "year": 1998,
+    "mode": "dark",
+    "slug": "dreamcast-dark",
+    "subtitle": "Sega Sports Black chassis, glowing orange spiral swirl & backlit VMU seafoam-cyan"
+  },
+  {
+    "label": "PlayStation 2 Light",
+    "console": "PlayStation 2",
+    "maker": "Sony",
+    "era": "128-bit & Millennial Classics",
+    "year": 2000,
+    "mode": "light",
+    "slug": "ps2-light",
+    "subtitle": "Ceramic White PS2 shell, Ocean Blue gradient logo & DualShock 2 symbol accents"
+  },
+  {
+    "label": "PlayStation 2 Dark",
+    "console": "PlayStation 2",
+    "maker": "Sony",
+    "era": "128-bit & Millennial Classics",
+    "year": 2000,
+    "mode": "dark",
+    "slug": "ps2-dark",
+    "subtitle": "Ribbed obsidian monolith, seven-orb crystal sapphire BIOS void & gradient blue-cyan logo"
+  },
+  {
+    "label": "Game Boy Advance Light",
+    "console": "Game Boy Advance",
+    "maker": "Nintendo",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "light",
+    "slug": "gba-light",
+    "subtitle": "Glacier Ice translucent pale-azure shell, indigo trim & vivid 32-bit pixel palette"
+  },
+  {
+    "label": "Game Boy Advance Dark",
+    "console": "Game Boy Advance",
+    "maker": "Nintendo",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "dark",
+    "slug": "gba-dark",
+    "subtitle": "Indigo & Cobalt SP AGS-101 backlit midnight with crisp 32-bit pixel glow"
+  },
+  {
+    "label": "Nintendo GameCube Light",
+    "console": "Nintendo GameCube",
+    "maker": "Nintendo",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "light",
+    "slug": "gamecube-light",
+    "subtitle": "Platinum & Indigo cube heritage, A-button emerald, B-crimson, C-amber & Spice Orange"
+  },
+  {
+    "label": "Nintendo GameCube Dark",
+    "console": "Nintendo GameCube",
+    "maker": "Nintendo",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "dark",
+    "slug": "gamecube-dark",
+    "subtitle": "Deep Indigo GameCube BIOS cube void, A-emerald, B-ruby, C-gold & Spice Orange cursor"
+  },
+  {
+    "label": "Original Xbox Light",
+    "console": "Original Xbox",
+    "maker": "Microsoft",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "light",
+    "slug": "xbox-light",
+    "subtitle": "Crystal White frost edition, radioactive emerald X-jewel & translucent ABXY gems"
+  },
+  {
+    "label": "Original Xbox Dark",
+    "console": "Original Xbox",
+    "maker": "Microsoft",
+    "era": "128-bit & Millennial Classics",
+    "year": 2001,
+    "mode": "dark",
+    "slug": "xbox-dark",
+    "subtitle": "Translucent black-green Duke monolith, pulsing radioactive flubber BIOS & jewel ABXY"
+  },
+  {
+    "label": "Nintendo DS Light",
+    "console": "Nintendo DS",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2004,
+    "mode": "light",
+    "slug": "ds-light",
+    "subtitle": "DS Lite Polar White acrylic gloss, PictoChat sky blue & Wi-Fi Connection turquoise"
+  },
+  {
+    "label": "Nintendo DS Dark",
+    "console": "Nintendo DS",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2004,
+    "mode": "dark",
+    "slug": "ds-dark",
+    "subtitle": "DS Lite Jet Black dual-screen midnight, glowing PictoChat cyan & emerald power LED"
+  },
+  {
+    "label": "PlayStation Portable Light",
+    "console": "PlayStation Portable",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2004,
+    "mode": "light",
+    "slug": "psp-light",
+    "subtitle": "Ceramic White PSP pearlescent finish, silver UMD ring & pastel XMB wave ribbons"
+  },
+  {
+    "label": "PlayStation Portable Dark",
+    "console": "PlayStation Portable",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2004,
+    "mode": "dark",
+    "slug": "psp-dark",
+    "subtitle": "Piano Black glossy bezel, flowing cobalt XMB silk wave & amber Memory Stick LED"
+  },
+  {
+    "label": "Xbox 360 Light",
+    "console": "Xbox 360",
+    "maker": "Microsoft",
+    "era": "HD, Motion & Portable Era",
+    "year": 2005,
+    "mode": "light",
+    "slug": "xbox360-light",
+    "subtitle": "Matte white concave shell, Ring of Light emerald & original 2005 Blades Dashboard"
+  },
+  {
+    "label": "Xbox 360 Dark",
+    "console": "Xbox 360",
+    "maker": "Microsoft",
+    "era": "HD, Motion & Portable Era",
+    "year": 2005,
+    "mode": "dark",
+    "slug": "xbox360-dark",
+    "subtitle": "Xbox 360 Elite matte black, glowing Ring of Light lime & Blades orange/violet/blue"
+  },
+  {
+    "label": "Nintendo Wii Light",
+    "console": "Nintendo Wii",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2006,
+    "mode": "light",
+    "slug": "wii-light",
+    "subtitle": "Glossy pure Wii Menu white, channel-tile silver & glowing disc-slot aqua-cyan"
+  },
+  {
+    "label": "Nintendo Wii Dark",
+    "console": "Nintendo Wii",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2006,
+    "mode": "dark",
+    "slug": "wii-dark",
+    "subtitle": "Wii Black Edition midnight lacquer & hypnotic pulsing cyan disc-slot LED"
+  },
+  {
+    "label": "PlayStation 3 Light",
+    "console": "PlayStation 3",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2006,
+    "mode": "light",
+    "slug": "ps3-light",
+    "subtitle": "Classic White PS3, brushed chrome trim & luminous daylight XMB silk wave"
+  },
+  {
+    "label": "PlayStation 3 Dark",
+    "console": "PlayStation 3",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2006,
+    "mode": "dark",
+    "slug": "ps3-dark",
+    "subtitle": "Piano Black curved monolith, shimmering XMB particle-wave & Platinum Trophy silver-gold"
+  },
+  {
+    "label": "Nintendo 3DS Light",
+    "console": "Nintendo 3DS",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2011,
+    "mode": "light",
+    "slug": "n3ds-light",
+    "subtitle": "Pearl White & Aqua Blue launch gloss, StreetPass emerald LED & eShop tangerine"
+  },
+  {
+    "label": "Nintendo 3DS Dark",
+    "console": "Nintendo 3DS",
+    "maker": "Nintendo",
+    "era": "HD, Motion & Portable Era",
+    "year": 2011,
+    "mode": "dark",
+    "slug": "n3ds-dark",
+    "subtitle": "Cosmo Black / New 3DS dark theme, glowing StreetPass emerald & Super Famicom ABXY"
+  },
+  {
+    "label": "PlayStation Vita Light",
+    "console": "PlayStation Vita",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2011,
+    "mode": "light",
+    "slug": "psvita-light",
+    "subtitle": "Glacier White Vita, glossy LiveArea bubbles & crisp OLED sapphire-emerald palette"
+  },
+  {
+    "label": "PlayStation Vita Dark",
+    "console": "PlayStation Vita",
+    "maker": "Sony",
+    "era": "HD, Motion & Portable Era",
+    "year": 2011,
+    "mode": "dark",
+    "slug": "psvita-dark",
+    "subtitle": "PCH-1000 OLED Piano Black, electric cyan PS-button glow & vibrant LiveArea bubbles"
+  },
+  {
+    "label": "PlayStation 4 Light",
+    "console": "PlayStation 4",
+    "maker": "Sony",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2013,
+    "mode": "light",
+    "slug": "ps4-light",
+    "subtitle": "Glacier White angled shell, DualShock 4 Light Bar sapphire & Share-button cyan"
+  },
+  {
+    "label": "PlayStation 4 Dark",
+    "console": "PlayStation 4",
+    "maker": "Sony",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2013,
+    "mode": "dark",
+    "slug": "ps4-dark",
+    "subtitle": "Jet Black slanted PS4, royal cobalt Flow Home Screen wave & glowing Light Bar blue"
+  },
+  {
+    "label": "Xbox One Light",
+    "console": "Xbox One",
+    "maker": "Microsoft",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2013,
+    "mode": "light",
+    "slug": "xboxone-light",
+    "subtitle": "Xbox One S Robot White architectural grille & Metro Live-Tile emerald, cyan & magenta"
+  },
+  {
+    "label": "Xbox One Dark",
+    "console": "Xbox One",
+    "maker": "Microsoft",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2013,
+    "mode": "dark",
+    "slug": "xboxone-dark",
+    "subtitle": "Xbox One X Project Scorpio carbon obsidian, Xbox Guide emerald & Metro Live-Tile cyan"
+  },
+  {
+    "label": "Nintendo Switch Light",
+    "console": "Nintendo Switch",
+    "maker": "Nintendo",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2017,
+    "mode": "light",
+    "slug": "switch-light",
+    "subtitle": "Switch OLED White / Basic White UI electrified by Neon Blue & Neon Red Joy-Cons"
+  },
+  {
+    "label": "Nintendo Switch Dark",
+    "console": "Nintendo Switch",
+    "maker": "Nintendo",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2017,
+    "mode": "dark",
+    "slug": "switch-dark",
+    "subtitle": "Switch Basic Black Home UI lit by luminous Neon Cyan-Blue & Neon Coral-Red Joy-Cons"
+  },
+  {
+    "label": "PlayStation 5 Light",
+    "console": "PlayStation 5",
+    "maker": "Sony",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2020,
+    "mode": "light",
+    "slug": "ps5-light",
+    "subtitle": "Sculpted matte-white PS5 faceplates, DualSense slate & glowing cobalt LED light strip"
+  },
+  {
+    "label": "PlayStation 5 Dark",
+    "console": "PlayStation 5",
+    "maker": "Sony",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2020,
+    "mode": "dark",
+    "slug": "ps5-dark",
+    "subtitle": "Midnight Black DualSense, golden PS5 boot starburst & luminous sapphire LED strip"
+  },
+  {
+    "label": "Xbox Series X|S Light",
+    "console": "Xbox Series X|S",
+    "maker": "Microsoft",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2020,
+    "mode": "light",
+    "slug": "xboxseries-light",
+    "subtitle": "Series S Robot White minimalist slab, circular vent charcoal & Fluent UI emerald"
+  },
+  {
+    "label": "Xbox Series X|S Dark",
+    "console": "Xbox Series X|S",
+    "maker": "Microsoft",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2020,
+    "mode": "dark",
+    "slug": "xboxseries-dark",
+    "subtitle": "Series X obsidian monolith crowned by the iconic concave top-vent emerald glow"
+  },
+  {
+    "label": "Steam Deck Light",
+    "console": "Steam Deck",
+    "maker": "Valve",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2022,
+    "mode": "light",
+    "slug": "steamdeck-light",
+    "subtitle": "Steam Deck White Limited Edition shell, Steam steel-blue & OLED flame-orange accent"
+  },
+  {
+    "label": "Steam Deck Dark",
+    "console": "Steam Deck",
+    "maker": "Valve",
+    "era": "Modern, Hybrid & Portable PC",
+    "year": 2022,
+    "mode": "dark",
+    "slug": "steamdeck-dark",
+    "subtitle": "Steam Deck OLED stealth charcoal, true-OLED contrast, Steam blue & flame-orange power button"
+  }
+]

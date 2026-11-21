@@ -1,0 +1,4 @@
+theme_slug,role1,role2,d_normal,d00_normal,d_protan,d_deutan,d_tritan,min_cvd,worst_type,flagged
+gameboy-dark,accentStorage,colorError,72.708,46.292,26.448,2.46,76.009,2.46,deutan,TRUE
+gameboy-dark,accentKeyword,accentType,15.728,6.648,12.284,14.413,7.625,7.625,tritan,TRUE
+gameboy-dark,accentKeyword,accentStorage,15.853,6.872,9.67,14.609,9.911,9.67,protan,TRUE
