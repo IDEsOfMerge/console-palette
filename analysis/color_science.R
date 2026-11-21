@@ -21,7 +21,7 @@ ERA_ORDER <- c(
   "Atari 2600", "NES", "Sega Master System", "Game Boy",
   "TurboGrafx-16", "Sega Genesis", "SNES", "Neo Geo AES",
   "Sega Saturn", "PlayStation", "Nintendo 64", "Game Boy Color",
-  "Sega Dreamcast", "PlayStation 2", "Game Boy Advance", "Nintendo GameCube", "Original Xbox",
+  "Sega Dreamcast", "PlayStation 2", "Game Boy Advance", "Nintendo GameCube", "Xbox",
   "Nintendo DS", "PlayStation Portable", "Xbox 360", "Nintendo Wii", "PlayStation 3", "Nintendo 3DS", "PlayStation Vita",
   "PlayStation 4", "Xbox One", "Nintendo Switch", "PlayStation 5", "Xbox Series X|S", "Steam Deck"
 )

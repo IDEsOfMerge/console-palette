@@ -630,7 +630,7 @@ const CONSOLE_CHRONO_ORDER = [
   'PlayStation 2',
   'Game Boy Advance',
   'Nintendo GameCube',
-  'Original Xbox',
+  'Xbox',
   'Nintendo DS',
   'PlayStation Portable',
   'Xbox 360',

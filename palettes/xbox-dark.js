@@ -1,6 +1,6 @@
 'use strict';
 
-// Original Xbox (2001) -- Dark
+// Xbox (2001) -- Dark
 //
 // Booting the massive 2001 black-and-emerald X monolith: deep translucent obsidian-forest
 // (`bg`) lit from within by the pulsing radioactive green BIOS orb (`accentKeyword`,
@@ -9,8 +9,8 @@
 
 module.exports = {
   slug: 'xbox-dark',
-  label: 'Original Xbox Dark',
-  console: 'Original Xbox',
+  label: 'Xbox Dark',
+  console: 'Xbox',
   maker: 'Microsoft',
   era: '128-bit & Millennial Classics',
   year: 2001,

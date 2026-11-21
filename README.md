@@ -29,7 +29,7 @@
 
 <br>
 
-<img src="assets/showcase/console-palette-demo.gif" alt="Animated preview of Console Palette themes running in a VS Code and Positron IDE workbench — cycling across SNES, PlayStation, Game Boy, Sega Dreamcast, Original Xbox, and Nintendo Switch in Light and Dark modes with live WCAG contrast readouts and the Ctrl+K Ctrl+G per-console toggle" width="900">
+<img src="assets/showcase/console-palette-demo.gif" alt="Animated preview of Console Palette themes running in a VS Code and Positron IDE workbench — cycling across SNES, PlayStation, Game Boy, Sega Dreamcast, Xbox, and Nintendo Switch in Light and Dark modes with live WCAG contrast readouts and the Ctrl+K Ctrl+G per-console toggle" width="900">
 
 </div>
 
@@ -41,7 +41,7 @@ Every pair in **Console Palette** is individually authored from its machine's au
 - **SNES** unites both regional legends in one pair: North American warm grey-lavender shell & violet switches alongside the Japanese/PAL Super Famicom four-color ABXY palette.
 - **TurboGrafx-16** flips across the Pacific on Light ↔ Dark toggle: crisp ivory Japanese **PC Engine** with vermilion HuCard accents in Light mode, and stealth charcoal-black North American **TurboGrafx-16** with blazing tangerine lettering in Dark mode.
 - **Game Boy Dark** honors the 1989 DMG-01's iconic 4-shade reflective olive-green STN LCD (`#0F380F`–`#9BBC0F`) with a perceptually monotonic OKLCH lightness ramp that still clears WCAG AA across every role, keeping only the glowing left-bezel battery LED for errors.
-- **Sega Dreamcast**, **Original Xbox**, **Nintendo Switch**, and **Steam Deck** anchor their entire syntax envelopes to each console's unmistakable hardware signature — orange swirl & VMU seafoam, radioactive flubber emerald, Neon Blue & Neon Red Joy-Cons, and OLED flame-orange & Steam steel-blue.
+- **Sega Dreamcast**, **Xbox**, **Nintendo Switch**, and **Steam Deck** anchor their entire syntax envelopes to each console's unmistakable hardware signature — orange swirl & VMU seafoam, radioactive flubber emerald, Neon Blue & Neon Red Joy-Cons, and OLED flame-orange & Steam steel-blue.
 
 Every palette is synthesized and verified in **OKLCH** perceptual color space against **WCAG 2.1**, **APCA-W3**, **CIEDE2000** (ΔE₀₀), and **Machado et al. (2009)** dichromacy simulation. Design inspiration comes strictly from **industrial color language and hardware atmosphere** — no console logos, trademarks, sprites, or copyrighted assets are included or referenced anywhere in this repository.
 
@@ -50,7 +50,7 @@ Every palette is synthesized and verified in **OKLCH** perceptual color space ag
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/release-timeline-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/diagrams/release-timeline-light.png">
-  <img alt="Console Palette — 30 Iconic Gaming Consoles by Launch Year (1977–2022) across 6 hardware eras: 8-bit Pioneers (Atari 2600, NES, Master System, Game Boy), 16-bit Golden Age (TurboGrafx-16, Sega Genesis, SNES, Neo Geo AES), 32/64-bit Polygon (Sega Saturn, PlayStation, Nintendo 64, Game Boy Color), 128-bit &amp; Millennial (Sega Dreamcast, PlayStation 2, Game Boy Advance, GameCube, Original Xbox), HD, Motion &amp; Portable (Nintendo DS, PSP, Xbox 360, Nintendo Wii, PlayStation 3, Nintendo 3DS, PS Vita), and Modern &amp; Hybrid (PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X|S, Steam Deck)" src="assets/diagrams/release-timeline-dark.png" width="900">
+  <img alt="Console Palette — 30 Iconic Gaming Consoles by Launch Year (1977–2022) across 6 hardware eras: 8-bit Pioneers (Atari 2600, NES, Master System, Game Boy), 16-bit Golden Age (TurboGrafx-16, Sega Genesis, SNES, Neo Geo AES), 32/64-bit Polygon (Sega Saturn, PlayStation, Nintendo 64, Game Boy Color), 128-bit &amp; Millennial (Sega Dreamcast, PlayStation 2, Game Boy Advance, GameCube, Xbox), HD, Motion &amp; Portable (Nintendo DS, PSP, Xbox 360, Nintendo Wii, PlayStation 3, Nintendo 3DS, PS Vita), and Modern &amp; Hybrid (PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X|S, Steam Deck)" src="assets/diagrams/release-timeline-dark.png" width="900">
 </picture>
 
 ## ...and by hardware lineage
@@ -154,7 +154,7 @@ Each swatch strip reads left to right: **background · keywords · strings · fu
 | **PlayStation 2** (2000 · Sony) | ![](assets/swatches/EAF0F9.png) ![](assets/swatches/004EAC.png) ![](assets/swatches/AF1C33.png) ![](assets/swatches/003D48.png) ![](assets/swatches/006641.png) | ![](assets/swatches/050A19.png) ![](assets/swatches/90CBFF.png) ![](assets/swatches/FF817D.png) ![](assets/swatches/009BAB.png) ![](assets/swatches/43D58F.png) |
 | **Game Boy Advance** (2001 · Nintendo) | ![](assets/swatches/DFEEF9.png) ![](assets/swatches/373DAD.png) ![](assets/swatches/B01C2E.png) ![](assets/swatches/00464D.png) ![](assets/swatches/006C34.png) | ![](assets/swatches/090C1D.png) ![](assets/swatches/A8B2FF.png) ![](assets/swatches/FE6749.png) ![](assets/swatches/00A6B2.png) ![](assets/swatches/48CB78.png) |
 | **Nintendo GameCube** (2001 · Nintendo) | ![](assets/swatches/EAEBF5.png) ![](assets/swatches/4735B0.png) ![](assets/swatches/B11631.png) ![](assets/swatches/003763.png) ![](assets/swatches/006539.png) | ![](assets/swatches/0D0B1D.png) ![](assets/swatches/B5B5FF.png) ![](assets/swatches/FF8B7B.png) ![](assets/swatches/0090DF.png) ![](assets/swatches/5EEB9E.png) |
-| **Original Xbox** (2001 · Microsoft) | ![](assets/swatches/E8F0E8.png) ![](assets/swatches/2F4700.png) ![](assets/swatches/A00021.png) ![](assets/swatches/003C77.png) ![](assets/swatches/00595A.png) | ![](assets/swatches/081008.png) ![](assets/swatches/6DD043.png) ![](assets/swatches/FF856F.png) ![](assets/swatches/008EE7.png) ![](assets/swatches/00D8DA.png) |
+| **Xbox** (2001 · Microsoft) | ![](assets/swatches/E8F0E8.png) ![](assets/swatches/2F4700.png) ![](assets/swatches/A00021.png) ![](assets/swatches/003C77.png) ![](assets/swatches/00595A.png) | ![](assets/swatches/081008.png) ![](assets/swatches/6DD043.png) ![](assets/swatches/FF856F.png) ![](assets/swatches/008EE7.png) ![](assets/swatches/00D8DA.png) |
 
 **HD, Motion & Portable Era (2004–2011)**
 
@@ -259,7 +259,7 @@ Every single theme must clear strict automated perceptual gates before `generate
 | **Nintendo Switch Light** | `15.55:1` | `96.8` | `6.38:1` | `5.04:1` |
 | **Sega Dreamcast Light** | `15.40:1` | `96.2` | `6.34:1` | `5.76:1` |
 | **SNES Light** | `14.34:1` | `91.6` | `5.91:1` | `5.25:1` |
-| **Original Xbox Dark** | `13.68:1` | `83.2` | `6.11:1` | `4.87:1` |
+| **Xbox Dark** | `13.68:1` | `83.2` | `6.11:1` | `4.87:1` |
 | **PlayStation Dark** | `13.66:1` | `83.2` | `6.06:1` | `4.86:1` |
 | **Steam Deck Dark** | `13.66:1` | `83.2` | `6.10:1` | `4.86:1` |
 | **Game Boy Dark** *(1989 DMG-01 LCD ramp)* | `8.83:1` | `74.8` | `4.77:1` | `4.61:1` |
@@ -289,7 +289,7 @@ Converting each theme's 13 syntax roles into a **39-dimensional CIE `L*a*b*` fea
 Three empirical patterns emerge directly from the geometry without any manual grouping:
 
 1. **Clean polarity separation + 1989 DMG-01 hardware isolation**: All 30 Light themes and 30 Dark themes split cleanly along `PC1`, while **Game Boy Dark** branches off completely alone at the top of the Dark supercluster (and sits isolated in the upper-right of `PC1`–`PC2`), quantitatively confirming its unique 1989 DMG-01 olive LCD ramp.
-2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, 3, 4, and 5** form a consecutive four-generation PlayStation block in *both* Light and Dark modes; **Original Xbox, Xbox One, and Xbox Series X\|S** cluster directly together in Dark mode; and **Sega Master System + Sega Genesis** pair up cleanly in both modes from their shared Sega cobalt-and-crimson DNA.
+2. **Manufacturer color DNA clusters automatically**: **PlayStation 2, 3, 4, and 5** form a consecutive four-generation PlayStation block in *both* Light and Dark modes; **Xbox, Xbox One, and Xbox Series X\|S** cluster directly together in Dark mode; and **Sega Master System + Sega Genesis** pair up cleanly in both modes from their shared Sega cobalt-and-crimson DNA.
 3. **Cross-generation industrial kin pair as nearest neighbors**: **SNES** and **Nintendo GameCube** pair directly together in *both* Light and Dark modes (Nintendo's signature lavender-indigo heritage), while warm amber/tangerine hardware icons (**Atari 2600**, **TurboGrafx-16**, and **Sega Dreamcast**) group naturally from color coordinates alone.
 
 ### Color-vision-deficiency (CVD) resilience via OKLCH lightness staggering

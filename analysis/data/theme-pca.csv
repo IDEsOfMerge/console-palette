@@ -31,8 +31,8 @@ gba-light,Game Boy Advance,Nintendo,light,128-bit & Millennial Classics,-3.9432,
 gba-dark,Game Boy Advance,Nintendo,dark,128-bit & Millennial Classics,4.0157,-2.6690,-0.5961,-0.5991
 gamecube-light,Nintendo GameCube,Nintendo,light,128-bit & Millennial Classics,-4.0546,-2.2897,0.0153,0.9397
 gamecube-dark,Nintendo GameCube,Nintendo,dark,128-bit & Millennial Classics,3.9962,-2.5161,1.0534,1.4470
-xbox-light,Original Xbox,Microsoft,light,128-bit & Millennial Classics,-4.0599,1.9661,0.0205,1.2174
-xbox-dark,Original Xbox,Microsoft,dark,128-bit & Millennial Classics,4.5998,2.7560,1.1785,1.1692
+xbox-light,Xbox,Microsoft,light,128-bit & Millennial Classics,-4.0599,1.9661,0.0205,1.2174
+xbox-dark,Xbox,Microsoft,dark,128-bit & Millennial Classics,4.5998,2.7560,1.1785,1.1692
 ds-light,Nintendo DS,Nintendo,light,"HD, Motion & Portable Era",-3.7941,-1.3689,-1.7712,-0.7303
 ds-dark,Nintendo DS,Nintendo,dark,"HD, Motion & Portable Era",4.3939,-2.0881,-0.7961,-0.9829
 psp-light,PlayStation Portable,Sony,light,"HD, Motion & Portable Era",-4.2150,-2.1027,-0.5374,-0.9993

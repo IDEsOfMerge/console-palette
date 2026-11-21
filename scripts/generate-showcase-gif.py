@@ -10,7 +10,7 @@ Showcases 12 themes (6 iconic Light <-> Dark pairs across all 6 hardware eras):
   2. PlayStation (Light -> Dark)         [1994 · 32-bit]
   3. Game Boy (Dark -> Light)            [1989 · 8-bit DMG-01 LCD]
   4. Sega Dreamcast (Light -> Dark)      [1998 · 128-bit]
-  5. Original Xbox (Dark -> Light)       [2001 · 128-bit]
+  5. Xbox (Dark -> Light)       [2001 · 128-bit]
   6. Nintendo Switch (Light -> Dark)     [2017 · Modern Hybrid]
 
 Run with: python3 scripts/generate-showcase-gif.py
@@ -55,7 +55,7 @@ TITLE_WIDTHS = {
     "PlayStation": 92.0,
     "Game Boy": 84.0,
     "Sega Dreamcast": 128.0,
-    "Original Xbox": 112.0,
+    "Xbox": 46.0,
     "Nintendo Switch": 130.0,
 }
 

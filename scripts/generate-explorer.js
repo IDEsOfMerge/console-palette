@@ -34,7 +34,7 @@ const ERA_GROUPS = [
   },
   {
     era: '128-bit & Millennial Classics',
-    consoles: ['Sega Dreamcast', 'PlayStation 2', 'Game Boy Advance', 'Nintendo GameCube', 'Original Xbox'],
+    consoles: ['Sega Dreamcast', 'PlayStation 2', 'Game Boy Advance', 'Nintendo GameCube', 'Xbox'],
   },
   {
     era: 'HD, Motion & Portable Era',
@@ -63,7 +63,7 @@ const SHORT_CONSOLE_NAMES = {
   'PlayStation 2': 'PS2',
   'Game Boy Advance': 'GBA',
   'Nintendo GameCube': 'GameCube',
-  'Original Xbox': 'Xbox',
+  'Xbox': 'Xbox',
   'Nintendo DS': 'DS',
   'PlayStation Portable': 'PSP',
   'Xbox 360': 'Xbox 360',

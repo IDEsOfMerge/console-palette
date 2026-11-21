@@ -180,16 +180,6 @@
         "path": "./themes/wii-light-color-theme.json"
       },
       {
-        "label": "Original Xbox Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/xbox-dark-color-theme.json"
-      },
-      {
-        "label": "Original Xbox Light",
-        "uiTheme": "vs",
-        "path": "./themes/xbox-light-color-theme.json"
-      },
-      {
         "label": "PlayStation 2 Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/ps2-dark-color-theme.json"
@@ -338,6 +328,16 @@
         "label": "Xbox 360 Light",
         "uiTheme": "vs",
         "path": "./themes/xbox360-light-color-theme.json"
+      },
+      {
+        "label": "Xbox Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/xbox-dark-color-theme.json"
+      },
+      {
+        "label": "Xbox Light",
+        "uiTheme": "vs",
+        "path": "./themes/xbox-light-color-theme.json"
       },
       {
         "label": "Xbox One Dark",

@@ -69,7 +69,7 @@ ERAS = [
             ("PlayStation 2", "PlayStation 2", 2000, "Sony"),
             ("Game Boy Advance", "Game Boy Advance", 2001, "Nintendo"),
             ("Nintendo GameCube", "GameCube", 2001, "Nintendo"),
-            ("Original Xbox", "Original Xbox", 2001, "Microsoft"),
+            ("Xbox", "Xbox", 2001, "Microsoft"),
         ],
     },
     {

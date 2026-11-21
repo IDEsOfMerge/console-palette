@@ -195,7 +195,7 @@ CONSOLE_ORDER = [
     "PlayStation 2",
     "Game Boy Advance",
     "Nintendo GameCube",
-    "Original Xbox",
+    "Xbox",
     "Nintendo DS",
     "PlayStation Portable",
     "Xbox 360",
@@ -228,7 +228,7 @@ SHORT_CONSOLE = {
     "PlayStation 2": "PS2",
     "Game Boy Advance": "GBA",
     "Nintendo GameCube": "GameCube",
-    "Original Xbox": "Orig. Xbox",
+    "Xbox": "Xbox",
     "Nintendo DS": "DS",
     "PlayStation Portable": "PSP",
     "Xbox 360": "Xbox 360",
@@ -572,7 +572,7 @@ def render_timeline_metro():
         ("PS Vita",          19.6, -0.58, "2011", "#0D78E6", -0.34),
 
         # Xbox Line (y = -2.24)
-        ("Original Xbox",    14.8, -2.24, "2001", "#108910", -0.34),
+        ("Xbox",    14.8, -2.24, "2001", "#108910", -0.34),
         ("Xbox 360",         17.3, -2.24, "2005", "#DE6214", -0.34),
         ("Xbox One",         20.6, -2.24, "2013", "#107C10", -0.34),
         ("Xbox Series X|S",  23.4, -2.24, "2020", "#189E32", -0.34),
@@ -608,7 +608,7 @@ def render_timeline_metro():
         ("PlayStation 2", "PSP", "#4B7CF0", True),
         ("PSP", "PS Vita", "#4B7CF0", False),
 
-        ("Original Xbox", "Xbox 360", "#148824", False),
+        ("Xbox", "Xbox 360", "#148824", False),
         ("Xbox 360", "Xbox One", "#148824", False),
         ("Xbox One", "Xbox Series X|S", "#148824", False),
 
@@ -635,7 +635,7 @@ def render_timeline_metro():
         ("NINTENDO HANDHELD", "Game Boy",   "#149658"),
         ("SEGA",              "Master System", "#1458C4"),
         ("PLAYSTATION",       "PlayStation", "#264CC4"),
-        ("XBOX",              "Original Xbox", "#148824"),
+        ("XBOX",              "Xbox", "#148824"),
     ]:
         sx, sy = pos[start_station]
         bbox = draw.textbbox((0, 0), txt, font=f_tag)

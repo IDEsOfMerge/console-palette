@@ -1,6 +1,6 @@
 'use strict';
 
-// Original Xbox (2001) -- Light
+// Xbox (2001) -- Light
 //
 // Inspired by the rare Crystal / Kasumi White translucent Xbox editions: frost-mint white
 // casing (`bg`) charged with the unmistakable radioactive Xbox emerald jewel (`accentKeyword`,
@@ -9,8 +9,8 @@
 
 module.exports = {
   slug: 'xbox-light',
-  label: 'Original Xbox Light',
-  console: 'Original Xbox',
+  label: 'Xbox Light',
+  console: 'Xbox',
   maker: 'Microsoft',
   era: '128-bit & Millennial Classics',
   year: 2001,

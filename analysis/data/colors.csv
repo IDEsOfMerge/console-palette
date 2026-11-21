@@ -779,36 +779,36 @@ wii-light,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",2006,light,accentDec
 wii-light,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",2006,light,accentNamespace,syntax,#1D5D76,0.4500,0.0749,228.25,6.69,79.1
 wii-light,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",2006,light,colorError,syntax,#530012,0.2802,0.1123,18.21,13.99,94.7
 wii-light,Nintendo Wii,Nintendo,"HD, Motion & Portable Era",2006,light,colorWarning,syntax,#895100,0.4888,0.1091,65.68,5.94,75.8
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,bg,context,#081008,0.1616,0.0210,144.53,1.00,0.0
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,fg,context,#D4DBD4,0.8841,0.0121,145.47,13.68,-83.2
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentKeyword,syntax,#6DD043,0.7692,0.1996,137.89,9.88,-64.9
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentStorage,syntax,#13BC98,0.7098,0.1347,172.17,7.97,-54.6
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentString,syntax,#FF856F,0.7486,0.1527,31.56,8.12,-55.3
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentRegex,syntax,#FF9E74,0.7894,0.1291,43.90,9.55,-63.1
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentFunction,syntax,#008EE7,0.6297,0.1665,247.25,5.54,-39.7
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentFunctionDim,syntax,#37BFFA,0.7588,0.1401,232.23,9.19,-61.3
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentType,syntax,#00D8DA,0.7995,0.1362,195.96,10.88,-70.4
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentInterface,syntax,#07D4F4,0.8000,0.1398,213.78,10.78,-69.9
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentNumber,syntax,#F8CA00,0.8543,0.1748,92.12,12.35,-77.3
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentDecorator,syntax,#C7A8FF,0.7907,0.1247,299.95,9.63,-63.2
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentNamespace,syntax,#73B999,0.7302,0.0854,163.62,8.39,-56.5
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,colorError,syntax,#E93F51,0.6242,0.2053,19.95,4.87,-35.7
-xbox-dark,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,colorWarning,syntax,#FEA91E,0.7993,0.1652,71.75,10.03,-65.6
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,bg,context,#E8F0E8,0.9469,0.0136,145.47,1.00,0.0
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,fg,context,#171C17,0.2193,0.0122,145.15,14.87,93.9
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentKeyword,syntax,#2F4700,0.3643,0.0956,128.23,8.93,83.7
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentStorage,syntax,#003429,0.2899,0.0553,173.72,11.86,89.8
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentString,syntax,#A00021,0.4457,0.1796,22.04,7.18,76.0
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentRegex,syntax,#9F3E00,0.4908,0.1423,44.18,5.71,71.7
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentFunction,syntax,#003C77,0.3594,0.1151,254.17,9.44,84.5
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentFunctionDim,syntax,#00628E,0.4708,0.1040,237.78,5.76,72.2
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentType,syntax,#00595A,0.4205,0.0716,196.10,7.01,77.5
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentInterface,syntax,#005D6C,0.4397,0.0771,213.53,6.49,75.5
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentNumber,syntax,#856000,0.5139,0.1058,82.21,4.92,68.1
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentDecorator,syntax,#61419E,0.4595,0.1451,296.06,6.55,75.9
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentNamespace,syntax,#286248,0.4496,0.0749,161.71,6.16,74.4
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,colorError,syntax,#52001B,0.2801,0.1120,10.84,13.14,90.5
-xbox-light,Original Xbox,Microsoft,128-bit & Millennial Classics,2001,light,colorWarning,syntax,#895100,0.4888,0.1091,65.68,5.57,71.5
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,bg,context,#081008,0.1616,0.0210,144.53,1.00,0.0
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,fg,context,#D4DBD4,0.8841,0.0121,145.47,13.68,-83.2
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentKeyword,syntax,#6DD043,0.7692,0.1996,137.89,9.88,-64.9
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentStorage,syntax,#13BC98,0.7098,0.1347,172.17,7.97,-54.6
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentString,syntax,#FF856F,0.7486,0.1527,31.56,8.12,-55.3
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentRegex,syntax,#FF9E74,0.7894,0.1291,43.90,9.55,-63.1
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentFunction,syntax,#008EE7,0.6297,0.1665,247.25,5.54,-39.7
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentFunctionDim,syntax,#37BFFA,0.7588,0.1401,232.23,9.19,-61.3
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentType,syntax,#00D8DA,0.7995,0.1362,195.96,10.88,-70.4
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentInterface,syntax,#07D4F4,0.8000,0.1398,213.78,10.78,-69.9
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentNumber,syntax,#F8CA00,0.8543,0.1748,92.12,12.35,-77.3
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentDecorator,syntax,#C7A8FF,0.7907,0.1247,299.95,9.63,-63.2
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,accentNamespace,syntax,#73B999,0.7302,0.0854,163.62,8.39,-56.5
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,colorError,syntax,#E93F51,0.6242,0.2053,19.95,4.87,-35.7
+xbox-dark,Xbox,Microsoft,128-bit & Millennial Classics,2001,dark,colorWarning,syntax,#FEA91E,0.7993,0.1652,71.75,10.03,-65.6
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,bg,context,#E8F0E8,0.9469,0.0136,145.47,1.00,0.0
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,fg,context,#171C17,0.2193,0.0122,145.15,14.87,93.9
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentKeyword,syntax,#2F4700,0.3643,0.0956,128.23,8.93,83.7
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentStorage,syntax,#003429,0.2899,0.0553,173.72,11.86,89.8
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentString,syntax,#A00021,0.4457,0.1796,22.04,7.18,76.0
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentRegex,syntax,#9F3E00,0.4908,0.1423,44.18,5.71,71.7
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentFunction,syntax,#003C77,0.3594,0.1151,254.17,9.44,84.5
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentFunctionDim,syntax,#00628E,0.4708,0.1040,237.78,5.76,72.2
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentType,syntax,#00595A,0.4205,0.0716,196.10,7.01,77.5
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentInterface,syntax,#005D6C,0.4397,0.0771,213.53,6.49,75.5
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentNumber,syntax,#856000,0.5139,0.1058,82.21,4.92,68.1
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentDecorator,syntax,#61419E,0.4595,0.1451,296.06,6.55,75.9
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,accentNamespace,syntax,#286248,0.4496,0.0749,161.71,6.16,74.4
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,colorError,syntax,#52001B,0.2801,0.1120,10.84,13.14,90.5
+xbox-light,Xbox,Microsoft,128-bit & Millennial Classics,2001,light,colorWarning,syntax,#895100,0.4888,0.1091,65.68,5.57,71.5
 xbox360-dark,Xbox 360,Microsoft,"HD, Motion & Portable Era",2005,dark,bg,context,#0C110D,0.1706,0.0114,150.96,1.00,0.0
 xbox360-dark,Xbox 360,Microsoft,"HD, Motion & Portable Era",2005,dark,fg,context,#D4DBD5,0.8843,0.0111,149.84,13.52,-83.2
 xbox360-dark,Xbox 360,Microsoft,"HD, Motion & Portable Era",2005,dark,accentKeyword,syntax,#6DD056,0.7711,0.1854,139.98,9.81,-65.0

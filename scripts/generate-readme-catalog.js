@@ -25,7 +25,7 @@ const ERAS = [
   },
   {
     title: '128-bit & Millennial Classics (1998–2001)',
-    consoles: ['Sega Dreamcast', 'PlayStation 2', 'Game Boy Advance', 'Nintendo GameCube', 'Original Xbox'],
+    consoles: ['Sega Dreamcast', 'PlayStation 2', 'Game Boy Advance', 'Nintendo GameCube', 'Xbox'],
   },
   {
     title: 'HD, Motion & Portable Era (2004–2011)',

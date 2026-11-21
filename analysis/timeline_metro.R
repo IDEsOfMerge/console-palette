@@ -40,7 +40,7 @@ nodes <- tribble(
   "PSP", 16.9, -0.58, "PlayStation Portable", "#D47B0A", -0.32,
   "PS Vita", 19.6, -0.58, "PlayStation Portable", "#0D78E6", -0.32,
 
-  "Original Xbox", 14.8, -2.24, "Xbox", "#108910", -0.32,
+  "Xbox", 14.8, -2.24, "Xbox", "#108910", -0.32,
   "Xbox 360", 17.3, -2.24, "Xbox", "#DE6214", -0.32,
   "Xbox One", 20.6, -2.24, "Xbox", "#107C10", -0.32,
   "Xbox Series X|S", 23.4, -2.24, "Xbox", "#189E32", -0.32,
@@ -71,7 +71,7 @@ edges <- tribble(
   "PlayStation 4", "PlayStation 5", "#264CC4",
   "PlayStation 2", "PSP", "#4B7CF0",
   "PSP", "PS Vita", "#4B7CF0",
-  "Original Xbox", "Xbox 360", "#148824",
+  "Xbox", "Xbox 360", "#148824",
   "Xbox 360", "Xbox One", "#148824",
   "Xbox One", "Xbox Series X|S", "#148824",
   "Nintendo Switch", "Steam Deck", "#D9531E"

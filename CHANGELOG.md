@@ -9,7 +9,7 @@ All notable changes to **Console Palette** will be documented in this file.
   - **8-bit Pioneers (1977–1989)**: Atari 2600, NES, Sega Master System, Game Boy (with an authentic 1989 DMG-01 4-shade olive LCD monochrome hardware tribute in *Game Boy Dark*).
   - **16-bit Golden Age (1987–1990)**: TurboGrafx-16 (PC Engine Light ↔ TurboGrafx-16 Dark), Sega Genesis, SNES (NA lavender-violet + Super Famicom 4-color ABXY), Neo Geo AES.
   - **32/64-bit Polygon Era (1994–1998)**: Sega Saturn, PlayStation, Nintendo 64, Game Boy Color.
-  - **128-bit & Millennial Classics (1998–2001)**: Sega Dreamcast, PlayStation 2, Game Boy Advance, Nintendo GameCube, Original Xbox.
+  - **128-bit & Millennial Classics (1998–2001)**: Sega Dreamcast, PlayStation 2, Game Boy Advance, Nintendo GameCube, Xbox.
   - **HD, Motion & Portable Era (2004–2011)**: Nintendo DS, PlayStation Portable, Xbox 360, Nintendo Wii, PlayStation 3, Nintendo 3DS, PlayStation Vita.
   - **Modern, Hybrid & Portable PC (2013–2022)**: PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X|S, Steam Deck.
 - **Perceptual OKLCH colorimetry & automated validation pipeline**:
